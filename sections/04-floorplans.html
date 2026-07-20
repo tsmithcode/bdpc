@@ -1,47 +1,52 @@
-<section id="floorplans">
+<section id="standards">
 <div class="section-head">
 <div>
-<div class="kicker">04 · Floor-plan readiness</div>
-<h2>What makes floor-plan work responsible</h2>
+<div class="kicker">04 · Brian’s drafting preferences</div>
+<h2>Residential CAD rules for this pilot</h2>
 </div>
-<p class="section-intro">I can produce floor plans. I should not pretend every source condition is equivalent. Schedule and confidence depend primarily on the quality of the source, required accuracy, and the amount of architectural interpretation expected.</p>
+<p class="section-intro">The goal is not merely to trace geometry. The work should inherit the drafting logic Brian trusts: clean, rational, self-checking, and easy for BDPC to continue.</p>
 </div>
-<table class="scope-table">
-<thead>
-<tr><th>Starting condition</th><th>Typical use</th><th>Effort / risk</th><th>Responsible position</th></tr>
-</thead>
-<tbody>
-<tr><td>Clean DWG/RVT + redlines</td><td>Revisions, permit comments, sheet updates, plan cleanup</td><td class="risk-low">Lowest</td><td>Best immediate paid test. Scope one sheet or one bounded revision package.</td></tr>
-<tr><td>Scaled survey/PDF + dimensions + photos</td><td>2D existing-condition plan or leasing/investor background</td><td class="risk-mid">Moderate</td><td>Define wall convention, required tags, accuracy tolerance, and unresolved conditions.</td></tr>
-<tr><td>Registered point cloud / ReCap project</td><td>Trace visible geometry into 2D plans/elevations or limited BIM context</td><td class="risk-mid">Moderate–high</td><td>Test one representative area first; confirm coverage, coordinates, accuracy, and output standard.</td></tr>
-<tr><td>Raw scans / unregistered files</td><td>Point-cloud processing before drafting can begin</td><td class="risk-high">High</td><td>Separate registration/cleanup from drafting. Do not promise a rapid plan until the cloud is usable.</td></tr>
-<tr><td>Photos only / unknown scale</td><td>Concept reference</td><td class="risk-high">Not reliable for verified plans</td><td>Request dimensions, survey, scan, or field verification. Do not invent geometry.</td></tr>
-<tr><td>Full permit set from incomplete inputs</td><td>Architectural production plus unresolved design decisions</td><td class="risk-high">Not responsibly estimable</td><td>Break into a diagnostic or sample sheet before committing to the full package.</td></tr>
-</tbody>
-</table>
-<div class="grid grid-2" style="margin-top:16px">
-<article class="card">
-<h3>Minimum source package I should request</h3>
+<div class="grid grid-2">
+<article class="card ready">
+<div class="status">Dimensional discipline</div>
+<h3>Work to one-half-inch precision</h3>
 <ul>
-<li>Native files or the best available controlled background.</li>
-<li>Survey, registered scan, or dimensioned markup establishing scale.</li>
-<li>BDPC title block, template, layers/worksets, plot style, fonts, and example set.</li>
-<li>Required plan content: rooms, doors, windows, dimensions, walls, fixtures, notes, schedules.</li>
-<li>Accuracy tolerance and convention: face of finish, face of stud, centerline, or another standard.</li>
-<li>Explicit exclusions, reviewer, review cycle, and issue format.</li>
+<li>Do not dimension residential geometry finer than 1/2 inch unless Brian explicitly directs otherwise.</li>
+<li>Model accurately enough that displayed dimensions do not conceal avoidable geometric errors.</li>
+<li>Use chained and overall dimensions that reconcile and permit quick self-checking.</li>
+<li>Resolve discrepancies between arithmetic, measured geometry, PDF dimensions, and scan data before issue.</li>
 </ul>
 </article>
-<article class="card">
-<h3>Output I can return for a bounded test</h3>
+<article class="card ready">
+<div class="status">Wall convention</div>
+<h3>Start with the framed-wall logic</h3>
 <ul>
-<li>Native DWG or other agreed authoring file.</li>
-<li>Review PDF using BDPC sheet and plotting standards.</li>
-<li>Assumption, missing-information, and coordination issue log.</li>
-<li>Tracked redline incorporation or revision summary.</li>
-<li>One defined review cycle and corrected issue package.</li>
-<li>Source/dependency inventory so the file can be opened and continued by BDPC.</li>
+<li>Use 3.5 inches as the base convention for typical 2×4 framed walls.</li>
+<li>Increase wall thickness only when the source, assembly, or Brian’s direction supports it.</li>
+<li>Do not automatically add finish build-up that changes the preferred drafting baseline.</li>
+<li>Foundation, masonry, and other wall types must follow source evidence; do not infer concealed assemblies.</li>
+</ul>
+</article>
+<article class="card ready">
+<div class="status">Openings and blocks</div>
+<h3>Reuse the established vocabulary</h3>
+<ul>
+<li>Pull door, window, fixture, appliance, and related symbols from the preferred source drawings where practical.</li>
+<li>Do not invent new opening sizes when an established BDPC or source block already covers the condition.</li>
+<li>Verify block scale, insertion behavior, layers, attributes, and whether source geometry has been exploded.</li>
+<li>Maintain a simple approved / reject / needs-review inventory for reusable blocks.</li>
+</ul>
+</article>
+<article class="card ready">
+<div class="status">Sheet and graphic standard</div>
+<h3>Legacy drafting logic + current BDPC presentation</h3>
+<ul>
+<li>Use the current BDPC title block and paper-space organization.</li>
+<li>Use the preferred legacy dimensioning approach as the primary drafting reference.</li>
+<li>Match current BDPC fonts, dimension styles, lineweights, plotting, notes, and sheet flow where supplied.</li>
+<li>Show existing-to-remain, demolition, and new construction using the project’s approved graphic conventions.</li>
 </ul>
 </article>
 </div>
-<div class="alert"><strong>Honest positioning:</strong> I am experienced in CAD production, manufacturing drawings, Autodesk automation, file governance, and technical delivery. I will not present myself as a licensed architect or as an architectural designer who should make independent project decisions. A bounded sample lets BDPC judge the actual production fit without either side overcommitting.</div>
+<div class="alert"><strong>LiDAR rule:</strong> Treat the scan as measured evidence, not automatic truth. Anchor scale and orientation to reliable dimensions or the City floor plate, compare independent sources, and flag disagreement before drafting over it.</div>
 </section>
