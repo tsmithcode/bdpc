@@ -1,35 +1,18 @@
-<section id="capture">
+<section id="acceptance">
 <div class="section-head">
 <div>
-<div class="kicker">06 · Live meeting capture</div>
-<h2>Fill this in while Brian drives</h2>
+<div class="kicker">06 · Draft acceptance criteria</div>
+<h2>What a successful pilot should prove</h2>
 </div>
-<p class="section-intro">Entries autosave locally in this browser. At the end, copy a concise recap instead of reconstructing the conversation from memory.</p>
+<p class="section-intro">These criteria convert the call into a reviewable production standard. Brian can confirm or revise them after the source audit and before written authorization.</p>
 </div>
-<div class="capture">
-<h3>Project and authorization record</h3>
-<div class="sub">The meeting is complete when these fields are concrete enough to start responsibly.</div>
-<div class="form-grid">
-<div class="field"><label>Project / address</label><input data-save="project" placeholder="Project name and address"></div>
-<div class="field"><label>Current phase</label><input data-save="phase" placeholder="Existing conditions, SD, DD, CDs, permit response"></div>
-<div class="field"><label>AHJ / client deadline</label><input data-save="deadline" placeholder="Date, time, and consequence"></div>
-<div class="field wide"><label>Exact deliverable</label><input data-save="deliverable" placeholder="Example: update A1.01 and A1.02 from redlines; issue review PDF + DWGs"></div>
-<div class="field"><label>Reviewer</label><input data-save="reviewer" placeholder="Brian / project architect / other"></div>
-<div class="field wide"><label>Source package</label><input data-save="source" placeholder="DWG/RVT, survey, point cloud, PDFs, title block, CTB, fonts, xrefs"></div>
-<div class="field"><label>Software / version</label><input data-save="software" placeholder="AutoCAD, Revit, ReCap, Bluebeam"></div>
-<div class="field"><label>Included area / sheets</label><input data-save="included" placeholder="Exact rooms, floors, sheets, details"></div>
-<div class="field"><label>Explicit exclusions</label><input data-save="excluded" placeholder="Design decisions, code analysis, field verification, etc."></div>
-<div class="field"><label>Acceptance standard</label><input data-save="acceptance" placeholder="Approved example, checklist, tolerance"></div>
-<div class="field"><label>Review cycles</label><input data-save="cycles" placeholder="One included review cycle"></div>
-<div class="field"><label>Paid block / terms</label><input data-save="commercial" placeholder="Hours, rate, invoice/payment terms"></div>
-<div class="field"><label>Access transfer</label><input data-save="access" placeholder="Who sends what, and by when"></div>
-<div class="field full"><label>Open questions / blockers</label><textarea data-save="blockers" placeholder="Missing dimensions, unregistered scan, design decisions, xrefs, consultant backgrounds, unavailable license, unclear priority..."></textarea></div>
-<div class="field full"><label>Agreed next action</label><textarea data-save="next" placeholder="Written authorization, source transfer, start time, first review, delivery time"></textarea></div>
+<div class="grid grid-3">
+<article class="card ready"><div class="status">Scope</div><h3>Three defined sheets</h3><p>The returned package covers only the three sheets Brian identified, with exact numbers, titles, and included content confirmed from the uploaded set.</p></article>
+<article class="card ready"><div class="status">File continuity</div><h3>BDPC can open and continue the work</h3><p>Native DWGs, referenced files, fonts, plot styles, title-block assets, and a dependency manifest are organized so BDPC is not locked into CAD Guardian.</p></article>
+<article class="card ready"><div class="status">Graphic standard</div><h3>Current BDPC paper-space presentation</h3><p>Sheets use the approved BDPC title block, paper-space organization, plotting behavior, annotation, and current graphic conventions.</p></article>
+<article class="card ready"><div class="status">Dimensional standard</div><h3>Rational, self-checking geometry</h3><p>Dimensions display to 1/2-inch precision, overall and chained dimensions reconcile, and the 3.5-inch framed-wall base convention is used unless verified conditions require otherwise.</p></article>
+<article class="card ready"><div class="status">Source fidelity</div><h3>No invented conditions</h3><p>Doors, windows, walls, deck/addition geometry, and site relationships derive from the approved files, LiDAR, floor plate, or explicit BDPC direction; unresolved conditions are flagged.</p></article>
+<article class="card ready"><div class="status">Review package</div><h3>Clear first review</h3><p>BDPC receives a review PDF, agreed native files, an assumption/issue log, and a concise list of items requiring Brian’s decision.</p></article>
 </div>
-<div class="capture-actions">
-<button class="primary" onclick="copySummary()">Copy concise meeting recap</button>
-<button onclick="window.print()">Print / Save PDF</button>
-<button onclick="clearCapture()">Clear local entries</button>
-</div>
-</div>
+<div class="alert"><strong>Commercial and schedule criteria remain open:</strong> turnaround, included review cycles, rate/fee, payment terms, and final issue date will be established only after the complete source package is audited.</div>
 </section>
