@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "revision": "2026.07.21.1",
+  "updated_date": "2026-07-21",
+  "database": "bdpc_client_os.sqlite",
+  "database_sha256": "e9a651522b4655f9df1bd673e9b0bb2453c52175bdc3beb588657819fc344bd0",
+  "project_json_sha256": "e2fe3d6ce20ece0b6542eb097a4e78a4d311b21dfa1e74593ba6de13456421ed",
+  "table_counts": {"project":1,"metrics":11,"milestones":20,"file_groups":6,"standards":11,"automation":12,"deliverables":3,"qa_checks":14,"commercial":8,"updates":8,"runtime_requirements":10,"reports":5,"scan_sessions":5},
+  "privacy": "Client-safe derived project controls only. No raw drawings, point clouds, exact residential address, credentials, private links, local paths, or private manifest.",
+  "database_transport": ["data/sqlite/part-01.b64","data/sqlite/part-02.b64","data/sqlite/part-03.b64","data/sqlite/part-04.b64","data/sqlite/part-05.b64","data/sqlite/part-06.b64"],
+  "database_download_name": "bdpc_client_os.sqlite",
+  "database_transport_sha256": "6512eca1824fa35b716f72d2089a4bafd05c35602e229432568e2faeea375fb6"
+}
