@@ -1,0 +1,8 @@
+{
+  "generated_utc": "2026-07-20T21:45:23.554338+00:00",
+  "command": "prepare_project.py --source /Users/Thomas/Desktop/BDPC/Thomas CAD --out /Users/Thomas/Desktop/BDPC/Dunn_Preflight --project Dunn Residence --config project_config.json --hash-mode smart",
+  "source": "/Users/Thomas/Desktop/BDPC/Thomas CAD",
+  "output": "/Users/Thomas/Desktop/BDPC/Dunn_Preflight",
+  "project": "Dunn Residence",
+  "hash_mode": "smart"
+}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dunn Residence — Registration Overlay Audit</title>
+<style>
+:root{--ink:#0b1220;--muted:#667085;--line:#d8e0ea;--canvas:#eef2f6;--cyan:#00a8d6}
+*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif}
+main{width:min(1240px,calc(100% - 24px));margin:24px auto}.hero,.card,.table-wrap{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 16px 44px rgba(11,18,32,.09)}
+.hero{padding:34px;background:linear-gradient(135deg,#0b1220,#17243e);color:#fff}.hero p{max-width:900px;color:#d7e0ec;line-height:1.55}
+.kicker{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#6edff3;font-weight:900}h1{font-size:42px;margin:8px 0}h2{margin:6px 0}
+.notice{margin:16px 0;padding:14px 16px;background:#f1fbfd;border-left:3px solid var(--cyan);font-size:12px;line-height:1.55}
+.table-wrap{overflow:auto;margin:16px 0}table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:11px;border-bottom:1px solid #e8edf3;text-align:left;white-space:nowrap}th{background:#f7f9fc;text-transform:uppercase;font-size:9px;letter-spacing:.1em}
+.card{padding:22px;margin:16px 0}img{width:100%;border:1px solid var(--line);border-radius:12px}.metric{font-size:34px;font-weight:900}.muted{color:var(--muted);font-size:12px}
+@media(max-width:820px){h1{font-size:34px}}
+</style></head>
+<body><main>
+<section class="hero"><div class="kicker">BDPC × CAD Guardian · shared-coordinate audit</div>
+<h1>Dunn Residence registration overlay audit</h1>
+<p>Compares robust scan bounds and centers, measures pairwise XY overlap, and generates a combined occupancy image without registering, transforming, or modifying any source scan.</p></section>
+<div class="notice"><strong>Unit inference:</strong> likely meters — 90% heuristic confidence. Compact scan height median is 2.719; this is architecturally plausible in meters and implausibly small in feet.</div>
+<section class="card"><h2>Combined occupancy</h2><img src="combined_xy_occupancy.png"><p class="muted">Darker regions indicate that more scan sessions occupy the same XY cells. This is evidence of common-coordinate overlap, not a registration certification.</p></section>
+<div class="table-wrap"><table><thead><tr><th>Session</th><th>Core XYZ native</th><th>XYZ converted to feet</th><th>Median center XYZ</th></tr></thead><tbody><tr><td>20260710222125</td><td>20.217 × 9.805 × 5.986</td><td>66.329 × 32.168 × 19.638</td><td>-0.498, 0.615, 0.681</td></tr><tr><td>20260710222318</td><td>9.408 × 8.184 × 2.570</td><td>30.866 × 26.850 × 8.432</td><td>-0.327, -0.015, 0.945</td></tr><tr><td>20260710222414</td><td>10.938 × 10.258 × 2.719</td><td>35.886 × 33.655 × 8.921</td><td>-0.058, -0.427, 0.498</td></tr><tr><td>20260710222718</td><td>53.607 × 48.550 × 10.483</td><td>175.875 × 159.284 × 34.393</td><td>3.444, -0.927, -0.751</td></tr><tr><td>20260710223037</td><td>112.582 × 38.679 × 14.055</td><td>369.363 × 126.899 × 46.112</td><td>39.276, 8.708, 2.948</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Session A</th><th>Session B</th><th>Overlap of smaller</th><th>IoU</th><th>Center distance</th><th>Z-center delta</th></tr></thead><tbody><tr><td>20260710222318</td><td>20260710222414</td><td>100.0%</td><td>68.6%</td><td>0.492</td><td>0.447</td></tr><tr><td>20260710222414</td><td>20260710222718</td><td>100.0%</td><td>4.3%</td><td>3.538</td><td>1.249</td></tr><tr><td>20260710222318</td><td>20260710222718</td><td>100.0%</td><td>3.0%</td><td>3.880</td><td>1.696</td></tr><tr><td>20260710222125</td><td>20260710222718</td><td>100.0%</td><td>7.6%</td><td>4.233</td><td>1.432</td></tr><tr><td>20260710222414</td><td>20260710223037</td><td>100.0%</td><td>2.6%</td><td>40.381</td><td>2.450</td></tr><tr><td>20260710222318</td><td>20260710223037</td><td>100.0%</td><td>1.8%</td><td>40.552</td><td>2.003</td></tr><tr><td>20260710222125</td><td>20260710223037</td><td>100.0%</td><td>4.6%</td><td>40.589</td><td>2.267</td></tr><tr><td>20260710222125</td><td>20260710222318</td><td>95.8%</td><td>36.6%</td><td>0.653</td><td>0.264</td></tr><tr><td>20260710222125</td><td>20260710222414</td><td>91.1%</td><td>49.1%</td><td>1.131</td><td>0.183</td></tr><tr><td>20260710222718</td><td>20260710223037</td><td>55.9%</td><td>26.4%</td><td>37.105</td><td>3.699</td></tr></tbody></table></div>
+<div class="notice"><strong>Decision boundary:</strong> bounding-box overlap is necessary but not sufficient for registration. Final confirmation requires common features to coincide in a compatible point-cloud viewer.</div>
+</main></body></html>

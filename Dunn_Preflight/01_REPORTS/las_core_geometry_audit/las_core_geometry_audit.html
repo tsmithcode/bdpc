@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dunn Residence — LAS Core Geometry Audit</title>
+<style>
+:root{--ink:#0b1220;--muted:#667085;--line:#d8e0ea;--canvas:#eef2f6;--cyan:#00a8d6}
+*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif}
+main{width:min(1240px,calc(100% - 24px));margin:24px auto}.hero,.card,.table-wrap,.errors{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 16px 44px rgba(11,18,32,.09)}
+.hero{padding:34px;background:linear-gradient(135deg,#0b1220,#17243e);color:#fff}.hero p{max-width:900px;color:#d7e0ec;line-height:1.55}
+.kicker{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#6edff3;font-weight:900}h1{font-size:42px;margin:8px 0}h2{margin:6px 0}
+.notice{margin:16px 0;padding:14px 16px;background:#f1fbfd;border-left:3px solid var(--cyan);font-size:12px;line-height:1.55}
+.table-wrap{overflow:auto;margin:16px 0}table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:11px;border-bottom:1px solid #e8edf3;text-align:left;white-space:nowrap}th{background:#f7f9fc;text-transform:uppercase;font-size:9px;letter-spacing:.1em}
+.card{padding:22px;margin:16px 0}.head{display:flex;justify-content:space-between;gap:18px}.flag{padding:7px 10px;border-radius:999px;font-size:10px;font-weight:900;text-transform:uppercase;height:max-content}.flag.low{background:#edf9f3;color:#16794b}.flag.moderate{background:#fff8e5;color:#9a6700}.flag.high{background:#fff0f0;color:#b42318}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}.metrics div{border:1px solid var(--line);border-radius:12px;padding:12px}.metrics span{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:800}.metrics b{display:block;margin-top:5px}
+.views{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}figure{margin:0}img{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff}figcaption{font-size:10px;color:var(--muted);margin-top:5px}
+dl{display:grid;grid-template-columns:170px 1fr;gap:7px 14px;font-size:12px}dt{color:var(--muted)}dd{margin:0;overflow-wrap:anywhere}.errors{padding:20px;font-size:12px}
+@media(max-width:820px){h1{font-size:34px}.metrics{grid-template-columns:1fr 1fr}.views{grid-template-columns:1fr}dl{grid-template-columns:1fr}}
+</style></head>
+<body><main>
+<section class="hero"><div class="kicker">BDPC × CAD Guardian · robust pre-license point-cloud audit</div>
+<h1>Dunn Residence LAS core geometry audit</h1>
+<p>Samples LAS points read-only, suppresses extreme coordinate outliers with percentile bounds, and generates plan and elevation density views. No Autodesk runtime, source modification, registration, or coordinate transformation is used.</p></section>
+<div class="notice"><strong>Decision boundary:</strong> percentile geometry is a triage aid—not a survey, registration, or dimensional certification. Final floor-plan work still requires compatible point-cloud/CAD review and human validation.</div>
+<div class="table-wrap"><table><thead><tr><th>Session</th><th>Points</th><th>Core extent X × Y × Z</th><th>XY inflation</th><th>Z inflation</th><th>Outside core</th><th>Flag</th></tr></thead><tbody><tr><td>20260710222318</td><td>3,772,526</td><td>8.615 × 7.559 × 2.570</td><td>1.50</td><td>1.43</td><td>5.70%</td><td><strong>low</strong></td></tr><tr><td>20260710222414</td><td>5,164,456</td><td>9.801 × 9.271 × 2.718</td><td>4.31</td><td>1.56</td><td>5.82%</td><td><strong>moderate</strong></td></tr><tr><td>20260710223037</td><td>42,131,618</td><td>106.490 × 34.119 × 14.067</td><td>7.73</td><td>4.04</td><td>5.27%</td><td><strong>moderate</strong></td></tr><tr><td>20260710222125</td><td>12,940,403</td><td>18.816 × 9.118 × 6.013</td><td>43.09</td><td>10.13</td><td>5.52%</td><td><strong>high</strong></td></tr><tr><td>20260710222718</td><td>27,679,943</td><td>45.667 × 41.165 × 10.477</td><td>12.84</td><td>5.87</td><td>4.85%</td><td><strong>high</strong></td></tr></tbody></table></div>
+
+        <article class="card">
+          <div class="head">
+            <div><div class="kicker">Scan session</div><h2>20260710222318</h2></div>
+            <div class="flag low">low outlier inflation</div>
+          </div>
+          <div class="metrics">
+            <div><span>Points</span><b>3,772,526</b></div>
+            <div><span>Sample</span><b>1,886,263</b></div>
+            <div><span>Core XYZ</span><b>8.615 × 7.559 × 2.570</b></div>
+            <div><span>Robust density</span><b>57,931.212</b></div>
+          </div>
+          <div class="views">
+            <figure><img src="images/20260710222318_plan_density.png"><figcaption>Plan-density view — P0.5 to P99.5</figcaption></figure>
+            <figure><img src="images/20260710222318_xz_density.png"><figcaption>X/Z density view</figcaption></figure>
+            <figure><img src="images/20260710222318_yz_density.png"><figcaption>Y/Z density view</figcaption></figure>
+          </div>
+          <dl>
+            <dt>Raw XYZ extent</dt><dd>10.682 × 9.150 × 3.684</dd>
+            <dt>Core XYZ extent</dt><dd>8.615 × 7.559 × 2.570</dd>
+            <dt>XY inflation ratio</dt><dd>1.50×</dd>
+            <dt>Z inflation ratio</dt><dd>1.43×</dd>
+            <dt>Median XYZ</dt><dd>-0.278, -0.046, 0.924</dd>
+            <dt>Interpretation</dt><dd>Use the density views to identify likely building coverage. Do not infer dimensions or registration from this report alone.</dd>
+          </dl>
+        </article>
+        
+        <article class="card">
+          <div class="head">
+            <div><div class="kicker">Scan session</div><h2>20260710222414</h2></div>
+            <div class="flag moderate">moderate outlier inflation</div>
+          </div>
+          <div class="metrics">
+            <div><span>Points</span><b>5,164,456</b></div>
+            <div><span>Sample</span><b>1,721,489</b></div>
+            <div><span>Core XYZ</span><b>9.801 × 9.271 × 2.718</b></div>
+            <div><span>Robust density</span><b>56,836.537</b></div>
+          </div>
+          <div class="views">
+            <figure><img src="images/20260710222414_plan_density.png"><figcaption>Plan-density view — P0.5 to P99.5</figcaption></figure>
+            <figure><img src="images/20260710222414_xz_density.png"><figcaption>X/Z density view</figcaption></figure>
+            <figure><img src="images/20260710222414_yz_density.png"><figcaption>Y/Z density view</figcaption></figure>
+          </div>
+          <dl>
+            <dt>Raw XYZ extent</dt><dd>17.823 × 21.963 × 4.245</dd>
+            <dt>Core XYZ extent</dt><dd>9.801 × 9.271 × 2.718</dd>
+            <dt>XY inflation ratio</dt><dd>4.31×</dd>
+            <dt>Z inflation ratio</dt><dd>1.56×</dd>
+            <dt>Median XYZ</dt><dd>-0.052, -0.449, 0.493</dd>
+            <dt>Interpretation</dt><dd>Use the density views to identify likely building coverage. Do not infer dimensions or registration from this report alone.</dd>
+          </dl>
+        </article>
+        
+        <article class="card">
+          <div class="head">
+            <div><div class="kicker">Scan session</div><h2>20260710223037</h2></div>
+            <div class="flag moderate">moderate outlier inflation</div>
+          </div>
+          <div class="metrics">
+            <div><span>Points</span><b>42,131,618</b></div>
+            <div><span>Sample</span><b>1,915,093</b></div>
+            <div><span>Core XYZ</span><b>106.490 × 34.119 × 14.067</b></div>
+            <div><span>Robust density</span><b>11,595.826</b></div>
+          </div>
+          <div class="views">
+            <figure><img src="images/20260710223037_plan_density.png"><figcaption>Plan-density view — P0.5 to P99.5</figcaption></figure>
+            <figure><img src="images/20260710223037_xz_density.png"><figcaption>X/Z density view</figcaption></figure>
+            <figure><img src="images/20260710223037_yz_density.png"><figcaption>Y/Z density view</figcaption></figure>
+          </div>
+          <dl>
+            <dt>Raw XYZ extent</dt><dd>170.530 × 164.661 × 56.868</dd>
+            <dt>Core XYZ extent</dt><dd>106.490 × 34.119 × 14.067</dd>
+            <dt>XY inflation ratio</dt><dd>7.73×</dd>
+            <dt>Z inflation ratio</dt><dd>4.04×</dd>
+            <dt>Median XYZ</dt><dd>38.920, 8.760, 2.959</dd>
+            <dt>Interpretation</dt><dd>Use the density views to identify likely building coverage. Do not infer dimensions or registration from this report alone.</dd>
+          </dl>
+        </article>
+        
+        <article class="card">
+          <div class="head">
+            <div><div class="kicker">Scan session</div><h2>20260710222125</h2></div>
+            <div class="flag high">high outlier inflation</div>
+          </div>
+          <div class="metrics">
+            <div><span>Points</span><b>12,940,403</b></div>
+            <div><span>Sample</span><b>1,848,640</b></div>
+            <div><span>Core XYZ</span><b>18.816 × 9.118 × 6.013</b></div>
+            <div><span>Robust density</span><b>75,429.197</b></div>
+          </div>
+          <div class="views">
+            <figure><img src="images/20260710222125_plan_density.png"><figcaption>Plan-density view — P0.5 to P99.5</figcaption></figure>
+            <figure><img src="images/20260710222125_xz_density.png"><figcaption>X/Z density view</figcaption></figure>
+            <figure><img src="images/20260710222125_yz_density.png"><figcaption>Y/Z density view</figcaption></figure>
+          </div>
+          <dl>
+            <dt>Raw XYZ extent</dt><dd>107.840 × 68.552 × 60.887</dd>
+            <dt>Core XYZ extent</dt><dd>18.816 × 9.118 × 6.013</dd>
+            <dt>XY inflation ratio</dt><dd>43.09×</dd>
+            <dt>Z inflation ratio</dt><dd>10.13×</dd>
+            <dt>Median XYZ</dt><dd>-0.476, 0.616, 0.684</dd>
+            <dt>Interpretation</dt><dd>Use the density views to identify likely building coverage. Do not infer dimensions or registration from this report alone.</dd>
+          </dl>
+        </article>
+        
+        <article class="card">
+          <div class="head">
+            <div><div class="kicker">Scan session</div><h2>20260710222718</h2></div>
+            <div class="flag high">high outlier inflation</div>
+          </div>
+          <div class="metrics">
+            <div><span>Points</span><b>27,679,943</b></div>
+            <div><span>Sample</span><b>1,977,151</b></div>
+            <div><span>Core XYZ</span><b>45.667 × 41.165 × 10.477</b></div>
+            <div><span>Robust density</span><b>14,724.477</b></div>
+          </div>
+          <div class="views">
+            <figure><img src="images/20260710222718_plan_density.png"><figcaption>Plan-density view — P0.5 to P99.5</figcaption></figure>
+            <figure><img src="images/20260710222718_xz_density.png"><figcaption>X/Z density view</figcaption></figure>
+            <figure><img src="images/20260710222718_yz_density.png"><figcaption>Y/Z density view</figcaption></figure>
+          </div>
+          <dl>
+            <dt>Raw XYZ extent</dt><dd>151.026 × 159.830 × 61.512</dd>
+            <dt>Core XYZ extent</dt><dd>45.667 × 41.165 × 10.477</dd>
+            <dt>XY inflation ratio</dt><dd>12.84×</dd>
+            <dt>Z inflation ratio</dt><dd>5.87×</dd>
+            <dt>Median XYZ</dt><dd>3.667, -0.954, -0.743</dd>
+            <dt>Interpretation</dt><dd>Use the density views to identify likely building coverage. Do not infer dimensions or registration from this report alone.</dd>
+          </dl>
+        </article>
+        
+<section class="errors"><h2>Read errors</h2><ul><li>None</li></ul></section>
+</main></body></html>

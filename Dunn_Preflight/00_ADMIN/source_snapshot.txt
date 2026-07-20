@@ -1,0 +1,5 @@
+Project: Dunn Residence
+Source: /Users/Thomas/Desktop/BDPC/Thomas CAD
+Generated UTC: 2026-07-20T21:45:23.554338+00:00
+Files: 908
+Total bytes: 8801309883

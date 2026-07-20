@@ -1,0 +1,106 @@
+{
+  "required_group_score": 100,
+  "required_groups_present": 2,
+  "required_groups_total": 2,
+  "groups": [
+    {
+      "id": "cad_sources",
+      "label": "Current project CAD source",
+      "required": true,
+      "present": true,
+      "match_count": 3,
+      "sample_matches": [
+        "TCADD.dwg",
+        "2026_06_08_IN/CAD/1419 ALLEN AVE_06_08_2026.dwg",
+        "2026_06_08_IN/CAD/1419 allene avenue_Exterior elevation-06_08_2026.dwg"
+      ]
+    },
+    {
+      "id": "pdf_sources",
+      "label": "Current project PDF / redline source",
+      "required": true,
+      "present": true,
+      "match_count": 2,
+      "sample_matches": [
+        "2026_07_18_965_granst Dunn res Conceptual.pdf",
+        "2026_06_08_IN/PDF/1419 ALLEN AVE_06_08_2026.pdf"
+      ]
+    },
+    {
+      "id": "plot_styles",
+      "label": "BDPC plot styles",
+      "required": false,
+      "present": false,
+      "match_count": 0,
+      "sample_matches": []
+    },
+    {
+      "id": "fonts",
+      "label": "BDPC fonts and shape files",
+      "required": false,
+      "present": false,
+      "match_count": 0,
+      "sample_matches": []
+    },
+    {
+      "id": "point_clouds",
+      "label": "LiDAR / point-cloud sources",
+      "required": false,
+      "present": true,
+      "match_count": 5,
+      "sample_matches": [
+        "20260710222718/recalculate_result.las",
+        "20260710222125/recalculate_result.las",
+        "20260710222318/recalculate_result.las",
+        "20260710223037/recalculate_result.las",
+        "20260710222414/recalculate_result.las"
+      ]
+    },
+    {
+      "id": "site_reference",
+      "label": "Site / floor-plate reference",
+      "required": false,
+      "present": false,
+      "match_count": 0,
+      "sample_matches": []
+    },
+    {
+      "id": "photos",
+      "label": "Supporting field photos",
+      "required": false,
+      "present": true,
+      "match_count": 838,
+      "sample_matches": [
+        "2026_07_17_Grant_St_Floor_plan .png",
+        "20260710222718/thumbnail/LIDAR_20260710222718.png",
+        "20260710222718/thumbnail/IMAGE_20260710222718.png",
+        "20260710222318/thumbnail/IMAGE_20260710222318.png",
+        "20260710222318/thumbnail/LIDAR_20260710222318.png",
+        "20260710223037/thumbnail/LIDAR_20260710223037.png",
+        "20260710223037/thumbnail/IMAGE_20260710223037.png",
+        "20260710223037/shading/Colmap/images/1783693963.087036.png",
+        "20260710223037/shading/Colmap/images/1783693863.744433.png",
+        "20260710223037/shading/Colmap/images/1783693939.166256.png",
+        "20260710223037/shading/Colmap/images/1783693974.511889.png",
+        "20260710223037/shading/Colmap/images/1783693863.119590.png",
+        "20260710223037/shading/Colmap/images/1783693955.589479.png",
+        "20260710223037/shading/Colmap/images/1783693980.849118.png",
+        "20260710223037/shading/Colmap/images/1783694069.659481.png",
+        "20260710223037/shading/Colmap/images/1783694088.492663.png",
+        "20260710223037/shading/Colmap/images/1783693875.079981.png",
+        "20260710223037/shading/Colmap/images/1783694075.014877.png",
+        "20260710223037/shading/Colmap/images/1783693968.799463.png",
+        "20260710223037/shading/Colmap/images/1783694043.239514.png"
+      ]
+    },
+    {
+      "id": "archives",
+      "label": "Source archives",
+      "required": false,
+      "present": false,
+      "match_count": 0,
+      "sample_matches": []
+    }
+  ],
+  "note": "Presence confirms only that candidate files exist; it does not validate completeness, correctness, or CAD usability."
+}
