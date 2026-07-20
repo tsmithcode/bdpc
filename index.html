@@ -3,83 +3,58 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="BDPC Architects × CAD Guardian client service workspace for project status, milestones, source review, standards, automation, delivery, commercial alignment, and updates.">
+  <meta name="description" content="BDPC Architects × CAD Guardian project workspace for the Dunn Residence three-sheet CAD production pilot.">
   <meta name="theme-color" content="#0b1220">
-  <title>BDPC × CAD Guardian — Client Service OS</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Dunn Residence | BDPC × CAD Guardian</title>
+  <link rel="stylesheet" href="client.css">
 </head>
 <body>
-  <a class="skip-link" href="#workspace">Skip to workspace</a>
-
+  <a class="skip-link" href="#overview">Skip to project summary</a>
   <header class="topbar">
-    <div class="topbar__brand" aria-label="BDPC and CAD Guardian Client Service OS">
-      <span class="brand-mark brand-mark--bdpc">BDPC</span>
-      <span class="brand-x">×</span>
-      <span class="brand-mark brand-mark--cg">CAD Guardian</span>
-      <span class="topbar__product">Client Service OS</span>
-    </div>
-    <div class="topbar__actions">
-      <button class="button button--ghost" id="edit-toggle" type="button" aria-pressed="false">Edit locally</button>
-      <button class="button button--ghost" id="copy-update" type="button">Copy status</button>
-      <button class="button button--primary" id="print-workspace" type="button">Print / Save PDF</button>
-    </div>
+    <a class="brand" href="#overview" aria-label="Dunn Residence project workspace"><span class="brand__bdpc">BDPC</span><span class="brand__x">×</span><span class="brand__cg">CAD Guardian</span><span class="brand__project">Dunn Residence</span></a>
+    <nav class="topnav" aria-label="Project navigation"><a href="#scope">Scope</a><a href="#readiness">Readiness</a><a href="#reports">Reports</a><a href="#authorization">Authorization</a></nav>
+    <button class="button button--primary" id="authorize-top" type="button">Authorize production</button>
   </header>
-
-  <main class="shell" id="workspace">
-    <section class="hero" aria-labelledby="page-title">
-      <div class="hero__content">
-        <div class="eyebrow">Client-safe shared workspace · Grant Park residential pilot</div>
-        <h1 id="page-title">Work visible. Decisions traceable. Client time protected.</h1>
-        <p class="hero__lede">A lightweight public workspace for the current source review, three-sheet CAD transfer, BDPC standards capture, delivery controls, future automation, and commercial alignment.</p>
-        <div class="hero__status" id="hero-status"></div>
+  <main>
+    <section class="hero" id="overview">
+      <div class="hero__main">
+        <div class="eyebrow">Client project workspace · verified July 20, 2026</div>
+        <div class="status-line"><span class="status-dot"></span>Preflight complete</div>
+        <h1>Ready to move from source intelligence to drawing production.</h1>
+        <p class="hero__lede">The Dunn Residence source package has been inventoried, the five LiDAR datasets have been analyzed, and the production sequence is defined. The remaining gate is straightforward: activate the licensed CAD runtime, confirm the final dependencies, and authorize the three-sheet pilot.</p>
+        <div class="hero__actions"><a class="button button--primary" href="#authorization">Review authorization</a><a class="button button--secondary" href="#reports">View technical evidence</a></div>
       </div>
-      <aside class="hero__aside" aria-label="Current gate">
-        <div class="status-panel">
-          <div class="status-panel__label">Current gate</div>
-          <div class="status-panel__value" id="current-gate">Source package review</div>
-          <div class="status-panel__note" id="current-gate-note">Files received. Review and estimate preparation are in progress.</div>
-        </div>
-        <div class="privacy-note">
-          <strong>Public-safe by design.</strong>
-          <span>No confidential drawings, scan data, private links, exact addresses, credentials, or source files are published here.</span>
-        </div>
+      <aside class="gate-card">
+        <div class="gate-card__label">Current gate</div><h2>Runtime activation + written approval</h2><p>Production has not started. CAD Guardian owns the local execution environment, source isolation, backups, agent controls, and final human QA.</p><div class="gate-card__rule"></div>
+        <dl><div><dt>BDPC technical setup</dt><dd>None</dd></div><div><dt>Client decisions</dt><dd>Three concise confirmations</dd></div><div><dt>Next output</dt><dd>Existing floor-plan check set</dd></div></dl>
       </aside>
-    </section>
-
-    <section class="control-strip" aria-label="Workspace controls">
-      <div class="control-strip__note">
-        <strong>Local workspace:</strong> edits save only in this browser until exported. GitHub remains the published client baseline.
-      </div>
-      <div class="control-strip__actions">
-        <button class="text-button" id="export-data" type="button">Export update</button>
-        <label class="text-button file-button" for="import-data">Import update</label>
-        <input id="import-data" type="file" accept="application/json" hidden>
-        <button class="text-button text-button--danger" id="reset-data" type="button">Reset local changes</button>
+      <div class="metric-grid" aria-label="Project metrics">
+        <article class="metric"><span>Deliverables</span><strong>3 sheets</strong><small>Existing, proposed, site/area</small></article>
+        <article class="metric"><span>Source package</span><strong>908 files</strong><small>8.20 GB inventoried</small></article>
+        <article class="metric"><span>LiDAR analyzed</span><strong>91.7M points</strong><small>5 coordinated scan sessions</small></article>
+        <article class="metric"><span>Commercial</span><strong>$3,200 fixed</strong><small>One consolidated review cycle</small></article>
       </div>
     </section>
-
-    <nav class="tabs" aria-label="Client workspace sections" role="tablist" id="tab-list"></nav>
-
-    <section class="workspace" id="tab-panels" aria-live="polite"></section>
+    <section class="section section--soft" aria-labelledby="executive-heading"><div class="section-head"><div><div class="kicker">Executive summary</div><h2 id="executive-heading">What is known today</h2></div><p>Only the information required to make the next decision is shown here. Raw drawings, scans, private links, exact residential addresses, and source files remain outside the public workspace.</p></div>
+      <div class="summary-grid"><article class="summary-card summary-card--complete"><span>Complete</span><h3>Source and LiDAR preflight</h3><p>CAD, PDF, image, point-cloud, and dependency candidates are mapped. Five LAS files opened cleanly with zero read errors.</p></article><article class="summary-card summary-card--verified"><span>Verified</span><h3>Production source hierarchy</h3><p>The whole-building scan, two interior detail scans, property scan, and extended site scan have defined roles and opening order.</p></article><article class="summary-card summary-card--next"><span>Next</span><h3>Begin the existing plan</h3><p>Attach the scans at native coordinates, confirm common features, isolate the correct floor elevation, and draft the existing footprint first.</p></article></div>
+    </section>
+    <section class="section" id="scope" aria-labelledby="scope-heading"><div class="section-head"><div><div class="kicker">Scope</div><h2 id="scope-heading">Three coordinated deliverables</h2></div><p>The pilot is intentionally narrow. Floor-plan completion outranks automation, software development, and broader permit-document production.</p></div>
+      <div class="deliverables"><article class="deliverable"><div class="deliverable__number">01</div><div><h3>Existing floor plan</h3><p>Measured existing-condition plan developed from the controlling project sources, with material conflicts documented rather than concealed.</p></div></article><article class="deliverable"><div class="deliverable__number">02</div><div><h3>Proposed floor plan</h3><p>Rear addition, revised living/kitchen planning, and deck relationship coordinated to BDPC conceptual direction.</p></div></article><article class="deliverable"><div class="deliverable__number">03</div><div><h3>Site and area plan</h3><p>Residence footprint, proposed work, deck/porch context, and agreed area information without implying survey services.</p></div></article></div>
+      <div class="scope-grid"><article class="panel"><h3>Included</h3><ul><li>Native AutoCAD DWGs and coordinated PDF sets</li><li>BDPC-compatible layers, blocks, annotation, title block, paper space, and plotting</li><li>LiDAR reconciliation required for responsible drafting</li><li>One consolidated BDPC review cycle</li><li>Assumption and unresolved-condition record</li><li>Final issue package and change summary</li></ul></article><article class="panel panel--muted"><h3>Not included</h3><ul><li>Elevations, sections, roof plans, RCPs, details, schedules, or additional sheets</li><li>Structural, MEP, civil, survey, or field-verification services</li><li>Permit administration or agency coordination</li><li>Independent architectural, code, or concealed-condition decisions</li><li>Automation or software delivered as a client product</li></ul></article></div>
+    </section>
+    <section class="section section--dark" id="readiness" aria-labelledby="readiness-heading"><div class="section-head"><div><div class="kicker">Technical readiness</div><h2 id="readiness-heading">The production path is defined</h2></div><p>Preflight was performed read-only. The reports establish a defensible opening order, likely metric units, and strong evidence of a shared local coordinate frame.</p></div>
+      <div class="scan-grid"><article class="scan-card scan-card--primary"><span>Primary building source</span><h3>20260710222125</h3><p>Whole-building footprint candidate. Use after clipping vertical and coordinate outliers.</p><strong>12.94M points</strong></article><article class="scan-card"><span>Interior detail A</span><h3>20260710222318</h3><p>Cleanest, densest localized interior source for partitions and openings.</p><strong>3.77M points</strong></article><article class="scan-card"><span>Interior detail B</span><h3>20260710222414</h3><p>Clean diagnostic scan for units, floor/ceiling separation, and adjacent rooms.</p><strong>5.16M points</strong></article><article class="scan-card"><span>Immediate property</span><h3>20260710222718</h3><p>Rear wall, addition connection, porch/deck, and yard relationship.</p><strong>27.68M points</strong></article><article class="scan-card"><span>Extended site</span><h3>20260710223037</h3><p>Street and neighborhood context. Load only when site-level context is required.</p><strong>42.13M points</strong></article></div>
+      <div class="readiness-grid"><article><h3>Runtime CAD Guardian provides</h3><ul><li>AutoCAD 2026</li><li>Autodesk ReCap Pro for LAS indexing and review</li><li>PDF markup/review software</li><li>Encrypted local SSD workspace and rollback copy</li><li>Python, AutoLISP, shell tooling, Codex, or ChatGPT where they reduce current-cycle effort</li></ul></article><article><h3>Remaining BDPC confirmations</h3><ol><li>Confirm the three sheet titles or accept the default list shown above.</li><li>Send CTB/STB, nonstandard fonts, or the preferred title-block DWG only if maintained separately.</li><li>Provide written authorization to begin production.</li></ol></article></div>
+      <div class="evidence-strip"><div><span>Likely source units</span><strong>Meters · high confidence</strong></div><div><span>Shared coordinates</span><strong>Strong evidence across building scans</strong></div><div><span>Registration rule</span><strong>Attach natively before any transform</strong></div><div><span>Final validation</span><strong>Human review in compatible viewer</strong></div></div>
+    </section>
+    <section class="section" id="reports" aria-labelledby="reports-heading"><div class="section-head"><div><div class="kicker">Evidence</div><h2 id="reports-heading">Preflight reports</h2></div><p>These client-safe report pages publish findings and limitations. Confidential drawings, raw point clouds, private property imagery, and full file manifests remain private.</p></div>
+      <div class="report-grid"><a class="report-card" href="reports/intake.html"><span>01</span><h3>Source intake</h3><p>908 files, 8.20 GB, source categories, dependencies, and privacy controls.</p><strong>Open report →</strong></a><a class="report-card" href="reports/scan-index.html"><span>02</span><h3>Scan visual index</h3><p>Five LiDAR sessions classified by likely production role and opening order.</p><strong>Open report →</strong></a><a class="report-card" href="reports/las-header.html"><span>03</span><h3>LAS header audit</h3><p>Format, point count, scale, raw extents, and read-error validation.</p><strong>Open report →</strong></a><a class="report-card" href="reports/las-core.html"><span>04</span><h3>Core geometry audit</h3><p>Robust percentile extents, outlier inflation, and usable coverage interpretation.</p><strong>Open report →</strong></a><a class="report-card report-card--featured" href="reports/registration.html"><span>05</span><h3>Registration overlay</h3><p>Shared-coordinate evidence, likely metric units, and pairwise overlap findings.</p><strong>Open report →</strong></a></div>
+    </section>
+    <section class="section section--soft" aria-labelledby="plan-heading"><div class="section-head"><div><div class="kicker">Execution</div><h2 id="plan-heading">Production sequence</h2></div><p>The schedule begins after licensed runtime activation, complete required dependencies, and written authorization.</p></div>
+      <div class="timeline"><article><span>Day 0</span><h3>Control the environment</h3><p>Index scans, attach at native coordinates, verify common features, set BDPC sheet standards, and isolate the correct floor elevation.</p></article><article><span>Days 1–2</span><h3>Complete the existing plan</h3><p>Exterior walls, major partitions, stairs, openings, fixtures, room labels, and principal dimensions.</p></article><article><span>Day 3</span><h3>Complete proposed and site sheets</h3><p>Coordinate conceptual intent, rear addition, deck, site/area information, and issue the first check set.</p></article><article><span>Days 4–5</span><h3>Review, QA, and final issue</h3><p>Resolve one consolidated redline set, validate plotting, and issue the final DWG/PDF package.</p></article></div>
+    </section>
+    <section class="section" id="authorization" aria-labelledby="authorization-heading"><div class="authorization"><div class="authorization__main"><div class="kicker">Commercial authorization</div><h2 id="authorization-heading">$3,200 fixed fee</h2><p>Three coordinated sheets, one consolidated BDPC review cycle, and a final DWG/PDF issue package.</p><div class="term-grid"><div><span>Start payment</span><strong>$1,600</strong></div><div><span>Final payment</span><strong>$1,600</strong></div><div><span>Initial check set</span><strong>3 business days</strong></div><div><span>Overall target</span><strong>4–5 production days</strong></div></div></div><aside class="authorization__aside"><h3>Authorization includes</h3><ul><li>The three-sheet scope shown above</li><li>One consolidated review cycle</li><li>Runtime, source control, and internal QA by CAD Guardian</li><li>Additional work only after written approval at $90/hour</li></ul><div class="authorization__actions"><button class="button button--primary" id="authorize-bottom" type="button">Authorize by email</button><a class="button button--secondary" href="sow.html" target="_blank" rel="noopener">Open printable SOW</a></div></aside></div></section>
   </main>
-
-  <footer class="footer">
-    <div>
-      <strong>Thomas D. Smith II</strong> · CAD Guardian LLC · CAD production, engineering software, automation, and controlled technical delivery
-    </div>
-    <div>
-      <a href="https://cadguardian.com" target="_blank" rel="noreferrer">cadguardian.com</a>
-      <span aria-hidden="true">·</span>
-      <a href="mailto:thomas@tsmithcode.ai">thomas@tsmithcode.ai</a>
-      <span aria-hidden="true">·</span>
-      <a href="tel:+14708624855">(470) 862-4855</a>
-    </div>
-  </footer>
-
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-  <script src="data/project-data.js"></script>
-  <script src="app.js" defer></script>
-  <script src="polish.js" defer></script>
-</body>
-</html>
+  <footer class="footer"><div><strong>Thomas D. Smith II</strong> · Founder, CAD Guardian LLC</div><div><a href="https://cadguardian.com" target="_blank" rel="noreferrer">cadguardian.com</a> · <a href="mailto:thomas@tsmithcode.ai">thomas@tsmithcode.ai</a> · <a href="tel:+14708624855">(470) 862-4855</a></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div><script src="client.js" defer></script>
+</body></html>
