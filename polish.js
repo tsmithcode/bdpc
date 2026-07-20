@@ -1,10 +1,1 @@
-(() => {
-  'use strict';
-  const D = window.BDPC_DEFAULT_DATA;
-  if (D) D.meta.projectName = 'Dunn Residence — Grant Park Floor Plan CAD Pilot';
-  window.addEventListener('load', () => {
-    if (!window.location.hash || window.location.hash === '#overview') {
-      window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'auto' }));
-    }
-  }, { once: true });
-})();
+(()=>{'use strict';document.addEventListener('DOMContentLoaded',()=>['meta','overview','milestones','files','delivery','commercial','runtime-core','runtime-tools-1','runtime-tools-2','runtime-tools-3','runtime-boundary','runtime-render','updates'].forEach(n=>{const s=document.createElement('script');s.src=`patch/${n}.js`;document.body.appendChild(s)}));window.addEventListener('load',()=>{if(!location.hash||location.hash==='#overview')requestAnimationFrame(()=>scrollTo({top:0,behavior:'auto'}))},{once:true})})();
