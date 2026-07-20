@@ -1,0 +1,29 @@
+{
+  "project": "Dunn Residence",
+  "updated": "2026-07-20",
+  "status": {
+    "source_intake": "complete",
+    "lidar_analysis": "complete",
+    "client_reports": "complete",
+    "licensed_runtime": "awaiting licenses",
+    "client_authorization": "awaiting approval",
+    "drawing_production": "not started"
+  },
+  "metrics": {
+    "files": 908,
+    "source_size_gb": 8.2,
+    "scan_sessions": 5,
+    "total_lidar_points": 91688946,
+    "reports_published": 5
+  },
+  "dependencies": {
+    "current_project_cad": "present",
+    "conceptual_pdf": "present",
+    "point_clouds": "present",
+    "supporting_images": "present",
+    "plot_styles": "not separately found",
+    "nonstandard_fonts": "not separately found",
+    "preferred_title_block": "confirm only if maintained separately"
+  },
+  "privacy": "Raw drawings, PDFs, LAS files, exact address, local paths, and private manifest are not published."
+}

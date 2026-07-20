@@ -1,0 +1,6 @@
+pair,overlap_of_smaller,iou,center_distance,interpretation
+22318 ↔ 22414,100.0%,68.6%,0.492 m,Strongly coordinated overlapping interior captures
+22125 ↔ 22318,95.8%,36.6%,0.653 m,Whole-building scan contains nearly all of interior detail A
+22125 ↔ 22414,91.1%,49.1%,1.131 m,Same building envelope with different coverage
+22125 ↔ 22718,100.0%,7.6%,4.233 m,Building scan contained within immediate property context
+22718 ↔ 23037,55.9%,26.4%,37.105 m,Property capture transitions into extended site/street coverage
