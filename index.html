@@ -1,55 +1,84 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="BDPC × CAD Guardian project status workspace for the Grant Park residential CAD-transfer assignment—source intake, drafting standards, estimate gate, review status, and next actions.">
-<meta name="theme-color" content="#0b1220">
-<title>BDPC × CAD Guardian — Project Status & Production Alignment</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="BDPC Architects × CAD Guardian client service workspace for project status, milestones, source review, standards, automation, delivery, commercial alignment, and updates.">
+  <meta name="theme-color" content="#0b1220">
+  <title>BDPC × CAD Guardian — Client Service OS</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="toolbar">
-  <div class="brand"><span class="bdpc">BDPC</span> × <span class="cg">CAD Guardian</span> · Project Status</div>
-  <button onclick="document.getElementById('status')?.scrollIntoView({behavior:'smooth'})">Current status</button>
-  <button onclick="copyStatus()">Copy status</button>
-  <button class="primary" onclick="window.print()">Print / Save PDF</button>
-</div>
-<div class="shell">
-<article class="paper">
-<header class="hero">
-<div class="eyebrow">Prepared for BDPC Architects <span class="dot"></span> Grant Park residential assignment</div>
-<h1>Project status & production alignment</h1>
-<p class="lede">A single source of truth for the file-intake gate, three-sheet CAD-transfer scope, Brian’s drafting preferences, technical review, effort estimate, and production status.</p>
-<div class="hero-meta">
-<span class="pill">Status · Awaiting complete upload</span>
-<span class="pill">Current authorization · Review + estimate</span>
-<span class="pill">Requested scope · Three CAD sheets</span>
-<span class="pill">Production · Not started</span>
-</div>
-<div class="hero-note"><strong>Current gate:</strong> Brian is uploading the remaining LiDAR scans and supporting project files to the shared Dropbox folder. CAD Guardian will confirm that the package is complete and opens successfully, then return questions, assumptions, and a bounded effort estimate before any production start.</div>
-</header>
-<nav class="nav">
-<a href="#status">Status</a>
-<a href="#scope">Agreed scope</a>
-<a href="#sources">Source package</a>
-<a href="#standards">Drafting standards</a>
-<a href="#workflow">Workflow</a>
-<a href="#acceptance">Acceptance</a>
-<a href="#questions">Open items</a>
-<a href="#updates">Update log</a>
-</nav>
-<main id="page-sections" aria-live="polite">
-  <div class="loading-card">Loading project status…</div>
-</main>
-<footer>
-<div><strong>Thomas D. Smith II</strong> · CAD Guardian LLC · CAD production, engineering software, automation, and controlled technical delivery</div>
-<div>cadguardian.com · thomas@tsmithcode.ai · (470) 862-4855</div>
-</footer>
-</article>
-</div>
-<noscript>This page requires JavaScript to load its modular sections.</noscript>
-<script>window.BDPC_SECTION_FILES=['01-decision.html', '02-priorities.html', '03-boundary.html', '04-floorplans.html', '05-glossary.html', '06-capture.html', '07-close.html', '08-sources.html'];</script>
-<script src="app.js" defer></script>
+  <a class="skip-link" href="#workspace">Skip to workspace</a>
+
+  <header class="topbar">
+    <div class="topbar__brand" aria-label="BDPC and CAD Guardian Client Service OS">
+      <span class="brand-mark brand-mark--bdpc">BDPC</span>
+      <span class="brand-x">×</span>
+      <span class="brand-mark brand-mark--cg">CAD Guardian</span>
+      <span class="topbar__product">Client Service OS</span>
+    </div>
+    <div class="topbar__actions">
+      <button class="button button--ghost" id="edit-toggle" type="button" aria-pressed="false">Edit locally</button>
+      <button class="button button--ghost" id="copy-update" type="button">Copy status</button>
+      <button class="button button--primary" id="print-workspace" type="button">Print / Save PDF</button>
+    </div>
+  </header>
+
+  <main class="shell" id="workspace">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero__content">
+        <div class="eyebrow">Client-safe shared workspace · Grant Park residential pilot</div>
+        <h1 id="page-title">Work visible. Decisions traceable. Client time protected.</h1>
+        <p class="hero__lede">A lightweight public workspace for the current source review, three-sheet CAD transfer, BDPC standards capture, delivery controls, future automation, and commercial alignment.</p>
+        <div class="hero__status" id="hero-status"></div>
+      </div>
+      <aside class="hero__aside" aria-label="Current gate">
+        <div class="status-panel">
+          <div class="status-panel__label">Current gate</div>
+          <div class="status-panel__value" id="current-gate">Source package review</div>
+          <div class="status-panel__note" id="current-gate-note">Files received. Review and estimate preparation are in progress.</div>
+        </div>
+        <div class="privacy-note">
+          <strong>Public-safe by design.</strong>
+          <span>No confidential drawings, scan data, private links, exact addresses, credentials, or source files are published here.</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="control-strip" aria-label="Workspace controls">
+      <div class="control-strip__note">
+        <strong>Local workspace:</strong> edits save only in this browser until exported. GitHub remains the published client baseline.
+      </div>
+      <div class="control-strip__actions">
+        <button class="text-button" id="export-data" type="button">Export update</button>
+        <label class="text-button file-button" for="import-data">Import update</label>
+        <input id="import-data" type="file" accept="application/json" hidden>
+        <button class="text-button text-button--danger" id="reset-data" type="button">Reset local changes</button>
+      </div>
+    </section>
+
+    <nav class="tabs" aria-label="Client workspace sections" role="tablist" id="tab-list"></nav>
+
+    <section class="workspace" id="tab-panels" aria-live="polite"></section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <strong>Thomas D. Smith II</strong> · CAD Guardian LLC · CAD production, engineering software, automation, and controlled technical delivery
+    </div>
+    <div>
+      <a href="https://cadguardian.com" target="_blank" rel="noreferrer">cadguardian.com</a>
+      <span aria-hidden="true">·</span>
+      <a href="mailto:thomas@tsmithcode.ai">thomas@tsmithcode.ai</a>
+      <span aria-hidden="true">·</span>
+      <a href="tel:+14708624855">(470) 862-4855</a>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data/project-data.js"></script>
+  <script src="app.js" defer></script>
 </body>
 </html>
