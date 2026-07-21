@@ -48,8 +48,11 @@ class PageParser(HTMLParser):
         self.references: list[str] = []
         self.ids: list[str] = []
         self.images_without_alt: list[str] = []
+        self.tag_counts: dict[str, int] = {}
+        self.text_parts: list[str] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        self.tag_counts[tag] = self.tag_counts.get(tag, 0) + 1
         values = dict(attrs)
         if values.get("id"):
             self.ids.append(values["id"] or "")
@@ -58,6 +61,11 @@ class PageParser(HTMLParser):
                 self.references.append(values[key] or "")
         if tag == "img" and not (values.get("alt") or "").strip():
             self.images_without_alt.append(values.get("src") or "<missing src>")
+
+    def handle_data(self, data: str) -> None:
+        """Collect visible text for preservation assertions."""
+        if data.strip():
+            self.text_parts.append(data.strip())
 
 
 def resolve_reference(root: Path, page: Path, reference: str) -> Path | None:
@@ -103,6 +111,11 @@ def verify_data(root: Path) -> dict[str, int]:
         raise ValueError("Expected four kickoff gates")
     if len(project["native_pairs"]) != 5:
         raise ValueError("Expected five native pairs")
+    report_names = {item["id"]: item["name"] for item in project["reports"]}
+    if report_names.get("RPT-02") != "Visual inspection":
+        raise ValueError("RPT-02 must preserve the image-driven Visual inspection route")
+    if report_names.get("RPT-04") != "Plan-control slice evidence":
+        raise ValueError("RPT-04 must preserve the nine-slice evidence route")
     classifications = [item["classification"] for item in project["native_pairs"]]
     if classifications.count("native_overlap_weak") != 4 or classifications.count("no_material_overlap") != 1:
         raise ValueError("Native overlap classification mismatch")
@@ -199,6 +212,65 @@ def verify_images(root: Path) -> int:
     return len(images)
 
 
+def verify_preservation(root: Path) -> dict[str, int]:
+    """Block regressions in report depth, visible evidence, and SOW print controls."""
+    expectations = {
+        "reports/index.html": {"img": 3, "h2": 4},
+        "reports/intake/index.html": {"table": 1, "h2": 6},
+        "reports/scan-visual/index.html": {"img": 25, "h2": 6},
+        "reports/las-header/index.html": {"table": 1, "h2": 3},
+        "reports/las-core/index.html": {"img": 9, "table": 1, "h2": 5},
+        "reports/registration/index.html": {"img": 5, "table": 1, "h2": 3},
+        "sow/index.html": {"table": 1, "h2": 9},
+    }
+    counts: dict[str, int] = {}
+    for relative, required in expectations.items():
+        parser = PageParser()
+        parser.feed((root / relative).read_text(encoding="utf-8"))
+        for tag, minimum in required.items():
+            actual = parser.tag_counts.get(tag, 0)
+            if actual < minimum:
+                raise ValueError(f"Preservation regression: {relative} requires at least {minimum} <{tag}> elements; found {actual}")
+            counts[f"{relative}:{tag}"] = actual
+
+    visual = (root / "reports/scan-visual/index.html").read_text(encoding="utf-8")
+    for session in "abcde":
+        if visual.count(f"session-{session}-") < 8:
+            raise ValueError(f"Visual report is missing the Session {session.upper()} evidence gallery")
+
+    reports_text = "\n".join(
+        (root / relative).read_text(encoding="utf-8")
+        for relative in expectations
+        if relative.startswith("reports/")
+    )
+    for phrase in (
+        "Documented operating rules",
+        "Authority hierarchy",
+        "Documented source-protection rules",
+        "Validation method",
+        "Documented interpretation rules",
+        "Method and decision rules",
+    ):
+        if phrase not in reports_text:
+            raise ValueError(f"Preservation regression: missing documented rule section: {phrase}")
+
+    sow = (root / "sow/index.html").read_text(encoding="utf-8")
+    for phrase in (
+        "Print / Save PDF",
+        "Included scope",
+        "Excluded scope",
+        "Client responsibilities and kickoff gates",
+        "Acceptance criteria",
+        "Change control",
+        "@page { size:letter",
+        "width:min(8.5in",
+        "window.print()",
+    ):
+        if phrase not in sow:
+            raise ValueError(f"SOW preservation/print regression: missing {phrase!r}")
+    return counts
+
+
 def verify_text_boundaries(root: Path) -> None:
     """Reject known stale claims and raw GitHub history dependencies."""
     forbidden = {
@@ -240,6 +312,7 @@ def main() -> int:
     csv_counts = verify_data(root)
     page_count, reference_count, _ = verify_html(root)
     image_count = verify_images(root)
+    preservation_counts = verify_preservation(root)
     verify_text_boundaries(root)
     unreferenced = report_unreferenced_assets(root)
     if unreferenced:
@@ -251,6 +324,7 @@ def main() -> int:
         "images_decoded": image_count,
         "csv_rows": csv_counts,
         "sqlite_integrity": "ok",
+        "preservation_counts": preservation_counts,
         "unreferenced_public_images": 0,
     }, indent=2, sort_keys=True))
     return 0
