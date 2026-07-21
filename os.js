@@ -1,88 +1,149 @@
 (() => {
-'use strict';
-const tabs=[...document.querySelectorAll('[role="tab"]')];
-const panels=[...document.querySelectorAll('[role="tabpanel"]')];
-const toast=document.getElementById('toast');
-const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const slug=v=>String(v).toLowerCase().replace(/\s+/g,'-');
-const badge=s=>`<span class="badge badge--${slug(s)}">${esc(s)}</span>`;
-function showToast(message){if(!toast)return;toast.textContent=message;toast.classList.add('is-visible');clearTimeout(showToast.t);showToast.t=setTimeout(()=>toast.classList.remove('is-visible'),2200);}
-function activate(id,focus=false){
-  const valid=tabs.some(t=>t.dataset.tab===id)?id:'overview';
-  tabs.forEach(t=>{const active=t.dataset.tab===valid;t.setAttribute('aria-selected',String(active));t.tabIndex=active?0:-1;if(active&&focus)t.focus();});
-  panels.forEach(p=>p.hidden=p.dataset.panel!==valid);
-  history.replaceState(null,'',`#${valid}`);
-  window.scrollTo({top:Math.max(0,document.querySelector('.project-bar').offsetTop-70),behavior:'instant'});
-}
-tabs.forEach((tab,i)=>{
-  tab.addEventListener('click',()=>activate(tab.dataset.tab));
-  tab.addEventListener('keydown',e=>{
-    if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;
-    e.preventDefault();let n=i;
-    if(e.key==='ArrowRight')n=(i+1)%tabs.length;
-    if(e.key==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;
-    if(e.key==='Home')n=0;if(e.key==='End')n=tabs.length-1;
-    activate(tabs[n].dataset.tab,true);
+  'use strict';
+
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const panels = [...document.querySelectorAll('[role="tabpanel"]')];
+  const toast = document.getElementById('toast');
+  const esc = value => String(value ?? '').replace(/[&<>"']/g, character => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[character]);
+  const slug = value => String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const badge = status => `<span class="badge badge--${slug(status)}">${esc(status)}</span>`;
+
+  function showToast(message) {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('is-visible');
+    clearTimeout(showToast.timer);
+    showToast.timer = setTimeout(() => toast.classList.remove('is-visible'), 2600);
+  }
+
+  function activate(id, focus = false) {
+    const selected = tabs.some(tab => tab.dataset.tab === id) ? id : 'overview';
+    tabs.forEach(tab => {
+      const active = tab.dataset.tab === selected;
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      if (active && focus) tab.focus();
+    });
+    panels.forEach(panel => { panel.hidden = panel.dataset.panel !== selected; });
+    history.replaceState(null, '', `#${selected}`);
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activate(tab.dataset.tab));
+    tab.addEventListener('keydown', event => {
+      if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      let next = index;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+      if (event.key === 'Home') next = 0;
+      if (event.key === 'End') next = tabs.length - 1;
+      activate(tabs[next].dataset.tab, true);
+    });
   });
-});
-const subject=encodeURIComponent('Dunn Residence — production authorization');
-const body=encodeURIComponent(`Thomas,\n\nBDPC authorizes CAD Guardian to begin the Dunn Residence three-sheet CAD pilot under the published $3,200 fixed-fee scope.\n\nConfirmed deliverables:\n1. Existing floor plan\n2. Proposed floor plan\n3. Site and area plan\n\nReview allowance: one consolidated BDPC redline cycle.\n\nPlease confirm the production start date and any final dependency request.\n\nBest,\nBrian`);
-function authorize(){window.location.href=`mailto:tsmithcad@gmail.com?subject=${subject}&body=${body}`;}
-document.getElementById('authorize-top')?.addEventListener('click',authorize);
 
-function table(headers,rows){
-  return `<div class="table-wrap"><table><thead><tr>${headers.map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c?.badge?badge(c.badge):esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
-}
-const head=(eyebrow,title,copy,action='')=>`<div class="section-head"><div><span class="eyebrow">${esc(eyebrow)}</span><h2>${esc(title)}</h2>${copy?`<p>${esc(copy)}</p>`:''}</div>${action}</div>`;
+  function table(headers, rows) {
+    return `<div class="table-wrap"><table><thead><tr>${headers.map(header => `<th>${esc(header)}</th>`).join('')}</tr></thead><tbody>${rows.map(row => `<tr>${row.map(cell => `<td>${cell && cell.badge ? badge(cell.badge) : esc(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+  }
 
-function renderOverview(d,m){
-  const reports=d.reports.map(r=>`<a class="report-card" href="${r.url}"><span>${esc(r.id)}</span><h3>${esc(r.name)}</h3><p>${esc(r.summary)}</p><strong>Open report →</strong></a>`).join('');
-  return `<div class="hero-grid"><div><span class="eyebrow">Updated ${esc(d.updated_date)}</span><h2>Preflight is complete. Drawing production is ready to start when the runtime and commercial gates clear.</h2><p class="lede">All five LiDAR sessions were analyzed, the source hierarchy is mapped, five reports are published, and the three-sheet production sequence is defined. Floor-plan completion remains the controlling priority; optional automation cannot delay delivery.</p><div class="actions"><a class="button button--primary" href="/bdpc/reports/">Open report library</a><a class="button button--secondary" href="/bdpc/sow/">Open printable SOW</a><a class="button button--secondary" href="/bdpc/data/project.json" download>Download JSON</a><button class="button button--secondary" type="button" data-sqlite-download>Download SQLite</button></div></div><aside class="decision-card"><span>Next controlled action</span><h3>Activate AutoCAD/ReCap → confirm native scan alignment → begin existing floor plan.</h3><dl><div><dt>Preflight</dt><dd>${m.preflight_percent}%</dd></div><div><dt>Production</dt><dd>${m.production_percent}%</dd></div><div><dt>Overall milestones</dt><dd>${m.milestones_complete} / ${m.milestones_total}</dd></div><div><dt>BDPC install required</dt><dd>None</dd></div></dl></aside></div>
-  <div class="metric-grid"><article><span>Source package</span><strong>${m.files} files</strong><small>${m.source_size_gb.toFixed(2)} GB inventoried</small></article><article><span>LiDAR analyzed</span><strong>${(m.point_count/1e6).toFixed(2)}M points</strong><small>${m.scan_sessions} scan sessions · zero read errors</small></article><article><span>Reports</span><strong>${m.reports} complete</strong><small>Client-safe and accessible</small></article><article><span>Production scope</span><strong>3 sheets</strong><small>Existing · proposed · site/area</small></article></div>
-  ${head('Status summary','Current project state','')}
-  <div class="status-grid"><article class="status-card status-card--complete">${badge('Complete')}<h3>Source and LiDAR preflight</h3><p>Intake, visual index, header, core geometry and registration analyses are complete.</p></article><article class="status-card status-card--awaiting-input">${badge('Awaiting input')}<h3>Licensed runtime</h3><p>AutoCAD and ReCap licenses are pending on CAD Guardian's execution environment.</p></article><article class="status-card status-card--awaiting-input">${badge('Awaiting input')}<h3>BDPC authorization</h3><p>Approve the $3,200 fixed-fee three-sheet scope and one review cycle.</p></article><article class="status-card status-card--not-started">${badge('Not started')}<h3>Drawing production</h3><p>The existing floor plan is the first production deliverable after both gates clear.</p></article></div>
-  ${head('Evidence','Published reports','',`<a href="/bdpc/reports/">View report library →</a>`)}<div class="report-grid">${reports}</div>
-  <div class="data-integrity" id="data-integrity"><span>Data snapshot verified</span><strong>Revision ${esc(d.revision)} · ${Object.values(m.table_counts||{}).reduce((a,b)=>a+b,0)||'client-safe'} database records · SHA-256 ${esc(m.database_sha256||'pending').slice(0,12)}…</strong></div>`;
-}
-function renderMilestones(d){
-  const complete=d.milestones.filter(x=>x.status==='Complete').length;
-  const rows=d.milestones.map(x=>[x.sequence,x.name,{badge:x.status},x.phase,x.detail,x.completed_date||'—']);
-  return `${head('20 controlled gates','Milestones',`${complete} preflight milestones are complete. Runtime, standards dependencies and authorization remain open.`)}<div class="progress-block"><div><span>Overall milestone completion</span><strong>${Math.round(complete/d.milestones.length*100)}%</strong></div><progress value="${complete}" max="${d.milestones.length}"></progress></div>${table(['#','Milestone','Status','Phase','Definition','Completed'],rows)}`;
-}
-function renderFiles(d){
-  const m=d.metrics;const rows=d.file_groups.map(x=>[x.group,x.extensions,x.count,{badge:x.status},x.notes]);
-  return `${head('Client-safe inventory','Files','The workspace exposes counts, roles and readiness—not raw design files, exact address, local paths or private source filenames.',`<a class="button button--secondary" href="/bdpc/reports/intake/">Open intake report</a>`)}<div class="metric-grid metric-grid--six"><article><span>Total</span><strong>${m.files}</strong><small>Files inventoried</small></article><article><span>Required groups</span><strong>${m.required_groups_present} / ${m.required_groups_total}</strong><small>Present</small></article><article><span>CAD</span><strong>3</strong><small>DWG candidates</small></article><article><span>PDF</span><strong>2</strong><small>Conceptual/reference</small></article><article><span>LiDAR</span><strong>5</strong><small>LAS files</small></article><article><span>Duplicates</span><strong>${m.duplicate_groups}</strong><small>Expected calibration groups</small></article></div>${table(['Client-safe group','Extensions','Count','Status','Control note'],rows)}<div class="callout"><strong>Working-set rule:</strong> originals remain read-only. Controlled copies are created only after licensed DWG openability and dependency checks.</div>`;
-}
-function renderStandards(d){return `${head('Drawing controls','Standards','Confirmed project rules and remaining dependency checks. Architectural judgment stays with BDPC.')}${table(['Standard / boundary','Status','Current rule','Basis'],d.standards.map(x=>[x.item,{badge:x.status},x.rule,x.basis]))}`;}
-function renderAutomation(d){return `${head('Production-first tooling','Automation','Automation is permitted only when it reduces current-cycle effort or risk. No exploratory tool may delay the three drawing deliverables.')}<div class="principle"><span>Controlling rule</span><strong>Floor-plan completion outranks automation.</strong><p>Read-only preflight tools are complete. Runtime tools remain bounded, reversible and human-reviewed.</p></div>${table(['Tool / operation','Status','Runtime','Verified result or boundary','Disposition'],d.automation.map(x=>[x.item,{badge:x.status},x.tool,x.result,x.disposition]))}`;}
-function renderDelivery(d){return `${head('Drawing production','Delivery + QA','Three coordinated sheets, one consolidated review cycle, and a final native DWG/PDF package.')}<h3 class="subhead">Deliverables</h3>${table(['Sequence','Deliverable','Status','Scope','Format','Target'],d.deliverables.map(x=>[x.sequence,x.name,{badge:x.status},x.scope,x.format,x.target]))}<h3 class="subhead">Quality gates</h3>${table(['QA check','Status','Evidence / acceptance condition'],d.qa_checks.map(x=>[x.check,{badge:x.status},x.evidence]))}<div class="callout"><strong>Schedule rule:</strong> the production clock begins only after licenses, required dependencies and written authorization are complete.</div>`;}
-function renderCommercial(d){return `<div class="commercial-hero"><div><span class="eyebrow">Scope ready for approval</span><h2>$3,200 fixed fee</h2><p>Three coordinated sheets, one consolidated BDPC review cycle, and final DWG/PDF issue.</p></div><button class="button button--primary" id="authorize-commercial" type="button">Authorize by email</button></div>${table(['Commercial term','Value','Status / trigger'],d.commercial.map(x=>[x.term,x.value,x.status]))}<div class="two-col"><article class="card"><h3>Included</h3><ul><li>Existing floor plan</li><li>Proposed floor plan</li><li>Site and area plan</li><li>LiDAR/source reconciliation required for drafting</li><li>One consolidated review cycle</li><li>Final native DWG/PDF issue package</li></ul></article><article class="card"><h3>Excluded</h3><ul><li>Additional sheets, elevations, sections, RCPs, details or schedules</li><li>Structural, MEP, civil, survey or field-verification services</li><li>Permit administration</li><li>Independent architectural or code decisions</li><li>Software or automation delivered as a client product</li></ul></article></div><div class="actions"><a class="button button--secondary" href="/bdpc/sow/">Open printable SOW</a></div>`;}
-function renderUpdates(d){return `${head('Project record','Updates','Current client-safe activity log. Raw source-path details remain private.')}${table(['Date','Update','Status','Details'],d.updates.map(x=>[x.date,x.title,{badge:x.status},x.detail]))}`;}
-function renderRuntime(d){return `${head('Execution environment','Runtime','BDPC installs nothing. CAD Guardian provides and controls the licensed production environment, local working copies, QA tooling and final packaging.',`<a class="button button--secondary" href="/bdpc/data/manifest.json">Open data manifest</a>`)}${table(['Component','Version','Status','Availability','Purpose'],d.runtime.map(x=>[x.component,x.version,{badge:x.status},x.availability,x.purpose]))}<h3 class="subhead">Scan-session source hierarchy</h3>${table(['Session','Role','Points','Size','Raw extent','Robust core extent','Production interpretation'],d.scan_sessions.map(x=>[x.session,x.role,x.points.toLocaleString(),x.size,x.raw_extent,x.core_extent,x.interpretation]))}<div class="two-col"><article class="card"><h3>Required before drafting</h3><ol><li>Activate AutoCAD and ReCap licenses.</li><li>Confirm optional CTB/STB, fonts and title block dependencies.</li><li>Approve the fixed-fee scope in writing.</li><li>Open working copies and validate scan alignment at native coordinates.</li></ol></article><article class="card"><h3>Client-safe data snapshot</h3><p>The SQLite file is the canonical tabular snapshot. GitHub Pages is static, so the interface renders from the synchronized JSON export.</p><ul><li><button class="text-button" type="button" data-sqlite-download>Download SQLite database</button></li><li><a href="/bdpc/data/project.json" download>JSON export</a></li><li><a href="/bdpc/data/schema.sql" download>SQL schema + dump</a></li><li><a href="/bdpc/data/manifest.json">Checksums + table counts</a></li></ul></article></div>`;}
+  function head(eyebrow, title, copy = '', action = '') {
+    return `<div class="section-head"><div><span class="eyebrow">${esc(eyebrow)}</span><h2>${esc(title)}</h2>${copy ? `<p>${esc(copy)}</p>` : ''}</div>${action}</div>`;
+  }
 
-async function downloadSqlite(){
-  try{showToast('Preparing SQLite snapshot…');const res=await fetch('data/bdpc_client_os.sqlite.b64',{cache:'no-store'});if(!res.ok)throw new Error('download');const raw=atob((await res.text()).trim());const bytes=new Uint8Array(raw.length);for(let i=0;i<raw.length;i++)bytes[i]=raw.charCodeAt(i);const url=URL.createObjectURL(new Blob([bytes],{type:'application/vnd.sqlite3'}));const a=document.createElement('a');a.href=url;a.download='bdpc_client_os.sqlite';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);showToast('SQLite snapshot downloaded.');}catch(e){showToast('SQLite download failed. Use the SQL dump or JSON export.');}
-}
-function bindDynamic(){document.querySelectorAll('[data-sqlite-download]').forEach(el=>el.addEventListener('click',downloadSqlite));document.getElementById('authorize-commercial')?.addEventListener('click',authorize);}
-async function load(){
-  try{
-    const [d,m]=await Promise.all([fetch('data/project.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json()}),fetch('data/manifest.json',{cache:'no-store'}).then(r=>r.ok?r.json():{})]);
-    d.metrics={...d.metrics,...m};
-    document.getElementById('revision-label').textContent=`Client Service OS · revision ${d.revision}`;
-    document.getElementById('footer-revision').textContent=d.revision;
-    document.getElementById('panel-overview').innerHTML=renderOverview(d,d.metrics);
-    document.getElementById('panel-milestones').innerHTML=renderMilestones(d);
-    document.getElementById('panel-files').innerHTML=renderFiles(d);
-    document.getElementById('panel-standards').innerHTML=renderStandards(d);
-    document.getElementById('panel-automation').innerHTML=renderAutomation(d);
-    document.getElementById('panel-delivery').innerHTML=renderDelivery(d);
-    document.getElementById('panel-commercial').innerHTML=renderCommercial(d);
-    document.getElementById('panel-updates').innerHTML=renderUpdates(d);
-    document.getElementById('panel-runtime').innerHTML=renderRuntime(d);
-    bindDynamic();
-  }catch(e){document.getElementById('panel-overview').innerHTML='<div class="callout"><strong>Workspace data could not load.</strong> Open the report library or refresh the page.</div>';}
-}
-const initial=location.hash.replace('#','')||'overview';activate(initial);
-window.addEventListener('hashchange',()=>activate(location.hash.replace('#','')||'overview'));
-load();
+  function renderOverview(data, manifest) {
+    const metrics = data.metrics;
+    const gates = data.kickoff_gates.map(gate => `<li><strong>${esc(gate.gate)}</strong><span>${badge(gate.status)}</span></li>`).join('');
+    const reports = data.reports.map(report => `<a class="report-card" href="${esc(report.url)}"><span>${esc(report.id)}</span><h3>${esc(report.name)}</h3><p>${esc(report.summary)}</p><strong>Open report →</strong></a>`).join('');
+    return `<div class="hero-grid"><div><span class="eyebrow">Updated ${esc(data.updated_date)} · ${esc(data.release_marker)}</span><h2>Pre-license evidence and the fixed-fee estimate are ready. Native drawing production has not started.</h2><p class="lede">Five source/working validations passed, 91,688,946 source points were processed in bounded chunks, and the current client-safe review is ready for authorization. Production begins only after every kickoff gate clears.</p><div class="actions"><a class="button button--primary" href="/bdpc/sow/">Review estimate</a><button class="button button--secondary" type="button" data-authorize>Authorize project</button><a class="button button--secondary" href="/bdpc/reports/completion/">Review completion brief</a><button class="button button--secondary" type="button" data-sqlite-download>Download verified SQLite</button></div></div><aside class="decision-card"><span>Kickoff gates</span><h3>All four gates control the production start.</h3><ul class="gate-list">${gates}</ul><p class="decision-note">Check-set target: 3 business days after all kickoff gates.</p></aside></div>
+      <div class="metric-grid"><article><span>Confidential source corpus</span><strong>${metrics.source_files} files</strong><small>${metrics.source_size_gib.toFixed(2)} GiB aggregate</small></article><article><span>Validated source points</span><strong>${(metrics.source_points / 1e6).toFixed(2)}M</strong><small>${metrics.validated_sessions} of ${metrics.scan_sessions} validation pairs passed</small></article><article><span>Current analytical evidence</span><strong>${metrics.full_source_figures + metrics.plan_control_slices + metrics.native_overlays} figures</strong><small>${metrics.full_source_figures} full-source · ${metrics.plan_control_slices} slices · ${metrics.native_overlays} overlays</small></article><article><span>Native production</span><strong>Not started</strong><small>No final production drawing or PDF exists</small></article></div>
+      ${head('Current truth', 'What is complete—and what is not')}
+      <div class="status-grid"><article class="status-card status-card--complete">${badge('Complete')}<h3>Analytical validation</h3><p>Five validations, full-source statistics, current native-coordinate pair evidence, and the estimate package are complete or ready.</p></article><article class="status-card status-card--ready">${badge('Ready')}<h3>Client review</h3><p>The $3,200 estimate, completion brief, and client-safe downloads are ready for human review.</p></article><article class="status-card status-card--awaiting-input">${badge('Awaiting input')}<h3>Authorization and inputs</h3><p>Written authorization, start payment, and controlling-input confirmation remain open.</p></article><article class="status-card status-card--blocked">${badge('Blocked')}<h3>Licensed runtime</h3><p>A licensed compatible Autodesk runtime or approved remote workstation is the hard technical blocker.</p></article></div>
+      <div class="callout"><strong>Native-coordinate finding:</strong> ${esc(data.overlap_statement)}</div>
+      ${head('Evidence', 'Client-safe report library', '', '<a href="/bdpc/reports/">Open all reports →</a>')}<div class="report-grid">${reports}</div>
+      <div class="data-integrity"><span>Verified data snapshot</span><strong>Revision ${esc(data.revision)} · ${Object.values(manifest.table_counts || {}).reduce((sum, count) => sum + count, 0)} database rows · SHA-256 ${esc(manifest.database_sha256 || '').slice(0, 12)}…</strong></div>`;
+  }
+
+  function renderMilestones(data) {
+    const rows = data.milestones.map(item => [item.id, item.name, { badge: item.status }, item.phase, item.evidence, item.limitation]);
+    return `${head('Evidence-backed states', 'Milestones', 'Statuses are reported by acceptance state; no activity-derived overall percentage is used.')}${table(['ID', 'Milestone', 'Status', 'Phase', 'Evidence', 'Limitation'], rows)}`;
+  }
+
+  function renderFiles(data) {
+    const metrics = data.metrics;
+    return `${head('Client-safe aggregate only', 'Source and evidence inventory', 'Confidential source files, filenames, exact address, coordinates, detailed bounds, and private manifests are not published.', '<a class="button button--secondary" href="/bdpc/reports/intake/">Open intake report</a>')}<div class="metric-grid metric-grid--six"><article><span>Source files</span><strong>${metrics.source_files}</strong><small>Metadata inventory</small></article><article><span>Source bytes</span><strong>${metrics.source_bytes.toLocaleString()}</strong><small>${metrics.source_size_gib.toFixed(2)} GiB</small></article><article><span>Sessions</span><strong>${metrics.scan_sessions}</strong><small>Five validation pairs passed</small></article><article><span>Source points</span><strong>${metrics.source_points.toLocaleString()}</strong><small>Bounded all-point processing</small></article><article><span>Current figures</span><strong>${metrics.full_source_figures}</strong><small>Full-source figures generated</small></article><article><span>Current controls</span><strong>${metrics.plan_control_slices + metrics.native_overlays}</strong><small>Slices and overlays</small></article></div><div class="callout"><strong>Source integrity:</strong> ${esc(data.source_integrity_statement)}</div>${table(['Session', 'Generalized role', 'Points', 'Validation', 'Boundary'], data.validation_sessions.map(item => [item.session, item.role, item.points.toLocaleString(), { badge: item.status }, item.limitation]))}`;
+  }
+
+  function renderStandards(data) {
+    return `${head('Authority and limitations', 'Controlling standards', 'BDPC confirmation—not filename, date, location, or format—establishes which inputs control production.')}<div class="two-col"><article class="card"><h3>Controlling-input confirmation required</h3><ul><li>Current project CAD</li><li>Design/redline or conceptual intent</li><li>Title block</li><li>Standards and dependency inputs</li></ul></article><article class="card"><h3>Truth boundary</h3><ul>${data.truth_boundary.map(item => `<li>${esc(item)}</li>`).join('')}</ul></article></div><div class="callout"><strong>Conflict rule:</strong> unresolved differences are documented and returned for BDPC direction; they are never silently resolved.</div>`;
+  }
+
+  function renderAutomation(data) {
+    return `${head('Production-first controls', 'Analytical and automation state', 'Validated bounded processing supports decisions; it does not replace licensed native production or professional review.')}<div class="status-grid"><article class="status-card status-card--complete">${badge('Complete')}<h3>Bounded point processing</h3><p>${data.metrics.source_points.toLocaleString()} source points were processed and reconciled without regenerating source data.</p></article><article class="status-card status-card--complete">${badge('Complete')}<h3>Client-safe release data</h3><p>JSON, CSV, SQLite, multipart transport, and manifest hashes share one canonical build.</p></article><article class="status-card status-card--blocked">${badge('Blocked')}<h3>Native validation</h3><p>Openability, dependencies, layouts, title-block behavior, and plot fidelity await a licensed compatible runtime.</p></article><article class="status-card status-card--not-started">${badge('Not started')}<h3>Drawing production</h3><p>Native drawing work begins only when the four kickoff gates clear.</p></article></div>`;
+  }
+
+  function renderDelivery(data) {
+    return `${head('Three-sheet scope', 'Delivery and QA', 'The check-set target is three business days after all kickoff gates; total production is four to five business days excluding client review.')}${table(['Sequence', 'Deliverable', 'Status', 'Scope', 'Format', 'Target'], data.deliverables.map(item => [item.sequence, item.name, { badge: item.status }, item.scope, item.format, item.target]))}<h3 class="subhead">Quality gates</h3>${table(['Check', 'Status', 'Evidence or acceptance condition'], data.qa_checks.map(item => [item.check, { badge: item.status }, item.evidence]))}<div class="callout"><strong>Review allowance:</strong> one consolidated client review round is included.</div>`;
+  }
+
+  function renderCommercial(data) {
+    return `<div class="commercial-hero"><div><span class="eyebrow">Ready for written authorization</span><h2>$3,200 fixed fee</h2><p>$1,600 start payment · $1,600 final payment · one consolidated review round.</p></div><button class="button button--primary" type="button" data-authorize>Authorize project</button></div>${table(['Commercial term', 'Value', 'Status or trigger'], data.commercial.map(item => [item.term, item.value, item.status]))}<div class="two-col"><article class="card"><h3>Included</h3><ul><li>Existing floor plan</li><li>Proposed floor plan</li><li>Site and area plan</li><li>One consolidated review round</li><li>Final native CAD and PDF issue after QA</li></ul></article><article class="card"><h3>Schedule starts after</h3><ol>${data.kickoff_gates.map(item => `<li>${esc(item.gate)}</li>`).join('')}</ol></article></div><div class="actions"><a class="button button--secondary" href="/bdpc/sow/">Open printable estimate and SOW</a></div>`;
+  }
+
+  function renderUpdates(data) {
+    return `${head('Client-safe record', 'Updates', 'Current release events and next actions; private working logs remain outside the site.')}${table(['Date', 'Update', 'Status', 'Detail'], data.updates.map(item => [item.date, item.title, { badge: item.status }, item.detail]))}`;
+  }
+
+  function renderRuntime(data) {
+    return `${head('Hard technical gate', 'Runtime and kickoff actions', 'A licensed compatible Autodesk runtime or approved remote workstation is required before native production and fidelity validation.', '<a class="button button--secondary" href="/bdpc/data/manifest.json">Open data manifest</a>')}${table(['Sequence', 'Gate', 'Status', 'Owner', 'Requirement'], data.kickoff_gates.map(item => [item.sequence, item.gate, { badge: item.status }, item.owner, item.requirement]))}<h3 class="subhead">Client actions</h3><ol class="action-list">${data.client_actions.map(item => `<li>${esc(item)}</li>`).join('')}</ol><div class="two-col"><article class="card"><h3>Verified downloads</h3><ul><li><button class="text-button" type="button" data-sqlite-download>Download SQLite database</button></li><li><a href="/bdpc/data/project.json" download>Download JSON snapshot</a></li><li><a href="/bdpc/data/schema.sql" download>Download SQL schema</a></li><li><a href="/bdpc/data/manifest.json">Review hashes and table counts</a></li></ul></article><article class="card"><h3>Not yet validated</h3><p>Native openability, references, fonts, object support, title-block authority, layouts, page setup, and plot fidelity remain pending the licensed runtime.</p></article></div>`;
+  }
+
+  function authorize() {
+    const subject = encodeURIComponent('Dunn Residence — written project authorization');
+    const body = encodeURIComponent('Thomas,\n\nBDPC authorizes the Dunn Residence $3,200 fixed-fee scope with one consolidated review round. We will arrange the $1,600 start payment, confirm the controlling CAD/design/title-block/standards inputs, and coordinate licensed runtime access.\n\nPlease confirm when all kickoff gates are complete and the production clock can begin.\n\nBest,\nBrian');
+    window.location.href = `mailto:tsmithcad@gmail.com?subject=${subject}&body=${body}`;
+  }
+
+  function bindDynamic() {
+    document.querySelectorAll('[data-authorize]').forEach(button => button.addEventListener('click', authorize));
+    document.querySelectorAll('[data-sqlite-download]').forEach(button => button.addEventListener('click', () => {
+      if (window.BDPC_SQLITE_DOWNLOAD) window.BDPC_SQLITE_DOWNLOAD(showToast);
+      else showToast('SQLite downloader is still loading. Please try again.');
+    }));
+  }
+
+  async function load() {
+    try {
+      const [data, manifest] = await Promise.all([
+        fetch('/bdpc/data/project.json', { cache: 'no-store' }).then(response => {
+          if (!response.ok) throw new Error('project data');
+          return response.json();
+        }),
+        fetch('/bdpc/data/manifest.json', { cache: 'no-store' }).then(response => {
+          if (!response.ok) throw new Error('manifest');
+          return response.json();
+        })
+      ]);
+      document.getElementById('revision-label').textContent = `Client Service OS · revision ${data.revision}`;
+      document.getElementById('footer-revision').textContent = data.revision;
+      document.getElementById('panel-overview').innerHTML = renderOverview(data, manifest);
+      document.getElementById('panel-milestones').innerHTML = renderMilestones(data);
+      document.getElementById('panel-files').innerHTML = renderFiles(data);
+      document.getElementById('panel-standards').innerHTML = renderStandards(data);
+      document.getElementById('panel-automation').innerHTML = renderAutomation(data);
+      document.getElementById('panel-delivery').innerHTML = renderDelivery(data);
+      document.getElementById('panel-commercial').innerHTML = renderCommercial(data);
+      document.getElementById('panel-updates').innerHTML = renderUpdates(data);
+      document.getElementById('panel-runtime').innerHTML = renderRuntime(data);
+      bindDynamic();
+    } catch (error) {
+      document.getElementById('panel-overview').innerHTML = '<div class="callout"><strong>Workspace data could not load.</strong> Open the report library or refresh the page.</div>';
+    }
+  }
+
+  document.getElementById('authorize-top')?.addEventListener('click', authorize);
+  activate(location.hash.replace('#', '') || 'overview');
+  window.addEventListener('hashchange', () => activate(location.hash.replace('#', '') || 'overview'));
+  load();
 })();
