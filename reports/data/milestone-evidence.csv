@@ -1,13 +1,21 @@
 milestone_id,milestone,status,phase,evidence,limitation
-M-01,Five source/working validations,Complete,Pre-license evidence,"5 of 5 passed independent integrity, header, stride, endpoint, bounds, dimension, and manifest checks.",Not registration or survey certification.
-M-02,Full-source statistics,Complete,Pre-license evidence,"91,688,946 source points processed in bounded chunks and reconciled.",Analytical evidence only.
-M-03,Full-source figures,Ready for human review,Pre-license evidence,25 full-source figures generated; one decision-relevant plan view is included here.,"Selected figures are analytical controls, not issued drawings."
-M-04,Plan-control slices,Ready for human review,Pre-license evidence,Nine trial slice figures generated.,Two upper trial bands contain zero contributing points; floor basis and candidate units remain controls.
-M-05,Native-coordinate pair analysis,Complete,Pre-license evidence,Five pairs analyzed: four weak native overlaps and one no-material-overlap.,"No transform, adopted tolerance, or registration pass."
-M-06,Estimate and release package,Ready,Client review,"$3,200 estimate and client-safe evidence package passed local QA.",Requires human review and written authorization.
-M-07,Written authorization,Awaiting input,Kickoff,BDPC written authorization is required.,Production clock has not started.
-M-08,Start payment,Awaiting input,Kickoff,"$1,600 start payment arrangement is required.",Production clock has not started.
-M-09,Controlling inputs,Awaiting input,Kickoff,"BDPC must confirm controlling CAD, design/redline intent, title block, standards, and dependencies.",Candidate status does not establish authority.
-M-10,Licensed Autodesk-compatible runtime,Blocked,Kickoff,Licensed compatible Autodesk runtime or approved remote workstation is required.,Native compatibility and plotting fidelity remain unvalidated.
-M-11,Native drawing production,Not started,Production,No native production drawing or final production PDF exists.,Begins only after all kickoff gates.
-M-12,Consolidated client review,Not started,Production,One consolidated review round is included.,Occurs after the check set is issued.
+M-01,Discovery and scope alignment,Complete,Pre-license evidence,"The three-sheet client scope, commercial terms, technical boundaries, and kickoff gates are documented.",Written authorization remains a separate kickoff gate.
+M-02,Source package inventory,Complete,Pre-license evidence,"908 files and 8,801,309,883 bytes were reconciled in the protected source inventory.",Aggregate client-safe counts only; confidential sources remain private.
+M-03,Five source / working validations,Complete,Pre-license evidence,"5 of 5 passed independent integrity, header, stride, endpoint, bounds, dimension, and manifest checks.",Not registration or survey certification.
+M-04,Bounded full-source statistics,Complete,Pre-license evidence,"91,688,946 source points were processed in bounded chunks and reconciled.",Analytical evidence only.
+M-05,Full-source visual index,Ready for human review,Pre-license evidence,25 full-source figures are published in the client-safe visual inspection gallery.,"Analytical controls, not issued drawings."
+M-06,Plan-control slice audit,Ready for human review,Pre-license evidence,Nine trial slice figures are published with contributing-point counts.,Two upper bands contain zero contributing points; candidate floor and units remain controls.
+M-07,Native-coordinate pair audit,Complete,Pre-license evidence,Five pairs were analyzed: four weak native overlaps and one no-material-overlap.,"No transform, adopted tolerance, or registration pass."
+M-08,Client-safe report library,Complete,Pre-license evidence,"Detailed intake, visual, header, slice, overlap, and completion reports are available from the OS.",Reports document analytical evidence and boundaries; they are not professional certifications.
+M-09,Estimate and release package,Ready,Client review,"The $3,200 estimate, print-optimized SOW, and client-safe evidence package passed local QA.",Requires human review and written authorization.
+M-10,Written authorization,Awaiting input,Kickoff,BDPC written authorization of the fixed-fee scope and included review round is required.,Production clock has not started.
+M-11,"$1,600 start payment",Awaiting input,Kickoff,The start payment arrangement is required before production begins.,Production clock has not started.
+M-12,Controlling project inputs,Awaiting input,Kickoff,"BDPC must confirm controlling CAD, design/redline intent, title block, standards, and dependencies.",Candidate status does not establish authority.
+M-13,Licensed compatible runtime,Blocked,Kickoff,A licensed compatible Autodesk runtime or approved remote workstation is required.,Native compatibility and plotting fidelity remain unvalidated.
+M-14,Controlled CAD working set,Not started,Production,Create protected working copies and validate native openability and dependencies after all kickoff gates.,Confidential originals remain immutable.
+M-15,Existing floor plan,Not started,Production,Draft and dimension the confirmed existing-condition basis.,No native production drawing exists yet.
+M-16,Proposed floor plan,Not started,Production,Coordinate the proposal to BDPC-confirmed design direction.,No native production drawing exists yet.
+M-17,Site and area plan,Not started,Production,"Document the agreed footprint, work limits, and area context.","Must not imply survey, civil, or field-verification services."
+M-18,Internal drawing and plot QA,Not started,Production,"Run geometry, annotation, layer, dependency, viewport, page-setup, and plotting checks.",Requires the licensed compatible runtime.
+M-19,BDPC check set and consolidated review,Not started,Production,Issue the coordinated review PDF and resolve one consolidated BDPC review round.,Check-set target is three business days after all kickoff gates; client review time is excluded.
+M-20,Final issue and closeout,Not started,Production,"After QA and review, issue the approved native CAD/PDF package and closeout record.",No final production drawing or PDF exists yet.

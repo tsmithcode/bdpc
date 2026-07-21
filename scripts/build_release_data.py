@@ -13,8 +13,8 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-REVISION = "2026.07.21.2"
-RELEASE_MARKER = "OS_SYNC_20260721"
+REVISION = "2026.07.21.3"
+RELEASE_MARKER = "OS_PRESERVATION_20260721"
 OVERLAP_STATEMENT = (
     "Five native-coordinate scan pairs were analyzed: four showed weak native "
     "overlap and one showed no material overlap. No transform was applied, no "
@@ -88,18 +88,26 @@ SLICE_EVIDENCE = [
 ]
 
 MILESTONES = [
-    {"id": "M-01", "name": "Five source/working validations", "status": "Complete", "phase": "Pre-license evidence", "evidence": "5 of 5 passed independent integrity, header, stride, endpoint, bounds, dimension, and manifest checks.", "limitation": "Not registration or survey certification."},
-    {"id": "M-02", "name": "Full-source statistics", "status": "Complete", "phase": "Pre-license evidence", "evidence": "91,688,946 source points processed in bounded chunks and reconciled.", "limitation": "Analytical evidence only."},
-    {"id": "M-03", "name": "Full-source figures", "status": "Ready for human review", "phase": "Pre-license evidence", "evidence": "25 full-source figures generated; one decision-relevant plan view is included here.", "limitation": "Selected figures are analytical controls, not issued drawings."},
-    {"id": "M-04", "name": "Plan-control slices", "status": "Ready for human review", "phase": "Pre-license evidence", "evidence": "Nine trial slice figures generated.", "limitation": "Two upper trial bands contain zero contributing points; floor basis and candidate units remain controls."},
-    {"id": "M-05", "name": "Native-coordinate pair analysis", "status": "Complete", "phase": "Pre-license evidence", "evidence": "Five pairs analyzed: four weak native overlaps and one no-material-overlap.", "limitation": "No transform, adopted tolerance, or registration pass."},
-    {"id": "M-06", "name": "Estimate and release package", "status": "Ready", "phase": "Client review", "evidence": "$3,200 estimate and client-safe evidence package passed local QA.", "limitation": "Requires human review and written authorization."},
-    {"id": "M-07", "name": "Written authorization", "status": "Awaiting input", "phase": "Kickoff", "evidence": "BDPC written authorization is required.", "limitation": "Production clock has not started."},
-    {"id": "M-08", "name": "Start payment", "status": "Awaiting input", "phase": "Kickoff", "evidence": "$1,600 start payment arrangement is required.", "limitation": "Production clock has not started."},
-    {"id": "M-09", "name": "Controlling inputs", "status": "Awaiting input", "phase": "Kickoff", "evidence": "BDPC must confirm controlling CAD, design/redline intent, title block, standards, and dependencies.", "limitation": "Candidate status does not establish authority."},
-    {"id": "M-10", "name": "Licensed Autodesk-compatible runtime", "status": "Blocked", "phase": "Kickoff", "evidence": "Licensed compatible Autodesk runtime or approved remote workstation is required.", "limitation": "Native compatibility and plotting fidelity remain unvalidated."},
-    {"id": "M-11", "name": "Native drawing production", "status": "Not started", "phase": "Production", "evidence": "No native production drawing or final production PDF exists.", "limitation": "Begins only after all kickoff gates."},
-    {"id": "M-12", "name": "Consolidated client review", "status": "Not started", "phase": "Production", "evidence": "One consolidated review round is included.", "limitation": "Occurs after the check set is issued."},
+    {"id": "M-01", "name": "Discovery and scope alignment", "status": "Complete", "phase": "Pre-license evidence", "evidence": "The three-sheet client scope, commercial terms, technical boundaries, and kickoff gates are documented.", "limitation": "Written authorization remains a separate kickoff gate."},
+    {"id": "M-02", "name": "Source package inventory", "status": "Complete", "phase": "Pre-license evidence", "evidence": "908 files and 8,801,309,883 bytes were reconciled in the protected source inventory.", "limitation": "Aggregate client-safe counts only; confidential sources remain private."},
+    {"id": "M-03", "name": "Five source / working validations", "status": "Complete", "phase": "Pre-license evidence", "evidence": "5 of 5 passed independent integrity, header, stride, endpoint, bounds, dimension, and manifest checks.", "limitation": "Not registration or survey certification."},
+    {"id": "M-04", "name": "Bounded full-source statistics", "status": "Complete", "phase": "Pre-license evidence", "evidence": "91,688,946 source points were processed in bounded chunks and reconciled.", "limitation": "Analytical evidence only."},
+    {"id": "M-05", "name": "Full-source visual index", "status": "Ready for human review", "phase": "Pre-license evidence", "evidence": "25 full-source figures are published in the client-safe visual inspection gallery.", "limitation": "Analytical controls, not issued drawings."},
+    {"id": "M-06", "name": "Plan-control slice audit", "status": "Ready for human review", "phase": "Pre-license evidence", "evidence": "Nine trial slice figures are published with contributing-point counts.", "limitation": "Two upper bands contain zero contributing points; candidate floor and units remain controls."},
+    {"id": "M-07", "name": "Native-coordinate pair audit", "status": "Complete", "phase": "Pre-license evidence", "evidence": "Five pairs were analyzed: four weak native overlaps and one no-material-overlap.", "limitation": "No transform, adopted tolerance, or registration pass."},
+    {"id": "M-08", "name": "Client-safe report library", "status": "Complete", "phase": "Pre-license evidence", "evidence": "Detailed intake, visual, header, slice, overlap, and completion reports are available from the OS.", "limitation": "Reports document analytical evidence and boundaries; they are not professional certifications."},
+    {"id": "M-09", "name": "Estimate and release package", "status": "Ready", "phase": "Client review", "evidence": "The $3,200 estimate, print-optimized SOW, and client-safe evidence package passed local QA.", "limitation": "Requires human review and written authorization."},
+    {"id": "M-10", "name": "Written authorization", "status": "Awaiting input", "phase": "Kickoff", "evidence": "BDPC written authorization of the fixed-fee scope and included review round is required.", "limitation": "Production clock has not started."},
+    {"id": "M-11", "name": "$1,600 start payment", "status": "Awaiting input", "phase": "Kickoff", "evidence": "The start payment arrangement is required before production begins.", "limitation": "Production clock has not started."},
+    {"id": "M-12", "name": "Controlling project inputs", "status": "Awaiting input", "phase": "Kickoff", "evidence": "BDPC must confirm controlling CAD, design/redline intent, title block, standards, and dependencies.", "limitation": "Candidate status does not establish authority."},
+    {"id": "M-13", "name": "Licensed compatible runtime", "status": "Blocked", "phase": "Kickoff", "evidence": "A licensed compatible Autodesk runtime or approved remote workstation is required.", "limitation": "Native compatibility and plotting fidelity remain unvalidated."},
+    {"id": "M-14", "name": "Controlled CAD working set", "status": "Not started", "phase": "Production", "evidence": "Create protected working copies and validate native openability and dependencies after all kickoff gates.", "limitation": "Confidential originals remain immutable."},
+    {"id": "M-15", "name": "Existing floor plan", "status": "Not started", "phase": "Production", "evidence": "Draft and dimension the confirmed existing-condition basis.", "limitation": "No native production drawing exists yet."},
+    {"id": "M-16", "name": "Proposed floor plan", "status": "Not started", "phase": "Production", "evidence": "Coordinate the proposal to BDPC-confirmed design direction.", "limitation": "No native production drawing exists yet."},
+    {"id": "M-17", "name": "Site and area plan", "status": "Not started", "phase": "Production", "evidence": "Document the agreed footprint, work limits, and area context.", "limitation": "Must not imply survey, civil, or field-verification services."},
+    {"id": "M-18", "name": "Internal drawing and plot QA", "status": "Not started", "phase": "Production", "evidence": "Run geometry, annotation, layer, dependency, viewport, page-setup, and plotting checks.", "limitation": "Requires the licensed compatible runtime."},
+    {"id": "M-19", "name": "BDPC check set and consolidated review", "status": "Not started", "phase": "Production", "evidence": "Issue the coordinated review PDF and resolve one consolidated BDPC review round.", "limitation": "Check-set target is three business days after all kickoff gates; client review time is excluded."},
+    {"id": "M-20", "name": "Final issue and closeout", "status": "Not started", "phase": "Production", "evidence": "After QA and review, issue the approved native CAD/PDF package and closeout record.", "limitation": "No final production drawing or PDF exists yet."},
 ]
 
 KICKOFF_GATES = [
@@ -117,12 +125,92 @@ COMMERCIAL = [
     {"term": "Check-set target", "value": "3 business days after all kickoff gates", "status": "Target"},
     {"term": "Production duration", "value": "4–5 business days excluding client review", "status": "Target"},
     {"term": "Included review", "value": "1 consolidated review round", "status": "Included"},
+    {"term": "Automation / standards library", "value": "Separate future scope", "status": "Not included"},
 ]
 
 DELIVERABLES = [
     {"sequence": 1, "name": "Existing floor plan", "status": "Not started", "scope": "Measured existing-condition plan with unresolved conflicts documented.", "format": "Native CAD + PDF", "target": "Check set"},
     {"sequence": 2, "name": "Proposed floor plan", "status": "Not started", "scope": "Proposed planning coordinated to confirmed BDPC direction.", "format": "Native CAD + PDF", "target": "Check set"},
     {"sequence": 3, "name": "Site and area plan", "status": "Not started", "scope": "Agreed footprint, work limits, and area context without survey representation.", "format": "Native CAD + PDF", "target": "Check set"},
+]
+
+FILE_GROUPS = [
+    {"group": "Images / scan-derived imagery", "formats": "PNG", "count": 838, "status": "Complete", "notes": "Aggregate count only; confidential source imagery remains private. Only reviewed client-safe derivatives appear in reports."},
+    {"group": "Sensor packages", "formats": "Scanner packages and support files", "count": 32, "status": "Complete", "notes": "Raw scanner working files remain private, read-only, and unpublished."},
+    {"group": "Text, CSV, and JSON support files", "formats": "Text and structured data", "count": 28, "status": "Complete", "notes": "Private metadata and analytical inputs remain outside the public OS."},
+    {"group": "LiDAR point clouds", "formats": "LAS", "count": 5, "status": "Complete", "notes": "Five source/working pairs passed independent validation; no point-cloud source is published."},
+    {"group": "CAD drawings", "formats": "DWG", "count": 3, "status": "Awaiting input", "notes": "Candidate current and standards-reference roles are documented; BDPC must confirm controlling authority and licensed openability remains unvalidated."},
+    {"group": "PDF references", "formats": "PDF", "count": 2, "status": "Awaiting input", "notes": "Candidate conceptual and standards-reference roles are documented; BDPC must confirm controlling authority."},
+]
+
+STANDARDS = [
+    {"item": "Dimension precision", "status": "Ready", "rule": "No finer than 1/2 inch unless BDPC directs otherwise.", "basis": "Client direction"},
+    {"item": "Typical framed wall basis", "status": "Ready", "rule": "Start typical 2×4 framed partitions at 3.5 inches, then reconcile field evidence.", "basis": "Client direction"},
+    {"item": "Door and window content", "status": "Ready", "rule": "Reuse established BDPC or controlling current-project blocks and known sizes before creating new content.", "basis": "Client direction"},
+    {"item": "Model-space source hierarchy", "status": "Awaiting input", "rule": "Use only the Dunn CAD and design inputs that BDPC confirms as controlling, reconciled with reviewed scan evidence; reference files provide standards context only.", "basis": "Project control"},
+    {"item": "Paper space / title block", "status": "Awaiting input", "rule": "Use the current BDPC presentation standard after BDPC confirms the controlling title block and any separately maintained dependency.", "basis": "Dependency"},
+    {"item": "Plot style", "status": "Awaiting input", "rule": "No separately maintained CTB or STB is treated as controlling. Provide it if the confirmed drawing set depends on one.", "basis": "Dependency"},
+    {"item": "Fonts / shape files", "status": "Awaiting input", "rule": "No separately maintained font or shape-file package is treated as controlling. Provide required dependencies with the confirmed set.", "basis": "Dependency"},
+    {"item": "Point-cloud coordinates", "status": "Ready", "rule": "Preserve and review native coordinates before any transformation; validate discrete common features in a licensed compatible runtime before production reliance.", "basis": "Analytical control"},
+    {"item": "Existing versus proposed graphics", "status": "Ready", "rule": "Maintain unambiguous condition hierarchy, lineweight, and annotation separation.", "basis": "QA standard"},
+    {"item": "Unknown conditions", "status": "Ready", "rule": "Do not invent concealed conditions. Flag material conflicts and return design decisions to BDPC.", "basis": "Decision boundary"},
+    {"item": "Site / area representation", "status": "Ready", "rule": "Do not imply survey, civil, or field-verification services; identify the basis and limitations of every site or area representation.", "basis": "Scope boundary"},
+]
+
+AUTOMATION = [
+    {"item": "Source intake inventory", "status": "Complete", "tool": "Read-only metadata inventory", "result": "908 files and 8,801,309,883 bytes reconciled without modifying confidential sources.", "disposition": "Used"},
+    {"item": "Source / working validation", "status": "Complete", "tool": "Independent hash, header, stride, endpoint, bounds, dimension, and manifest checks", "result": "Five of five source/working pairs passed.", "disposition": "Used"},
+    {"item": "Full-source statistics", "status": "Complete", "tool": "Bounded Python processing", "result": "91,688,946 source points processed and reconciled.", "disposition": "Used"},
+    {"item": "Full-source visual index", "status": "Ready for human review", "tool": "Python + Pillow", "result": "25 reviewed client-safe figures published across five generalized sessions.", "disposition": "Review"},
+    {"item": "Plan-control slice audit", "status": "Ready for human review", "tool": "laspy + NumPy + Pillow", "result": "Nine trial slices published; two upper bands contain zero contributing points.", "disposition": "Review"},
+    {"item": "Native-coordinate pair audit", "status": "Complete", "tool": "laspy + NumPy + Pillow", "result": "Five overlays: four weak native overlaps and one no-material-overlap; no transform, tolerance, or registration pass.", "disposition": "Used"},
+    {"item": "DWG openability preflight", "status": "Blocked", "tool": "Licensed compatible Autodesk runtime", "result": "Required before native production; originals remain read-only.", "disposition": "Kickoff gate"},
+    {"item": "Block and standards extractor", "status": "Not started", "tool": "Licensed runtime automation", "result": "Use only after controlling inputs are confirmed and only when it reduces production effort.", "disposition": "Conditional"},
+    {"item": "Layer / plotting validator", "status": "Not started", "tool": "Licensed compatible Autodesk runtime", "result": "Validate layers, text, dimensions, viewports, page setup, and plot output before issue.", "disposition": "Planned"},
+    {"item": "Publish / dependency package", "status": "Not started", "tool": "Licensed compatible Autodesk runtime", "result": "Package final approved native CAD, PDFs, and dependency record after QA.", "disposition": "Planned"},
+    {"item": "Automated change summary", "status": "Not started", "tool": "Controlled production logs", "result": "Generate at final issue from actual approved changes.", "disposition": "Planned"},
+    {"item": "Point-cloud wall suggestions", "status": "Not applicable", "tool": "Experimental", "result": "Excluded unless separately authorized; human CAD review controls issued drawings.", "disposition": "Deferred"},
+]
+
+QA_CHECKS = [
+    {"check": "Source package inventory", "status": "Complete", "evidence": "908 files and 8,801,309,883 bytes reconciled."},
+    {"check": "Source / working validation", "status": "Complete", "evidence": "Five of five pairs passed independent validation."},
+    {"check": "Bounded full-source processing", "status": "Complete", "evidence": "91,688,946 source points processed and reconciled."},
+    {"check": "Full-source figure review", "status": "Ready for human review", "evidence": "25 client-safe figures published for review."},
+    {"check": "Plan-control slice review", "status": "Ready for human review", "evidence": "Nine trial slices published; two upper bands have zero contributing points."},
+    {"check": "Native-coordinate overlap", "status": "Complete", "evidence": "Four weak native overlaps and one no-material-overlap; no transform, tolerance, or registration pass."},
+    {"check": "Controlling input authority", "status": "Awaiting input", "evidence": "BDPC must confirm the controlling CAD, design/redline intent, title block, standards, and dependencies."},
+    {"check": "Licensed DWG openability and version", "status": "Blocked", "evidence": "Validate in a licensed compatible Autodesk runtime before production."},
+    {"check": "Xrefs, fonts, and object dependencies", "status": "Blocked", "evidence": "Validate from the confirmed controlling inputs in the licensed runtime."},
+    {"check": "Existing-plan geometry QA", "status": "Not started", "evidence": "Review walls, partitions, openings, stairs, fixtures, and principal dimensions during production."},
+    {"check": "Proposed-plan coordination QA", "status": "Not started", "evidence": "Coordinate confirmed design intent, interfaces, room planning, openings, and connections."},
+    {"check": "Site / area plan QA", "status": "Not started", "evidence": "Confirm footprint, work limits, area labels, basis, and no-survey boundary."},
+    {"check": "Paper-space / plotting QA", "status": "Blocked", "evidence": "Validate title block, layers, annotations, viewport scales, page setup, CTB/STB behavior, and plot fidelity in the licensed runtime."},
+    {"check": "Review and final package QA", "status": "Not started", "evidence": "Issue the check set, resolve one consolidated review round, and validate final native CAD/PDF/dependency records."},
+]
+
+UPDATES = [
+    {"date": "2026-07-21", "title": "Detailed OS preservation repair", "status": "Complete", "detail": "The nine tab groups, documented rules, milestone visualization, detailed inventories, and preservation checks were restored from the pre-regression implementation and reconciled to current evidence."},
+    {"date": "2026-07-21", "title": "Detailed report and SOW preservation repair", "status": "Complete", "detail": "The image-driven report library and print-optimized estimate/SOW were restored with regression safeguards."},
+    {"date": "2026-07-21", "title": "Client-safe evidence published", "status": "Ready for human review", "detail": "Twenty-five full-source figures, nine plan-control slices, and five native-coordinate overlays are available in the report library."},
+    {"date": "2026-07-21", "title": "Source / working validation completed", "status": "Complete", "detail": "Five of five validation pairs passed independent integrity, header, stride, endpoint, bounds, dimension, and manifest checks."},
+    {"date": "2026-07-21", "title": "Full-source processing completed", "status": "Complete", "detail": "91,688,946 source points were processed in bounded chunks and reconciled."},
+    {"date": "2026-07-21", "title": "Native-coordinate pair analysis completed", "status": "Complete", "detail": "Four pairs showed weak native overlap and one showed no material overlap; no transform, tolerance, or registration pass was claimed."},
+    {"date": "2026-07-21", "title": "Estimate and pre-license package ready", "status": "Ready", "detail": "The $3,200 fixed-fee estimate and supporting client-safe review are ready for human review and written authorization."},
+    {"date": "Next", "title": "Clear all kickoff gates", "status": "Awaiting input", "detail": "Written authorization, $1,600 start payment, controlling-input confirmation, and licensed compatible runtime access are required before production starts."},
+]
+
+RUNTIME = [
+    {"component": "Licensed native CAD runtime", "version": "Compatible Autodesk runtime or approved remote workstation", "status": "Blocked", "availability": "Kickoff gate", "purpose": "Required for native openability, dependency validation, drawing production, and plotting fidelity."},
+    {"component": "Compatible point-cloud runtime", "version": "Licensed compatible workflow", "status": "Blocked", "availability": "Kickoff gate", "purpose": "Required for licensed point-cloud inspection and production coordination."},
+    {"component": "Python", "version": "3.14", "status": "Complete", "availability": "Installed", "purpose": "Used for bounded intake, validation, data build, and QA scripts."},
+    {"component": "laspy", "version": "2.7.0", "status": "Complete", "availability": "Installed", "purpose": "Used for bounded point access and analytical evidence."},
+    {"component": "NumPy", "version": "2.5.1", "status": "Complete", "availability": "Installed", "purpose": "Used for deterministic analytical processing and figures."},
+    {"component": "PyMuPDF", "version": "1.28.0", "status": "Complete", "availability": "Installed", "purpose": "Used for PDF inspection and print QA support."},
+    {"component": "Pillow", "version": "12.3.0", "status": "Complete", "availability": "Installed", "purpose": "Used to validate and prepare client-safe derived imagery."},
+    {"component": "Browser / static workspace", "version": "GitHub Pages", "status": "Ready", "availability": "Client-facing", "purpose": "Provides the OS, reports, estimate/SOW, and verified downloads without client installation."},
+    {"component": "Local project workspace", "version": "Dunn_Preflight_v1_1", "status": "Complete", "availability": "Protected", "purpose": "Separates private evidence, client-safe publication candidates, runtime records, and release QA."},
+    {"component": "AI assistance", "version": "Codex", "status": "Ready", "availability": "Available", "purpose": "Supports bounded analysis and release work; human CAD and client review control issued work."},
 ]
 
 REPORTS = [
@@ -182,29 +270,18 @@ def build_project() -> dict[str, Any]:
             "Submit start payment",
         ],
         "milestones": MILESTONES,
+        "file_groups": FILE_GROUPS,
+        "standards": STANDARDS,
+        "automation": AUTOMATION,
         "kickoff_gates": KICKOFF_GATES,
         "validation_sessions": VALIDATION_SESSIONS,
         "native_pairs": NATIVE_PAIRS,
         "slices": SLICE_EVIDENCE,
         "commercial": COMMERCIAL,
         "deliverables": DELIVERABLES,
-        "qa_checks": [
-            {"check": "Source/working validation", "status": "Complete", "evidence": "5 of 5 passed independent validation."},
-            {"check": "Bounded full-source processing", "status": "Complete", "evidence": "91,688,946 points reconciled."},
-            {"check": "Native-coordinate overlap", "status": "Complete", "evidence": "Four weak overlaps and one no-material-overlap; no transform/tolerance/pass."},
-            {"check": "Controlling inputs", "status": "Awaiting input", "evidence": "BDPC confirmation is a kickoff gate."},
-            {"check": "Licensed native validation", "status": "Blocked", "evidence": "Compatible runtime or approved remote workstation required."},
-            {"check": "Production drawings", "status": "Not started", "evidence": "Begins after all kickoff gates."},
-        ],
-        "updates": [
-            {"date": "2026-07-21", "title": "Client OS release synchronized", "status": "Complete", "detail": "Canonical data, client-safe evidence, estimate terms, kickoff gates, and verified download transport were reconciled."},
-            {"date": "2026-07-21", "title": "Pre-license evidence package", "status": "Ready", "detail": "The estimate and supporting project review are ready for human review and written authorization."},
-            {"date": "Next", "title": "Clear all kickoff gates", "status": "Awaiting input", "detail": "Written authorization, start payment, controlling-input confirmation, and licensed runtime access are all required before production starts."},
-        ],
-        "runtime": [
-            {"component": "Licensed compatible Autodesk runtime or approved remote workstation", "status": "Blocked", "purpose": "Native openability, dependencies, production, and plotting validation."},
-            {"component": "Client OS", "status": "Ready", "purpose": "Client-safe project review, estimate, evidence, and downloads."},
-        ],
+        "qa_checks": QA_CHECKS,
+        "updates": UPDATES,
+        "runtime": RUNTIME,
         "reports": REPORTS,
     }
 
@@ -221,6 +298,12 @@ CREATE TABLE slice_evidence(slice_id TEXT PRIMARY KEY,session_label TEXT NOT NUL
 CREATE TABLE commercial(id INTEGER PRIMARY KEY AUTOINCREMENT,term TEXT NOT NULL,value TEXT NOT NULL,status TEXT NOT NULL);
 CREATE TABLE deliverables(sequence INTEGER PRIMARY KEY,name TEXT NOT NULL,status TEXT NOT NULL,scope TEXT NOT NULL,output_format TEXT NOT NULL,target TEXT NOT NULL);
 CREATE TABLE reports(report_id TEXT PRIMARY KEY,name TEXT NOT NULL,status TEXT NOT NULL,url TEXT NOT NULL,summary TEXT NOT NULL);
+CREATE TABLE file_groups(id INTEGER PRIMARY KEY AUTOINCREMENT,group_name TEXT NOT NULL,formats TEXT NOT NULL,file_count INTEGER NOT NULL,status TEXT NOT NULL,notes TEXT NOT NULL);
+CREATE TABLE standards(id INTEGER PRIMARY KEY AUTOINCREMENT,item TEXT NOT NULL,status TEXT NOT NULL,rule TEXT NOT NULL,basis TEXT NOT NULL);
+CREATE TABLE automation(id INTEGER PRIMARY KEY AUTOINCREMENT,item TEXT NOT NULL,status TEXT NOT NULL,tool TEXT NOT NULL,result TEXT NOT NULL,disposition TEXT NOT NULL);
+CREATE TABLE qa_checks(id INTEGER PRIMARY KEY AUTOINCREMENT,check_name TEXT NOT NULL,status TEXT NOT NULL,evidence TEXT NOT NULL);
+CREATE TABLE updates(id INTEGER PRIMARY KEY AUTOINCREMENT,event_date TEXT NOT NULL,title TEXT NOT NULL,status TEXT NOT NULL,detail TEXT NOT NULL);
+CREATE TABLE runtime(id INTEGER PRIMARY KEY AUTOINCREMENT,component TEXT NOT NULL,version TEXT NOT NULL,status TEXT NOT NULL,availability TEXT NOT NULL,purpose TEXT NOT NULL);
 """
 
 
@@ -270,6 +353,30 @@ def build_database(path: Path, project: dict[str, Any]) -> dict[str, int]:
             connection.executemany(
                 "INSERT INTO reports VALUES (?,?,?,?,?)",
                 [(x["id"], x["name"], x["status"], x["url"], x["summary"]) for x in REPORTS],
+            )
+            connection.executemany(
+                "INSERT INTO file_groups(group_name,formats,file_count,status,notes) VALUES (?,?,?,?,?)",
+                [(x["group"], x["formats"], x["count"], x["status"], x["notes"]) for x in FILE_GROUPS],
+            )
+            connection.executemany(
+                "INSERT INTO standards(item,status,rule,basis) VALUES (?,?,?,?)",
+                [(x["item"], x["status"], x["rule"], x["basis"]) for x in STANDARDS],
+            )
+            connection.executemany(
+                "INSERT INTO automation(item,status,tool,result,disposition) VALUES (?,?,?,?,?)",
+                [(x["item"], x["status"], x["tool"], x["result"], x["disposition"]) for x in AUTOMATION],
+            )
+            connection.executemany(
+                "INSERT INTO qa_checks(check_name,status,evidence) VALUES (?,?,?)",
+                [(x["check"], x["status"], x["evidence"]) for x in QA_CHECKS],
+            )
+            connection.executemany(
+                "INSERT INTO updates(event_date,title,status,detail) VALUES (?,?,?,?)",
+                [(x["date"], x["title"], x["status"], x["detail"]) for x in UPDATES],
+            )
+            connection.executemany(
+                "INSERT INTO runtime(component,version,status,availability,purpose) VALUES (?,?,?,?,?)",
+                [(x["component"], x["version"], x["status"], x["availability"], x["purpose"]) for x in RUNTIME],
             )
             connection.commit()
             integrity = connection.execute("PRAGMA integrity_check").fetchone()[0]

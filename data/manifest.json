@@ -1,7 +1,7 @@
 {
   "database": "data/bdpc_client_os.sqlite",
   "database_download_name": "bdpc_client_os.sqlite",
-  "database_sha256": "b6bae69439ca97ba92775191b8b77431183bef953349be466e893d4814443c3d",
+  "database_sha256": "ea047b912300c3a4ef9d04e33b34b69521624652c8a80d2c16e54e5fc7df55dd",
   "database_transport": [
     "data/sqlite/part-01.b64",
     "data/sqlite/part-02.b64",
@@ -9,41 +9,43 @@
     "data/sqlite/part-04.b64",
     "data/sqlite/part-05.b64",
     "data/sqlite/part-06.b64",
-    "data/sqlite/part-07.b64"
+    "data/sqlite/part-07.b64",
+    "data/sqlite/part-08.b64",
+    "data/sqlite/part-09.b64"
   ],
-  "database_transport_sha256": "31bf92a8c97c374bf0fc8b4ce35f4cb2dda040775281958f604f9c2adbd6c5b6",
+  "database_transport_sha256": "7bdde006c5fa3504ebe465cd0d2319bbd4c024a32608b9076a107113e5b054d9",
   "files": {
     "data/README.txt": {
       "bytes": 466,
       "sha256": "30fdd819b3872a03ffa6917e2c66f9d257a57ccd281764a421a9d0b693ed3d0d"
     },
     "data/bdpc_client_os.sqlite": {
-      "bytes": 77824,
-      "sha256": "b6bae69439ca97ba92775191b8b77431183bef953349be466e893d4814443c3d"
+      "bytes": 102400,
+      "sha256": "ea047b912300c3a4ef9d04e33b34b69521624652c8a80d2c16e54e5fc7df55dd"
     },
     "data/project.json": {
-      "bytes": 15747,
-      "sha256": "798d0a4f2d4bab82da9086d78cfc88f4f236a2615376904a48f5c40260d647e3"
+      "bytes": 31388,
+      "sha256": "fd808462a88762997a413e79cd558bee169e35220ab0037976ca4f6c3ae332e1"
     },
     "data/release.json": {
-      "bytes": 105,
-      "sha256": "2fc40ebe1ed244e95dddb2b48cec52da57a1e4a95340e18a3c58e6b9e2170d04"
+      "bytes": 113,
+      "sha256": "7313af4ee11751ff1b7693df293e0c5b8ebb9cb07d74b9db033382a398d7ac66"
     },
     "data/schema.sql": {
-      "bytes": 1789,
-      "sha256": "712344e6e9c6ba3d3421aba805b0762b40013a72fc12421ebef03a005dfd6bf3"
+      "bytes": 2733,
+      "sha256": "a099c46828ac93110da9a0da20ebe96d6598b03cc97558b1efb3794304d5017e"
     },
     "data/sqlite/part-01.b64": {
       "bytes": 16000,
-      "sha256": "47bf9932c01d64912957e3ed4dbddd74d3e0ddd6cba250d52713bb18b0d7a98c"
+      "sha256": "024da744d255bd271bb007a566a7f224f06beddc5db32138ce8273007e64157d"
     },
     "data/sqlite/part-02.b64": {
       "bytes": 16000,
-      "sha256": "179c72dfa6a4f03f46eddd789da4e54efd526cd061fabb2ec28eb5a5b075e787"
+      "sha256": "b1212c490a0c1ff40fb7c0b1d257855278d0c37c0441169b73425851f6050121"
     },
     "data/sqlite/part-03.b64": {
       "bytes": 16000,
-      "sha256": "eca84810c28f48b4c8b91269dfc93c0e08122783b069c61b5287c787beab3299"
+      "sha256": "b51b738f79039d5de084ae5ae6d97c10b9dee4b9795d69b994d935273553c2bc"
     },
     "data/sqlite/part-04.b64": {
       "bytes": 16000,
@@ -51,19 +53,27 @@
     },
     "data/sqlite/part-05.b64": {
       "bytes": 16000,
-      "sha256": "7e2f78dfbcd5dc7cc0f0a18515ee308681a987029faab1c65f2c8d80c6258557"
+      "sha256": "6a6059281cc438b4b3dce184a029cc6c33eec165a082c1bc466cf32eebfc38aa"
     },
     "data/sqlite/part-06.b64": {
       "bytes": 16000,
-      "sha256": "de3d8a86f456ef69343ef09bdf12722bb22d843d29745e17b6f2b241d5e5c91c"
+      "sha256": "f6e7e6243db32322c3dab76e67c13b56089b1e213ef8de0d2f052758f29e8db5"
     },
     "data/sqlite/part-07.b64": {
-      "bytes": 7768,
-      "sha256": "2d43e9e7da134fc5cf37f94db9d71829ac56b0e94f71e1e75c129eaa50e14f08"
+      "bytes": 16000,
+      "sha256": "89c67a92f2a4bfd2760035e99ec59d7a0a74d18b65c3012be7b72a1a583d7654"
+    },
+    "data/sqlite/part-08.b64": {
+      "bytes": 16000,
+      "sha256": "209aef02219b99e0880ac11ef2809ee5d34ed9bce5ad21cf82f284f18ce68ef0"
+    },
+    "data/sqlite/part-09.b64": {
+      "bytes": 8536,
+      "sha256": "77d7fb6dee92ab57379e66e2e4f371e9a1e1f324e4018cced6f7401ea9ecef0b"
     },
     "reports/data/milestone-evidence.csv": {
-      "bytes": 2158,
-      "sha256": "c3558d9189045a0c164c14fb100f8d59a11f4044815ec558835111066e1d6928"
+      "bytes": 4001,
+      "sha256": "e3787c07b74d2ff435a7e9b402833415ee3a80e13eccba565963f8125cc6bcc9"
     },
     "reports/data/native-overlap-summary.csv": {
       "bytes": 946,
@@ -79,19 +89,25 @@
     }
   },
   "privacy": "Client-safe aggregate and derived project controls only; confidential source materials are not included.",
-  "release_marker": "OS_SYNC_20260721",
-  "revision": "2026.07.21.2",
+  "release_marker": "OS_PRESERVATION_20260721",
+  "revision": "2026.07.21.3",
   "schema_version": "2.0",
   "table_counts": {
-    "commercial": 7,
+    "automation": 12,
+    "commercial": 8,
     "deliverables": 3,
+    "file_groups": 6,
     "kickoff_gates": 4,
     "metrics": 12,
-    "milestones": 12,
+    "milestones": 20,
     "native_overlap_pairs": 5,
     "project": 1,
+    "qa_checks": 14,
     "reports": 6,
+    "runtime": 10,
     "slice_evidence": 9,
+    "standards": 11,
+    "updates": 8,
     "validation_sessions": 5
   },
   "updated_date": "2026-07-21"

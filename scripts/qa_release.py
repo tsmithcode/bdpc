@@ -121,13 +121,36 @@ def verify_data(root: Path) -> dict[str, int]:
         raise ValueError("Native overlap classification mismatch")
     if "No transform was applied" not in project["overlap_statement"] or "no pair was declared registered" not in project["overlap_statement"]:
         raise ValueError("Required overlap boundary missing")
+    preservation_minimums = {
+        "milestones": 20,
+        "file_groups": 6,
+        "standards": 11,
+        "automation": 12,
+        "deliverables": 3,
+        "qa_checks": 14,
+        "commercial": 8,
+        "updates": 8,
+        "runtime": 10,
+        "reports": 6,
+        "validation_sessions": 5,
+    }
+    for key, minimum in preservation_minimums.items():
+        actual = len(project.get(key, []))
+        if actual < minimum:
+            raise ValueError(f"OS tab preservation regression: {key} requires at least {minimum} records; found {actual}")
+    if sum(item["count"] for item in project["file_groups"]) != project["metrics"]["source_files"]:
+        raise ValueError("Aggregate file-group counts do not reconcile to source_files")
+    standard_items = {item["item"] for item in project["standards"]}
+    for required in ("Dimension precision", "Point-cloud coordinates", "Unknown conditions", "Site / area representation"):
+        if required not in standard_items:
+            raise ValueError(f"Documented standard was not preserved: {required}")
 
     csv_counts: dict[str, int] = {}
     expected_rows = {
         "validated-scan-summary.csv": 5,
         "native-overlap-summary.csv": 5,
         "slice-summary.csv": 9,
-        "milestone-evidence.csv": 12,
+        "milestone-evidence.csv": 20,
     }
     for filename, expected in expected_rows.items():
         path = root / "reports/data" / filename
@@ -164,6 +187,16 @@ def verify_data(root: Path) -> dict[str, int]:
             }
     if actual_counts != manifest["table_counts"]:
         raise ValueError("SQLite table counts do not match the manifest")
+    for table_name, project_key in {
+        "file_groups": "file_groups",
+        "standards": "standards",
+        "automation": "automation",
+        "qa_checks": "qa_checks",
+        "updates": "updates",
+        "runtime": "runtime",
+    }.items():
+        if actual_counts.get(table_name) != len(project[project_key]):
+            raise ValueError(f"SQLite / JSON preservation mismatch for {table_name}")
     return csv_counts
 
 
@@ -268,6 +301,22 @@ def verify_preservation(root: Path) -> dict[str, int]:
     ):
         if phrase not in sow:
             raise ValueError(f"SOW preservation/print regression: missing {phrase!r}")
+
+    os_script = (root / "os.js").read_text(encoding="utf-8")
+    for phrase in (
+        "phase-progress-grid",
+        "Milestone ledger",
+        "Aggregate file groups",
+        "Documented operating rules",
+        "Automation register",
+        "Quality and acceptance gates",
+        "Excluded or separately authorized",
+        "Validated session hierarchy",
+    ):
+        if phrase not in os_script:
+            raise ValueError(f"OS tab preservation regression: missing {phrase!r}")
+    if os_script.count("function render") < 9:
+        raise ValueError("OS tab preservation regression: all nine tab renderers must be present")
     return counts
 
 
