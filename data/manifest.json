@@ -1,7 +1,7 @@
 {
   "database": "data/bdpc_client_os.sqlite",
   "database_download_name": "bdpc_client_os.sqlite",
-  "database_sha256": "699db61d1353e9aba985ee59773a6ac2db9b0e475dab5d10c6d16931343056af",
+  "database_sha256": "26956d81a826bb5c05e8e71740202a2f8e8280550d35c70fb7f222e6696f20d3",
   "database_transport": [
     "data/sqlite/part-01.b64",
     "data/sqlite/part-02.b64",
@@ -19,41 +19,42 @@
     "data/sqlite/part-14.b64",
     "data/sqlite/part-15.b64",
     "data/sqlite/part-16.b64",
-    "data/sqlite/part-17.b64"
+    "data/sqlite/part-17.b64",
+    "data/sqlite/part-18.b64"
   ],
-  "database_transport_sha256": "fc86a159e72e15beb5248d2075eda7e0e9e9403d03e6ea1649b0f1fe24da1d6b",
+  "database_transport_sha256": "f95afbea3f96665861417ab5ea756df957fc1cd71b5160d67e5ebe571d2f1fa0",
   "files": {
     "data/README.txt": {
       "bytes": 466,
       "sha256": "30fdd819b3872a03ffa6917e2c66f9d257a57ccd281764a421a9d0b693ed3d0d"
     },
     "data/bdpc_client_os.sqlite": {
-      "bytes": 192512,
-      "sha256": "699db61d1353e9aba985ee59773a6ac2db9b0e475dab5d10c6d16931343056af"
+      "bytes": 208896,
+      "sha256": "26956d81a826bb5c05e8e71740202a2f8e8280550d35c70fb7f222e6696f20d3"
     },
     "data/project.json": {
-      "bytes": 86215,
-      "sha256": "7cadfc7cf93c3d5c049a99fb071a460a16ea28a831b32577cdb6a7f5dd59c3c9"
+      "bytes": 99815,
+      "sha256": "145ffdce5720d99d8646accae996ebf8548f87edcb6522db986e3abf9ae5c347"
     },
     "data/release.json": {
-      "bytes": 124,
-      "sha256": "43d4b8e6abe02afe51d4434a951d1dcdca2fed152aea898ee56c1a483d0ad44f"
+      "bytes": 122,
+      "sha256": "c68942d55d58b2b0d844d3b326e2afa8ecd782cd02e7ad2247be2afabfa2f952"
     },
     "data/schema.sql": {
-      "bytes": 3383,
-      "sha256": "9352c603e476a0d8be523875936b886a899d431ebd596eb2deebb1ee8262d50a"
+      "bytes": 3640,
+      "sha256": "d9145c4a71f8d9e5a95c622ef0fbab167f2339682862c98e6dbe719e06ee004e"
     },
     "data/sqlite/part-01.b64": {
       "bytes": 16000,
-      "sha256": "c5453765caeaedb3f9af12ae56a4212c5ffb31ee36fb4981bca228d918eb30b7"
+      "sha256": "c3e266b17d46be30f5b7442a6ea7ebf6b50dcd9172957be8918d3a9df5ba1f83"
     },
     "data/sqlite/part-02.b64": {
       "bytes": 16000,
-      "sha256": "88d69d62d1868300ff8873dfbfdfbaaa5993d0fa0512626fd8d6c57ac888e2d8"
+      "sha256": "93eb549a14c97f28c32e3ae44090f15959d2bdd3658af0684e341b874e2a87de"
     },
     "data/sqlite/part-03.b64": {
       "bytes": 16000,
-      "sha256": "5fa8bb9c0cf79e2a0d763427b7d57339892142c56c07ace91ab38af2d6ea3f1e"
+      "sha256": "94332393500af2559fa37c9ac54e33c127a2cda2be7fc1ee55b7dff3ec270f0a"
     },
     "data/sqlite/part-04.b64": {
       "bytes": 16000,
@@ -61,11 +62,11 @@
     },
     "data/sqlite/part-05.b64": {
       "bytes": 16000,
-      "sha256": "6a6059281cc438b4b3dce184a029cc6c33eec165a082c1bc466cf32eebfc38aa"
+      "sha256": "e9b61b340fbbbb3ecfe866f6155654b6be9015ae2cc48a9d882e429687190094"
     },
     "data/sqlite/part-06.b64": {
       "bytes": 16000,
-      "sha256": "4f3230d9738161c4365efa3408bcdb14636a6fb5157293076fc1c99c3600dcdf"
+      "sha256": "c3d365b3135cf7326501d8d5cf6503b9e31346c4b972a9cbd451ee891e412638"
     },
     "data/sqlite/part-07.b64": {
       "bytes": 16000,
@@ -73,43 +74,47 @@
     },
     "data/sqlite/part-08.b64": {
       "bytes": 16000,
-      "sha256": "209aef02219b99e0880ac11ef2809ee5d34ed9bce5ad21cf82f284f18ce68ef0"
+      "sha256": "31084d380ddbb06265ec522052c9704d467cfb5777c06bdba97f227292ebd1d9"
     },
     "data/sqlite/part-09.b64": {
       "bytes": 16000,
-      "sha256": "d05bf84357263c634053e1540667d5dde7aae9ebe7138d3f75be0290291d187a"
+      "sha256": "2026ab26b9f61553ab31f41813da359dc198ff45fb7ce4f2762c5a961cded4df"
     },
     "data/sqlite/part-10.b64": {
       "bytes": 16000,
-      "sha256": "fdd7802b8e60bf2ef7e87d94969aaa5469437c36ce23c62fee02d9975e6affdb"
+      "sha256": "fe4c76ca23b23380c6784dff576a29746f4694c5dabd189daece80ebce82cbad"
     },
     "data/sqlite/part-11.b64": {
       "bytes": 16000,
-      "sha256": "7f496faade81746adf8201e6146e631dce359fd63cb5400d75efafdfd230bcf1"
+      "sha256": "d081bd46d445cd6ee66a7e4fe64d2cd102fd04962b05e47a279c2734a764fc97"
     },
     "data/sqlite/part-12.b64": {
       "bytes": 16000,
-      "sha256": "63cc957c8d45df3e79ee76d83c752d8e4378ea16cd6f1b4321669c4d3b90153d"
+      "sha256": "e2a68d5c11f28589178e1389e5fb224f33206b3a5e1468ae6ff65cb00a486234"
     },
     "data/sqlite/part-13.b64": {
       "bytes": 16000,
-      "sha256": "dfa94126fe7d4d00f5f6f14f63f383e315e4a56567e40cc766a13698c241e48b"
+      "sha256": "3ffea9bdd119988e7e7b4e4c2b1c67973870b6767fae701f0ff923359bb4d4a2"
     },
     "data/sqlite/part-14.b64": {
       "bytes": 16000,
-      "sha256": "73ed513c2595770e4a115b456d7c5901bce1230d3901abe43b09609f2b35ef1e"
+      "sha256": "659ed14e66e3e4f3a09586c447e82a7a74cd0ab467891e2b05fbcfb56cfd7b54"
     },
     "data/sqlite/part-15.b64": {
       "bytes": 16000,
-      "sha256": "67e6696f09bab0f0e3a36e09c901e9e86549c84a465a59f7e3434895fc8d3d0e"
+      "sha256": "0be68a3aee729e643d20ba501990635ce74c83cb82c7463ad358063712ed8d70"
     },
     "data/sqlite/part-16.b64": {
       "bytes": 16000,
-      "sha256": "a1fe7e66061670cd13e8bf1e52b7446778f324d0522c7be1e8a2ef6521d6546e"
+      "sha256": "76e746c8acf4c3eb6fb52e0f3fbafeee097a1e814c661c8675a6329e0525b8bc"
     },
     "data/sqlite/part-17.b64": {
-      "bytes": 684,
-      "sha256": "4d4b5c90bc14043a2ab70ed12e79ef0caefe91897f778cf6dd5c6915a62d651f"
+      "bytes": 16000,
+      "sha256": "a93691ac4254abb67171b4ce0abad6e4885a7fa4c0f1ff846a541f9e2e3de423"
+    },
+    "data/sqlite/part-18.b64": {
+      "bytes": 6528,
+      "sha256": "b8f5b116bd1cf01da1ad4fdfb07b454a76caaf744f80d36e69d7534266385dbf"
     },
     "reports/data/cad-area-room-register.csv": {
       "bytes": 3104,
@@ -122,6 +127,10 @@
     "reports/data/cad-drafter-checklist.csv": {
       "bytes": 11494,
       "sha256": "4c6a368cafcc4cd63f1ba2a4414b0862c09f19b59346dbd07a4759cd9f7c9c10"
+    },
+    "reports/data/cad-effort-plan.csv": {
+      "bytes": 7454,
+      "sha256": "40a8453a9cb580ebbb7da7b4c1c30ea48036d46ab6b8852abe3cfad880b972b3"
     },
     "reports/data/cad-orientation-register.csv": {
       "bytes": 1615,
@@ -145,15 +154,15 @@
     }
   },
   "privacy": "Client-safe aggregate and derived project controls only; confidential source materials are not included.",
-  "release_marker": "OS_PUBLIC_CONTEXT_CAD_PREP_20260721",
-  "revision": "2026.07.21.5",
+  "release_marker": "OS_SOW_EFFORT_WAYFINDING_20260721",
+  "revision": "2026.07.21.6",
   "schema_version": "2.1",
   "table_counts": {
     "access_controls": 4,
     "automation": 12,
     "cad_preparation": 19,
     "cad_public_registers": 92,
-    "commercial": 8,
+    "commercial": 9,
     "deliverables": 3,
     "file_groups": 6,
     "kickoff_gates": 4,
@@ -166,8 +175,9 @@
     "role_views": 5,
     "runtime": 11,
     "slice_evidence": 9,
+    "sow_effort_plan": 31,
     "standards": 11,
-    "updates": 8,
+    "updates": 9,
     "validation_sessions": 5
   },
   "updated_date": "2026-07-21"

@@ -17,6 +17,13 @@ REQUIRED_TEXT = (
     "Acceptance criteria",
     "Change control",
     "Authorization",
+    "Assignment-ready CAD effort plan",
+    "Absolute included ceiling",
+    "40.0 hours",
+    "Standard setup",
+    "Existing floor plan",
+    "Proposed floor plan",
+    "Site / area plan",
     "$3,200",
     "$1,600",
     "$90/hour",
@@ -28,13 +35,17 @@ def normalize(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip().casefold()
 
 
-def verify_pdf(pdf_path: Path) -> tuple[int, int]:
+def verify_pdf(
+    pdf_path: Path,
+    required_text: tuple[str, ...] = REQUIRED_TEXT,
+    maximum_pages: int = 12,
+) -> tuple[int, int]:
     """Return page and text-block counts after validating geometry and content."""
     with pymupdf.open(pdf_path) as document:
-        if not 1 <= document.page_count <= 4:
+        if not 1 <= document.page_count <= maximum_pages:
             raise ValueError(f"Unexpected SOW page count: {document.page_count}")
         full_text = normalize("\n".join(page.get_text() for page in document))
-        for required in REQUIRED_TEXT:
+        for required in required_text:
             if normalize(required) not in full_text:
                 raise ValueError(f"Missing required print text: {required}")
 

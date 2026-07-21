@@ -13,8 +13,8 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-REVISION = "2026.07.21.5"
-RELEASE_MARKER = "OS_PUBLIC_CONTEXT_CAD_PREP_20260721"
+REVISION = "2026.07.21.6"
+RELEASE_MARKER = "OS_SOW_EFFORT_WAYFINDING_20260721"
 OVERLAP_STATEMENT = (
     "Five native-coordinate scan pairs were analyzed: four showed weak native "
     "overlap and one showed no material overlap. No transform was applied, no "
@@ -133,7 +133,7 @@ MILESTONES = [
 ]
 
 KICKOFF_GATES = [
-    {"sequence": 1, "gate": "Written authorization", "status": "Awaiting input", "owner": "BDPC", "requirement": "Authorize the $3,200 fixed-fee scope and one consolidated review round in writing."},
+    {"sequence": 1, "gate": "Written authorization", "status": "Awaiting input", "owner": "BDPC", "requirement": "Authorize the $3,200 fixed-fee scope, 40-hour absolute effort ceiling, and one consolidated review round in writing."},
     {"sequence": 2, "gate": "$1,600 start payment", "status": "Awaiting input", "owner": "BDPC / CAD Guardian", "requirement": "Arrange the start payment before production begins."},
     {"sequence": 3, "gate": "Controlling input confirmation", "status": "Awaiting input", "owner": "BDPC", "requirement": "Confirm controlling CAD, design/redline intent, title block, standards, and dependency inputs."},
     {"sequence": 4, "gate": "Licensed compatible runtime", "status": "Blocked", "owner": "CAD Guardian / BDPC", "requirement": "Provide a licensed compatible Autodesk runtime or approved remote workstation."},
@@ -147,7 +147,42 @@ COMMERCIAL = [
     {"term": "Check-set target", "value": "3 business days after all kickoff gates", "status": "Target"},
     {"term": "Production duration", "value": "4–5 business days excluding client review", "status": "Target"},
     {"term": "Included review", "value": "1 consolidated review round", "status": "Included"},
+    {"term": "Included effort ceiling", "value": "40.0 hours maximum", "status": "Absolute assignment ceiling; fixed fee remains controlling"},
     {"term": "Automation / standards library", "value": "Separate future scope", "status": "Not included"},
+]
+
+EFFORT_PLAN = [
+    {"id": "EFT-001", "workstream": "Standard setup", "sheet": "All sheets", "task": "Confirm controlling input register and assignment brief", "hours": 0.75, "owner": "Project lead / BDPC", "dependency": "Written controlling-input confirmation", "handoff": "Signed input register", "acceptance": "Controlling files, decisions, standards, and open questions are listed"},
+    {"id": "EFT-002", "workstream": "Standard setup", "sheet": "All sheets", "task": "Create protected native working set and record source state", "hours": 0.75, "owner": "CAD drafter", "dependency": "All kickoff gates", "handoff": "Working-set manifest", "acceptance": "Working copies are isolated and confidential originals remain unchanged"},
+    {"id": "EFT-003", "workstream": "Standard setup", "sheet": "All sheets", "task": "Apply confirmed title block, sheet numbers, and project fields", "hours": 1.25, "owner": "CAD drafter", "dependency": "Confirmed title block", "handoff": "Three initialized layouts", "acceptance": "Sheet identity and issue fields match the assignment brief"},
+    {"id": "EFT-004", "workstream": "Standard setup", "sheet": "All sheets", "task": "Map layers, text styles, dimension styles, tags, and lineweights", "hours": 1.0, "owner": "CAD drafter", "dependency": "Confirmed BDPC standards", "handoff": "Standards map", "acceptance": "Required styles exist and exceptions are recorded"},
+    {"id": "EFT-005", "workstream": "Standard setup", "sheet": "All sheets", "task": "Validate units, insertion scale, project north, xrefs, and source-view rotations", "hours": 0.75, "owner": "CAD drafter", "dependency": "Licensed runtime and confirmed inputs", "handoff": "Orientation / dependency record", "acceptance": "Units, scale, north, rotations, and xref state are explicit"},
+    {"id": "EFT-006", "workstream": "Standard setup", "sheet": "All sheets", "task": "Establish layouts, viewports, page setup, and baseline check plot", "hours": 0.5, "owner": "CAD drafter", "dependency": "Licensed runtime", "handoff": "Baseline plot record", "acceptance": "Sheet size, viewport scale, and plot path are reproducible"},
+    {"id": "EFT-007", "workstream": "Existing floor plan", "sheet": "Existing Floor Plan", "task": "Reconcile exterior footprint, wall topology, and closed boundaries", "hours": 3.0, "owner": "CAD drafter", "dependency": "Confirmed existing-condition basis", "handoff": "Existing wall base", "acceptance": "Boundary is closed and conflicts are logged"},
+    {"id": "EFT-008", "workstream": "Existing floor plan", "sheet": "Existing Floor Plan", "task": "Draft and tag doors, windows, and openings", "hours": 2.0, "owner": "CAD drafter", "dependency": "Reviewed evidence and approved blocks", "handoff": "Opening inventory", "acceptance": "Every visible opening is placed, tagged, or marked unresolved"},
+    {"id": "EFT-009", "workstream": "Existing floor plan", "sheet": "Existing Floor Plan", "task": "Draft rooms, stairs, fixtures, equipment, and observed context", "hours": 1.5, "owner": "CAD drafter", "dependency": "Confirmed room names and supported evidence", "handoff": "Existing content pass", "acceptance": "Unsupported labels and concealed conditions remain explicit"},
+    {"id": "EFT-010", "workstream": "Existing floor plan", "sheet": "Existing Floor Plan", "task": "Add dimensions, area boundaries, labels, and notes", "hours": 1.5, "owner": "CAD drafter", "dependency": "Closed existing geometry", "handoff": "Annotated existing plan", "acceptance": "Dimension strings close and area basis is stated"},
+    {"id": "EFT-011", "workstream": "Existing floor plan", "sheet": "Existing Floor Plan", "task": "Run sheet self-check and resolve drafting defects", "hours": 1.0, "owner": "CAD drafter", "dependency": "Existing-plan drafting complete", "handoff": "Checked existing plan", "acceptance": "No known gaps, duplicates, orphan tags, or unresolved silent conflicts"},
+    {"id": "EFT-012", "workstream": "Proposed floor plan", "sheet": "Proposed Floor Plan", "task": "Develop confirmed wall, partition, circulation, and room geometry", "hours": 2.5, "owner": "CAD drafter", "dependency": "Confirmed BDPC design direction", "handoff": "Proposed geometry pass", "acceptance": "Plan reflects only confirmed direction and aligns to the existing base"},
+    {"id": "EFT-013", "workstream": "Proposed floor plan", "sheet": "Proposed Floor Plan", "task": "Place kitchen, cabinet, appliance, island, and furniture content", "hours": 2.0, "owner": "CAD drafter", "dependency": "Approved asset/block basis", "handoff": "Proposed equipment pass", "acceptance": "Content is sourced, controlled, and coordinated to the confirmed layout"},
+    {"id": "EFT-014", "workstream": "Proposed floor plan", "sheet": "Proposed Floor Plan", "task": "Coordinate openings, deck, stairs, railings, and transitions", "hours": 1.5, "owner": "CAD drafter", "dependency": "Confirmed proposal geometry", "handoff": "Envelope / transition pass", "acceptance": "Connections are coordinated without structural or code certification claims"},
+    {"id": "EFT-015", "workstream": "Proposed floor plan", "sheet": "Proposed Floor Plan", "task": "Add dimensions, tags, notes, and proposal area graphics", "hours": 1.0, "owner": "CAD drafter", "dependency": "Proposed geometry stable", "handoff": "Annotated proposed plan", "acceptance": "Graphics clearly distinguish existing and proposed conditions"},
+    {"id": "EFT-016", "workstream": "Proposed floor plan", "sheet": "Proposed Floor Plan", "task": "Run sheet self-check and resolve drafting defects", "hours": 1.0, "owner": "CAD drafter", "dependency": "Proposed-plan drafting complete", "handoff": "Checked proposed plan", "acceptance": "No known coordination, tagging, or geometry defects remain"},
+    {"id": "EFT-017", "workstream": "Site / area plan", "sheet": "Site / Area Plan", "task": "Establish non-survey base, orientation, footprint, and drawing basis", "hours": 1.25, "owner": "CAD drafter", "dependency": "Confirmed site/area input basis", "handoff": "Site base", "acceptance": "Basis and limitations are visible and do not imply survey services"},
+    {"id": "EFT-018", "workstream": "Site / area plan", "sheet": "Site / Area Plan", "task": "Draft footprint, drive, walk, work limits, and agreed context", "hours": 1.5, "owner": "CAD drafter", "dependency": "Confirmed site direction", "handoff": "Site context pass", "acceptance": "Agreed elements are shown and unsupported geometry is not invented"},
+    {"id": "EFT-019", "workstream": "Site / area plan", "sheet": "Site / Area Plan", "task": "Build area diagrams, closed polylines, and calculation labels", "hours": 1.0, "owner": "CAD drafter", "dependency": "Closed plan boundaries", "handoff": "Area calculation pass", "acceptance": "Area classes, units, exclusions, and source basis are explicit"},
+    {"id": "EFT-020", "workstream": "Site / area plan", "sheet": "Site / Area Plan", "task": "Add north reference, labels, dimensions, notes, and legend", "hours": 0.75, "owner": "CAD drafter", "dependency": "Site graphics stable", "handoff": "Annotated site/area plan", "acceptance": "Orientation and non-survey limitations are readable"},
+    {"id": "EFT-021", "workstream": "Site / area plan", "sheet": "Site / Area Plan", "task": "Run sheet self-check and resolve drafting defects", "hours": 0.5, "owner": "CAD drafter", "dependency": "Site/area drafting complete", "handoff": "Checked site/area plan", "acceptance": "No known closure, label, or graphic hierarchy defects remain"},
+    {"id": "EFT-022", "workstream": "Integrated QA / check set", "sheet": "All sheets", "task": "Cross-check shared geometry, orientation, dimensions, areas, tags, and revisions", "hours": 1.5, "owner": "CAD drafter / project lead", "dependency": "Three sheet drafts complete", "handoff": "Coordination checklist", "acceptance": "Shared controls agree or discrepancies are documented"},
+    {"id": "EFT-023", "workstream": "Integrated QA / check set", "sheet": "All sheets", "task": "Run native open, dependency, viewport, page setup, and plot QA", "hours": 1.5, "owner": "CAD drafter", "dependency": "Licensed runtime", "handoff": "Native / plot QA record", "acceptance": "Native files open and check PDFs plot through the controlled workflow"},
+    {"id": "EFT-024", "workstream": "Integrated QA / check set", "sheet": "All sheets", "task": "Assemble and inspect the coordinated check-set package", "hours": 1.0, "owner": "Project lead", "dependency": "Internal QA passed", "handoff": "Three-sheet check set", "acceptance": "Package names, sheet order, revisions, and issue state are correct"},
+    {"id": "EFT-025", "workstream": "Integrated QA / check set", "sheet": "All sheets", "task": "Issue check set with one-response review instructions", "hours": 1.0, "owner": "Project lead", "dependency": "Check-set package approved internally", "handoff": "Client review handoff", "acceptance": "BDPC receives one controlled package and consolidated-response guidance"},
+    {"id": "EFT-026", "workstream": "Included review / final", "sheet": "All sheets", "task": "Triage one consolidated BDPC review response", "hours": 0.5, "owner": "Project lead / CAD drafter", "dependency": "One complete client response", "handoff": "Revision assignment list", "acceptance": "Every comment is assigned, clarified, accepted, or routed to change control"},
+    {"id": "EFT-027", "workstream": "Included review / final", "sheet": "All sheets", "task": "Incorporate included review revisions", "hours": 2.0, "owner": "CAD drafter", "dependency": "Consolidated review disposition", "handoff": "Revised native set", "acceptance": "Authorized comments are incorporated and tracked"},
+    {"id": "EFT-028", "workstream": "Included review / final", "sheet": "All sheets", "task": "Run final native, plot, coordination, and package QA", "hours": 1.5, "owner": "CAD drafter / project lead", "dependency": "Revisions complete", "handoff": "Final QA record", "acceptance": "Final native and PDF package passes the applicable acceptance checks"},
+    {"id": "EFT-029", "workstream": "Included review / final", "sheet": "All sheets", "task": "Issue final package, change summary, and unresolved-condition record", "hours": 1.0, "owner": "Project lead", "dependency": "Final QA passed and final payment due", "handoff": "Final delivery record", "acceptance": "Controlled deliverables and closeout record are issued together"},
+    {"id": "EFT-030", "workstream": "Managed reserve", "sheet": "All sheets", "task": "Resolve in-scope evidence, geometry, or standards conflicts", "hours": 2.0, "owner": "CAD drafter / project lead", "dependency": "Only documented in-scope conflicts", "handoff": "Reserve-use record", "acceptance": "Use is recorded against a named issue; unused time is not converted to extra scope"},
+    {"id": "EFT-031", "workstream": "Managed reserve", "sheet": "All sheets", "task": "Recover from in-scope runtime or dependency friction", "hours": 1.0, "owner": "CAD drafter", "dependency": "Licensed-runtime issue within confirmed inputs", "handoff": "Dependency resolution record", "acceptance": "Resolution is documented or escalated before the ceiling is exceeded"},
 ]
 
 DELIVERABLES = [
@@ -212,6 +247,7 @@ QA_CHECKS = [
 ]
 
 UPDATES = [
+    {"date": "2026-07-21", "title": "Assignment-ready SOW effort plan added", "status": "Ready", "detail": "The existing SOW now includes a 40-hour absolute ceiling, standard setup, per-plan allocations, 31 assignable work packages, handoffs, acceptance evidence, and a reusable CSV."},
     {"date": "2026-07-21", "title": "Detailed OS preservation repair", "status": "Complete", "detail": "The nine tab groups, documented rules, milestone visualization, detailed inventories, and preservation checks were restored from the pre-regression implementation and reconciled to current evidence."},
     {"date": "2026-07-21", "title": "Detailed report and SOW preservation repair", "status": "Complete", "detail": "The image-driven report library and print-optimized estimate/SOW were restored with regression safeguards."},
     {"date": "2026-07-21", "title": "Client-safe evidence published", "status": "Ready for human review", "detail": "Twenty-five full-source figures, nine plan-control slices, and five native-coordinate overlays are available in the report library."},
@@ -325,7 +361,7 @@ def build_project() -> dict[str, Any]:
             "Licensed native openability, dependencies, title-block behavior, and plot fidelity remain unvalidated.",
         ],
         "client_actions": [
-            "Review estimate",
+            "Review SOW and assignment-ready effort plan",
             "Authorize project",
             "Confirm controlling inputs",
             "Provide or start licensed runtime access",
@@ -347,6 +383,7 @@ def build_project() -> dict[str, Any]:
         "cad_preparation": CAD_PREPARATION,
         "role_views": ROLE_VIEWS,
         "access_controls": ACCESS_CONTROLS,
+        "sow_effort_plan": EFFORT_PLAN,
         "reports": REPORTS,
     }
 
@@ -372,6 +409,7 @@ CREATE TABLE runtime(id INTEGER PRIMARY KEY AUTOINCREMENT,component TEXT NOT NUL
 CREATE TABLE cad_preparation(id INTEGER PRIMARY KEY AUTOINCREMENT,concern_group TEXT NOT NULL,item TEXT NOT NULL,status TEXT NOT NULL,current_evidence TEXT NOT NULL,next_action TEXT NOT NULL,owner TEXT NOT NULL);
 CREATE TABLE role_views(id INTEGER PRIMARY KEY AUTOINCREMENT,role TEXT NOT NULL,focus TEXT NOT NULL,decision_rule TEXT NOT NULL);
 CREATE TABLE access_controls(id INTEGER PRIMARY KEY AUTOINCREMENT,control TEXT NOT NULL,status TEXT NOT NULL,rule TEXT NOT NULL);
+CREATE TABLE sow_effort_plan(work_package_id TEXT PRIMARY KEY,workstream TEXT NOT NULL,sheet TEXT NOT NULL,task TEXT NOT NULL,planned_hours REAL NOT NULL,owner TEXT NOT NULL,dependency TEXT NOT NULL,handoff TEXT NOT NULL,acceptance_evidence TEXT NOT NULL);
 CREATE TABLE cad_public_registers(register_name TEXT NOT NULL,sequence INTEGER NOT NULL,record_id TEXT NOT NULL,payload_json TEXT NOT NULL,PRIMARY KEY(register_name,sequence));
 """
 
@@ -459,6 +497,10 @@ def build_database(path: Path, project: dict[str, Any]) -> dict[str, int]:
                 "INSERT INTO access_controls(control,status,rule) VALUES (?,?,?)",
                 [(x["control"], x["status"], x["rule"]) for x in ACCESS_CONTROLS],
             )
+            connection.executemany(
+                "INSERT INTO sow_effort_plan VALUES (?,?,?,?,?,?,?,?,?)",
+                [(x["id"], x["workstream"], x["sheet"], x["task"], x["hours"], x["owner"], x["dependency"], x["handoff"], x["acceptance"]) for x in EFFORT_PLAN],
+            )
             register_id_keys = {
                 "cad_drafter_checks": "check_id",
                 "cad_area_rooms": "record_id",
@@ -502,6 +544,9 @@ def build_report_csvs(root: Path) -> list[Path]:
     outputs.append(path)
     path = data / "milestone-evidence.csv"
     write_csv(path, ["milestone_id", "milestone", "status", "phase", "evidence", "limitation"], [(x["id"], x["name"], x["status"], x["phase"], x["evidence"], x["limitation"]) for x in MILESTONES])
+    outputs.append(path)
+    path = data / "cad-effort-plan.csv"
+    write_csv(path, ["work_package_id", "workstream", "sheet", "task", "planned_hours", "owner", "dependency", "handoff", "acceptance_evidence"], [(x["id"], x["workstream"], x["sheet"], x["task"], x["hours"], x["owner"], x["dependency"], x["handoff"], x["acceptance"]) for x in EFFORT_PLAN])
     outputs.append(path)
     for filename in (
         "cad-drafter-checklist.csv",

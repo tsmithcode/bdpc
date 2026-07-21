@@ -17,6 +17,7 @@ from urllib.parse import unquote, urlsplit
 from PIL import Image
 
 from qa_print_pdf import verify_pdf
+from qa_sow_archive import ARCHIVED_REQUIRED_TEXT
 
 
 EXPECTED_ROUTES = [
@@ -34,6 +35,16 @@ EXPECTED_ROUTES = [
     "sow/archive/index.html",
     "estimate/index.html",
 ]
+
+EXPECTED_EFFORT_ROLLUPS = {
+    "Standard setup": 5.0,
+    "Existing floor plan": 9.0,
+    "Proposed floor plan": 8.0,
+    "Site / area plan": 5.0,
+    "Integrated QA / check set": 5.0,
+    "Included review / final": 5.0,
+    "Managed reserve": 3.0,
+}
 
 
 def sha256_path(path: Path) -> str:
@@ -143,6 +154,7 @@ def verify_data(root: Path) -> dict[str, int]:
         "cad_preparation": 19,
         "role_views": 5,
         "access_controls": 4,
+        "sow_effort_plan": 31,
         "cad_drafter_checks": 46,
         "cad_area_rooms": 15,
         "cad_assets": 25,
@@ -154,6 +166,15 @@ def verify_data(root: Path) -> dict[str, int]:
         actual = len(project.get(key, []))
         if actual < minimum:
             raise ValueError(f"OS tab preservation regression: {key} requires at least {minimum} records; found {actual}")
+    effort_plan = project["sow_effort_plan"]
+    effort_total = sum(float(item["hours"]) for item in effort_plan)
+    if abs(effort_total - 40.0) > 0.001:
+        raise ValueError(f"SOW effort ceiling must reconcile to 40.0 hours; found {effort_total}")
+    actual_rollups: dict[str, float] = {}
+    for item in effort_plan:
+        actual_rollups[item["workstream"]] = actual_rollups.get(item["workstream"], 0.0) + float(item["hours"])
+    if actual_rollups != EXPECTED_EFFORT_ROLLUPS:
+        raise ValueError(f"SOW effort rollup mismatch: {actual_rollups}")
     if sum(item["count"] for item in project["file_groups"]) != project["metrics"]["source_files"]:
         raise ValueError("Aggregate file-group counts do not reconcile to source_files")
     standard_items = {item["item"] for item in project["standards"]}
@@ -167,6 +188,7 @@ def verify_data(root: Path) -> dict[str, int]:
         "native-overlap-summary.csv": 5,
         "slice-summary.csv": 9,
         "milestone-evidence.csv": 20,
+        "cad-effort-plan.csv": 31,
         "cad-drafter-checklist.csv": 46,
         "cad-area-room-register.csv": 15,
         "cad-asset-block-register.csv": 25,
@@ -222,6 +244,7 @@ def verify_data(root: Path) -> dict[str, int]:
         "cad_preparation": "cad_preparation",
         "role_views": "role_views",
         "access_controls": "access_controls",
+        "sow_effort_plan": "sow_effort_plan",
     }.items():
         if actual_counts.get(table_name) != len(project[project_key]):
             raise ValueError(f"SQLite / JSON preservation mismatch for {table_name}")
@@ -286,7 +309,7 @@ def verify_images(root: Path) -> int:
 
 
 def verify_preservation(root: Path) -> dict[str, int]:
-    """Block regressions in report depth, visible evidence, and SOW print controls."""
+    """Block regressions in report depth, visible evidence, and SOW controls."""
     expectations = {
         "reports/index.html": {"img": 4, "h2": 4},
         "reports/intake/index.html": {"table": 1, "h2": 6},
@@ -296,7 +319,7 @@ def verify_preservation(root: Path) -> dict[str, int]:
         "reports/registration/index.html": {"img": 5, "table": 1, "h2": 3},
         "reports/context-visual/index.html": {"img": 4, "h2": 3},
         "reports/cad-prep/index.html": {"table": 4, "h2": 5},
-        "sow/index.html": {"table": 1, "h2": 9},
+        "sow/index.html": {"table": 2, "h2": 10},
     }
     counts: dict[str, int] = {}
     for relative, required in expectations.items():
@@ -339,25 +362,34 @@ def verify_preservation(root: Path) -> dict[str, int]:
         "Client responsibilities and kickoff gates",
         "Acceptance criteria",
         "Change control",
+        "Assignment-ready CAD effort plan",
+        "Absolute included ceiling",
+        "40.0 hours",
+        "Download the complete CAD effort plan CSV",
         "@page { size:letter",
         "width:min(8.5in",
         "window.print()",
     ):
         if phrase not in sow:
             raise ValueError(f"SOW preservation/print regression: missing {phrase!r}")
+    if "data-sow-freeze-id" in sow or "Frozen revision" in sow:
+        raise ValueError("Current SOW must remain revisioned and editable; obsolete freeze marker found")
+    rollup_matches = re.findall(r'data-effort-rollup="([^"]+)"\s+data-hours="([0-9.]+)"', sow)
+    html_rollups = {name: float(hours) for name, hours in rollup_matches}
+    if html_rollups != EXPECTED_EFFORT_ROLLUPS:
+        raise ValueError(f"Visible SOW effort rollups do not match canonical plan: {html_rollups}")
 
-    freeze_manifest = json.loads((root / "sow/archive/freeze-manifest.json").read_text(encoding="utf-8"))
-    freeze_id = freeze_manifest["freeze_id"]
-    if f'data-sow-freeze-id="{freeze_id}"' not in sow:
-        raise ValueError("SOW freeze regression: current HTML is missing the frozen manifest ID")
-    if sha256_path(root / freeze_manifest["source_html"]) != freeze_manifest["source_html_sha256"]:
-        raise ValueError("SOW freeze regression: current HTML changed without a superseding revision")
-    frozen_pdf = root / freeze_manifest["pdf"]
-    if sha256_path(frozen_pdf) != freeze_manifest["pdf_sha256"]:
-        raise ValueError("SOW freeze regression: archived PDF checksum changed")
-    frozen_pages, frozen_blocks = verify_pdf(frozen_pdf)
-    counts["sow/archive:frozen_pages"] = frozen_pages
-    counts["sow/archive:text_blocks"] = frozen_blocks
+    archive_manifest = json.loads((root / "sow/archive/revision-manifest.json").read_text(encoding="utf-8"))
+    archived_pdf = root / archive_manifest["pdf"]
+    if sha256_path(archived_pdf) != archive_manifest["pdf_sha256"]:
+        raise ValueError("Archived SOW revision checksum changed")
+    archived_pages, archived_blocks = verify_pdf(
+        archived_pdf,
+        required_text=ARCHIVED_REQUIRED_TEXT,
+        maximum_pages=4,
+    )
+    counts["sow/archive:prior_revision_pages"] = archived_pages
+    counts["sow/archive:text_blocks"] = archived_blocks
 
     os_script = (root / "os.js").read_text(encoding="utf-8")
     for phrase in (

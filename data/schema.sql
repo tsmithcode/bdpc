@@ -19,4 +19,5 @@ CREATE TABLE runtime(id INTEGER PRIMARY KEY AUTOINCREMENT,component TEXT NOT NUL
 CREATE TABLE cad_preparation(id INTEGER PRIMARY KEY AUTOINCREMENT,concern_group TEXT NOT NULL,item TEXT NOT NULL,status TEXT NOT NULL,current_evidence TEXT NOT NULL,next_action TEXT NOT NULL,owner TEXT NOT NULL);
 CREATE TABLE role_views(id INTEGER PRIMARY KEY AUTOINCREMENT,role TEXT NOT NULL,focus TEXT NOT NULL,decision_rule TEXT NOT NULL);
 CREATE TABLE access_controls(id INTEGER PRIMARY KEY AUTOINCREMENT,control TEXT NOT NULL,status TEXT NOT NULL,rule TEXT NOT NULL);
+CREATE TABLE sow_effort_plan(work_package_id TEXT PRIMARY KEY,workstream TEXT NOT NULL,sheet TEXT NOT NULL,task TEXT NOT NULL,planned_hours REAL NOT NULL,owner TEXT NOT NULL,dependency TEXT NOT NULL,handoff TEXT NOT NULL,acceptance_evidence TEXT NOT NULL);
 CREATE TABLE cad_public_registers(register_name TEXT NOT NULL,sequence INTEGER NOT NULL,record_id TEXT NOT NULL,payload_json TEXT NOT NULL,PRIMARY KEY(register_name,sequence));

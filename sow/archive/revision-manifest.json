@@ -1,13 +1,12 @@
 {
   "schema_version": "1.0",
-  "freeze_id": "SOW-20260721T151238Z",
-  "frozen_utc": "2026-07-21T15:12:38Z",
+  "archive_id": "SOW-20260721T151238Z",
+  "archived_utc": "2026-07-21T15:12:38Z",
   "revision": "2026.07.21.2",
-  "source_html": "sow/index.html",
   "source_html_sha256": "b5ca83f8bcbbd4789bdb4c4f825a7d52f1f13323f5895a915415db5a4c5367e4",
   "pdf": "sow/archive/BDPC_Dunn_SOW_2026-07-21T151238Z.pdf",
   "pdf_sha256": "8d664b8b56a362212553048767e38458259560005da6d2965c98c7898dd8204a",
   "page_size": "US Letter",
   "page_count": 2,
-  "change_rule": "This frozen artifact must not be overwritten. Any change requires a separately identified written superseding revision and archive artifact."
+  "artifact_state": "Prior issued revision retained for audit history. The current SOW is maintained separately at /bdpc/sow/."
 }
