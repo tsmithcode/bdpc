@@ -16,6 +16,8 @@ from urllib.parse import unquote, urlsplit
 
 from PIL import Image
 
+from qa_print_pdf import verify_pdf
+
 
 EXPECTED_ROUTES = [
     "index.html",
@@ -26,7 +28,10 @@ EXPECTED_ROUTES = [
     "reports/las-core/index.html",
     "reports/registration/index.html",
     "reports/completion/index.html",
+    "reports/context-visual/index.html",
+    "reports/cad-prep/index.html",
     "sow/index.html",
+    "sow/archive/index.html",
     "estimate/index.html",
 ]
 
@@ -116,6 +121,10 @@ def verify_data(root: Path) -> dict[str, int]:
         raise ValueError("RPT-02 must preserve the image-driven Visual inspection route")
     if report_names.get("RPT-04") != "Plan-control slice evidence":
         raise ValueError("RPT-04 must preserve the nine-slice evidence route")
+    if report_names.get("RPT-07") != "Photographic context":
+        raise ValueError("RPT-07 must preserve the restored photographic context route")
+    if report_names.get("RPT-08") != "CAD drafter preparation":
+        raise ValueError("RPT-08 must preserve the detailed CAD preparation route")
     classifications = [item["classification"] for item in project["native_pairs"]]
     if classifications.count("native_overlap_weak") != 4 or classifications.count("no_material_overlap") != 1:
         raise ValueError("Native overlap classification mismatch")
@@ -131,7 +140,14 @@ def verify_data(root: Path) -> dict[str, int]:
         "commercial": 8,
         "updates": 8,
         "runtime": 10,
-        "reports": 6,
+        "cad_preparation": 19,
+        "role_views": 5,
+        "access_controls": 4,
+        "cad_drafter_checks": 46,
+        "cad_area_rooms": 15,
+        "cad_assets": 25,
+        "cad_orientation_controls": 6,
+        "reports": 8,
         "validation_sessions": 5,
     }
     for key, minimum in preservation_minimums.items():
@@ -151,6 +167,10 @@ def verify_data(root: Path) -> dict[str, int]:
         "native-overlap-summary.csv": 5,
         "slice-summary.csv": 9,
         "milestone-evidence.csv": 20,
+        "cad-drafter-checklist.csv": 46,
+        "cad-area-room-register.csv": 15,
+        "cad-asset-block-register.csv": 25,
+        "cad-orientation-register.csv": 6,
     }
     for filename, expected in expected_rows.items():
         path = root / "reports/data" / filename
@@ -185,6 +205,11 @@ def verify_data(root: Path) -> dict[str, int]:
                 table: connection.execute(f'SELECT COUNT(*) FROM "{table}"').fetchone()[0]
                 for table in manifest["table_counts"]
             }
+            public_register_counts = dict(
+                connection.execute(
+                    "SELECT register_name, COUNT(*) FROM cad_public_registers GROUP BY register_name"
+                ).fetchall()
+            )
     if actual_counts != manifest["table_counts"]:
         raise ValueError("SQLite table counts do not match the manifest")
     for table_name, project_key in {
@@ -194,9 +219,24 @@ def verify_data(root: Path) -> dict[str, int]:
         "qa_checks": "qa_checks",
         "updates": "updates",
         "runtime": "runtime",
+        "cad_preparation": "cad_preparation",
+        "role_views": "role_views",
+        "access_controls": "access_controls",
     }.items():
         if actual_counts.get(table_name) != len(project[project_key]):
             raise ValueError(f"SQLite / JSON preservation mismatch for {table_name}")
+    public_register_total = sum(
+        len(project[key])
+        for key in ("cad_drafter_checks", "cad_area_rooms", "cad_assets", "cad_orientation_controls")
+    )
+    if actual_counts.get("cad_public_registers") != public_register_total:
+        raise ValueError("SQLite / JSON preservation mismatch for public CAD registers")
+    expected_public_register_counts = {
+        key: len(project[key])
+        for key in ("cad_drafter_checks", "cad_area_rooms", "cad_assets", "cad_orientation_controls")
+    }
+    if public_register_counts != expected_public_register_counts:
+        raise ValueError("SQLite public CAD register groups do not match canonical JSON")
     return csv_counts
 
 
@@ -248,12 +288,14 @@ def verify_images(root: Path) -> int:
 def verify_preservation(root: Path) -> dict[str, int]:
     """Block regressions in report depth, visible evidence, and SOW print controls."""
     expectations = {
-        "reports/index.html": {"img": 3, "h2": 4},
+        "reports/index.html": {"img": 4, "h2": 4},
         "reports/intake/index.html": {"table": 1, "h2": 6},
         "reports/scan-visual/index.html": {"img": 25, "h2": 6},
         "reports/las-header/index.html": {"table": 1, "h2": 3},
         "reports/las-core/index.html": {"img": 9, "table": 1, "h2": 5},
         "reports/registration/index.html": {"img": 5, "table": 1, "h2": 3},
+        "reports/context-visual/index.html": {"img": 4, "h2": 3},
+        "reports/cad-prep/index.html": {"table": 4, "h2": 5},
         "sow/index.html": {"table": 1, "h2": 9},
     }
     counts: dict[str, int] = {}
@@ -283,6 +325,8 @@ def verify_preservation(root: Path) -> dict[str, int]:
         "Validation method",
         "Documented interpretation rules",
         "Method and decision rules",
+        "Property and drafting context",
+        "Complete CAD drafter checklist",
     ):
         if phrase not in reports_text:
             raise ValueError(f"Preservation regression: missing documented rule section: {phrase}")
@@ -302,6 +346,19 @@ def verify_preservation(root: Path) -> dict[str, int]:
         if phrase not in sow:
             raise ValueError(f"SOW preservation/print regression: missing {phrase!r}")
 
+    freeze_manifest = json.loads((root / "sow/archive/freeze-manifest.json").read_text(encoding="utf-8"))
+    freeze_id = freeze_manifest["freeze_id"]
+    if f'data-sow-freeze-id="{freeze_id}"' not in sow:
+        raise ValueError("SOW freeze regression: current HTML is missing the frozen manifest ID")
+    if sha256_path(root / freeze_manifest["source_html"]) != freeze_manifest["source_html_sha256"]:
+        raise ValueError("SOW freeze regression: current HTML changed without a superseding revision")
+    frozen_pdf = root / freeze_manifest["pdf"]
+    if sha256_path(frozen_pdf) != freeze_manifest["pdf_sha256"]:
+        raise ValueError("SOW freeze regression: archived PDF checksum changed")
+    frozen_pages, frozen_blocks = verify_pdf(frozen_pdf)
+    counts["sow/archive:frozen_pages"] = frozen_pages
+    counts["sow/archive:text_blocks"] = frozen_blocks
+
     os_script = (root / "os.js").read_text(encoding="utf-8")
     for phrase in (
         "phase-progress-grid",
@@ -312,11 +369,17 @@ def verify_preservation(root: Path) -> dict[str, int]:
         "Quality and acceptance gates",
         "Excluded or separately authorized",
         "Validated session hierarchy",
+        "CAD drafter control room",
+        "Publication controls",
     ):
         if phrase not in os_script:
             raise ValueError(f"OS tab preservation regression: missing {phrase!r}")
-    if os_script.count("function render") < 9:
-        raise ValueError("OS tab preservation regression: all nine tab renderers must be present")
+    if os_script.count("function render") < 10:
+        raise ValueError("OS tab preservation regression: all ten tab renderers must be present")
+    index = (root / "index.html").read_text(encoding="utf-8")
+    for tab in ("Overview", "Milestones", "Files", "Standards", "Automation", "CAD Prep", "Delivery + QA", "Commercial", "Updates", "Runtime"):
+        if f">{tab}</button>" not in index:
+            raise ValueError(f"OS tab preservation regression: missing {tab}")
     return counts
 
 
