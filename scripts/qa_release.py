@@ -317,7 +317,7 @@ def verify_preservation(root: Path) -> dict[str, int]:
         "reports/las-header/index.html": {"table": 1, "h2": 3},
         "reports/las-core/index.html": {"img": 9, "table": 1, "h2": 5},
         "reports/registration/index.html": {"img": 5, "table": 1, "h2": 3},
-        "reports/context-visual/index.html": {"img": 4, "h2": 3},
+        "reports/context-visual/index.html": {"img": 4, "h2": 3, "table": 1},
         "reports/cad-prep/index.html": {"table": 4, "h2": 5},
         "sow/index.html": {"table": 2, "h2": 10},
     }
@@ -335,6 +335,15 @@ def verify_preservation(root: Path) -> dict[str, int]:
     for session in "abcde":
         if visual.count(f"session-{session}-") < 8:
             raise ValueError(f"Visual report is missing the Session {session.upper()} evidence gallery")
+
+    context = (root / "reports/context-visual/index.html").read_text(encoding="utf-8")
+    for number in range(1, 25):
+        reference = f"EXT-{number:02d}"
+        if context.count(f"<strong>{reference}</strong>") != 1:
+            raise ValueError(f"Photographic context must contain one indexed row for {reference}")
+    for phrase in ("CAD handoff sequence", "Visible context", "Plan use", "Confirm onsite / in controlling plan"):
+        if phrase not in context:
+            raise ValueError(f"Photographic context handoff regression: missing {phrase!r}")
 
     reports_text = "\n".join(
         (root / relative).read_text(encoding="utf-8")
