@@ -13,8 +13,8 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-REVISION = "2026.07.21.3"
-RELEASE_MARKER = "OS_PRESERVATION_20260721"
+REVISION = "2026.07.21.5"
+RELEASE_MARKER = "OS_PUBLIC_CONTEXT_CAD_PREP_20260721"
 OVERLAP_STATEMENT = (
     "Five native-coordinate scan pairs were analyzed: four showed weak native "
     "overlap and one showed no material overlap. No transform was applied, no "
@@ -59,6 +59,28 @@ def write_csv(path: Path, headers: list[str], rows: Iterable[Iterable[Any]]) -> 
     temporary.replace(path)
 
 
+def load_public_registers(root: Path) -> dict[str, list[dict[str, str]]]:
+    """Load the owner-approved public CAD-preparation CSV registers."""
+    data = root / "reports/data"
+    mapping = {
+        "cad_drafter_checks": "cad-drafter-checklist.csv",
+        "cad_area_rooms": "cad-area-room-register.csv",
+        "cad_assets": "cad-asset-block-register.csv",
+        "cad_orientation_controls": "cad-orientation-register.csv",
+    }
+    registers: dict[str, list[dict[str, str]]] = {}
+    for key, filename in mapping.items():
+        path = data / filename
+        if not path.is_file():
+            raise FileNotFoundError(f"Required public CAD register missing: {path}")
+        with path.open(newline="", encoding="utf-8-sig") as handle:
+            rows = [dict(row) for row in csv.DictReader(handle)]
+        if not rows:
+            raise ValueError(f"Public CAD register is empty: {path}")
+        registers[key] = rows
+    return registers
+
+
 VALIDATION_SESSIONS = [
     {"session": "Session A", "role": "Primary building evidence", "points": 12_940_403, "status": "Complete", "limitation": "Analytical evidence; controlling drawing authority remains pending."},
     {"session": "Session B", "role": "Interior detail evidence", "points": 3_772_526, "status": "Complete", "limitation": "Analytical evidence; not survey certification."},
@@ -95,7 +117,7 @@ MILESTONES = [
     {"id": "M-05", "name": "Full-source visual index", "status": "Ready for human review", "phase": "Pre-license evidence", "evidence": "25 full-source figures are published in the client-safe visual inspection gallery.", "limitation": "Analytical controls, not issued drawings."},
     {"id": "M-06", "name": "Plan-control slice audit", "status": "Ready for human review", "phase": "Pre-license evidence", "evidence": "Nine trial slice figures are published with contributing-point counts.", "limitation": "Two upper bands contain zero contributing points; candidate floor and units remain controls."},
     {"id": "M-07", "name": "Native-coordinate pair audit", "status": "Complete", "phase": "Pre-license evidence", "evidence": "Five pairs were analyzed: four weak native overlaps and one no-material-overlap.", "limitation": "No transform, adopted tolerance, or registration pass."},
-    {"id": "M-08", "name": "Client-safe report library", "status": "Complete", "phase": "Pre-license evidence", "evidence": "Detailed intake, visual, header, slice, overlap, and completion reports are available from the OS.", "limitation": "Reports document analytical evidence and boundaries; they are not professional certifications."},
+    {"id": "M-08", "name": "Public report library", "status": "Complete", "phase": "Pre-license evidence", "evidence": "Eight detailed reports cover intake, analytical figures, photographic context, header validation, slices, overlap, CAD preparation, and completion.", "limitation": "Reports document evidence, controls, and limitations; they are not professional certifications."},
     {"id": "M-09", "name": "Estimate and release package", "status": "Ready", "phase": "Client review", "evidence": "The $3,200 estimate, print-optimized SOW, and client-safe evidence package passed local QA.", "limitation": "Requires human review and written authorization."},
     {"id": "M-10", "name": "Written authorization", "status": "Awaiting input", "phase": "Kickoff", "evidence": "BDPC written authorization of the fixed-fee scope and included review round is required.", "limitation": "Production clock has not started."},
     {"id": "M-11", "name": "$1,600 start payment", "status": "Awaiting input", "phase": "Kickoff", "evidence": "The start payment arrangement is required before production begins.", "limitation": "Production clock has not started."},
@@ -208,9 +230,47 @@ RUNTIME = [
     {"component": "NumPy", "version": "2.5.1", "status": "Complete", "availability": "Installed", "purpose": "Used for deterministic analytical processing and figures."},
     {"component": "PyMuPDF", "version": "1.28.0", "status": "Complete", "availability": "Installed", "purpose": "Used for PDF inspection and print QA support."},
     {"component": "Pillow", "version": "12.3.0", "status": "Complete", "availability": "Installed", "purpose": "Used to validate and prepare client-safe derived imagery."},
-    {"component": "Browser / static workspace", "version": "GitHub Pages", "status": "Ready", "availability": "Client-facing", "purpose": "Provides the OS, reports, estimate/SOW, and verified downloads without client installation."},
+    {"component": "Browser / static workspace", "version": "GitHub Pages", "status": "Ready", "availability": "Public client-safe only", "purpose": "Provides only reviewed client-safe OS content, reports, estimate/SOW, and verified downloads without client installation."},
+    {"component": "Public context and CAD-prep access", "version": "Static public routes", "status": "Complete", "availability": "Client-facing", "purpose": "Provides the owner-approved historical contact sheets and full public CAD production-preparation registers."},
     {"component": "Local project workspace", "version": "Dunn_Preflight_v1_1", "status": "Complete", "availability": "Protected", "purpose": "Separates private evidence, client-safe publication candidates, runtime records, and release QA."},
     {"component": "AI assistance", "version": "Codex", "status": "Ready", "availability": "Available", "purpose": "Supports bounded analysis and release work; human CAD and client review control issued work."},
+]
+
+CAD_PREPARATION = [
+    {"group": "Authority", "item": "Controlling project input set", "status": "Awaiting input", "current_evidence": "Candidate current CAD, conceptual intent, area reference, title block, and standards roles are recorded privately.", "next_action": "BDPC confirms the exact controlling set or supplies replacements.", "owner": "BDPC"},
+    {"group": "Orientation", "item": "Project north and view rotations", "status": "Awaiting input", "current_evidence": "Private page review found differing displayed orientations across conceptual views.", "next_action": "Record project north and every comparison rotation before tracing or xref alignment.", "owner": "CAD Guardian / BDPC"},
+    {"group": "Units", "item": "Native units and insertion scale", "status": "Blocked", "current_evidence": "Concept graphics are not a native-unit authority.", "next_action": "Validate INSUNITS, xref insertion, and dimension basis in the licensed runtime.", "owner": "CAD Guardian"},
+    {"group": "Existing plan", "item": "Exterior footprint and area boundaries", "status": "Not started", "current_evidence": "Candidate topology and reference areas are recorded privately pending authority confirmation.", "next_action": "Reconcile closed boundaries to confirmed CAD and accepted controls.", "owner": "CAD Guardian"},
+    {"group": "Existing plan", "item": "Room and space inventory", "status": "Not started", "current_evidence": "Reviewed reference material does not establish every room label.", "next_action": "Inventory each enclosed space; leave unsupported names and values explicitly blank.", "owner": "CAD Guardian / BDPC"},
+    {"group": "Existing plan", "item": "Walls, windows, doors, and openings", "status": "Not started", "current_evidence": "Private visual context can support reconciliation but does not establish a complete schedule.", "next_action": "Count, tag, size when supported, and track every unresolved value.", "owner": "CAD Guardian"},
+    {"group": "Existing plan", "item": "Stairs, fixtures, and equipment", "status": "Not started", "current_evidence": "Context evidence exists; complete production authority does not.", "next_action": "Inventory only supported items and separate observations from assumptions.", "owner": "CAD Guardian"},
+    {"group": "Proposed plan", "item": "Kitchen and living organization", "status": "Awaiting input", "current_evidence": "Candidate concept establishes a kitchen/living/deck planning direction.", "next_action": "Confirm intent and controlling dimensions before native drafting.", "owner": "BDPC"},
+    {"group": "Proposed plan", "item": "Cabinet, appliance, island, and furniture blocks", "status": "Not started", "current_evidence": "Required content categories are identified privately.", "next_action": "Source approved BDPC blocks first; create controlled content only where needed.", "owner": "CAD Guardian"},
+    {"group": "Proposed plan", "item": "Deck, stairs, railings, and openings", "status": "Awaiting input", "current_evidence": "Candidate intent is visible; exact geometry and construction information are unresolved.", "next_action": "Resolve dimensions and draft without structural or code certification claims.", "owner": "BDPC / CAD Guardian"},
+    {"group": "Site / area", "item": "Drive, walk, footprint, and work limits", "status": "Awaiting input", "current_evidence": "Candidate site context is recorded privately and marked as non-survey evidence.", "next_action": "Reconcile generalized limits to the controlling input and state the basis.", "owner": "CAD Guardian / BDPC"},
+    {"group": "Phasing", "item": "Existing, demolition, and new-work graphics", "status": "Awaiting input", "current_evidence": "Concept overlays do not define every demolition decision.", "next_action": "Apply the confirmed BDPC graphic standard and return missing decisions.", "owner": "BDPC / CAD Guardian"},
+    {"group": "Standards", "item": "Layers, dimensions, notes, and tags", "status": "Awaiting input", "current_evidence": "Documented OS rules are preserved; the controlling project package remains unconfirmed.", "next_action": "Map confirmed standards and record exceptions.", "owner": "BDPC / CAD Guardian"},
+    {"group": "Dependencies", "item": "Title block, xrefs, fonts, shapes, and object support", "status": "Blocked", "current_evidence": "Native dependency behavior remains unvalidated.", "next_action": "Audit the confirmed package in a licensed compatible Autodesk runtime.", "owner": "CAD Guardian"},
+    {"group": "Plot", "item": "Layouts, viewports, page setup, and CTB/STB", "status": "Blocked", "current_evidence": "Browser and open-source checks do not establish native plotting fidelity.", "next_action": "Create native check plots and compare paper/PDF output.", "owner": "CAD Guardian"},
+    {"group": "QA", "item": "Geometry, dimension, and area closure", "status": "Not started", "current_evidence": "Acceptance checks are defined in the private drafter register.", "next_action": "Audit gaps, overlaps, duplicate entities, dimension closure, and classified areas.", "owner": "CAD Guardian"},
+    {"group": "QA", "item": "Sheet-to-sheet coordination", "status": "Not started", "current_evidence": "Three deliverables share footprints, areas, orientation, and revision state.", "next_action": "Cross-check all shared controls before the check set.", "owner": "CAD Guardian"},
+    {"group": "Delivery", "item": "Three-sheet check set", "status": "Not started", "current_evidence": "Target is three business days after all four kickoff gates.", "next_action": "Issue the controlled review PDF only after internal native QA.", "owner": "CAD Guardian"},
+    {"group": "Delivery", "item": "Consolidated review and final issue", "status": "Not started", "current_evidence": "One consolidated review round is included.", "next_action": "Resolve the complete response and issue validated native CAD/PDF records.", "owner": "BDPC / CAD Guardian"},
+]
+
+ROLE_VIEWS = [
+    {"role": "Architect", "focus": "Confirm design intent, controlling dimensions, room names, openings, title block, and standards authority.", "decision": "Approve or correct project controls; return one consolidated review."},
+    {"role": "CAD drafter", "focus": "Work the private checklist across orientation, geometry, blocks, areas, dependencies, QA, and delivery.", "decision": "Do not fill unsupported blanks or silently resolve conflicts."},
+    {"role": "B2B commercial", "focus": "Maintain the authorized three-sheet scope, four kickoff gates, schedule, payment, and change control.", "decision": "Route scope additions through written authorization at $90/hour."},
+    {"role": "Delivery", "focus": "Control check-set, review, native/PDF package, dependency, revision, and checksum evidence.", "decision": "Issue only after native open/plot and package QA pass."},
+    {"role": "Client customer (experimental)", "focus": "See clear readiness, required decisions, commercial terms, photographic context, and the full CAD production-preparation register.", "decision": "Use labeled candidate values and statuses; raw confidential source files remain outside the OS."},
+]
+
+ACCESS_CONTROLS = [
+    {"control": "Public OS", "status": "Complete", "rule": "All published routes are intentionally public under explicit owner authorization."},
+    {"control": "Historical contact sheets", "status": "Complete", "rule": "Four renamed local assets are published through the photographic-context report."},
+    {"control": "CAD production-preparation registers", "status": "Complete", "rule": "Checklist, area/room, asset/block, and orientation CSVs are public and rendered in the CAD Prep report."},
+    {"control": "Raw confidential source files", "status": "Prohibited", "rule": "CAD, point clouds, source PDF/PNG files, coordinates, hashes, and local paths remain outside Git."},
 ]
 
 REPORTS = [
@@ -220,13 +280,15 @@ REPORTS = [
     {"id": "RPT-04", "name": "Plan-control slice evidence", "status": "Complete", "url": "/bdpc/reports/las-core/", "summary": "Nine trial slices with contributing-point and zero-band limitations."},
     {"id": "RPT-05", "name": "Native-coordinate overlap", "status": "Complete", "url": "/bdpc/reports/registration/", "summary": "Five current pair overlays with the four-weak/one-no-material result."},
     {"id": "RPT-06", "name": "Pre-license completion brief", "status": "Ready", "url": "/bdpc/reports/completion/", "summary": "Current completion, kickoff gates, evidence counts, and truth boundary."},
+    {"id": "RPT-07", "name": "Photographic context", "status": "Complete", "url": "/bdpc/reports/context-visual/", "summary": "Four restored contact sheets covering exterior, site, facade, deck/porch, interior, entry, and companion scan context."},
+    {"id": "RPT-08", "name": "CAD drafter preparation", "status": "Complete", "url": "/bdpc/reports/cad-prep/", "summary": "Full drafting checklist, areas, spaces, blocks, assets, orientation, dependencies, QA, and delivery controls."},
 ]
 
 
 def build_project() -> dict[str, Any]:
     """Return the canonical browser-facing project object."""
     return {
-        "schema_version": "2.0",
+        "schema_version": "2.1",
         "revision": REVISION,
         "release_marker": RELEASE_MARKER,
         "updated_date": "2026-07-21",
@@ -282,6 +344,9 @@ def build_project() -> dict[str, Any]:
         "qa_checks": QA_CHECKS,
         "updates": UPDATES,
         "runtime": RUNTIME,
+        "cad_preparation": CAD_PREPARATION,
+        "role_views": ROLE_VIEWS,
+        "access_controls": ACCESS_CONTROLS,
         "reports": REPORTS,
     }
 
@@ -304,6 +369,10 @@ CREATE TABLE automation(id INTEGER PRIMARY KEY AUTOINCREMENT,item TEXT NOT NULL,
 CREATE TABLE qa_checks(id INTEGER PRIMARY KEY AUTOINCREMENT,check_name TEXT NOT NULL,status TEXT NOT NULL,evidence TEXT NOT NULL);
 CREATE TABLE updates(id INTEGER PRIMARY KEY AUTOINCREMENT,event_date TEXT NOT NULL,title TEXT NOT NULL,status TEXT NOT NULL,detail TEXT NOT NULL);
 CREATE TABLE runtime(id INTEGER PRIMARY KEY AUTOINCREMENT,component TEXT NOT NULL,version TEXT NOT NULL,status TEXT NOT NULL,availability TEXT NOT NULL,purpose TEXT NOT NULL);
+CREATE TABLE cad_preparation(id INTEGER PRIMARY KEY AUTOINCREMENT,concern_group TEXT NOT NULL,item TEXT NOT NULL,status TEXT NOT NULL,current_evidence TEXT NOT NULL,next_action TEXT NOT NULL,owner TEXT NOT NULL);
+CREATE TABLE role_views(id INTEGER PRIMARY KEY AUTOINCREMENT,role TEXT NOT NULL,focus TEXT NOT NULL,decision_rule TEXT NOT NULL);
+CREATE TABLE access_controls(id INTEGER PRIMARY KEY AUTOINCREMENT,control TEXT NOT NULL,status TEXT NOT NULL,rule TEXT NOT NULL);
+CREATE TABLE cad_public_registers(register_name TEXT NOT NULL,sequence INTEGER NOT NULL,record_id TEXT NOT NULL,payload_json TEXT NOT NULL,PRIMARY KEY(register_name,sequence));
 """
 
 
@@ -378,6 +447,31 @@ def build_database(path: Path, project: dict[str, Any]) -> dict[str, int]:
                 "INSERT INTO runtime(component,version,status,availability,purpose) VALUES (?,?,?,?,?)",
                 [(x["component"], x["version"], x["status"], x["availability"], x["purpose"]) for x in RUNTIME],
             )
+            connection.executemany(
+                "INSERT INTO cad_preparation(concern_group,item,status,current_evidence,next_action,owner) VALUES (?,?,?,?,?,?)",
+                [(x["group"], x["item"], x["status"], x["current_evidence"], x["next_action"], x["owner"]) for x in CAD_PREPARATION],
+            )
+            connection.executemany(
+                "INSERT INTO role_views(role,focus,decision_rule) VALUES (?,?,?)",
+                [(x["role"], x["focus"], x["decision"]) for x in ROLE_VIEWS],
+            )
+            connection.executemany(
+                "INSERT INTO access_controls(control,status,rule) VALUES (?,?,?)",
+                [(x["control"], x["status"], x["rule"]) for x in ACCESS_CONTROLS],
+            )
+            register_id_keys = {
+                "cad_drafter_checks": "check_id",
+                "cad_area_rooms": "record_id",
+                "cad_assets": "asset_id",
+                "cad_orientation_controls": "orientation_id",
+            }
+            public_register_rows: list[tuple[str, int, str, str]] = []
+            for register_name, id_key in register_id_keys.items():
+                for sequence, record in enumerate(project[register_name], start=1):
+                    public_register_rows.append(
+                        (register_name, sequence, record[id_key], json.dumps(record, ensure_ascii=False, sort_keys=True))
+                    )
+            connection.executemany("INSERT INTO cad_public_registers VALUES (?,?,?,?)", public_register_rows)
             connection.commit()
             integrity = connection.execute("PRAGMA integrity_check").fetchone()[0]
             if integrity != "ok":
@@ -409,6 +503,16 @@ def build_report_csvs(root: Path) -> list[Path]:
     path = data / "milestone-evidence.csv"
     write_csv(path, ["milestone_id", "milestone", "status", "phase", "evidence", "limitation"], [(x["id"], x["name"], x["status"], x["phase"], x["evidence"], x["limitation"]) for x in MILESTONES])
     outputs.append(path)
+    for filename in (
+        "cad-drafter-checklist.csv",
+        "cad-area-room-register.csv",
+        "cad-asset-block-register.csv",
+        "cad-orientation-register.csv",
+    ):
+        static_path = data / filename
+        if not static_path.is_file():
+            raise FileNotFoundError(f"Required public CAD-prep register missing: {static_path}")
+        outputs.append(static_path)
     return outputs
 
 
@@ -419,6 +523,7 @@ def main() -> int:
         raise SystemExit(f"Refusing to build outside a Git worktree: {root}")
     data_dir = root / "data"
     project = build_project()
+    project.update(load_public_registers(root))
     project_path = data_dir / "project.json"
     atomic_write(project_path, json.dumps(project, indent=2, ensure_ascii=False) + "\n")
     schema_path = data_dir / "schema.sql"
@@ -452,7 +557,7 @@ def main() -> int:
     )
     tracked_outputs = [project_path, schema_path, database_path, release_path, instructions_path, *part_paths, *csv_paths]
     manifest = {
-        "schema_version": "2.0",
+        "schema_version": "2.1",
         "revision": REVISION,
         "release_marker": RELEASE_MARKER,
         "updated_date": "2026-07-21",

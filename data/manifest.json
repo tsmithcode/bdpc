@@ -1,7 +1,7 @@
 {
   "database": "data/bdpc_client_os.sqlite",
   "database_download_name": "bdpc_client_os.sqlite",
-  "database_sha256": "ea047b912300c3a4ef9d04e33b34b69521624652c8a80d2c16e54e5fc7df55dd",
+  "database_sha256": "699db61d1353e9aba985ee59773a6ac2db9b0e475dab5d10c6d16931343056af",
   "database_transport": [
     "data/sqlite/part-01.b64",
     "data/sqlite/part-02.b64",
@@ -11,41 +11,49 @@
     "data/sqlite/part-06.b64",
     "data/sqlite/part-07.b64",
     "data/sqlite/part-08.b64",
-    "data/sqlite/part-09.b64"
+    "data/sqlite/part-09.b64",
+    "data/sqlite/part-10.b64",
+    "data/sqlite/part-11.b64",
+    "data/sqlite/part-12.b64",
+    "data/sqlite/part-13.b64",
+    "data/sqlite/part-14.b64",
+    "data/sqlite/part-15.b64",
+    "data/sqlite/part-16.b64",
+    "data/sqlite/part-17.b64"
   ],
-  "database_transport_sha256": "7bdde006c5fa3504ebe465cd0d2319bbd4c024a32608b9076a107113e5b054d9",
+  "database_transport_sha256": "fc86a159e72e15beb5248d2075eda7e0e9e9403d03e6ea1649b0f1fe24da1d6b",
   "files": {
     "data/README.txt": {
       "bytes": 466,
       "sha256": "30fdd819b3872a03ffa6917e2c66f9d257a57ccd281764a421a9d0b693ed3d0d"
     },
     "data/bdpc_client_os.sqlite": {
-      "bytes": 102400,
-      "sha256": "ea047b912300c3a4ef9d04e33b34b69521624652c8a80d2c16e54e5fc7df55dd"
+      "bytes": 192512,
+      "sha256": "699db61d1353e9aba985ee59773a6ac2db9b0e475dab5d10c6d16931343056af"
     },
     "data/project.json": {
-      "bytes": 31388,
-      "sha256": "fd808462a88762997a413e79cd558bee169e35220ab0037976ca4f6c3ae332e1"
+      "bytes": 86215,
+      "sha256": "7cadfc7cf93c3d5c049a99fb071a460a16ea28a831b32577cdb6a7f5dd59c3c9"
     },
     "data/release.json": {
-      "bytes": 113,
-      "sha256": "7313af4ee11751ff1b7693df293e0c5b8ebb9cb07d74b9db033382a398d7ac66"
+      "bytes": 124,
+      "sha256": "43d4b8e6abe02afe51d4434a951d1dcdca2fed152aea898ee56c1a483d0ad44f"
     },
     "data/schema.sql": {
-      "bytes": 2733,
-      "sha256": "a099c46828ac93110da9a0da20ebe96d6598b03cc97558b1efb3794304d5017e"
+      "bytes": 3383,
+      "sha256": "9352c603e476a0d8be523875936b886a899d431ebd596eb2deebb1ee8262d50a"
     },
     "data/sqlite/part-01.b64": {
       "bytes": 16000,
-      "sha256": "024da744d255bd271bb007a566a7f224f06beddc5db32138ce8273007e64157d"
+      "sha256": "c5453765caeaedb3f9af12ae56a4212c5ffb31ee36fb4981bca228d918eb30b7"
     },
     "data/sqlite/part-02.b64": {
       "bytes": 16000,
-      "sha256": "b1212c490a0c1ff40fb7c0b1d257855278d0c37c0441169b73425851f6050121"
+      "sha256": "88d69d62d1868300ff8873dfbfdfbaaa5993d0fa0512626fd8d6c57ac888e2d8"
     },
     "data/sqlite/part-03.b64": {
       "bytes": 16000,
-      "sha256": "b51b738f79039d5de084ae5ae6d97c10b9dee4b9795d69b994d935273553c2bc"
+      "sha256": "5fa8bb9c0cf79e2a0d763427b7d57339892142c56c07ace91ab38af2d6ea3f1e"
     },
     "data/sqlite/part-04.b64": {
       "bytes": 16000,
@@ -57,23 +65,71 @@
     },
     "data/sqlite/part-06.b64": {
       "bytes": 16000,
-      "sha256": "f6e7e6243db32322c3dab76e67c13b56089b1e213ef8de0d2f052758f29e8db5"
+      "sha256": "4f3230d9738161c4365efa3408bcdb14636a6fb5157293076fc1c99c3600dcdf"
     },
     "data/sqlite/part-07.b64": {
       "bytes": 16000,
-      "sha256": "89c67a92f2a4bfd2760035e99ec59d7a0a74d18b65c3012be7b72a1a583d7654"
+      "sha256": "9367cfba6ea73ffc187b354f2a860ef5475fe28d17ffd4df0752c536749fef20"
     },
     "data/sqlite/part-08.b64": {
       "bytes": 16000,
       "sha256": "209aef02219b99e0880ac11ef2809ee5d34ed9bce5ad21cf82f284f18ce68ef0"
     },
     "data/sqlite/part-09.b64": {
-      "bytes": 8536,
-      "sha256": "77d7fb6dee92ab57379e66e2e4f371e9a1e1f324e4018cced6f7401ea9ecef0b"
+      "bytes": 16000,
+      "sha256": "d05bf84357263c634053e1540667d5dde7aae9ebe7138d3f75be0290291d187a"
+    },
+    "data/sqlite/part-10.b64": {
+      "bytes": 16000,
+      "sha256": "fdd7802b8e60bf2ef7e87d94969aaa5469437c36ce23c62fee02d9975e6affdb"
+    },
+    "data/sqlite/part-11.b64": {
+      "bytes": 16000,
+      "sha256": "7f496faade81746adf8201e6146e631dce359fd63cb5400d75efafdfd230bcf1"
+    },
+    "data/sqlite/part-12.b64": {
+      "bytes": 16000,
+      "sha256": "63cc957c8d45df3e79ee76d83c752d8e4378ea16cd6f1b4321669c4d3b90153d"
+    },
+    "data/sqlite/part-13.b64": {
+      "bytes": 16000,
+      "sha256": "dfa94126fe7d4d00f5f6f14f63f383e315e4a56567e40cc766a13698c241e48b"
+    },
+    "data/sqlite/part-14.b64": {
+      "bytes": 16000,
+      "sha256": "73ed513c2595770e4a115b456d7c5901bce1230d3901abe43b09609f2b35ef1e"
+    },
+    "data/sqlite/part-15.b64": {
+      "bytes": 16000,
+      "sha256": "67e6696f09bab0f0e3a36e09c901e9e86549c84a465a59f7e3434895fc8d3d0e"
+    },
+    "data/sqlite/part-16.b64": {
+      "bytes": 16000,
+      "sha256": "a1fe7e66061670cd13e8bf1e52b7446778f324d0522c7be1e8a2ef6521d6546e"
+    },
+    "data/sqlite/part-17.b64": {
+      "bytes": 684,
+      "sha256": "4d4b5c90bc14043a2ab70ed12e79ef0caefe91897f778cf6dd5c6915a62d651f"
+    },
+    "reports/data/cad-area-room-register.csv": {
+      "bytes": 3104,
+      "sha256": "6b21499f6e1d5ad2d1d2f06cbbc2111398ae6a3e95b495f48f49a757cfd02b22"
+    },
+    "reports/data/cad-asset-block-register.csv": {
+      "bytes": 5512,
+      "sha256": "88e05dea31a3177e0968c8933f0e66f387e1fe3814cab0a95d5425cced75ef01"
+    },
+    "reports/data/cad-drafter-checklist.csv": {
+      "bytes": 11494,
+      "sha256": "4c6a368cafcc4cd63f1ba2a4414b0862c09f19b59346dbd07a4759cd9f7c9c10"
+    },
+    "reports/data/cad-orientation-register.csv": {
+      "bytes": 1615,
+      "sha256": "efc19a538fe5dc71b3c832b499535c2cdd1bf2563343c2a5d5f7094f884db05c"
     },
     "reports/data/milestone-evidence.csv": {
-      "bytes": 4001,
-      "sha256": "e3787c07b74d2ff435a7e9b402833415ee3a80e13eccba565963f8125cc6bcc9"
+      "bytes": 4048,
+      "sha256": "41e84fad9e125418c759168cc32861e54a86b1fd795ad2a82e7ee7b5f258d6a1"
     },
     "reports/data/native-overlap-summary.csv": {
       "bytes": 946,
@@ -89,11 +145,14 @@
     }
   },
   "privacy": "Client-safe aggregate and derived project controls only; confidential source materials are not included.",
-  "release_marker": "OS_PRESERVATION_20260721",
-  "revision": "2026.07.21.3",
-  "schema_version": "2.0",
+  "release_marker": "OS_PUBLIC_CONTEXT_CAD_PREP_20260721",
+  "revision": "2026.07.21.5",
+  "schema_version": "2.1",
   "table_counts": {
+    "access_controls": 4,
     "automation": 12,
+    "cad_preparation": 19,
+    "cad_public_registers": 92,
     "commercial": 8,
     "deliverables": 3,
     "file_groups": 6,
@@ -103,8 +162,9 @@
     "native_overlap_pairs": 5,
     "project": 1,
     "qa_checks": 14,
-    "reports": 6,
-    "runtime": 10,
+    "reports": 8,
+    "role_views": 5,
+    "runtime": 11,
     "slice_evidence": 9,
     "standards": 11,
     "updates": 8,
