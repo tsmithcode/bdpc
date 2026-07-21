@@ -1,1 +1,491 @@
-{"schema_version":"1.0","revision":"2026.07.21.1","updated_date":"2026-07-21","project":{"id":"DUNN-RESIDENCE","name":"Dunn Residence","client":"BDPC Architects","provider":"CAD Guardian LLC","phase":"Preflight complete","current_gate":"Licensed CAD runtime activation and written authorization","production_status":"Not started","priority":"Complete the three floor-plan deliverables before optional automation","public_workspace":"https://tsmithcode.github.io/bdpc/","report_library":"https://tsmithcode.github.io/bdpc/reports/","sow":"https://tsmithcode.github.io/bdpc/sow/"},"metrics":{"files":908,"source_size_gb":8.2,"required_groups_present":2,"required_groups_total":2,"duplicate_groups":2,"scan_sessions":5,"point_count":91688946,"reports":5,"milestones_complete":8,"milestones_total":20,"preflight_percent":100,"production_percent":0,"overall_percent":40},"milestones":[{"sequence":1,"name":"Discovery and scope alignment","status":"Complete","phase":"Preflight","detail":"Project objective and three-sheet pilot defined.","completed_date":"2026-07-20"},{"sequence":2,"name":"Source package received","status":"Complete","phase":"Preflight","detail":"CAD, PDF, LiDAR and supporting files received and inventoried.","completed_date":"2026-07-20"},{"sequence":3,"name":"Source intake and duplicate audit","status":"Complete","phase":"Preflight","detail":"908 files / 8.20 GB inventoried; two expected duplicate groups identified.","completed_date":"2026-07-20"},{"sequence":4,"name":"Scan visual index","status":"Complete","phase":"Preflight","detail":"Five scan sessions indexed with client-safe contact sheets.","completed_date":"2026-07-20"},{"sequence":5,"name":"LAS header audit","status":"Complete","phase":"Preflight","detail":"Five LAS files read successfully; format, scale, extents and counts recorded.","completed_date":"2026-07-20"},{"sequence":6,"name":"LAS core geometry audit","status":"Complete","phase":"Preflight","detail":"Robust core extents and outlier inflation analyzed for all sessions.","completed_date":"2026-07-20"},{"sequence":7,"name":"Registration overlay audit","status":"Complete","phase":"Preflight","detail":"Shared-coordinate evidence and pairwise XY overlap documented.","completed_date":"2026-07-20"},{"sequence":8,"name":"Client report publication","status":"Complete","phase":"Preflight","detail":"Five client-safe reports published in the workspace.","completed_date":"2026-07-21"},{"sequence":9,"name":"AutoCAD and ReCap licensing","status":"Awaiting input","phase":"Runtime","detail":"Application licenses are pending on CAD Guardian's execution environment.","completed_date":null},{"sequence":10,"name":"BDPC standards dependencies","status":"Awaiting input","phase":"Runtime","detail":"Confirm separately maintained CTB/STB, nonstandard fonts and preferred title-block dependency only if applicable.","completed_date":null},{"sequence":11,"name":"Commercial authorization","status":"Awaiting input","phase":"Commercial","detail":"Approve the $3,200 fixed-fee scope and one consolidated review cycle.","completed_date":null},{"sequence":12,"name":"Controlled CAD working set","status":"Not started","phase":"Production","detail":"Create working copies, validate DWG openability, bind source hierarchy and preserve originals.","completed_date":null},{"sequence":13,"name":"Existing floor plan","status":"Not started","phase":"Production","detail":"Draft and dimension the controlling existing-condition plan first.","completed_date":null},{"sequence":14,"name":"Proposed floor plan","status":"Not started","phase":"Production","detail":"Coordinate rear addition, living/kitchen changes and deck relationship.","completed_date":null},{"sequence":15,"name":"Site and area plan","status":"Not started","phase":"Production","detail":"Document footprint, proposed work, deck/porch context and agreed areas without implying survey services.","completed_date":null},{"sequence":16,"name":"Internal drawing QA","status":"Not started","phase":"QA","detail":"Run geometry, annotation, layer, dimension, viewport and plotting checks.","completed_date":null},{"sequence":17,"name":"BDPC check set","status":"Not started","phase":"Delivery","detail":"Issue coordinated three-sheet review PDF within three business days of production start.","completed_date":null},{"sequence":18,"name":"Consolidated BDPC review","status":"Not started","phase":"Delivery","detail":"Receive and resolve one consolidated redline cycle.","completed_date":null},{"sequence":19,"name":"Final DWG/PDF issue","status":"Not started","phase":"Delivery","detail":"Issue final native DWGs, coordinated PDFs, change summary and unresolved-condition record.","completed_date":null},{"sequence":20,"name":"Archive and next-engagement closeout","status":"Not started","phase":"Closeout","detail":"Archive reusable assets, confirm acceptance and define any follow-on scope.","completed_date":null}],"file_groups":[{"group":"Images / scan-derived imagery","extensions":".png","count":838,"status":"Complete","notes":"Client-safe count only; raw imagery is not broadly exposed outside approved report contact sheets."},{"group":"Sensor packages","extensions":".bag / .amap / .amx / .ini / no extension","count":32,"status":"Complete","notes":"Raw scanner working files retained privately and unchanged."},{"group":"Text, CSV and JSON support files","extensions":".txt / .csv / .json","count":28,"status":"Complete","notes":"Calibration, trajectory, metadata and derived analysis inputs."},{"group":"LiDAR point clouds","extensions":".las","count":5,"status":"Complete","notes":"All five files opened successfully during header and geometry audits."},{"group":"CAD drawings","extensions":".dwg","count":3,"status":"Ready","notes":"One Dunn production candidate and two BDPC reference drawings; licensed openability check remains."},{"group":"PDF references","extensions":".pdf","count":2,"status":"Ready","notes":"Dunn conceptual package and BDPC reference PDF."}],"standards":[{"item":"Dimension precision","status":"Ready","rule":"No finer than 1/2 inch unless BDPC directs otherwise.","basis":"Client direction"},{"item":"Typical framed wall basis","status":"Ready","rule":"Start typical 2×4 framed partitions at 3.5 inches, then reconcile field evidence.","basis":"Client direction"},{"item":"Door and window content","status":"Ready","rule":"Reuse established BDPC/current-project blocks and known sizes before creating new content.","basis":"Client direction"},{"item":"Model-space source hierarchy","status":"Ready","rule":"Use the controlling Dunn CAD and scan evidence; BDPC reference files provide standards context only.","basis":"Project control"},{"item":"Paper space / title block","status":"Awaiting input","rule":"Use the current BDPC presentation standard. Send the preferred title-block DWG only if maintained separately.","basis":"Dependency"},{"item":"Plot style","status":"Awaiting input","rule":"No separately maintained CTB/STB was found. Provide only if the controlling set depends on one.","basis":"Dependency"},{"item":"Fonts / shape files","status":"Awaiting input","rule":"No separately maintained SHX/TTF/OTF package was found. Provide only if required.","basis":"Dependency"},{"item":"Point-cloud coordinates","status":"Ready","rule":"Attach scans at native coordinates before any transformation; validate common features in licensed runtime.","basis":"Audit finding"},{"item":"Existing versus proposed graphics","status":"Ready","rule":"Maintain unambiguous condition hierarchy, lineweight and annotation separation.","basis":"QA standard"},{"item":"Unknown conditions","status":"Ready","rule":"Do not invent concealed conditions. Flag material conflicts and return architectural decisions to BDPC.","basis":"Decision boundary"},{"item":"Site / area representation","status":"Ready","rule":"Do not imply survey, civil or field-verification services; label basis and limitations.","basis":"Scope boundary"}],"automation":[{"item":"Source intake inventory","status":"Complete","tool":"Python read-only scan","result":"908 files cataloged; source groups and privacy flags recorded.","disposition":"Used"},{"item":"Duplicate audit","status":"Complete","tool":"SHA-256 / smart hash","result":"Two expected scanner-package duplicate groups documented.","disposition":"Used"},{"item":"Scan visual index","status":"Complete","tool":"Python + Pillow","result":"Five sessions indexed; contact sheets produced with zero image-read failures.","disposition":"Used"},{"item":"LAS header audit","status":"Complete","tool":"Python standard library / LAS header parsing","result":"Five LAS headers read; 91.69M points recorded; zero read errors.","disposition":"Used"},{"item":"LAS core geometry audit","status":"Complete","tool":"laspy + NumPy","result":"Robust geometry and density images generated for five sessions.","disposition":"Used"},{"item":"Registration overlay audit","status":"Complete","tool":"laspy + NumPy + Pillow","result":"Combined occupancy and pairwise overlap evidence generated.","disposition":"Used"},{"item":"DWG openability preflight","status":"Awaiting input","tool":"AutoCAD runtime","result":"Run after license activation; does not modify originals.","disposition":"Next"},{"item":"Block and standards extractor","status":"Not started","tool":"AutoCAD .NET / AutoLISP / Python","result":"Use only if it reduces current drawing effort; do not delay floor-plan production.","disposition":"Conditional"},{"item":"Layer / plotting validator","status":"Not started","tool":"AutoCAD runtime","result":"Validate layers, text, dimensions, viewports and plot output before issue.","disposition":"Planned"},{"item":"Publish / eTransmit package","status":"Not started","tool":"AutoCAD runtime","result":"Package final DWG/PDF deliverables and dependency record.","disposition":"Planned"},{"item":"Automated change summary","status":"Not started","tool":"DWG/PDF metadata + controlled logs","result":"Generate at final issue from actual approved changes.","disposition":"Planned"},{"item":"Point-cloud wall suggestions","status":"Not applicable","tool":"Experimental","result":"Excluded from the current production path unless separately approved; manual drafting remains controlling.","disposition":"Deferred"}],"deliverables":[{"name":"Existing floor plan","status":"Not started","sequence":1,"scope":"Measured existing-condition plan; conflicts documented rather than concealed.","format":"DWG + PDF","target":"Days 1–2"},{"name":"Proposed floor plan","status":"Not started","sequence":2,"scope":"Rear addition, living/kitchen planning and deck relationship coordinated to BDPC direction.","format":"DWG + PDF","target":"Day 3"},{"name":"Site and area plan","status":"Not started","sequence":3,"scope":"Footprint, proposed work, deck/porch context and agreed areas without survey representation.","format":"DWG + PDF","target":"Day 3"}],"qa_checks":[{"check":"Source package inventory","status":"Complete","evidence":"908 files and 8.20 GB recorded."},{"check":"LAS file readability","status":"Complete","evidence":"Five of five LAS files read successfully; zero read errors."},{"check":"Likely units","status":"Ready","evidence":"Meters inferred at 90% heuristic confidence; confirm in licensed viewer."},{"check":"Native-coordinate overlap","status":"Ready","evidence":"Strong evidence across building scans; confirm common features before drafting."},{"check":"DWG openability and version","status":"Awaiting input","evidence":"Run in licensed AutoCAD before production."},{"check":"Xrefs, fonts and plot dependencies","status":"Awaiting input","evidence":"Confirm from controlling DWGs and BDPC dependency response."},{"check":"Existing-plan geometry QA","status":"Not started","evidence":"Exterior walls, partitions, openings, stairs, fixtures and principal dimensions."},{"check":"Proposed-plan coordination QA","status":"Not started","evidence":"Addition interfaces, room planning, openings and deck connection."},{"check":"Site / area plan QA","status":"Not started","evidence":"Footprint, work limits, area labels and no-survey disclaimer."},{"check":"Layer / annotation standards","status":"Not started","evidence":"Layers, lineweights, text, dimensions, blocks and condition hierarchy."},{"check":"Paper-space / viewport QA","status":"Not started","evidence":"Sheet size, title block, viewport scale, page setup and plot behavior."},{"check":"Review PDF issue","status":"Not started","evidence":"Three coordinated sheets and review notes."},{"check":"Consolidated redline closeout","status":"Not started","evidence":"One BDPC review cycle resolved and logged."},{"check":"Final package QA","status":"Not started","evidence":"Native DWGs, PDFs, dependency record, change summary and unresolved-condition log."}],"commercial":[{"term":"Fixed project fee","value":"$3,200","status":"Ready for approval"},{"term":"Payment to begin","value":"$1,600","status":"Due after written authorization and before production start"},{"term":"Final payment","value":"$1,600","status":"Due at final issue"},{"term":"Included review","value":"One consolidated BDPC redline cycle","status":"Included"},{"term":"Initial check set","value":"Within 3 business days of production start","status":"Target"},{"term":"Overall production target","value":"4–5 business days, excluding BDPC review time","status":"Target"},{"term":"Additional authorized work","value":"$90/hour","status":"Only after written approval"},{"term":"Automation / standards library","value":"Separate future scope","status":"Not included"}],"updates":[{"date":"2026-07-21","title":"Client Service OS synchronized","detail":"All nine tab groups, milestone/status records, report routes, client-safe data exports and SQLite snapshot were rebuilt from the current project state.","status":"Complete"},{"date":"2026-07-21","title":"Report access verified in workspace structure","detail":"Source intake, scan visual, LAS header, core geometry and registration reports remain available from the report library.","status":"Complete"},{"date":"2026-07-20","title":"Registration overlay audit completed","detail":"Combined occupancy and pairwise shared-coordinate evidence produced; likely metric units documented.","status":"Complete"},{"date":"2026-07-20","title":"LAS core geometry audit completed","detail":"Five sessions analyzed with robust extents, point density and diagnostic plan/elevation imagery.","status":"Complete"},{"date":"2026-07-20","title":"LAS header audit completed","detail":"Five LAS files read successfully with zero errors and 91.69M total points.","status":"Complete"},{"date":"2026-07-20","title":"Scan visual index completed","detail":"Five scan sessions indexed; contact sheets generated with zero image-read failures.","status":"Complete"},{"date":"2026-07-20","title":"Source intake completed","detail":"908 files / 8.20 GB inventoried; required groups 2/2; two expected duplicate groups documented.","status":"Complete"},{"date":"Next","title":"Runtime and authorization gate","detail":"Activate AutoCAD/ReCap licenses, confirm optional dependencies and obtain written scope approval.","status":"Awaiting input"}],"runtime":[{"component":"AutoCAD production runtime","version":"AutoCAD 2026-compatible","status":"Awaiting input","availability":"License activation pending","purpose":"Required to open/validate DWGs, draft sheets and plot."},{"component":"Point-cloud runtime","version":"Autodesk ReCap Pro","status":"Awaiting input","availability":"License activation pending","purpose":"Required for LAS indexing/inspection and compatible point-cloud workflow."},{"component":"Python","version":"3.14","status":"Complete","availability":"Installed","purpose":"Used for intake and audit scripts."},{"component":"laspy","version":"2.7.0","status":"Complete","availability":"Installed","purpose":"Used for LAS point access and geometry analysis."},{"component":"NumPy","version":"2.5.1","status":"Complete","availability":"Installed","purpose":"Used for robust extents, density and overlap calculations."},{"component":"PyMuPDF","version":"1.28.0","status":"Complete","availability":"Installed","purpose":"Available for PDF inspection and report preparation."},{"component":"Pillow","version":"12.3.0","status":"Complete","availability":"Installed","purpose":"Used for visual indexes and derived images."},{"component":"Browser / static workspace","version":"GitHub Pages","status":"Complete","availability":"Live","purpose":"No BDPC installation required."},{"component":"Local project workspace","version":"Dunn_Preflight structure","status":"Complete","availability":"Created","purpose":"Reports, working, QA and delivery folders established."},{"component":"AI assistance","version":"Codex / ChatGPT","status":"Ready","availability":"Available","purpose":"May accelerate bounded tasks; human CAD review controls issued drawings."}],"reports":[{"id":"RPT-01","name":"Source intake","status":"Complete","url":"/bdpc/reports/intake/","summary":"908 files, 8.20 GB, source groups, dependencies, duplicates and privacy boundaries."},{"id":"RPT-02","name":"Scan visual index","status":"Complete","url":"/bdpc/reports/scan-visual/","summary":"Five scan sessions, contact sheets, point-cloud roles and opening order."},{"id":"RPT-03","name":"LAS header audit","status":"Complete","url":"/bdpc/reports/las-header/","summary":"LAS format, point counts, scale, raw extents, generator metadata and read validation."},{"id":"RPT-04","name":"LAS core geometry audit","status":"Complete","url":"/bdpc/reports/las-core/","summary":"Robust extents, outlier inflation, density views and usable coverage."},{"id":"RPT-05","name":"Registration overlay audit","status":"Complete","url":"/bdpc/reports/registration/","summary":"Combined occupancy, likely units and pairwise shared-coordinate evidence."}],"scan_sessions":[{"session":"20260710222125","role":"Primary building source","points":12940403,"size":"320.86 MB","raw_extent":"110.245 × 81.817 × 95.976","core_extent":"20.217 × 9.805 × 5.986","interpretation":"Whole-building footprint candidate; clip outliers before use."},{"session":"20260710222318","role":"Interior detail A","points":3772526,"size":"93.54 MB","raw_extent":"12.682 × 11.150 × 5.691","core_extent":"9.408 × 8.184 × 2.570","interpretation":"Cleanest dense localized interior source."},{"session":"20260710222414","role":"Interior detail B","points":5164456,"size":"128.06 MB","raw_extent":"22.072 × 24.029 × 6.908","core_extent":"10.938 × 10.258 × 2.719","interpretation":"Clean diagnostic scan for units and adjacent rooms."},{"session":"20260710222718","role":"Immediate property","points":27679943,"size":"686.34 MB","raw_extent":"171.757 × 173.082 × 99.097","core_extent":"53.607 × 48.550 × 10.483","interpretation":"Rear wall, addition connection, porch/deck and yard context."},{"session":"20260710223037","role":"Extended site","points":42131618,"size":"1.02 GB","raw_extent":"250.914 × 185.465 × 95.875","core_extent":"112.582 × 38.679 × 14.055","interpretation":"Street and neighborhood context; load only when required."}]}
+{
+  "schema_version": "2.0",
+  "revision": "2026.07.21.2",
+  "release_marker": "OS_SYNC_20260721",
+  "updated_date": "2026-07-21",
+  "project": {
+    "id": "BDPC-DUNN-OS",
+    "name": "Dunn Residence",
+    "client": "BDPC",
+    "provider": "CAD Guardian",
+    "phase": "Pre-license package ready",
+    "current_gate": "Authorization, start payment, controlling inputs, and licensed runtime",
+    "production_status": "Not started",
+    "priority": "Client-authorized three-sheet production after all kickoff gates"
+  },
+  "metrics": {
+    "source_files": 908,
+    "source_bytes": 8801309883,
+    "source_size_gib": 8.2,
+    "scan_sessions": 5,
+    "source_points": 91688946,
+    "validated_sessions": 5,
+    "full_source_figures": 25,
+    "plan_control_slices": 9,
+    "native_overlays": 5,
+    "weak_native_overlap": 4,
+    "no_material_overlap": 1,
+    "production_drawings_complete": 0
+  },
+  "overlap_statement": "Five native-coordinate scan pairs were analyzed: four showed weak native overlap and one showed no material overlap. No transform was applied, no registration tolerance was adopted, and no pair was declared registered.",
+  "source_integrity_statement": "The fresh metadata inventory matches the prior 908-file path-and-size set, and all five source/working validation pairs passed. Confidential source material remains private and read-only.",
+  "truth_boundary": [
+    "No pair was declared registered and no survey accuracy is claimed.",
+    "No architectural, engineering, code, zoning, permit, or life-safety certification is claimed.",
+    "Native drawing production has not begun; no final production drawing or PDF exists.",
+    "Licensed native openability, dependencies, title-block behavior, and plot fidelity remain unvalidated."
+  ],
+  "client_actions": [
+    "Review estimate",
+    "Authorize project",
+    "Confirm controlling inputs",
+    "Provide or start licensed runtime access",
+    "Submit start payment"
+  ],
+  "milestones": [
+    {
+      "id": "M-01",
+      "name": "Five source/working validations",
+      "status": "Complete",
+      "phase": "Pre-license evidence",
+      "evidence": "5 of 5 passed independent integrity, header, stride, endpoint, bounds, dimension, and manifest checks.",
+      "limitation": "Not registration or survey certification."
+    },
+    {
+      "id": "M-02",
+      "name": "Full-source statistics",
+      "status": "Complete",
+      "phase": "Pre-license evidence",
+      "evidence": "91,688,946 source points processed in bounded chunks and reconciled.",
+      "limitation": "Analytical evidence only."
+    },
+    {
+      "id": "M-03",
+      "name": "Full-source figures",
+      "status": "Ready for human review",
+      "phase": "Pre-license evidence",
+      "evidence": "25 full-source figures generated; one decision-relevant plan view is included here.",
+      "limitation": "Selected figures are analytical controls, not issued drawings."
+    },
+    {
+      "id": "M-04",
+      "name": "Plan-control slices",
+      "status": "Ready for human review",
+      "phase": "Pre-license evidence",
+      "evidence": "Nine trial slice figures generated.",
+      "limitation": "Two upper trial bands contain zero contributing points; floor basis and candidate units remain controls."
+    },
+    {
+      "id": "M-05",
+      "name": "Native-coordinate pair analysis",
+      "status": "Complete",
+      "phase": "Pre-license evidence",
+      "evidence": "Five pairs analyzed: four weak native overlaps and one no-material-overlap.",
+      "limitation": "No transform, adopted tolerance, or registration pass."
+    },
+    {
+      "id": "M-06",
+      "name": "Estimate and release package",
+      "status": "Ready",
+      "phase": "Client review",
+      "evidence": "$3,200 estimate and client-safe evidence package passed local QA.",
+      "limitation": "Requires human review and written authorization."
+    },
+    {
+      "id": "M-07",
+      "name": "Written authorization",
+      "status": "Awaiting input",
+      "phase": "Kickoff",
+      "evidence": "BDPC written authorization is required.",
+      "limitation": "Production clock has not started."
+    },
+    {
+      "id": "M-08",
+      "name": "Start payment",
+      "status": "Awaiting input",
+      "phase": "Kickoff",
+      "evidence": "$1,600 start payment arrangement is required.",
+      "limitation": "Production clock has not started."
+    },
+    {
+      "id": "M-09",
+      "name": "Controlling inputs",
+      "status": "Awaiting input",
+      "phase": "Kickoff",
+      "evidence": "BDPC must confirm controlling CAD, design/redline intent, title block, standards, and dependencies.",
+      "limitation": "Candidate status does not establish authority."
+    },
+    {
+      "id": "M-10",
+      "name": "Licensed Autodesk-compatible runtime",
+      "status": "Blocked",
+      "phase": "Kickoff",
+      "evidence": "Licensed compatible Autodesk runtime or approved remote workstation is required.",
+      "limitation": "Native compatibility and plotting fidelity remain unvalidated."
+    },
+    {
+      "id": "M-11",
+      "name": "Native drawing production",
+      "status": "Not started",
+      "phase": "Production",
+      "evidence": "No native production drawing or final production PDF exists.",
+      "limitation": "Begins only after all kickoff gates."
+    },
+    {
+      "id": "M-12",
+      "name": "Consolidated client review",
+      "status": "Not started",
+      "phase": "Production",
+      "evidence": "One consolidated review round is included.",
+      "limitation": "Occurs after the check set is issued."
+    }
+  ],
+  "kickoff_gates": [
+    {
+      "sequence": 1,
+      "gate": "Written authorization",
+      "status": "Awaiting input",
+      "owner": "BDPC",
+      "requirement": "Authorize the $3,200 fixed-fee scope and one consolidated review round in writing."
+    },
+    {
+      "sequence": 2,
+      "gate": "$1,600 start payment",
+      "status": "Awaiting input",
+      "owner": "BDPC / CAD Guardian",
+      "requirement": "Arrange the start payment before production begins."
+    },
+    {
+      "sequence": 3,
+      "gate": "Controlling input confirmation",
+      "status": "Awaiting input",
+      "owner": "BDPC",
+      "requirement": "Confirm controlling CAD, design/redline intent, title block, standards, and dependency inputs."
+    },
+    {
+      "sequence": 4,
+      "gate": "Licensed compatible runtime",
+      "status": "Blocked",
+      "owner": "CAD Guardian / BDPC",
+      "requirement": "Provide a licensed compatible Autodesk runtime or approved remote workstation."
+    }
+  ],
+  "validation_sessions": [
+    {
+      "session": "Session A",
+      "role": "Primary building evidence",
+      "points": 12940403,
+      "status": "Complete",
+      "limitation": "Analytical evidence; controlling drawing authority remains pending."
+    },
+    {
+      "session": "Session B",
+      "role": "Interior detail evidence",
+      "points": 3772526,
+      "status": "Complete",
+      "limitation": "Analytical evidence; not survey certification."
+    },
+    {
+      "session": "Session C",
+      "role": "Interior diagnostic evidence",
+      "points": 5164456,
+      "status": "Complete",
+      "limitation": "Analytical evidence; not survey certification."
+    },
+    {
+      "session": "Session D",
+      "role": "Immediate property evidence",
+      "points": 27679943,
+      "status": "Complete",
+      "limitation": "Analytical evidence; not site or civil certification."
+    },
+    {
+      "session": "Session E",
+      "role": "Extended site context",
+      "points": 42131618,
+      "status": "Complete",
+      "limitation": "Context only; not a survey."
+    }
+  ],
+  "native_pairs": [
+    {
+      "pair": "Pair 01",
+      "classification": "native_overlap_weak",
+      "overlay": "../assets/evidence/native-overlap/pair-01.png"
+    },
+    {
+      "pair": "Pair 02",
+      "classification": "native_overlap_weak",
+      "overlay": "../assets/evidence/native-overlap/pair-02.png"
+    },
+    {
+      "pair": "Pair 03",
+      "classification": "native_overlap_weak",
+      "overlay": "../assets/evidence/native-overlap/pair-03.png"
+    },
+    {
+      "pair": "Pair 04",
+      "classification": "native_overlap_weak",
+      "overlay": "../assets/evidence/native-overlap/pair-04.png"
+    },
+    {
+      "pair": "Pair 05",
+      "classification": "no_material_overlap",
+      "overlay": "../assets/evidence/native-overlap/pair-05.png"
+    }
+  ],
+  "slices": [
+    {
+      "id": "SL-01",
+      "session": "Session A",
+      "purpose": "Low wall footprint",
+      "height_m": 0.25,
+      "thickness_m": 0.2,
+      "points": 860400,
+      "image": "../assets/evidence/slices/session-a-low-wall.png"
+    },
+    {
+      "id": "SL-02",
+      "session": "Session A",
+      "purpose": "Plan control",
+      "height_m": 1.1,
+      "thickness_m": 0.25,
+      "points": 3384060,
+      "image": "../assets/evidence/slices/session-a-plan-control.png"
+    },
+    {
+      "id": "SL-03",
+      "session": "Session A",
+      "purpose": "Upper opening check",
+      "height_m": 1.95,
+      "thickness_m": 0.2,
+      "points": 36175,
+      "image": "../assets/evidence/slices/session-a-upper-opening.png"
+    },
+    {
+      "id": "SL-04",
+      "session": "Session B",
+      "purpose": "Low wall footprint",
+      "height_m": 0.25,
+      "thickness_m": 0.2,
+      "points": 193829,
+      "image": "../assets/evidence/slices/session-b-low-wall.png"
+    },
+    {
+      "id": "SL-05",
+      "session": "Session B",
+      "purpose": "Plan control",
+      "height_m": 1.1,
+      "thickness_m": 0.25,
+      "points": 35248,
+      "image": "../assets/evidence/slices/session-b-plan-control.png"
+    },
+    {
+      "id": "SL-06",
+      "session": "Session B",
+      "purpose": "Upper opening check",
+      "height_m": 1.95,
+      "thickness_m": 0.2,
+      "points": 0,
+      "image": "../assets/evidence/slices/session-b-upper-opening.png"
+    },
+    {
+      "id": "SL-07",
+      "session": "Session C",
+      "purpose": "Low wall footprint",
+      "height_m": 0.25,
+      "thickness_m": 0.2,
+      "points": 526082,
+      "image": "../assets/evidence/slices/session-c-low-wall.png"
+    },
+    {
+      "id": "SL-08",
+      "session": "Session C",
+      "purpose": "Plan control",
+      "height_m": 1.1,
+      "thickness_m": 0.25,
+      "points": 1319734,
+      "image": "../assets/evidence/slices/session-c-plan-control.png"
+    },
+    {
+      "id": "SL-09",
+      "session": "Session C",
+      "purpose": "Upper opening check",
+      "height_m": 1.95,
+      "thickness_m": 0.2,
+      "points": 0,
+      "image": "../assets/evidence/slices/session-c-upper-opening.png"
+    }
+  ],
+  "commercial": [
+    {
+      "term": "Fixed fee",
+      "value": "$3,200",
+      "status": "Ready for authorization"
+    },
+    {
+      "term": "Start payment",
+      "value": "$1,600",
+      "status": "Required before production start"
+    },
+    {
+      "term": "Final payment",
+      "value": "$1,600",
+      "status": "Due at final issue"
+    },
+    {
+      "term": "Additional authorized services",
+      "value": "$90/hour",
+      "status": "Only with written authorization"
+    },
+    {
+      "term": "Check-set target",
+      "value": "3 business days after all kickoff gates",
+      "status": "Target"
+    },
+    {
+      "term": "Production duration",
+      "value": "4–5 business days excluding client review",
+      "status": "Target"
+    },
+    {
+      "term": "Included review",
+      "value": "1 consolidated review round",
+      "status": "Included"
+    }
+  ],
+  "deliverables": [
+    {
+      "sequence": 1,
+      "name": "Existing floor plan",
+      "status": "Not started",
+      "scope": "Measured existing-condition plan with unresolved conflicts documented.",
+      "format": "Native CAD + PDF",
+      "target": "Check set"
+    },
+    {
+      "sequence": 2,
+      "name": "Proposed floor plan",
+      "status": "Not started",
+      "scope": "Proposed planning coordinated to confirmed BDPC direction.",
+      "format": "Native CAD + PDF",
+      "target": "Check set"
+    },
+    {
+      "sequence": 3,
+      "name": "Site and area plan",
+      "status": "Not started",
+      "scope": "Agreed footprint, work limits, and area context without survey representation.",
+      "format": "Native CAD + PDF",
+      "target": "Check set"
+    }
+  ],
+  "qa_checks": [
+    {
+      "check": "Source/working validation",
+      "status": "Complete",
+      "evidence": "5 of 5 passed independent validation."
+    },
+    {
+      "check": "Bounded full-source processing",
+      "status": "Complete",
+      "evidence": "91,688,946 points reconciled."
+    },
+    {
+      "check": "Native-coordinate overlap",
+      "status": "Complete",
+      "evidence": "Four weak overlaps and one no-material-overlap; no transform/tolerance/pass."
+    },
+    {
+      "check": "Controlling inputs",
+      "status": "Awaiting input",
+      "evidence": "BDPC confirmation is a kickoff gate."
+    },
+    {
+      "check": "Licensed native validation",
+      "status": "Blocked",
+      "evidence": "Compatible runtime or approved remote workstation required."
+    },
+    {
+      "check": "Production drawings",
+      "status": "Not started",
+      "evidence": "Begins after all kickoff gates."
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-21",
+      "title": "Client OS release synchronized",
+      "status": "Complete",
+      "detail": "Canonical data, client-safe evidence, estimate terms, kickoff gates, and verified download transport were reconciled."
+    },
+    {
+      "date": "2026-07-21",
+      "title": "Pre-license evidence package",
+      "status": "Ready",
+      "detail": "The estimate and supporting project review are ready for human review and written authorization."
+    },
+    {
+      "date": "Next",
+      "title": "Clear all kickoff gates",
+      "status": "Awaiting input",
+      "detail": "Written authorization, start payment, controlling-input confirmation, and licensed runtime access are all required before production starts."
+    }
+  ],
+  "runtime": [
+    {
+      "component": "Licensed compatible Autodesk runtime or approved remote workstation",
+      "status": "Blocked",
+      "purpose": "Native openability, dependencies, production, and plotting validation."
+    },
+    {
+      "component": "Client OS",
+      "status": "Ready",
+      "purpose": "Client-safe project review, estimate, evidence, and downloads."
+    }
+  ],
+  "reports": [
+    {
+      "id": "RPT-01",
+      "name": "Source intake",
+      "status": "Complete",
+      "url": "/bdpc/reports/intake/",
+      "summary": "Aggregate source inventory and authority boundaries."
+    },
+    {
+      "id": "RPT-02",
+      "name": "Scan evidence overview",
+      "status": "Complete",
+      "url": "/bdpc/reports/scan-visual/",
+      "summary": "Five client-safe session roles and selected derived evidence."
+    },
+    {
+      "id": "RPT-03",
+      "name": "Header validation",
+      "status": "Complete",
+      "url": "/bdpc/reports/las-header/",
+      "summary": "Five readable point-cloud headers and reconciled point totals."
+    },
+    {
+      "id": "RPT-04",
+      "name": "Core geometry evidence",
+      "status": "Complete",
+      "url": "/bdpc/reports/las-core/",
+      "summary": "Robust analytical coverage and limitations."
+    },
+    {
+      "id": "RPT-05",
+      "name": "Native-coordinate overlap",
+      "status": "Complete",
+      "url": "/bdpc/reports/registration/",
+      "summary": "Five current pair overlays with the four-weak/one-no-material result."
+    },
+    {
+      "id": "RPT-06",
+      "name": "Pre-license completion brief",
+      "status": "Ready",
+      "url": "/bdpc/reports/completion/",
+      "summary": "Current completion, kickoff gates, evidence counts, and truth boundary."
+    }
+  ]
+}

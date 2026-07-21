@@ -1,6 +1,0 @@
-session,point_count,core_extent_x,core_extent_y,core_extent_z,xy_inflation,z_inflation,outlier_flag,production_role
-20260710222318,3772526,8.615,7.559,2.570,1.50x,1.43x,Low,Interior detail
-20260710222414,5164456,9.801,9.271,2.718,4.31x,1.56x,Moderate,Interior diagnostic
-20260710223037,42131618,106.490,34.119,14.067,7.73x,4.04x,Moderate,Extended site
-20260710222125,12940403,18.816,9.118,6.013,43.09x,10.13x,High,Primary building
-20260710222718,27679943,45.667,41.165,10.477,12.84x,5.87x,High,Immediate property

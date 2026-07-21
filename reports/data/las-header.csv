@@ -1,6 +1,0 @@
-session,file_size,point_count,las_version,point_format,raw_extent_x,raw_extent_y,raw_extent_z,interpretation
-20260710222125,320.86 MB,12940403,1.3,2,110.245,81.817,95.976,High raw outlier inflation
-20260710222318,93.54 MB,3772526,1.3,2,12.682,11.150,5.691,Clean localized interior
-20260710222414,128.06 MB,5164456,1.3,2,22.072,24.029,6.908,Clean architectural capture
-20260710222718,686.34 MB,27679943,1.3,2,171.757,173.082,99.097,High raw outlier inflation
-20260710223037,1.02 GB,42131618,1.3,2,250.914,185.465,95.875,Extended exterior/site

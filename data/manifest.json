@@ -1,13 +1,98 @@
 {
-  "schema_version": "1.0",
-  "revision": "2026.07.21.1",
-  "updated_date": "2026-07-21",
-  "database": "bdpc_client_os.sqlite",
-  "database_sha256": "e9a651522b4655f9df1bd673e9b0bb2453c52175bdc3beb588657819fc344bd0",
-  "project_json_sha256": "e2fe3d6ce20ece0b6542eb097a4e78a4d311b21dfa1e74593ba6de13456421ed",
-  "table_counts": {"project":1,"metrics":11,"milestones":20,"file_groups":6,"standards":11,"automation":12,"deliverables":3,"qa_checks":14,"commercial":8,"updates":8,"runtime_requirements":10,"reports":5,"scan_sessions":5},
-  "privacy": "Client-safe derived project controls only. No raw drawings, point clouds, exact residential address, credentials, private links, local paths, or private manifest.",
-  "database_transport": ["data/sqlite/part-01.b64","data/sqlite/part-02.b64","data/sqlite/part-03.b64","data/sqlite/part-04.b64","data/sqlite/part-05.b64","data/sqlite/part-06.b64"],
+  "database": "data/bdpc_client_os.sqlite",
   "database_download_name": "bdpc_client_os.sqlite",
-  "database_transport_sha256": "6512eca1824fa35b716f72d2089a4bafd05c35602e229432568e2faeea375fb6"
+  "database_sha256": "ef7d8741d005823269772ba63ea4907cbfaa846c89426f10c725cc1bbb469400",
+  "database_transport": [
+    "data/sqlite/part-01.b64",
+    "data/sqlite/part-02.b64",
+    "data/sqlite/part-03.b64",
+    "data/sqlite/part-04.b64",
+    "data/sqlite/part-05.b64",
+    "data/sqlite/part-06.b64",
+    "data/sqlite/part-07.b64"
+  ],
+  "database_transport_sha256": "7d24b96c3c1315bed85303561b4e61bd6ac31f019466d681360562de8c25726c",
+  "files": {
+    "data/README.txt": {
+      "bytes": 466,
+      "sha256": "30fdd819b3872a03ffa6917e2c66f9d257a57ccd281764a421a9d0b693ed3d0d"
+    },
+    "data/bdpc_client_os.sqlite": {
+      "bytes": 77824,
+      "sha256": "ef7d8741d005823269772ba63ea4907cbfaa846c89426f10c725cc1bbb469400"
+    },
+    "data/project.json": {
+      "bytes": 15713,
+      "sha256": "92fa56933d6af8683ad48dc5f1019962f94b25d17b531aa52f307050b03ce5a2"
+    },
+    "data/release.json": {
+      "bytes": 105,
+      "sha256": "2fc40ebe1ed244e95dddb2b48cec52da57a1e4a95340e18a3c58e6b9e2170d04"
+    },
+    "data/schema.sql": {
+      "bytes": 1789,
+      "sha256": "712344e6e9c6ba3d3421aba805b0762b40013a72fc12421ebef03a005dfd6bf3"
+    },
+    "data/sqlite/part-01.b64": {
+      "bytes": 16000,
+      "sha256": "47bf9932c01d64912957e3ed4dbddd74d3e0ddd6cba250d52713bb18b0d7a98c"
+    },
+    "data/sqlite/part-02.b64": {
+      "bytes": 16000,
+      "sha256": "179c72dfa6a4f03f46eddd789da4e54efd526cd061fabb2ec28eb5a5b075e787"
+    },
+    "data/sqlite/part-03.b64": {
+      "bytes": 16000,
+      "sha256": "eca84810c28f48b4c8b91269dfc93c0e08122783b069c61b5287c787beab3299"
+    },
+    "data/sqlite/part-04.b64": {
+      "bytes": 16000,
+      "sha256": "aa0c240656f31fe2426db1dc84114f4719bc0047b2b610cc41f3b1b2920f7be0"
+    },
+    "data/sqlite/part-05.b64": {
+      "bytes": 16000,
+      "sha256": "7e2f78dfbcd5dc7cc0f0a18515ee308681a987029faab1c65f2c8d80c6258557"
+    },
+    "data/sqlite/part-06.b64": {
+      "bytes": 16000,
+      "sha256": "c9606bdcf674a2356b30865cb09c6046b788d38d19a4e7190d18e9733a1c0e85"
+    },
+    "data/sqlite/part-07.b64": {
+      "bytes": 7768,
+      "sha256": "586ab1e067d4465fe6d549c8fc5be5a88267c7c80dc1c3ad70eddd69c54fe99e"
+    },
+    "reports/data/milestone-evidence.csv": {
+      "bytes": 2158,
+      "sha256": "c3558d9189045a0c164c14fb100f8d59a11f4044815ec558835111066e1d6928"
+    },
+    "reports/data/native-overlap-summary.csv": {
+      "bytes": 946,
+      "sha256": "a548cd8f235a2f8c40ea009537a530e49ab7ded025022f80acc50f984dad7dbf"
+    },
+    "reports/data/slice-summary.csv": {
+      "bytes": 1739,
+      "sha256": "0b1045ce6b007446f850b1a992c6512e68ef3b6634a971b24b484401a88bcc1e"
+    },
+    "reports/data/validated-scan-summary.csv": {
+      "bytes": 600,
+      "sha256": "a1a3252236a8d8f672963234fb869c511c10a19fac9e8d5f28fa5a1bd7b346fb"
+    }
+  },
+  "privacy": "Client-safe aggregate and derived project controls only; confidential source materials are not included.",
+  "release_marker": "OS_SYNC_20260721",
+  "revision": "2026.07.21.2",
+  "schema_version": "2.0",
+  "table_counts": {
+    "commercial": 7,
+    "deliverables": 3,
+    "kickoff_gates": 4,
+    "metrics": 12,
+    "milestones": 12,
+    "native_overlap_pairs": 5,
+    "project": 1,
+    "reports": 6,
+    "slice_evidence": 9,
+    "validation_sessions": 5
+  },
+  "updated_date": "2026-07-21"
 }

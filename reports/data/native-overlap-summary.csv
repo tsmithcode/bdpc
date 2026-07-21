@@ -1,0 +1,6 @@
+pair,classification,transform_applied,registration_tolerance_adopted,registration_pass,overlay,limitation
+Pair 01,native_overlap_weak,no,no,no,../assets/evidence/native-overlap/pair-01.png,Analytical evidence only; licensed-runtime discrete-control review remains required.
+Pair 02,native_overlap_weak,no,no,no,../assets/evidence/native-overlap/pair-02.png,Analytical evidence only; licensed-runtime discrete-control review remains required.
+Pair 03,native_overlap_weak,no,no,no,../assets/evidence/native-overlap/pair-03.png,Analytical evidence only; licensed-runtime discrete-control review remains required.
+Pair 04,native_overlap_weak,no,no,no,../assets/evidence/native-overlap/pair-04.png,Analytical evidence only; licensed-runtime discrete-control review remains required.
+Pair 05,no_material_overlap,no,no,no,../assets/evidence/native-overlap/pair-05.png,Analytical evidence only; licensed-runtime discrete-control review remains required.

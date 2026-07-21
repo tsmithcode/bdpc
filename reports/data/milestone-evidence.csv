@@ -1,0 +1,13 @@
+milestone_id,milestone,status,phase,evidence,limitation
+M-01,Five source/working validations,Complete,Pre-license evidence,"5 of 5 passed independent integrity, header, stride, endpoint, bounds, dimension, and manifest checks.",Not registration or survey certification.
+M-02,Full-source statistics,Complete,Pre-license evidence,"91,688,946 source points processed in bounded chunks and reconciled.",Analytical evidence only.
+M-03,Full-source figures,Ready for human review,Pre-license evidence,25 full-source figures generated; one decision-relevant plan view is included here.,"Selected figures are analytical controls, not issued drawings."
+M-04,Plan-control slices,Ready for human review,Pre-license evidence,Nine trial slice figures generated.,Two upper trial bands contain zero contributing points; floor basis and candidate units remain controls.
+M-05,Native-coordinate pair analysis,Complete,Pre-license evidence,Five pairs analyzed: four weak native overlaps and one no-material-overlap.,"No transform, adopted tolerance, or registration pass."
+M-06,Estimate and release package,Ready,Client review,"$3,200 estimate and client-safe evidence package passed local QA.",Requires human review and written authorization.
+M-07,Written authorization,Awaiting input,Kickoff,BDPC written authorization is required.,Production clock has not started.
+M-08,Start payment,Awaiting input,Kickoff,"$1,600 start payment arrangement is required.",Production clock has not started.
+M-09,Controlling inputs,Awaiting input,Kickoff,"BDPC must confirm controlling CAD, design/redline intent, title block, standards, and dependencies.",Candidate status does not establish authority.
+M-10,Licensed Autodesk-compatible runtime,Blocked,Kickoff,Licensed compatible Autodesk runtime or approved remote workstation is required.,Native compatibility and plotting fidelity remain unvalidated.
+M-11,Native drawing production,Not started,Production,No native production drawing or final production PDF exists.,Begins only after all kickoff gates.
+M-12,Consolidated client review,Not started,Production,One consolidated review round is included.,Occurs after the check set is issued.

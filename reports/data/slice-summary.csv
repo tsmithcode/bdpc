@@ -1,0 +1,10 @@
+slice_id,session,purpose,height_above_candidate_floor_m,thickness_candidate_m,point_count,image,status,limitation
+SL-01,Session A,Low wall footprint,0.25,0.2,860400,../assets/evidence/slices/session-a-low-wall.png,Ready for human review,Candidate floor/unit; analytical control only
+SL-02,Session A,Plan control,1.1,0.25,3384060,../assets/evidence/slices/session-a-plan-control.png,Ready for human review,Candidate floor/unit; analytical control only
+SL-03,Session A,Upper opening check,1.95,0.2,36175,../assets/evidence/slices/session-a-upper-opening.png,Ready for human review,Candidate floor/unit; analytical control only
+SL-04,Session B,Low wall footprint,0.25,0.2,193829,../assets/evidence/slices/session-b-low-wall.png,Ready for human review,Candidate floor/unit; analytical control only
+SL-05,Session B,Plan control,1.1,0.25,35248,../assets/evidence/slices/session-b-plan-control.png,Ready for human review,Candidate floor/unit; analytical control only
+SL-06,Session B,Upper opening check,1.95,0.2,0,../assets/evidence/slices/session-b-upper-opening.png,Ready for human review,Zero contributing points in this upper trial band; candidate floor/unit; analytical control only
+SL-07,Session C,Low wall footprint,0.25,0.2,526082,../assets/evidence/slices/session-c-low-wall.png,Ready for human review,Candidate floor/unit; analytical control only
+SL-08,Session C,Plan control,1.1,0.25,1319734,../assets/evidence/slices/session-c-plan-control.png,Ready for human review,Candidate floor/unit; analytical control only
+SL-09,Session C,Upper opening check,1.95,0.2,0,../assets/evidence/slices/session-c-upper-opening.png,Ready for human review,Zero contributing points in this upper trial band; candidate floor/unit; analytical control only
