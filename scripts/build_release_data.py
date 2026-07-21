@@ -127,9 +127,9 @@ DELIVERABLES = [
 
 REPORTS = [
     {"id": "RPT-01", "name": "Source intake", "status": "Complete", "url": "/bdpc/reports/intake/", "summary": "Aggregate source inventory and authority boundaries."},
-    {"id": "RPT-02", "name": "Scan evidence overview", "status": "Complete", "url": "/bdpc/reports/scan-visual/", "summary": "Five client-safe session roles and selected derived evidence."},
+    {"id": "RPT-02", "name": "Visual inspection", "status": "Complete", "url": "/bdpc/reports/scan-visual/", "summary": "Twenty-five full-source figures across five generalized scan sessions."},
     {"id": "RPT-03", "name": "Header validation", "status": "Complete", "url": "/bdpc/reports/las-header/", "summary": "Five readable point-cloud headers and reconciled point totals."},
-    {"id": "RPT-04", "name": "Core geometry evidence", "status": "Complete", "url": "/bdpc/reports/las-core/", "summary": "Robust analytical coverage and limitations."},
+    {"id": "RPT-04", "name": "Plan-control slice evidence", "status": "Complete", "url": "/bdpc/reports/las-core/", "summary": "Nine trial slices with contributing-point and zero-band limitations."},
     {"id": "RPT-05", "name": "Native-coordinate overlap", "status": "Complete", "url": "/bdpc/reports/registration/", "summary": "Five current pair overlays with the four-weak/one-no-material result."},
     {"id": "RPT-06", "name": "Pre-license completion brief", "status": "Ready", "url": "/bdpc/reports/completion/", "summary": "Current completion, kickoff gates, evidence counts, and truth boundary."},
 ]

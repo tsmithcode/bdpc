@@ -8,6 +8,7 @@
   --cyan: #00a8d6;
   --green: #147a4b;
   --amber: #9a6700;
+  --red: #a83232;
   --shadow: 0 18px 48px rgba(11, 18, 32, .1);
 }
 
@@ -39,6 +40,7 @@ h3 { margin: 0 0 7px; font-size: 16px; }
 .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .metric, .finding { padding: 18px; border: 1px solid var(--line); border-radius: 17px; background: #fff; }
 .metric span, .finding span { display: block; font-size: 8px; text-transform: uppercase; letter-spacing: .11em; color: var(--muted); font-weight: 900; }
 .metric strong { display: block; margin-top: 6px; font-size: 22px; }
@@ -56,23 +58,46 @@ tr:last-child td { border-bottom: 0; }
 .image-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .image-grid figure { margin: 0; }
 .image-grid figcaption { margin-top: 6px; color: var(--muted); font-size: 10px; }
+.image-grid--five { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.image-grid--feature { grid-template-columns: 2fr 1fr 1fr; }
+.image-grid a { display: block; }
+.session-card { margin: 14px 0; padding: 22px; border: 1px solid var(--line); border-radius: 20px; background: #fff; box-shadow: 0 10px 30px rgba(11, 18, 32, .06); }
+.session-head { display: flex; justify-content: space-between; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
+.session-head p { margin: 5px 0 0; color: var(--muted); font-size: 11.5px; }
+.tag { display: inline-flex; flex: 0 0 auto; padding: 6px 8px; border-radius: 999px; background: #eef4ff; color: var(--blue); font-size: 8px; text-transform: uppercase; letter-spacing: .1em; font-weight: 950; }
+.tag--good { background: #edf9f3; color: var(--green); }
+.tag--warn { background: #fff8e5; color: var(--amber); }
+.rule-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 0; list-style: none; }
+.rule-list li { margin: 0; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: #f8fafc; }
+.rule-list strong { display: block; margin-bottom: 4px; font-size: 11px; }
+.library-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.library-card { display: flex; min-height: 100%; flex-direction: column; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: #fff; color: var(--ink); text-decoration: none; }
+.library-card__body { padding: 18px; }
+.library-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; }
+.library-card span { font-size: 8px; color: var(--blue); text-transform: uppercase; letter-spacing: .1em; font-weight: 950; }
+.library-card h3 { margin-top: 9px; }
+.library-card p { margin: 7px 0 0; color: var(--muted); font-size: 11.5px; line-height: 1.5; }
+.toc { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.toc a { padding: 7px 10px; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; color: #fff; text-decoration: none; font-size: 9px; font-weight: 800; }
 .downloads { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
 .downloads a { display: inline-flex; padding: 9px 12px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--blue); font-size: 10px; font-weight: 900; text-decoration: none; }
 .footer { margin-top: 18px; color: var(--muted); font-size: 10px; text-align: center; }
 
 @media (max-width: 900px) {
-  .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-4, .grid-5, .library-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .image-grid { grid-template-columns: 1fr; }
+  .image-grid--five { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 760px) {
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-  .hero, .panel { padding: 22px; }
+  .grid-2, .grid-3, .grid-4, .grid-5, .library-grid, .rule-list, .image-grid--five { grid-template-columns: 1fr; }
+  .hero, .panel, .session-card { padding: 22px; }
   .toolbar nav { display: none; }
 }
 
 @media print {
   .toolbar, .downloads { display: none; }
   main { width: 100%; margin: 0; }
-  .hero, .panel { box-shadow: none; break-inside: avoid; }
+  .hero, .panel, .session-card { box-shadow: none; }
+  .metric, .finding, figure, tr { break-inside: avoid; }
 }

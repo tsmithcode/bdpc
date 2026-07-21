@@ -1,7 +1,7 @@
 {
   "database": "data/bdpc_client_os.sqlite",
   "database_download_name": "bdpc_client_os.sqlite",
-  "database_sha256": "ef7d8741d005823269772ba63ea4907cbfaa846c89426f10c725cc1bbb469400",
+  "database_sha256": "b6bae69439ca97ba92775191b8b77431183bef953349be466e893d4814443c3d",
   "database_transport": [
     "data/sqlite/part-01.b64",
     "data/sqlite/part-02.b64",
@@ -11,7 +11,7 @@
     "data/sqlite/part-06.b64",
     "data/sqlite/part-07.b64"
   ],
-  "database_transport_sha256": "7d24b96c3c1315bed85303561b4e61bd6ac31f019466d681360562de8c25726c",
+  "database_transport_sha256": "31bf92a8c97c374bf0fc8b4ce35f4cb2dda040775281958f604f9c2adbd6c5b6",
   "files": {
     "data/README.txt": {
       "bytes": 466,
@@ -19,11 +19,11 @@
     },
     "data/bdpc_client_os.sqlite": {
       "bytes": 77824,
-      "sha256": "ef7d8741d005823269772ba63ea4907cbfaa846c89426f10c725cc1bbb469400"
+      "sha256": "b6bae69439ca97ba92775191b8b77431183bef953349be466e893d4814443c3d"
     },
     "data/project.json": {
-      "bytes": 15713,
-      "sha256": "92fa56933d6af8683ad48dc5f1019962f94b25d17b531aa52f307050b03ce5a2"
+      "bytes": 15747,
+      "sha256": "798d0a4f2d4bab82da9086d78cfc88f4f236a2615376904a48f5c40260d647e3"
     },
     "data/release.json": {
       "bytes": 105,
@@ -55,11 +55,11 @@
     },
     "data/sqlite/part-06.b64": {
       "bytes": 16000,
-      "sha256": "c9606bdcf674a2356b30865cb09c6046b788d38d19a4e7190d18e9733a1c0e85"
+      "sha256": "de3d8a86f456ef69343ef09bdf12722bb22d843d29745e17b6f2b241d5e5c91c"
     },
     "data/sqlite/part-07.b64": {
       "bytes": 7768,
-      "sha256": "586ab1e067d4465fe6d549c8fc5be5a88267c7c80dc1c3ad70eddd69c54fe99e"
+      "sha256": "2d43e9e7da134fc5cf37f94db9d71829ac56b0e94f71e1e75c129eaa50e14f08"
     },
     "reports/data/milestone-evidence.csv": {
       "bytes": 2158,

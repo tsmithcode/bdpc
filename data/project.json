@@ -454,10 +454,10 @@
     },
     {
       "id": "RPT-02",
-      "name": "Scan evidence overview",
+      "name": "Visual inspection",
       "status": "Complete",
       "url": "/bdpc/reports/scan-visual/",
-      "summary": "Five client-safe session roles and selected derived evidence."
+      "summary": "Twenty-five full-source figures across five generalized scan sessions."
     },
     {
       "id": "RPT-03",
@@ -468,10 +468,10 @@
     },
     {
       "id": "RPT-04",
-      "name": "Core geometry evidence",
+      "name": "Plan-control slice evidence",
       "status": "Complete",
       "url": "/bdpc/reports/las-core/",
-      "summary": "Robust analytical coverage and limitations."
+      "summary": "Nine trial slices with contributing-point and zero-band limitations."
     },
     {
       "id": "RPT-05",

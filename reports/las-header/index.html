@@ -1,1 +1,69 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Dunn Residence — point-cloud header validation</title><link rel="stylesheet" href="../report.css"></head><body><a class="skip-link" href="#content">Skip to report</a><div class="toolbar"><a class="toolbar__brand" href="/bdpc/">BDPC × CAD Guardian</a><nav><a href="/bdpc/reports/">Reports</a><a href="/bdpc/sow/">Estimate</a><a href="/bdpc/">Workspace</a></nav></div><main id="content"><section class="hero"><div class="eyebrow">Report 03 · format and integrity</div><h1>Point-cloud header validation</h1><p>Client-safe validation status and reconciled totals. Exact coordinates and detailed bounds remain private.</p></section><div class="notice"><strong>Result:</strong> five of five sources passed independent header, point-count, deterministic-stride, endpoint, dimension, bounds-containment, hash, and manifest validation.</div><section class="panel"><div class="grid grid-4"><div class="metric"><span>Validated</span><strong>5 / 5</strong><small>Source/working pairs</small></div><div class="metric"><span>Total points</span><strong>91,688,946</strong><small>Finite source points</small></div><div class="metric"><span>Read failures</span><strong>0</strong><small>Validation baseline</small></div><div class="metric"><span>Source writes</span><strong>0</strong><small>Read-only controls</small></div></div></section><section class="panel"><h2>What this establishes</h2><p>The validated derivatives match their sources for the recorded structural and deterministic sampling controls. This supports analytical use. It does not establish geometric correctness, accepted registration, survey accuracy, design authority, or licensed native compatibility.</p><div class="downloads"><a href="../data/validated-scan-summary.csv" download>Download validation summary CSV</a></div></section><div class="footer">Client-safe derived work product · Detailed source metadata remains private.</div></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Dunn Residence — point-cloud header audit</title>
+  <link rel="stylesheet" href="../report.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to report</a>
+  <div class="toolbar"><a class="toolbar__brand" href="/bdpc/">BDPC × CAD Guardian</a><nav><a href="/bdpc/reports/">Reports</a><a href="/bdpc/sow/">Estimate</a><a href="/bdpc/">Workspace</a></nav></div>
+  <main id="content">
+    <section class="hero">
+      <div class="eyebrow">Report 03 · structural and integrity controls</div>
+      <h1>Point-cloud header audit</h1>
+      <p>Five-source structural validation, reconciled row totals, method, and interpretation rules. Exact coordinates, detailed bounds, source filenames, and private hashes remain withheld.</p>
+    </section>
+    <div class="notice"><strong>Result:</strong> five of five source/working pairs passed independent hash, header, deterministic-stride, endpoint, bounds-containment, dimension, and manifest validation.</div>
+
+    <section class="panel">
+      <div class="grid grid-4">
+        <div class="metric"><span>Validated pairs</span><strong>5 / 5</strong><small>All passed</small></div>
+        <div class="metric"><span>Total points</span><strong>91,688,946</strong><small>Finite source points</small></div>
+        <div class="metric"><span>Read failures</span><strong>0</strong><small>Validation baseline</small></div>
+        <div class="metric"><span>Source writes</span><strong>0</strong><small>Read-only controls</small></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Validated session ledger</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Session</th><th>Generalized role</th><th>Source points</th><th>Working validation</th><th>Review state</th></tr></thead>
+        <tbody>
+          <tr><td>Session A</td><td>Primary building evidence</td><td>12,940,403</td><td>Hash, header, stride, endpoints, bounds, dimensions, manifest</td><td>Complete</td></tr>
+          <tr><td>Session B</td><td>Interior detail evidence</td><td>3,772,526</td><td>Hash, header, stride, endpoints, bounds, dimensions, manifest</td><td>Complete</td></tr>
+          <tr><td>Session C</td><td>Interior diagnostic evidence</td><td>5,164,456</td><td>Hash, header, stride, endpoints, bounds, dimensions, manifest</td><td>Complete</td></tr>
+          <tr><td>Session D</td><td>Immediate property evidence</td><td>27,679,943</td><td>Hash, header, stride, endpoints, bounds, dimensions, manifest</td><td>Complete</td></tr>
+          <tr><td>Session E</td><td>Extended site context</td><td>42,131,618</td><td>Hash, header, stride, endpoints, bounds, dimensions, manifest</td><td>Complete</td></tr>
+          <tr><td colspan="2"><strong>Controlling total</strong></td><td><strong>91,688,946</strong></td><td colspan="2">Reconciled to canonical JSON, CSV, and SQLite</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section class="panel">
+      <h2>Validation method</h2>
+      <ol>
+        <li>Confirm readable LAS structure, version, point format, dimensions, scales, and offsets.</li>
+        <li>Compare recorded source and working point counts and metadata.</li>
+        <li>Read deterministic stride samples plus bounded first and last point windows.</li>
+        <li>Confirm working bounds remain contained by source bounds and endpoint expectations.</li>
+        <li>Match recorded checksums and manifest entries without writing to the confidential source tree.</li>
+      </ol>
+    </section>
+
+    <section class="panel">
+      <h2>Interpretation rules and limits</h2>
+      <ul class="rule-list">
+        <li><strong>What passed</strong>File-level integrity and the recorded structural/sampling controls for five source/working pairs.</li>
+        <li><strong>What did not pass</strong>No accepted registration tolerance, survey test, controlling-design comparison, or licensed CAD production test.</li>
+        <li><strong>Units</strong>Candidate metre interpretation remains an analytical control pending reconciliation with controlling project information.</li>
+        <li><strong>Coordinates</strong>Exact coordinates and detailed bounds remain private; no coordinate transform was applied for this report.</li>
+      </ul>
+      <div class="downloads"><a href="../data/validated-scan-summary.csv" download>Download client-safe validation ledger</a><a href="../scan-visual/">Review 25 visual figures</a></div>
+    </section>
+    <div class="footer">Client-safe structural validation · Reading or hashing a source does not prove geometric correctness or design authority.</div>
+  </main>
+</body>
+</html>
