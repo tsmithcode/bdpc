@@ -1,8 +1,9 @@
 {
   "database": "data/bdpc_client_os.sqlite",
   "database_download_name": "bdpc_client_os.sqlite",
-  "database_sha256": "26956d81a826bb5c05e8e71740202a2f8e8280550d35c70fb7f222e6696f20d3",
-  "database_transport": [
+  "generated_at": "2026-07-22T15:25:00-04:00",
+  "revision": "2026.07.22-publicscope.1",
+  "parts": [
     "data/sqlite/part-01.b64",
     "data/sqlite/part-02.b64",
     "data/sqlite/part-03.b64",
@@ -15,170 +16,93 @@
     "data/sqlite/part-10.b64",
     "data/sqlite/part-11.b64",
     "data/sqlite/part-12.b64",
-    "data/sqlite/part-13.b64",
-    "data/sqlite/part-14.b64",
-    "data/sqlite/part-15.b64",
-    "data/sqlite/part-16.b64",
-    "data/sqlite/part-17.b64",
-    "data/sqlite/part-18.b64"
+    "data/sqlite/part-13.b64"
   ],
-  "database_transport_sha256": "f95afbea3f96665861417ab5ea756df957fc1cd71b5160d67e5ebe571d2f1fa0",
   "files": {
     "data/README.txt": {
-      "bytes": 466,
-      "sha256": "30fdd819b3872a03ffa6917e2c66f9d257a57ccd281764a421a9d0b693ed3d0d"
+      "bytes": 471,
+      "sha256": "26d3846e0f9d1f4fd7c1f067b9da70a7276b9bb913c5f43429a65d2aa860e380"
     },
     "data/bdpc_client_os.sqlite": {
-      "bytes": 208896,
-      "sha256": "26956d81a826bb5c05e8e71740202a2f8e8280550d35c70fb7f222e6696f20d3"
+      "bytes": 155648,
+      "sha256": "8d7a48d37deb857fcf7aa99f79c595da237666d5c1dadc496fb5ff205840bece"
     },
     "data/project.json": {
-      "bytes": 99815,
-      "sha256": "145ffdce5720d99d8646accae996ebf8548f87edcb6522db986e3abf9ae5c347"
+      "bytes": 16696,
+      "sha256": "3e7493eb251f84ca84193c4406bfdae1c5ecdceb412eb85724243502722bf348"
+    },
+    "data/current-authorization.json": {
+      "bytes": 10628,
+      "sha256": "db95e7f7820da2e7b041439528d1194a0f5e696c70a318e6a2748649dd6bd6d1"
+    },
+    "data/operating-doctrine.json": {
+      "bytes": 16352,
+      "sha256": "5d5d96637b3529089543102d5819ddb319dbddcf0bea0d4a0600e1456c7c8500"
+    },
+    "data/production-controls.json": {
+      "bytes": 26904,
+      "sha256": "a55b932b1e5bccfcff4b0d6cbf2be2b05e98fe8c4aaf3984695f4338cc56d751"
     },
     "data/release.json": {
-      "bytes": 122,
-      "sha256": "c68942d55d58b2b0d844d3b326e2afa8ecd782cd02e7ad2247be2afabfa2f952"
+      "bytes": 144,
+      "sha256": "d4151d8f9217964d24c73c957a914279d7f8872dd0148131dc1fbf51ea5f79b0"
     },
     "data/schema.sql": {
-      "bytes": 3640,
-      "sha256": "d9145c4a71f8d9e5a95c622ef0fbab167f2339682862c98e6dbe719e06ee004e"
+      "bytes": 3663,
+      "sha256": "3db7d99068493961ba1688220f2ae10a2178e7cf8f22b0e70942f446c5f01dae"
     },
     "data/sqlite/part-01.b64": {
       "bytes": 16000,
-      "sha256": "c3e266b17d46be30f5b7442a6ea7ebf6b50dcd9172957be8918d3a9df5ba1f83"
+      "sha256": "5c12b2b3d418ad519088518abe50ffe93ac0f5e7c6348b644e1964de6219f04e"
     },
     "data/sqlite/part-02.b64": {
       "bytes": 16000,
-      "sha256": "93eb549a14c97f28c32e3ae44090f15959d2bdd3658af0684e341b874e2a87de"
+      "sha256": "2feabf09c265bad87ffb140b4c07c60f80824aeff5abe05c44b800c5e10893bf"
     },
     "data/sqlite/part-03.b64": {
       "bytes": 16000,
-      "sha256": "94332393500af2559fa37c9ac54e33c127a2cda2be7fc1ee55b7dff3ec270f0a"
+      "sha256": "774b47c1a96cb8f5e7f5fafc24a88deb45ec5b72abfc0a9adabb3f8d8699aec0"
     },
     "data/sqlite/part-04.b64": {
       "bytes": 16000,
-      "sha256": "aa0c240656f31fe2426db1dc84114f4719bc0047b2b610cc41f3b1b2920f7be0"
+      "sha256": "6ff9a330bfe830cf79a965b57ae7a1b4c0c53244607aae8239a7f3b82b7bd855"
     },
     "data/sqlite/part-05.b64": {
       "bytes": 16000,
-      "sha256": "e9b61b340fbbbb3ecfe866f6155654b6be9015ae2cc48a9d882e429687190094"
+      "sha256": "ab4060e773fa9764f9b3733ea6a688854518a71488399d5aa3d0b25aa5ddfcc4"
     },
     "data/sqlite/part-06.b64": {
       "bytes": 16000,
-      "sha256": "c3d365b3135cf7326501d8d5cf6503b9e31346c4b972a9cbd451ee891e412638"
+      "sha256": "87a9beba3247da140af4268c9d988c61b014c6de08a5a342a2d35edb9ae89df5"
     },
     "data/sqlite/part-07.b64": {
       "bytes": 16000,
-      "sha256": "9367cfba6ea73ffc187b354f2a860ef5475fe28d17ffd4df0752c536749fef20"
+      "sha256": "8d0000fcc3989428c8bc5fdb9c40fb47e4248ac74c0ddad9de3ad00ad96b94d6"
     },
     "data/sqlite/part-08.b64": {
       "bytes": 16000,
-      "sha256": "31084d380ddbb06265ec522052c9704d467cfb5777c06bdba97f227292ebd1d9"
+      "sha256": "56fb84500027c7a974b87ca61db51a3d9aef13c28ae56e695bfef6793abfc3a0"
     },
     "data/sqlite/part-09.b64": {
       "bytes": 16000,
-      "sha256": "2026ab26b9f61553ab31f41813da359dc198ff45fb7ce4f2762c5a961cded4df"
+      "sha256": "c327360fd08f78dbba0776789e3723e5ee4ca58a307ab062e859fc5cc45bcfd4"
     },
     "data/sqlite/part-10.b64": {
       "bytes": 16000,
-      "sha256": "fe4c76ca23b23380c6784dff576a29746f4694c5dabd189daece80ebce82cbad"
+      "sha256": "6d6f617b44619a2ed14d19475b48b28a382991f57720115f84b4ed45d7a08c5d"
     },
     "data/sqlite/part-11.b64": {
       "bytes": 16000,
-      "sha256": "d081bd46d445cd6ee66a7e4fe64d2cd102fd04962b05e47a279c2734a764fc97"
+      "sha256": "91cc19f5ba12d83252b3ae8f6735dffb5b16cb2e5dc075ecaa17e98d07651189"
     },
     "data/sqlite/part-12.b64": {
       "bytes": 16000,
-      "sha256": "e2a68d5c11f28589178e1389e5fb224f33206b3a5e1468ae6ff65cb00a486234"
+      "sha256": "66f39a060b4a67fda830d683e4ae2580eb7a7128de55e8313e5abc608b5053c5"
     },
     "data/sqlite/part-13.b64": {
-      "bytes": 16000,
-      "sha256": "3ffea9bdd119988e7e7b4e4c2b1c67973870b6767fae701f0ff923359bb4d4a2"
-    },
-    "data/sqlite/part-14.b64": {
-      "bytes": 16000,
-      "sha256": "659ed14e66e3e4f3a09586c447e82a7a74cd0ab467891e2b05fbcfb56cfd7b54"
-    },
-    "data/sqlite/part-15.b64": {
-      "bytes": 16000,
-      "sha256": "0be68a3aee729e643d20ba501990635ce74c83cb82c7463ad358063712ed8d70"
-    },
-    "data/sqlite/part-16.b64": {
-      "bytes": 16000,
-      "sha256": "76e746c8acf4c3eb6fb52e0f3fbafeee097a1e814c661c8675a6329e0525b8bc"
-    },
-    "data/sqlite/part-17.b64": {
-      "bytes": 16000,
-      "sha256": "a93691ac4254abb67171b4ce0abad6e4885a7fa4c0f1ff846a541f9e2e3de423"
-    },
-    "data/sqlite/part-18.b64": {
-      "bytes": 6528,
-      "sha256": "b8f5b116bd1cf01da1ad4fdfb07b454a76caaf744f80d36e69d7534266385dbf"
-    },
-    "reports/data/cad-area-room-register.csv": {
-      "bytes": 3104,
-      "sha256": "6b21499f6e1d5ad2d1d2f06cbbc2111398ae6a3e95b495f48f49a757cfd02b22"
-    },
-    "reports/data/cad-asset-block-register.csv": {
-      "bytes": 5512,
-      "sha256": "88e05dea31a3177e0968c8933f0e66f387e1fe3814cab0a95d5425cced75ef01"
-    },
-    "reports/data/cad-drafter-checklist.csv": {
-      "bytes": 11494,
-      "sha256": "4c6a368cafcc4cd63f1ba2a4414b0862c09f19b59346dbd07a4759cd9f7c9c10"
-    },
-    "reports/data/cad-effort-plan.csv": {
-      "bytes": 7454,
-      "sha256": "40a8453a9cb580ebbb7da7b4c1c30ea48036d46ab6b8852abe3cfad880b972b3"
-    },
-    "reports/data/cad-orientation-register.csv": {
-      "bytes": 1615,
-      "sha256": "efc19a538fe5dc71b3c832b499535c2cdd1bf2563343c2a5d5f7094f884db05c"
-    },
-    "reports/data/milestone-evidence.csv": {
-      "bytes": 4048,
-      "sha256": "41e84fad9e125418c759168cc32861e54a86b1fd795ad2a82e7ee7b5f258d6a1"
-    },
-    "reports/data/native-overlap-summary.csv": {
-      "bytes": 946,
-      "sha256": "a548cd8f235a2f8c40ea009537a530e49ab7ded025022f80acc50f984dad7dbf"
-    },
-    "reports/data/slice-summary.csv": {
-      "bytes": 1739,
-      "sha256": "0b1045ce6b007446f850b1a992c6512e68ef3b6634a971b24b484401a88bcc1e"
-    },
-    "reports/data/validated-scan-summary.csv": {
-      "bytes": 600,
-      "sha256": "a1a3252236a8d8f672963234fb869c511c10a19fac9e8d5f28fa5a1bd7b346fb"
+      "bytes": 15532,
+      "sha256": "b0e490f6e56aae33186568ab20c4e987904801af20166a7ee6c0c1f6f0ba278d"
     }
   },
-  "privacy": "Client-safe aggregate and derived project controls only; confidential source materials are not included.",
-  "release_marker": "OS_SOW_EFFORT_WAYFINDING_20260721",
-  "revision": "2026.07.21.6",
-  "schema_version": "2.1",
-  "table_counts": {
-    "access_controls": 4,
-    "automation": 12,
-    "cad_preparation": 19,
-    "cad_public_registers": 92,
-    "commercial": 9,
-    "deliverables": 3,
-    "file_groups": 6,
-    "kickoff_gates": 4,
-    "metrics": 12,
-    "milestones": 20,
-    "native_overlap_pairs": 5,
-    "project": 1,
-    "qa_checks": 14,
-    "reports": 8,
-    "role_views": 5,
-    "runtime": 11,
-    "slice_evidence": 9,
-    "sow_effort_plan": 31,
-    "standards": 11,
-    "updates": 9,
-    "validation_sessions": 5
-  },
-  "updated_date": "2026-07-21"
+  "note": "Current one-sheet public data bundle. Legacy report CSV files are not part of the active public tab source."
 }

@@ -1,2639 +1,393 @@
 {
-  "schema_version": "2.1",
-  "revision": "2026.07.21.6",
-  "release_marker": "OS_SOW_EFFORT_WAYFINDING_20260721",
-  "updated_date": "2026-07-21",
   "project": {
     "id": "BDPC-DUNN-OS",
     "name": "Dunn Residence",
-    "client": "BDPC",
-    "provider": "CAD Guardian",
-    "phase": "Pre-license package ready",
-    "current_gate": "Authorization, start payment, controlling inputs, and licensed runtime",
-    "production_status": "Not started",
-    "priority": "Client-authorized three-sheet production after all kickoff gates"
+    "client": "BDPC Architects",
+    "provider": "CAD Guardian LLC",
+    "phase": "Pre-AutoCAD trace package ready",
+    "current_gate": "Licensed AutoCAD production access and final scale/source confirmation",
+    "production_status": "Trace-ready; final DWG/PDF not produced",
+    "priority": "One existing main-level as-built floor plan only"
   },
-  "metrics": {
-    "source_files": 908,
-    "source_bytes": 8801309883,
-    "source_size_gib": 8.2,
-    "scan_sessions": 5,
-    "source_points": 91688946,
-    "validated_sessions": 5,
-    "full_source_figures": 25,
-    "plan_control_slices": 9,
-    "native_overlays": 5,
-    "weak_native_overlap": 4,
-    "no_material_overlap": 1,
-    "production_drawings_complete": 0
-  },
-  "overlap_statement": "Five native-coordinate scan pairs were analyzed: four showed weak native overlap and one showed no material overlap. No transform was applied, no registration tolerance was adopted, and no pair was declared registered.",
-  "source_integrity_statement": "The fresh metadata inventory matches the prior 908-file path-and-size set, and all five source/working validation pairs passed. Confidential source material remains private and read-only.",
-  "truth_boundary": [
-    "No pair was declared registered and no survey accuracy is claimed.",
-    "No architectural, engineering, code, zoning, permit, or life-safety certification is claimed.",
-    "Native drawing production has not begun; no final production drawing or PDF exists.",
-    "Licensed native openability, dependencies, title-block behavior, and plot fidelity remain unvalidated."
-  ],
-  "client_actions": [
-    "Review SOW and assignment-ready effort plan",
-    "Authorize project",
-    "Confirm controlling inputs",
-    "Provide or start licensed runtime access",
-    "Submit start payment"
-  ],
-  "milestones": [
-    {
-      "id": "M-01",
-      "name": "Discovery and scope alignment",
-      "status": "Complete",
-      "phase": "Pre-license evidence",
-      "evidence": "The three-sheet client scope, commercial terms, technical boundaries, and kickoff gates are documented.",
-      "limitation": "Written authorization remains a separate kickoff gate."
-    },
-    {
-      "id": "M-02",
-      "name": "Source package inventory",
-      "status": "Complete",
-      "phase": "Pre-license evidence",
-      "evidence": "908 files and 8,801,309,883 bytes were reconciled in the protected source inventory.",
-      "limitation": "Aggregate client-safe counts only; confidential sources remain private."
-    },
-    {
-      "id": "M-03",
-      "name": "Five source / working validations",
-      "status": "Complete",
-      "phase": "Pre-license evidence",
-      "evidence": "5 of 5 passed independent integrity, header, stride, endpoint, bounds, dimension, and manifest checks.",
-      "limitation": "Not registration or survey certification."
-    },
-    {
-      "id": "M-04",
-      "name": "Bounded full-source statistics",
-      "status": "Complete",
-      "phase": "Pre-license evidence",
-      "evidence": "91,688,946 source points were processed in bounded chunks and reconciled.",
-      "limitation": "Analytical evidence only."
-    },
-    {
-      "id": "M-05",
-      "name": "Full-source visual index",
-      "status": "Ready for human review",
-      "phase": "Pre-license evidence",
-      "evidence": "25 full-source figures are published in the client-safe visual inspection gallery.",
-      "limitation": "Analytical controls, not issued drawings."
-    },
-    {
-      "id": "M-06",
-      "name": "Plan-control slice audit",
-      "status": "Ready for human review",
-      "phase": "Pre-license evidence",
-      "evidence": "Nine trial slice figures are published with contributing-point counts.",
-      "limitation": "Two upper bands contain zero contributing points; candidate floor and units remain controls."
-    },
-    {
-      "id": "M-07",
-      "name": "Native-coordinate pair audit",
-      "status": "Complete",
-      "phase": "Pre-license evidence",
-      "evidence": "Five pairs were analyzed: four weak native overlaps and one no-material-overlap.",
-      "limitation": "No transform, adopted tolerance, or registration pass."
-    },
-    {
-      "id": "M-08",
-      "name": "Public report library",
-      "status": "Complete",
-      "phase": "Pre-license evidence",
-      "evidence": "Eight detailed reports cover intake, analytical figures, photographic context, header validation, slices, overlap, CAD preparation, and completion.",
-      "limitation": "Reports document evidence, controls, and limitations; they are not professional certifications."
-    },
-    {
-      "id": "M-09",
-      "name": "Estimate and release package",
-      "status": "Ready",
-      "phase": "Client review",
-      "evidence": "The $3,200 estimate, print-optimized SOW, and client-safe evidence package passed local QA.",
-      "limitation": "Requires human review and written authorization."
-    },
-    {
-      "id": "M-10",
-      "name": "Written authorization",
-      "status": "Awaiting input",
-      "phase": "Kickoff",
-      "evidence": "BDPC written authorization of the fixed-fee scope and included review round is required.",
-      "limitation": "Production clock has not started."
-    },
-    {
-      "id": "M-11",
-      "name": "$1,600 start payment",
-      "status": "Awaiting input",
-      "phase": "Kickoff",
-      "evidence": "The start payment arrangement is required before production begins.",
-      "limitation": "Production clock has not started."
-    },
-    {
-      "id": "M-12",
-      "name": "Controlling project inputs",
-      "status": "Awaiting input",
-      "phase": "Kickoff",
-      "evidence": "BDPC must confirm controlling CAD, design/redline intent, title block, standards, and dependencies.",
-      "limitation": "Candidate status does not establish authority."
-    },
-    {
-      "id": "M-13",
-      "name": "Licensed compatible runtime",
-      "status": "Blocked",
-      "phase": "Kickoff",
-      "evidence": "A licensed compatible Autodesk runtime or approved remote workstation is required.",
-      "limitation": "Native compatibility and plotting fidelity remain unvalidated."
-    },
-    {
-      "id": "M-14",
-      "name": "Controlled CAD working set",
-      "status": "Not started",
-      "phase": "Production",
-      "evidence": "Create protected working copies and validate native openability and dependencies after all kickoff gates.",
-      "limitation": "Confidential originals remain immutable."
-    },
-    {
-      "id": "M-15",
-      "name": "Existing floor plan",
-      "status": "Not started",
-      "phase": "Production",
-      "evidence": "Draft and dimension the confirmed existing-condition basis.",
-      "limitation": "No native production drawing exists yet."
-    },
-    {
-      "id": "M-16",
-      "name": "Proposed floor plan",
-      "status": "Not started",
-      "phase": "Production",
-      "evidence": "Coordinate the proposal to BDPC-confirmed design direction.",
-      "limitation": "No native production drawing exists yet."
-    },
-    {
-      "id": "M-17",
-      "name": "Site and area plan",
-      "status": "Not started",
-      "phase": "Production",
-      "evidence": "Document the agreed footprint, work limits, and area context.",
-      "limitation": "Must not imply survey, civil, or field-verification services."
-    },
-    {
-      "id": "M-18",
-      "name": "Internal drawing and plot QA",
-      "status": "Not started",
-      "phase": "Production",
-      "evidence": "Run geometry, annotation, layer, dependency, viewport, page-setup, and plotting checks.",
-      "limitation": "Requires the licensed compatible runtime."
-    },
-    {
-      "id": "M-19",
-      "name": "BDPC check set and consolidated review",
-      "status": "Not started",
-      "phase": "Production",
-      "evidence": "Issue the coordinated review PDF and resolve one consolidated BDPC review round.",
-      "limitation": "Check-set target is three business days after all kickoff gates; client review time is excluded."
-    },
-    {
-      "id": "M-20",
-      "name": "Final issue and closeout",
-      "status": "Not started",
-      "phase": "Production",
-      "evidence": "After QA and review, issue the approved native CAD/PDF package and closeout record.",
-      "limitation": "No final production drawing or PDF exists yet."
-    }
-  ],
-  "file_groups": [
-    {
-      "group": "Images / scan-derived imagery",
-      "formats": "PNG",
-      "count": 838,
-      "status": "Complete",
-      "notes": "Aggregate count only; confidential source imagery remains private. Only reviewed client-safe derivatives appear in reports."
-    },
-    {
-      "group": "Sensor packages",
-      "formats": "Scanner packages and support files",
-      "count": 32,
-      "status": "Complete",
-      "notes": "Raw scanner working files remain private, read-only, and unpublished."
-    },
-    {
-      "group": "Text, CSV, and JSON support files",
-      "formats": "Text and structured data",
-      "count": 28,
-      "status": "Complete",
-      "notes": "Private metadata and analytical inputs remain outside the public OS."
-    },
-    {
-      "group": "LiDAR point clouds",
-      "formats": "LAS",
-      "count": 5,
-      "status": "Complete",
-      "notes": "Five source/working pairs passed independent validation; no point-cloud source is published."
-    },
-    {
-      "group": "CAD drawings",
-      "formats": "DWG",
-      "count": 3,
-      "status": "Awaiting input",
-      "notes": "Candidate current and standards-reference roles are documented; BDPC must confirm controlling authority and licensed openability remains unvalidated."
-    },
-    {
-      "group": "PDF references",
-      "formats": "PDF",
-      "count": 2,
-      "status": "Awaiting input",
-      "notes": "Candidate conceptual and standards-reference roles are documented; BDPC must confirm controlling authority."
-    }
-  ],
-  "standards": [
-    {
-      "item": "Dimension precision",
-      "status": "Ready",
-      "rule": "No finer than 1/2 inch unless BDPC directs otherwise.",
-      "basis": "Client direction"
-    },
-    {
-      "item": "Typical framed wall basis",
-      "status": "Ready",
-      "rule": "Start typical 2×4 framed partitions at 3.5 inches, then reconcile field evidence.",
-      "basis": "Client direction"
-    },
-    {
-      "item": "Door and window content",
-      "status": "Ready",
-      "rule": "Reuse established BDPC or controlling current-project blocks and known sizes before creating new content.",
-      "basis": "Client direction"
-    },
-    {
-      "item": "Model-space source hierarchy",
-      "status": "Awaiting input",
-      "rule": "Use only the Dunn CAD and design inputs that BDPC confirms as controlling, reconciled with reviewed scan evidence; reference files provide standards context only.",
-      "basis": "Project control"
-    },
-    {
-      "item": "Paper space / title block",
-      "status": "Awaiting input",
-      "rule": "Use the current BDPC presentation standard after BDPC confirms the controlling title block and any separately maintained dependency.",
-      "basis": "Dependency"
-    },
-    {
-      "item": "Plot style",
-      "status": "Awaiting input",
-      "rule": "No separately maintained CTB or STB is treated as controlling. Provide it if the confirmed drawing set depends on one.",
-      "basis": "Dependency"
-    },
-    {
-      "item": "Fonts / shape files",
-      "status": "Awaiting input",
-      "rule": "No separately maintained font or shape-file package is treated as controlling. Provide required dependencies with the confirmed set.",
-      "basis": "Dependency"
-    },
-    {
-      "item": "Point-cloud coordinates",
-      "status": "Ready",
-      "rule": "Preserve and review native coordinates before any transformation; validate discrete common features in a licensed compatible runtime before production reliance.",
-      "basis": "Analytical control"
-    },
-    {
-      "item": "Existing versus proposed graphics",
-      "status": "Ready",
-      "rule": "Maintain unambiguous condition hierarchy, lineweight, and annotation separation.",
-      "basis": "QA standard"
-    },
-    {
-      "item": "Unknown conditions",
-      "status": "Ready",
-      "rule": "Do not invent concealed conditions. Flag material conflicts and return design decisions to BDPC.",
-      "basis": "Decision boundary"
-    },
-    {
-      "item": "Site / area representation",
-      "status": "Ready",
-      "rule": "Do not imply survey, civil, or field-verification services; identify the basis and limitations of every site or area representation.",
-      "basis": "Scope boundary"
-    }
-  ],
-  "automation": [
-    {
-      "item": "Source intake inventory",
-      "status": "Complete",
-      "tool": "Read-only metadata inventory",
-      "result": "908 files and 8,801,309,883 bytes reconciled without modifying confidential sources.",
-      "disposition": "Used"
-    },
-    {
-      "item": "Source / working validation",
-      "status": "Complete",
-      "tool": "Independent hash, header, stride, endpoint, bounds, dimension, and manifest checks",
-      "result": "Five of five source/working pairs passed.",
-      "disposition": "Used"
-    },
-    {
-      "item": "Full-source statistics",
-      "status": "Complete",
-      "tool": "Bounded Python processing",
-      "result": "91,688,946 source points processed and reconciled.",
-      "disposition": "Used"
-    },
-    {
-      "item": "Full-source visual index",
-      "status": "Ready for human review",
-      "tool": "Python + Pillow",
-      "result": "25 reviewed client-safe figures published across five generalized sessions.",
-      "disposition": "Review"
-    },
-    {
-      "item": "Plan-control slice audit",
-      "status": "Ready for human review",
-      "tool": "laspy + NumPy + Pillow",
-      "result": "Nine trial slices published; two upper bands contain zero contributing points.",
-      "disposition": "Review"
-    },
-    {
-      "item": "Native-coordinate pair audit",
-      "status": "Complete",
-      "tool": "laspy + NumPy + Pillow",
-      "result": "Five overlays: four weak native overlaps and one no-material-overlap; no transform, tolerance, or registration pass.",
-      "disposition": "Used"
-    },
-    {
-      "item": "DWG openability preflight",
-      "status": "Blocked",
-      "tool": "Licensed compatible Autodesk runtime",
-      "result": "Required before native production; originals remain read-only.",
-      "disposition": "Kickoff gate"
-    },
-    {
-      "item": "Block and standards extractor",
-      "status": "Not started",
-      "tool": "Licensed runtime automation",
-      "result": "Use only after controlling inputs are confirmed and only when it reduces production effort.",
-      "disposition": "Conditional"
-    },
-    {
-      "item": "Layer / plotting validator",
-      "status": "Not started",
-      "tool": "Licensed compatible Autodesk runtime",
-      "result": "Validate layers, text, dimensions, viewports, page setup, and plot output before issue.",
-      "disposition": "Planned"
-    },
-    {
-      "item": "Publish / dependency package",
-      "status": "Not started",
-      "tool": "Licensed compatible Autodesk runtime",
-      "result": "Package final approved native CAD, PDFs, and dependency record after QA.",
-      "disposition": "Planned"
-    },
-    {
-      "item": "Automated change summary",
-      "status": "Not started",
-      "tool": "Controlled production logs",
-      "result": "Generate at final issue from actual approved changes.",
-      "disposition": "Planned"
-    },
-    {
-      "item": "Point-cloud wall suggestions",
-      "status": "Not applicable",
-      "tool": "Experimental",
-      "result": "Excluded unless separately authorized; human CAD review controls issued drawings.",
-      "disposition": "Deferred"
-    }
-  ],
-  "kickoff_gates": [
-    {
-      "sequence": 1,
-      "gate": "Written authorization",
-      "status": "Awaiting input",
-      "owner": "BDPC",
-      "requirement": "Authorize the $3,200 fixed-fee scope, 40-hour absolute effort ceiling, and one consolidated review round in writing."
-    },
-    {
-      "sequence": 2,
-      "gate": "$1,600 start payment",
-      "status": "Awaiting input",
-      "owner": "BDPC / CAD Guardian",
-      "requirement": "Arrange the start payment before production begins."
-    },
-    {
-      "sequence": 3,
-      "gate": "Controlling input confirmation",
-      "status": "Awaiting input",
-      "owner": "BDPC",
-      "requirement": "Confirm controlling CAD, design/redline intent, title block, standards, and dependency inputs."
-    },
-    {
-      "sequence": 4,
-      "gate": "Licensed compatible runtime",
-      "status": "Blocked",
-      "owner": "CAD Guardian / BDPC",
-      "requirement": "Provide a licensed compatible Autodesk runtime or approved remote workstation."
-    }
-  ],
-  "validation_sessions": [
-    {
-      "session": "Session A",
-      "role": "Primary building evidence",
-      "points": 12940403,
-      "status": "Complete",
-      "limitation": "Analytical evidence; controlling drawing authority remains pending."
-    },
-    {
-      "session": "Session B",
-      "role": "Interior detail evidence",
-      "points": 3772526,
-      "status": "Complete",
-      "limitation": "Analytical evidence; not survey certification."
-    },
-    {
-      "session": "Session C",
-      "role": "Interior diagnostic evidence",
-      "points": 5164456,
-      "status": "Complete",
-      "limitation": "Analytical evidence; not survey certification."
-    },
-    {
-      "session": "Session D",
-      "role": "Immediate property evidence",
-      "points": 27679943,
-      "status": "Complete",
-      "limitation": "Analytical evidence; not site or civil certification."
-    },
-    {
-      "session": "Session E",
-      "role": "Extended site context",
-      "points": 42131618,
-      "status": "Complete",
-      "limitation": "Context only; not a survey."
-    }
-  ],
-  "native_pairs": [
-    {
-      "pair": "Pair 01",
-      "classification": "native_overlap_weak",
-      "overlay": "../assets/evidence/native-overlap/pair-01.png"
-    },
-    {
-      "pair": "Pair 02",
-      "classification": "native_overlap_weak",
-      "overlay": "../assets/evidence/native-overlap/pair-02.png"
-    },
-    {
-      "pair": "Pair 03",
-      "classification": "native_overlap_weak",
-      "overlay": "../assets/evidence/native-overlap/pair-03.png"
-    },
-    {
-      "pair": "Pair 04",
-      "classification": "native_overlap_weak",
-      "overlay": "../assets/evidence/native-overlap/pair-04.png"
-    },
-    {
-      "pair": "Pair 05",
-      "classification": "no_material_overlap",
-      "overlay": "../assets/evidence/native-overlap/pair-05.png"
-    }
-  ],
-  "slices": [
-    {
-      "id": "SL-01",
-      "session": "Session A",
-      "purpose": "Low wall footprint",
-      "height_m": 0.25,
-      "thickness_m": 0.2,
-      "points": 860400,
-      "image": "../assets/evidence/slices/session-a-low-wall.png"
-    },
-    {
-      "id": "SL-02",
-      "session": "Session A",
-      "purpose": "Plan control",
-      "height_m": 1.1,
-      "thickness_m": 0.25,
-      "points": 3384060,
-      "image": "../assets/evidence/slices/session-a-plan-control.png"
-    },
-    {
-      "id": "SL-03",
-      "session": "Session A",
-      "purpose": "Upper opening check",
-      "height_m": 1.95,
-      "thickness_m": 0.2,
-      "points": 36175,
-      "image": "../assets/evidence/slices/session-a-upper-opening.png"
-    },
-    {
-      "id": "SL-04",
-      "session": "Session B",
-      "purpose": "Low wall footprint",
-      "height_m": 0.25,
-      "thickness_m": 0.2,
-      "points": 193829,
-      "image": "../assets/evidence/slices/session-b-low-wall.png"
-    },
-    {
-      "id": "SL-05",
-      "session": "Session B",
-      "purpose": "Plan control",
-      "height_m": 1.1,
-      "thickness_m": 0.25,
-      "points": 35248,
-      "image": "../assets/evidence/slices/session-b-plan-control.png"
-    },
-    {
-      "id": "SL-06",
-      "session": "Session B",
-      "purpose": "Upper opening check",
-      "height_m": 1.95,
-      "thickness_m": 0.2,
-      "points": 0,
-      "image": "../assets/evidence/slices/session-b-upper-opening.png"
-    },
-    {
-      "id": "SL-07",
-      "session": "Session C",
-      "purpose": "Low wall footprint",
-      "height_m": 0.25,
-      "thickness_m": 0.2,
-      "points": 526082,
-      "image": "../assets/evidence/slices/session-c-low-wall.png"
-    },
-    {
-      "id": "SL-08",
-      "session": "Session C",
-      "purpose": "Plan control",
-      "height_m": 1.1,
-      "thickness_m": 0.25,
-      "points": 1319734,
-      "image": "../assets/evidence/slices/session-c-plan-control.png"
-    },
-    {
-      "id": "SL-09",
-      "session": "Session C",
-      "purpose": "Upper opening check",
-      "height_m": 1.95,
-      "thickness_m": 0.2,
-      "points": 0,
-      "image": "../assets/evidence/slices/session-c-upper-opening.png"
-    }
-  ],
   "commercial": [
     {
       "term": "Fixed fee",
-      "value": "$3,200",
-      "status": "Ready for authorization"
+      "value": "$600",
+      "status": "Authorized by email"
     },
     {
-      "term": "Start payment",
-      "value": "$1,600",
-      "status": "Required before production start"
+      "term": "Payment timing",
+      "value": "Due after delivery",
+      "status": "Not a pre-production blocker"
     },
     {
-      "term": "Final payment",
-      "value": "$1,600",
-      "status": "Due at final issue"
+      "term": "Deliverable",
+      "value": "Native AutoCAD DWG + PDF",
+      "status": "Final production pending AutoCAD"
     },
     {
-      "term": "Additional authorized services",
-      "value": "$90/hour",
-      "status": "Only with written authorization"
-    },
-    {
-      "term": "Check-set target",
-      "value": "3 business days after all kickoff gates",
-      "status": "Target"
-    },
-    {
-      "term": "Production duration",
-      "value": "4–5 business days excluding client review",
-      "status": "Target"
-    },
-    {
-      "term": "Included review",
-      "value": "1 consolidated review round",
-      "status": "Included"
-    },
-    {
-      "term": "Included effort ceiling",
-      "value": "40.0 hours maximum",
-      "status": "Absolute assignment ceiling; fixed fee remains controlling"
-    },
-    {
-      "term": "Automation / standards library",
-      "value": "Separate future scope",
-      "status": "Not included"
+      "term": "Effort ceiling",
+      "value": "8.0 hours maximum",
+      "status": "Controlled one-day trial"
     }
   ],
   "deliverables": [
     {
       "sequence": 1,
-      "name": "Existing floor plan",
-      "status": "Not started",
-      "scope": "Measured existing-condition plan with unresolved conflicts documented.",
-      "format": "Native CAD + PDF",
-      "target": "Check set"
+      "name": "Existing Main Level As-Built Floor Plan",
+      "status": "Awaiting final AutoCAD production",
+      "scope": "Existing main level only; no proposed/site/design work",
+      "format": "Native AutoCAD DWG",
+      "target": "4:00 PM EDT on July 22, 2026"
     },
     {
       "sequence": 2,
-      "name": "Proposed floor plan",
-      "status": "Not started",
-      "scope": "Proposed planning coordinated to confirmed BDPC direction.",
-      "format": "Native CAD + PDF",
-      "target": "Check set"
-    },
-    {
-      "sequence": 3,
-      "name": "Site and area plan",
-      "status": "Not started",
-      "scope": "Agreed footprint, work limits, and area context without survey representation.",
-      "format": "Native CAD + PDF",
-      "target": "Check set"
+      "name": "Existing Main Level As-Built Floor Plan",
+      "status": "Awaiting final plot/export",
+      "scope": "PDF plotted from final visible DWG",
+      "format": "PDF",
+      "target": "4:00 PM EDT on July 22, 2026"
     }
   ],
-  "qa_checks": [
+  "file_groups": [
     {
-      "check": "Source package inventory",
-      "status": "Complete",
-      "evidence": "908 files and 8,801,309,883 bytes reconciled."
+      "group": "Dunn_Main_Level_PointCloud_Trace_Master.dwg",
+      "role": "Primary trace reference",
+      "state": "ready",
+      "control": "Reference for wall/opening/major-feature tracing; not final issued linework by itself"
     },
     {
-      "check": "Source / working validation",
-      "status": "Complete",
-      "evidence": "Five of five pairs passed independent validation."
+      "group": "Dunn_Main_Level_PointCloud_Trace_Master.dxf",
+      "role": "Portable trace fallback",
+      "state": "ready",
+      "control": "Use if DWG reference path/version causes friction"
     },
     {
-      "check": "Bounded full-source processing",
-      "status": "Complete",
-      "evidence": "91,688,946 source points processed and reconciled."
+      "group": "20260710222125/recalculate_result.las",
+      "role": "Primary point-cloud basis",
+      "state": "processed",
+      "control": "Primary horizontal slices and trace master are derived from this source"
     },
     {
-      "check": "Full-source figure review",
-      "status": "Ready for human review",
-      "evidence": "25 client-safe figures published for review."
+      "group": "20260710222318 and 20260710222414",
+      "role": "Support scans",
+      "state": "available",
+      "control": "Use to resolve unclear interior zones; disclose remaining uncertainty"
     },
     {
-      "check": "Plan-control slice review",
-      "status": "Ready for human review",
-      "evidence": "Nine trial slices published; two upper bands have zero contributing points."
+      "group": "2026_07_17_Grant_St_Floor_plan.png",
+      "role": "Gross area/scale reconciliation only",
+      "state": "supporting only",
+      "control": "Do not generate final geometry from this PNG"
     },
     {
-      "check": "Native-coordinate overlap",
-      "status": "Complete",
-      "evidence": "Four weak native overlaps and one no-material-overlap; no transform, tolerance, or registration pass."
+      "group": "TCADD.dwg",
+      "role": "Model-space standards and blocks reference",
+      "state": "standards reference",
+      "control": "Use compatible drafting logic/blocks; do not import unrelated project geometry"
     },
     {
-      "check": "Controlling input authority",
-      "status": "Awaiting input",
-      "evidence": "BDPC must confirm the controlling CAD, design/redline intent, title block, standards, and dependencies."
+      "group": "1419 Allene/Jurgena package",
+      "role": "Gold-standard presentation reference",
+      "state": "standards reference",
+      "control": "Match sheet/title/font/dimension/plot patterns where possible"
     },
     {
-      "check": "Licensed DWG openability and version",
-      "status": "Blocked",
-      "evidence": "Validate in a licensed compatible Autodesk runtime before production."
-    },
-    {
-      "check": "Xrefs, fonts, and object dependencies",
-      "status": "Blocked",
-      "evidence": "Validate from the confirmed controlling inputs in the licensed runtime."
-    },
-    {
-      "check": "Existing-plan geometry QA",
-      "status": "Not started",
-      "evidence": "Review walls, partitions, openings, stairs, fixtures, and principal dimensions during production."
-    },
-    {
-      "check": "Proposed-plan coordination QA",
-      "status": "Not started",
-      "evidence": "Coordinate confirmed design intent, interfaces, room planning, openings, and connections."
-    },
-    {
-      "check": "Site / area plan QA",
-      "status": "Not started",
-      "evidence": "Confirm footprint, work limits, area labels, basis, and no-survey boundary."
-    },
-    {
-      "check": "Paper-space / plotting QA",
-      "status": "Blocked",
-      "evidence": "Validate title block, layers, annotations, viewport scales, page setup, CTB/STB behavior, and plot fidelity in the licensed runtime."
-    },
-    {
-      "check": "Review and final package QA",
-      "status": "Not started",
-      "evidence": "Issue the check set, resolve one consolidated review round, and validate final native CAD/PDF/dependency records."
+      "group": "00_READ_FIRST_DRAFTER_SCOPE reports",
+      "role": "Drafter guidance and uncertainty log",
+      "state": "ready",
+      "control": "Use for known gaps, file roles, and stop conditions"
     }
   ],
-  "updates": [
+  "standards": [
     {
-      "date": "2026-07-21",
-      "title": "Assignment-ready SOW effort plan added",
-      "status": "Ready",
-      "detail": "The existing SOW now includes a 40-hour absolute ceiling, standard setup, per-plan allocations, 31 assignable work packages, handoffs, acceptance evidence, and a reusable CSV."
+      "item": "Residential dimension precision",
+      "status": "confirmed",
+      "rule": "Do not display residential dimensions finer than 1/2 inch unless Brian explicitly directs otherwise.",
+      "basis": "Meeting direction + July 20 confirmation"
     },
     {
-      "date": "2026-07-21",
-      "title": "Detailed OS preservation repair",
-      "status": "Complete",
-      "detail": "The nine tab groups, documented rules, milestone visualization, detailed inventories, and preservation checks were restored from the pre-regression implementation and reconciled to current evidence."
+      "item": "Geometric accuracy",
+      "status": "confirmed",
+      "rule": "Model accurately enough that dimension rounding never conceals avoidable geometric error.",
+      "basis": "Meeting direction"
     },
     {
-      "date": "2026-07-21",
-      "title": "Detailed report and SOW preservation repair",
-      "status": "Complete",
-      "detail": "The image-driven report library and print-optimized estimate/SOW were restored with regression safeguards."
+      "item": "Self-checking dimension chains",
+      "status": "confirmed",
+      "rule": "Use chained and overall dimensions that reconcile arithmetically and permit rapid self-checking.",
+      "basis": "Meeting direction"
     },
     {
-      "date": "2026-07-21",
-      "title": "Client-safe evidence published",
-      "status": "Ready for human review",
-      "detail": "Twenty-five full-source figures, nine plan-control slices, and five native-coordinate overlays are available in the report library."
+      "item": "Typical framed-wall basis",
+      "status": "confirmed",
+      "rule": "Start typical 2×4 framed walls and partitions at 3.5 inches.",
+      "basis": "Meeting direction + July 20 confirmation"
     },
     {
-      "date": "2026-07-21",
-      "title": "Source / working validation completed",
-      "status": "Complete",
-      "detail": "Five of five validation pairs passed independent integrity, header, stride, endpoint, bounds, dimension, and manifest checks."
+      "item": "Wall-type graduation",
+      "status": "confirmed",
+      "rule": "Graduate to 6-inch, 8-inch, masonry, foundation, or other thicknesses only when source evidence or BDPC direction supports the assembly.",
+      "basis": "Meeting direction"
     },
     {
-      "date": "2026-07-21",
-      "title": "Full-source processing completed",
-      "status": "Complete",
-      "detail": "91,688,946 source points were processed in bounded chunks and reconciled."
+      "item": "Finish build-up",
+      "status": "confirmed",
+      "rule": "Do not automatically add gypsum, sheathing, siding, or other finish build-up that changes Brian's preferred framed-wall baseline.",
+      "basis": "Meeting preference"
     },
     {
-      "date": "2026-07-21",
-      "title": "Native-coordinate pair analysis completed",
-      "status": "Complete",
-      "detail": "Four pairs showed weak native overlap and one showed no material overlap; no transform, tolerance, or registration pass was claimed."
+      "item": "Door and window vocabulary",
+      "status": "confirmed",
+      "rule": "Reuse established BDPC or TCADD door and window blocks and known sizes before creating new content.",
+      "basis": "Meeting direction"
     },
     {
-      "date": "2026-07-21",
-      "title": "Estimate and pre-license package ready",
-      "status": "Ready",
-      "detail": "The $3,200 fixed-fee estimate and supporting client-safe review are ready for human review and written authorization."
+      "item": "Block integrity",
+      "status": "confirmed",
+      "rule": "Verify block scale, dimensions, insertion behavior, layer, attributes, dynamic properties, and exploded-state risk before use.",
+      "basis": "Meeting workflow"
     },
     {
-      "date": "Next",
-      "title": "Clear all kickoff gates",
-      "status": "Awaiting input",
-      "detail": "Written authorization, $1,600 start payment, controlling-input confirmation, and licensed compatible runtime access are required before production starts."
-    }
-  ],
-  "runtime": [
-    {
-      "component": "Licensed native CAD runtime",
-      "version": "Compatible Autodesk runtime or approved remote workstation",
-      "status": "Blocked",
-      "availability": "Kickoff gate",
-      "purpose": "Required for native openability, dependency validation, drawing production, and plotting fidelity."
+      "item": "Model-space standard source",
+      "status": "confirmed",
+      "rule": "Use the preferred TCADD file for model-space blocks and drafting logic where compatible with the active project.",
+      "basis": "July 20 written confirmation"
     },
     {
-      "component": "Compatible point-cloud runtime",
-      "version": "Licensed compatible workflow",
-      "status": "Blocked",
-      "availability": "Kickoff gate",
-      "purpose": "Required for licensed point-cloud inspection and production coordination."
+      "item": "Paper-space presentation source",
+      "status": "confirmed",
+      "rule": "Use the 1419 Allene/Jurgena gold-standard package for title block, paper-space organization, sheet flow, plotting, text, dimensions, and presentation where compatible.",
+      "basis": "Brian direction: gold-standard reference package"
     },
     {
-      "component": "Python",
-      "version": "3.14",
-      "status": "Complete",
-      "availability": "Installed",
-      "purpose": "Used for bounded intake, validation, data build, and QA scripts."
+      "item": "Graphic consistency",
+      "status": "confirmed",
+      "rule": "Match supplied BDPC fonts, dimension styles, lineweights, notes, viewport conventions, and plot behavior rather than inventing a parallel standard.",
+      "basis": "Meeting direction"
     },
     {
-      "component": "laspy",
-      "version": "2.7.0",
-      "status": "Complete",
-      "availability": "Installed",
-      "purpose": "Used for bounded point access and analytical evidence."
+      "item": "Condition hierarchy",
+      "status": "preserved",
+      "rule": "Existing-to-remain, demolition, and new work use BDPC-approved solid, dashed, keyed, and lineweight conventions. The current existing-only sheet does not add demolition or new-work graphics.",
+      "basis": "Meeting reference; outside current scope"
     },
     {
-      "component": "NumPy",
-      "version": "2.5.1",
-      "status": "Complete",
-      "availability": "Installed",
-      "purpose": "Used for deterministic analytical processing and figures."
+      "item": "Measured-evidence rule",
+      "status": "confirmed",
+      "rule": "Treat LiDAR and trace DWG/DXF references as measured evidence, not automatic truth; reconcile against gross dimensions and disclose unresolved conditions.",
+      "basis": "Meeting direction + analytical controls"
     },
     {
-      "component": "PyMuPDF",
-      "version": "1.28.0",
-      "status": "Complete",
-      "availability": "Installed",
-      "purpose": "Used for PDF inspection and print QA support."
+      "item": "Scale and orientation anchoring",
+      "status": "confirmed",
+      "rule": "Use reliable project dimensions and the City floor plate to corroborate point-cloud scale, footprint, and orientation when needed.",
+      "basis": "Meeting direction"
     },
     {
-      "component": "Pillow",
-      "version": "12.3.0",
-      "status": "Complete",
-      "availability": "Installed",
-      "purpose": "Used to validate and prepare client-safe derived imagery."
+      "item": "Unknown conditions",
+      "status": "confirmed",
+      "rule": "Do not invent concealed construction, unsupported openings, room names, dimensions, or missing geometry.",
+      "basis": "Professional boundary"
     },
     {
-      "component": "Browser / static workspace",
-      "version": "GitHub Pages",
-      "status": "Ready",
-      "availability": "Public client-safe only",
-      "purpose": "Provides only reviewed client-safe OS content, reports, estimate/SOW, and verified downloads without client installation."
+      "item": "Conflict escalation",
+      "status": "confirmed",
+      "rule": "Document material discrepancies and return them for BDPC direction instead of silently choosing the most convenient source.",
+      "basis": "July 20 written confirmation"
     },
     {
-      "component": "Public context and CAD-prep access",
-      "version": "Static public routes",
-      "status": "Complete",
-      "availability": "Client-facing",
-      "purpose": "Provides the owner-approved historical contact sheets and full public CAD production-preparation registers."
+      "item": "Rational constructability",
+      "status": "confirmed",
+      "rule": "Prefer clean, rational, manufacturable geometry that snaps together and can be independently checked.",
+      "basis": "Meeting direction"
     },
     {
-      "component": "Local project workspace",
-      "version": "Dunn_Preflight_v1_1",
-      "status": "Complete",
-      "availability": "Protected",
-      "purpose": "Separates private evidence, client-safe publication candidates, runtime records, and release QA."
-    },
-    {
-      "component": "AI assistance",
-      "version": "Codex",
-      "status": "Ready",
-      "availability": "Available",
-      "purpose": "Supports bounded analysis and release work; human CAD and client review control issued work."
+      "item": "Dependency completeness",
+      "status": "required",
+      "rule": "The released DWG must open with the required fonts, plot styles, xrefs, object support, title block, layouts, and page setup documented or included.",
+      "basis": "Native delivery control"
     }
   ],
   "cad_preparation": [
     {
-      "group": "Authority",
-      "item": "Controlling project input set",
-      "status": "Awaiting input",
-      "current_evidence": "Candidate current CAD, conceptual intent, area reference, title block, and standards roles are recorded privately.",
-      "next_action": "BDPC confirms the exact controlling set or supplies replacements.",
-      "owner": "BDPC"
-    },
-    {
-      "group": "Orientation",
-      "item": "Project north and view rotations",
-      "status": "Awaiting input",
-      "current_evidence": "Private page review found differing displayed orientations across conceptual views.",
-      "next_action": "Record project north and every comparison rotation before tracing or xref alignment.",
-      "owner": "CAD Guardian / BDPC"
-    },
-    {
-      "group": "Units",
-      "item": "Native units and insertion scale",
-      "status": "Blocked",
-      "current_evidence": "Concept graphics are not a native-unit authority.",
-      "next_action": "Validate INSUNITS, xref insertion, and dimension basis in the licensed runtime.",
+      "group": "CAD Prep",
+      "item": "Track payment after delivery",
+      "status": "deferred",
+      "current_evidence": "Invoice/payment is completed after accepted DWG/PDF delivery.",
+      "next_action": "Invoice/payment is completed after accepted DWG/PDF delivery.",
       "owner": "CAD Guardian"
     },
     {
-      "group": "Existing plan",
-      "item": "Exterior footprint and area boundaries",
-      "status": "Not started",
-      "current_evidence": "Candidate topology and reference areas are recorded privately pending authority confirmation.",
-      "next_action": "Reconcile closed boundaries to confirmed CAD and accepted controls.",
+      "group": "CAD Prep",
+      "item": "Freeze production baseline",
+      "status": "ready",
+      "current_evidence": "Current Thomas CAD package is already organized; freeze a dated production copy when AutoCAD drafting begins.",
+      "next_action": "Current Thomas CAD package is already organized; freeze a dated production copy when AutoCAD drafting begins.",
       "owner": "CAD Guardian"
     },
     {
-      "group": "Existing plan",
-      "item": "Room and space inventory",
-      "status": "Not started",
-      "current_evidence": "Reviewed reference material does not establish every room label.",
-      "next_action": "Inventory each enclosed space; leave unsupported names and values explicitly blank.",
-      "owner": "CAD Guardian / BDPC"
-    },
-    {
-      "group": "Existing plan",
-      "item": "Walls, windows, doors, and openings",
-      "status": "Not started",
-      "current_evidence": "Private visual context can support reconciliation but does not establish a complete schedule.",
-      "next_action": "Count, tag, size when supported, and track every unresolved value.",
+      "group": "CAD Prep",
+      "item": "Protect originals",
+      "status": "ready",
+      "current_evidence": "Original source files remain read-only and unchanged",
+      "next_action": "Original source files remain read-only and unchanged",
       "owner": "CAD Guardian"
     },
     {
-      "group": "Existing plan",
-      "item": "Stairs, fixtures, and equipment",
-      "status": "Not started",
-      "current_evidence": "Context evidence exists; complete production authority does not.",
-      "next_action": "Inventory only supported items and separate observations from assumptions.",
+      "group": "CAD Prep",
+      "item": "Confirm units and coordinate basis",
+      "status": "partially complete",
+      "current_evidence": "Trace references are metric/source-preserved; final architectural scale must be locked in AutoCAD against floor plate or known dimension.",
+      "next_action": "Trace references are metric/source-preserved; final architectural scale must be locked in AutoCAD against floor plate or known dimension.",
       "owner": "CAD Guardian"
     },
     {
-      "group": "Proposed plan",
-      "item": "Kitchen and living organization",
-      "status": "Awaiting input",
-      "current_evidence": "Candidate concept establishes a kitchen/living/deck planning direction.",
-      "next_action": "Confirm intent and controlling dimensions before native drafting.",
-      "owner": "BDPC"
-    },
-    {
-      "group": "Proposed plan",
-      "item": "Cabinet, appliance, island, and furniture blocks",
-      "status": "Not started",
-      "current_evidence": "Required content categories are identified privately.",
-      "next_action": "Source approved BDPC blocks first; create controlled content only where needed.",
+      "group": "CAD Prep",
+      "item": "Validate native runtime",
+      "status": "partial; final license pending",
+      "current_evidence": "AutoCAD Core Console created/evaluated starting template; final native drafting/plotting license remains pending.",
+      "next_action": "AutoCAD Core Console created/evaluated starting template; final native drafting/plotting license remains pending.",
       "owner": "CAD Guardian"
     },
     {
-      "group": "Proposed plan",
-      "item": "Deck, stairs, railings, and openings",
-      "status": "Awaiting input",
-      "current_evidence": "Candidate intent is visible; exact geometry and construction information are unresolved.",
-      "next_action": "Resolve dimensions and draft without structural or code certification claims.",
-      "owner": "BDPC / CAD Guardian"
-    },
-    {
-      "group": "Site / area",
-      "item": "Drive, walk, footprint, and work limits",
-      "status": "Awaiting input",
-      "current_evidence": "Candidate site context is recorded privately and marked as non-survey evidence.",
-      "next_action": "Reconcile generalized limits to the controlling input and state the basis.",
-      "owner": "CAD Guardian / BDPC"
-    },
-    {
-      "group": "Phasing",
-      "item": "Existing, demolition, and new-work graphics",
-      "status": "Awaiting input",
-      "current_evidence": "Concept overlays do not define every demolition decision.",
-      "next_action": "Apply the confirmed BDPC graphic standard and return missing decisions.",
-      "owner": "BDPC / CAD Guardian"
-    },
-    {
-      "group": "Standards",
-      "item": "Layers, dimensions, notes, and tags",
-      "status": "Awaiting input",
-      "current_evidence": "Documented OS rules are preserved; the controlling project package remains unconfirmed.",
-      "next_action": "Map confirmed standards and record exceptions.",
-      "owner": "BDPC / CAD Guardian"
-    },
-    {
-      "group": "Dependencies",
-      "item": "Title block, xrefs, fonts, shapes, and object support",
-      "status": "Blocked",
-      "current_evidence": "Native dependency behavior remains unvalidated.",
-      "next_action": "Audit the confirmed package in a licensed compatible Autodesk runtime.",
+      "group": "CAD Prep",
+      "item": "Resolve dependencies",
+      "status": "pending native production",
+      "current_evidence": "Fonts, SHX, xrefs, images, object support, CTB/STB, and page setups must be checked in final AutoCAD environment.",
+      "next_action": "Fonts, SHX, xrefs, images, object support, CTB/STB, and page setups must be checked in final AutoCAD environment.",
       "owner": "CAD Guardian"
     },
     {
-      "group": "Plot",
-      "item": "Layouts, viewports, page setup, and CTB/STB",
-      "status": "Blocked",
-      "current_evidence": "Browser and open-source checks do not establish native plotting fidelity.",
-      "next_action": "Create native check plots and compare paper/PDF output.",
+      "group": "CAD Prep",
+      "item": "Extract approved blocks",
+      "status": "ready for native extraction",
+      "current_evidence": "TCADD and 1419 references are identified; approved blocks still require native review.",
+      "next_action": "TCADD and 1419 references are identified; approved blocks still require native review.",
       "owner": "CAD Guardian"
     },
     {
-      "group": "QA",
-      "item": "Geometry, dimension, and area closure",
-      "status": "Not started",
-      "current_evidence": "Acceptance checks are defined in the private drafter register.",
-      "next_action": "Audit gaps, overlaps, duplicate entities, dimension closure, and classified areas.",
+      "group": "CAD Prep",
+      "item": "Audit exploded and inconsistent content",
+      "status": "ready for native audit",
+      "current_evidence": "Run once final AutoCAD production file is active.",
+      "next_action": "Run once final AutoCAD production file is active.",
       "owner": "CAD Guardian"
     },
     {
-      "group": "QA",
-      "item": "Sheet-to-sheet coordination",
-      "status": "Not started",
-      "current_evidence": "Three deliverables share footprints, areas, orientation, and revision state.",
-      "next_action": "Cross-check all shared controls before the check set.",
+      "group": "CAD Prep",
+      "item": "Establish BDPC template",
+      "status": "partially complete",
+      "current_evidence": "Starting template exists; final BDPC title block, plot style, and dependency behavior still require native confirmation.",
+      "next_action": "Starting template exists; final BDPC title block, plot style, and dependency behavior still require native confirmation.",
       "owner": "CAD Guardian"
     },
     {
-      "group": "Delivery",
-      "item": "Three-sheet check set",
-      "status": "Not started",
-      "current_evidence": "Target is three business days after all four kickoff gates.",
-      "next_action": "Issue the controlled review PDF only after internal native QA.",
+      "group": "CAD Prep",
+      "item": "Reconcile LiDAR and references",
+      "status": "complete as trace package",
+      "current_evidence": "Primary/support slices, individual DXFs, screenshots, and master DWG/DXF are prepared for manual tracing.",
+      "next_action": "Primary/support slices, individual DXFs, screenshots, and master DWG/DXF are prepared for manual tracing.",
       "owner": "CAD Guardian"
     },
     {
-      "group": "Delivery",
-      "item": "Consolidated review and final issue",
-      "status": "Not started",
-      "current_evidence": "One consolidated review round is included.",
-      "next_action": "Resolve the complete response and issue validated native CAD/PDF records.",
-      "owner": "BDPC / CAD Guardian"
+      "group": "CAD Prep",
+      "item": "Draft rational wall system",
+      "status": "ready for drafting",
+      "current_evidence": "Apply 3.5-inch baseline unless trace/source evidence supports another assembly.",
+      "next_action": "Apply 3.5-inch baseline unless trace/source evidence supports another assembly.",
+      "owner": "CAD Guardian"
+    },
+    {
+      "group": "CAD Prep",
+      "item": "Apply opening vocabulary",
+      "status": "ready for drafting",
+      "current_evidence": "Use established blocks/sizes where source-supported; disclose unresolved openings.",
+      "next_action": "Use established blocks/sizes where source-supported; disclose unresolved openings.",
+      "owner": "CAD Guardian"
+    },
+    {
+      "group": "CAD Prep",
+      "item": "Apply self-checking dimensions",
+      "status": "ready for drafting",
+      "current_evidence": "Use 1/2-inch display convention and reconcile chains/overall dimensions.",
+      "next_action": "Use 1/2-inch display convention and reconcile chains/overall dimensions.",
+      "owner": "CAD Guardian"
+    },
+    {
+      "group": "CAD Prep",
+      "item": "Run release preflight",
+      "status": "queued after final DWG",
+      "current_evidence": "Run native audit, dependency, viewport, page setup, and plot checks after linework exists.",
+      "next_action": "Run native audit, dependency, viewport, page setup, and plot checks after linework exists.",
+      "owner": "CAD Guardian"
     }
   ],
-  "role_views": [
+  "runtime": [
     {
-      "role": "Architect",
-      "focus": "Confirm design intent, controlling dimensions, room names, openings, title block, and standards authority.",
-      "decision": "Approve or correct project controls; return one consolidated review."
+      "component": "Licensed AutoCAD runtime",
+      "version": "Compatible native production environment",
+      "status": "partial; final license pending",
+      "availability": "partial; final license pending",
+      "purpose": "Core Console created/evaluated a starting template; final manual drafting, dependency validation, and plotting require licensed AutoCAD."
     },
     {
-      "role": "CAD drafter",
-      "focus": "Work the private checklist across orientation, geometry, blocks, areas, dependencies, QA, and delivery.",
-      "decision": "Do not fill unsupported blanks or silently resolve conflicts."
+      "component": "Point-cloud inspection workflow",
+      "version": "Compatible licensed/native workflow",
+      "status": "ready with prepared trace refs",
+      "availability": "ready with prepared trace refs",
+      "purpose": "Visual reconciliation and production coordination"
     },
     {
-      "role": "B2B commercial",
-      "focus": "Maintain the authorized three-sheet scope, four kickoff gates, schedule, payment, and change control.",
-      "decision": "Route scope additions through written authorization at $90/hour."
+      "component": "Protected source workspace",
+      "version": "Controlled working-copy model",
+      "status": "ready",
+      "availability": "ready",
+      "purpose": "Keep client originals immutable and production changes traceable"
     },
     {
-      "role": "Delivery",
-      "focus": "Control check-set, review, native/PDF package, dependency, revision, and checksum evidence.",
-      "decision": "Issue only after native open/plot and package QA pass."
+      "component": "Analytical validation toolchain",
+      "version": "Python / laspy / NumPy / image and PDF QA",
+      "status": "complete",
+      "availability": "complete",
+      "purpose": "Bounded evidence processing and integrity controls"
     },
     {
-      "role": "Client customer (experimental)",
-      "focus": "See clear readiness, required decisions, commercial terms, photographic context, and the full CAD production-preparation register.",
-      "decision": "Use labeled candidate values and statuses; raw confidential source files remain outside the OS."
+      "component": "Static client workspace",
+      "version": "GitHub Pages",
+      "status": "active",
+      "availability": "active",
+      "purpose": "Current authority, payment, standards, evidence, QA, and acceptance visibility"
+    },
+    {
+      "component": "Human CAD review",
+      "version": "CAD Guardian release control",
+      "status": "required",
+      "availability": "required",
+      "purpose": "Validate generated and manually drafted content before issue"
+    },
+    {
+      "component": "BDPC professional acceptance",
+      "version": "Client authority",
+      "status": "required",
+      "availability": "required",
+      "purpose": "Architectural interpretation and final professional acceptance remain with BDPC"
+    },
+    {
+      "component": "Pre-AutoCAD trace package",
+      "version": "bdpc_pointcloud_slices_20260722",
+      "status": "complete",
+      "availability": "complete",
+      "purpose": "Master DWG/DXF, slice screenshots, individual DXFs, and manifests are ready for licensed drafting."
+    },
+    {
+      "component": "Current folder crawl package",
+      "version": "bdpc_current_scope_crawl_20260722",
+      "status": "complete",
+      "availability": "complete",
+      "purpose": "930-file scope register and all-image contact sheets classify source, derived, reference-only, and out-of-scope material."
     }
   ],
-  "access_controls": [
-    {
-      "control": "Public OS",
-      "status": "Complete",
-      "rule": "All published routes are intentionally public under explicit owner authorization."
-    },
-    {
-      "control": "Historical contact sheets",
-      "status": "Complete",
-      "rule": "Four renamed local assets are published through the photographic-context report."
-    },
-    {
-      "control": "CAD production-preparation registers",
-      "status": "Complete",
-      "rule": "Checklist, area/room, asset/block, and orientation CSVs are public and rendered in the CAD Prep report."
-    },
-    {
-      "control": "Raw confidential source files",
-      "status": "Prohibited",
-      "rule": "CAD, point clouds, source PDF/PNG files, coordinates, hashes, and local paths remain outside Git."
-    }
-  ],
-  "sow_effort_plan": [
-    {
-      "id": "EFT-001",
-      "workstream": "Standard setup",
-      "sheet": "All sheets",
-      "task": "Confirm controlling input register and assignment brief",
-      "hours": 0.75,
-      "owner": "Project lead / BDPC",
-      "dependency": "Written controlling-input confirmation",
-      "handoff": "Signed input register",
-      "acceptance": "Controlling files, decisions, standards, and open questions are listed"
-    },
-    {
-      "id": "EFT-002",
-      "workstream": "Standard setup",
-      "sheet": "All sheets",
-      "task": "Create protected native working set and record source state",
-      "hours": 0.75,
-      "owner": "CAD drafter",
-      "dependency": "All kickoff gates",
-      "handoff": "Working-set manifest",
-      "acceptance": "Working copies are isolated and confidential originals remain unchanged"
-    },
-    {
-      "id": "EFT-003",
-      "workstream": "Standard setup",
-      "sheet": "All sheets",
-      "task": "Apply confirmed title block, sheet numbers, and project fields",
-      "hours": 1.25,
-      "owner": "CAD drafter",
-      "dependency": "Confirmed title block",
-      "handoff": "Three initialized layouts",
-      "acceptance": "Sheet identity and issue fields match the assignment brief"
-    },
-    {
-      "id": "EFT-004",
-      "workstream": "Standard setup",
-      "sheet": "All sheets",
-      "task": "Map layers, text styles, dimension styles, tags, and lineweights",
-      "hours": 1.0,
-      "owner": "CAD drafter",
-      "dependency": "Confirmed BDPC standards",
-      "handoff": "Standards map",
-      "acceptance": "Required styles exist and exceptions are recorded"
-    },
-    {
-      "id": "EFT-005",
-      "workstream": "Standard setup",
-      "sheet": "All sheets",
-      "task": "Validate units, insertion scale, project north, xrefs, and source-view rotations",
-      "hours": 0.75,
-      "owner": "CAD drafter",
-      "dependency": "Licensed runtime and confirmed inputs",
-      "handoff": "Orientation / dependency record",
-      "acceptance": "Units, scale, north, rotations, and xref state are explicit"
-    },
-    {
-      "id": "EFT-006",
-      "workstream": "Standard setup",
-      "sheet": "All sheets",
-      "task": "Establish layouts, viewports, page setup, and baseline check plot",
-      "hours": 0.5,
-      "owner": "CAD drafter",
-      "dependency": "Licensed runtime",
-      "handoff": "Baseline plot record",
-      "acceptance": "Sheet size, viewport scale, and plot path are reproducible"
-    },
-    {
-      "id": "EFT-007",
-      "workstream": "Existing floor plan",
-      "sheet": "Existing Floor Plan",
-      "task": "Reconcile exterior footprint, wall topology, and closed boundaries",
-      "hours": 3.0,
-      "owner": "CAD drafter",
-      "dependency": "Confirmed existing-condition basis",
-      "handoff": "Existing wall base",
-      "acceptance": "Boundary is closed and conflicts are logged"
-    },
-    {
-      "id": "EFT-008",
-      "workstream": "Existing floor plan",
-      "sheet": "Existing Floor Plan",
-      "task": "Draft and tag doors, windows, and openings",
-      "hours": 2.0,
-      "owner": "CAD drafter",
-      "dependency": "Reviewed evidence and approved blocks",
-      "handoff": "Opening inventory",
-      "acceptance": "Every visible opening is placed, tagged, or marked unresolved"
-    },
-    {
-      "id": "EFT-009",
-      "workstream": "Existing floor plan",
-      "sheet": "Existing Floor Plan",
-      "task": "Draft rooms, stairs, fixtures, equipment, and observed context",
-      "hours": 1.5,
-      "owner": "CAD drafter",
-      "dependency": "Confirmed room names and supported evidence",
-      "handoff": "Existing content pass",
-      "acceptance": "Unsupported labels and concealed conditions remain explicit"
-    },
-    {
-      "id": "EFT-010",
-      "workstream": "Existing floor plan",
-      "sheet": "Existing Floor Plan",
-      "task": "Add dimensions, area boundaries, labels, and notes",
-      "hours": 1.5,
-      "owner": "CAD drafter",
-      "dependency": "Closed existing geometry",
-      "handoff": "Annotated existing plan",
-      "acceptance": "Dimension strings close and area basis is stated"
-    },
-    {
-      "id": "EFT-011",
-      "workstream": "Existing floor plan",
-      "sheet": "Existing Floor Plan",
-      "task": "Run sheet self-check and resolve drafting defects",
-      "hours": 1.0,
-      "owner": "CAD drafter",
-      "dependency": "Existing-plan drafting complete",
-      "handoff": "Checked existing plan",
-      "acceptance": "No known gaps, duplicates, orphan tags, or unresolved silent conflicts"
-    },
-    {
-      "id": "EFT-012",
-      "workstream": "Proposed floor plan",
-      "sheet": "Proposed Floor Plan",
-      "task": "Develop confirmed wall, partition, circulation, and room geometry",
-      "hours": 2.5,
-      "owner": "CAD drafter",
-      "dependency": "Confirmed BDPC design direction",
-      "handoff": "Proposed geometry pass",
-      "acceptance": "Plan reflects only confirmed direction and aligns to the existing base"
-    },
-    {
-      "id": "EFT-013",
-      "workstream": "Proposed floor plan",
-      "sheet": "Proposed Floor Plan",
-      "task": "Place kitchen, cabinet, appliance, island, and furniture content",
-      "hours": 2.0,
-      "owner": "CAD drafter",
-      "dependency": "Approved asset/block basis",
-      "handoff": "Proposed equipment pass",
-      "acceptance": "Content is sourced, controlled, and coordinated to the confirmed layout"
-    },
-    {
-      "id": "EFT-014",
-      "workstream": "Proposed floor plan",
-      "sheet": "Proposed Floor Plan",
-      "task": "Coordinate openings, deck, stairs, railings, and transitions",
-      "hours": 1.5,
-      "owner": "CAD drafter",
-      "dependency": "Confirmed proposal geometry",
-      "handoff": "Envelope / transition pass",
-      "acceptance": "Connections are coordinated without structural or code certification claims"
-    },
-    {
-      "id": "EFT-015",
-      "workstream": "Proposed floor plan",
-      "sheet": "Proposed Floor Plan",
-      "task": "Add dimensions, tags, notes, and proposal area graphics",
-      "hours": 1.0,
-      "owner": "CAD drafter",
-      "dependency": "Proposed geometry stable",
-      "handoff": "Annotated proposed plan",
-      "acceptance": "Graphics clearly distinguish existing and proposed conditions"
-    },
-    {
-      "id": "EFT-016",
-      "workstream": "Proposed floor plan",
-      "sheet": "Proposed Floor Plan",
-      "task": "Run sheet self-check and resolve drafting defects",
-      "hours": 1.0,
-      "owner": "CAD drafter",
-      "dependency": "Proposed-plan drafting complete",
-      "handoff": "Checked proposed plan",
-      "acceptance": "No known coordination, tagging, or geometry defects remain"
-    },
-    {
-      "id": "EFT-017",
-      "workstream": "Site / area plan",
-      "sheet": "Site / Area Plan",
-      "task": "Establish non-survey base, orientation, footprint, and drawing basis",
-      "hours": 1.25,
-      "owner": "CAD drafter",
-      "dependency": "Confirmed site/area input basis",
-      "handoff": "Site base",
-      "acceptance": "Basis and limitations are visible and do not imply survey services"
-    },
-    {
-      "id": "EFT-018",
-      "workstream": "Site / area plan",
-      "sheet": "Site / Area Plan",
-      "task": "Draft footprint, drive, walk, work limits, and agreed context",
-      "hours": 1.5,
-      "owner": "CAD drafter",
-      "dependency": "Confirmed site direction",
-      "handoff": "Site context pass",
-      "acceptance": "Agreed elements are shown and unsupported geometry is not invented"
-    },
-    {
-      "id": "EFT-019",
-      "workstream": "Site / area plan",
-      "sheet": "Site / Area Plan",
-      "task": "Build area diagrams, closed polylines, and calculation labels",
-      "hours": 1.0,
-      "owner": "CAD drafter",
-      "dependency": "Closed plan boundaries",
-      "handoff": "Area calculation pass",
-      "acceptance": "Area classes, units, exclusions, and source basis are explicit"
-    },
-    {
-      "id": "EFT-020",
-      "workstream": "Site / area plan",
-      "sheet": "Site / Area Plan",
-      "task": "Add north reference, labels, dimensions, notes, and legend",
-      "hours": 0.75,
-      "owner": "CAD drafter",
-      "dependency": "Site graphics stable",
-      "handoff": "Annotated site/area plan",
-      "acceptance": "Orientation and non-survey limitations are readable"
-    },
-    {
-      "id": "EFT-021",
-      "workstream": "Site / area plan",
-      "sheet": "Site / Area Plan",
-      "task": "Run sheet self-check and resolve drafting defects",
-      "hours": 0.5,
-      "owner": "CAD drafter",
-      "dependency": "Site/area drafting complete",
-      "handoff": "Checked site/area plan",
-      "acceptance": "No known closure, label, or graphic hierarchy defects remain"
-    },
-    {
-      "id": "EFT-022",
-      "workstream": "Integrated QA / check set",
-      "sheet": "All sheets",
-      "task": "Cross-check shared geometry, orientation, dimensions, areas, tags, and revisions",
-      "hours": 1.5,
-      "owner": "CAD drafter / project lead",
-      "dependency": "Three sheet drafts complete",
-      "handoff": "Coordination checklist",
-      "acceptance": "Shared controls agree or discrepancies are documented"
-    },
-    {
-      "id": "EFT-023",
-      "workstream": "Integrated QA / check set",
-      "sheet": "All sheets",
-      "task": "Run native open, dependency, viewport, page setup, and plot QA",
-      "hours": 1.5,
-      "owner": "CAD drafter",
-      "dependency": "Licensed runtime",
-      "handoff": "Native / plot QA record",
-      "acceptance": "Native files open and check PDFs plot through the controlled workflow"
-    },
-    {
-      "id": "EFT-024",
-      "workstream": "Integrated QA / check set",
-      "sheet": "All sheets",
-      "task": "Assemble and inspect the coordinated check-set package",
-      "hours": 1.0,
-      "owner": "Project lead",
-      "dependency": "Internal QA passed",
-      "handoff": "Three-sheet check set",
-      "acceptance": "Package names, sheet order, revisions, and issue state are correct"
-    },
-    {
-      "id": "EFT-025",
-      "workstream": "Integrated QA / check set",
-      "sheet": "All sheets",
-      "task": "Issue check set with one-response review instructions",
-      "hours": 1.0,
-      "owner": "Project lead",
-      "dependency": "Check-set package approved internally",
-      "handoff": "Client review handoff",
-      "acceptance": "BDPC receives one controlled package and consolidated-response guidance"
-    },
-    {
-      "id": "EFT-026",
-      "workstream": "Included review / final",
-      "sheet": "All sheets",
-      "task": "Triage one consolidated BDPC review response",
-      "hours": 0.5,
-      "owner": "Project lead / CAD drafter",
-      "dependency": "One complete client response",
-      "handoff": "Revision assignment list",
-      "acceptance": "Every comment is assigned, clarified, accepted, or routed to change control"
-    },
-    {
-      "id": "EFT-027",
-      "workstream": "Included review / final",
-      "sheet": "All sheets",
-      "task": "Incorporate included review revisions",
-      "hours": 2.0,
-      "owner": "CAD drafter",
-      "dependency": "Consolidated review disposition",
-      "handoff": "Revised native set",
-      "acceptance": "Authorized comments are incorporated and tracked"
-    },
-    {
-      "id": "EFT-028",
-      "workstream": "Included review / final",
-      "sheet": "All sheets",
-      "task": "Run final native, plot, coordination, and package QA",
-      "hours": 1.5,
-      "owner": "CAD drafter / project lead",
-      "dependency": "Revisions complete",
-      "handoff": "Final QA record",
-      "acceptance": "Final native and PDF package passes the applicable acceptance checks"
-    },
-    {
-      "id": "EFT-029",
-      "workstream": "Included review / final",
-      "sheet": "All sheets",
-      "task": "Issue final package, change summary, and unresolved-condition record",
-      "hours": 1.0,
-      "owner": "Project lead",
-      "dependency": "Final QA passed and final payment due",
-      "handoff": "Final delivery record",
-      "acceptance": "Controlled deliverables and closeout record are issued together"
-    },
-    {
-      "id": "EFT-030",
-      "workstream": "Managed reserve",
-      "sheet": "All sheets",
-      "task": "Resolve in-scope evidence, geometry, or standards conflicts",
-      "hours": 2.0,
-      "owner": "CAD drafter / project lead",
-      "dependency": "Only documented in-scope conflicts",
-      "handoff": "Reserve-use record",
-      "acceptance": "Use is recorded against a named issue; unused time is not converted to extra scope"
-    },
-    {
-      "id": "EFT-031",
-      "workstream": "Managed reserve",
-      "sheet": "All sheets",
-      "task": "Recover from in-scope runtime or dependency friction",
-      "hours": 1.0,
-      "owner": "CAD drafter",
-      "dependency": "Licensed-runtime issue within confirmed inputs",
-      "handoff": "Dependency resolution record",
-      "acceptance": "Resolution is documented or escalated before the ceiling is exceeded"
-    }
-  ],
-  "reports": [
-    {
-      "id": "RPT-01",
-      "name": "Source intake",
-      "status": "Complete",
-      "url": "/bdpc/reports/intake/",
-      "summary": "Aggregate source inventory and authority boundaries."
-    },
-    {
-      "id": "RPT-02",
-      "name": "Visual inspection",
-      "status": "Complete",
-      "url": "/bdpc/reports/scan-visual/",
-      "summary": "Twenty-five full-source figures across five generalized scan sessions."
-    },
-    {
-      "id": "RPT-03",
-      "name": "Header validation",
-      "status": "Complete",
-      "url": "/bdpc/reports/las-header/",
-      "summary": "Five readable point-cloud headers and reconciled point totals."
-    },
-    {
-      "id": "RPT-04",
-      "name": "Plan-control slice evidence",
-      "status": "Complete",
-      "url": "/bdpc/reports/las-core/",
-      "summary": "Nine trial slices with contributing-point and zero-band limitations."
-    },
-    {
-      "id": "RPT-05",
-      "name": "Native-coordinate overlap",
-      "status": "Complete",
-      "url": "/bdpc/reports/registration/",
-      "summary": "Five current pair overlays with the four-weak/one-no-material result."
-    },
-    {
-      "id": "RPT-06",
-      "name": "Pre-license completion brief",
-      "status": "Ready",
-      "url": "/bdpc/reports/completion/",
-      "summary": "Current completion, kickoff gates, evidence counts, and truth boundary."
-    },
-    {
-      "id": "RPT-07",
-      "name": "Photographic context",
-      "status": "Complete",
-      "url": "/bdpc/reports/context-visual/",
-      "summary": "Four restored contact sheets covering exterior, site, facade, deck/porch, interior, entry, and companion scan context."
-    },
-    {
-      "id": "RPT-08",
-      "name": "CAD drafter preparation",
-      "status": "Complete",
-      "url": "/bdpc/reports/cad-prep/",
-      "summary": "Full drafting checklist, areas, spaces, blocks, assets, orientation, dependencies, QA, and delivery controls."
-    }
-  ],
-  "cad_drafter_checks": [
-    {
-      "check_id": "CDR-001",
-      "concern": "authority",
-      "sheet": "all",
-      "item": "Confirm controlling input set",
-      "candidate_evidence": "candidate CAD/concept/area image exist",
-      "planned_action": "Obtain BDPC written confirmation or replacements",
-      "output": "signed source-of-truth register",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "dependency": "BDPC",
-      "acceptance_evidence": "confirmation identifies exact current CAD, concept, title block, and standards"
-    },
-    {
-      "check_id": "CDR-002",
-      "concern": "source protection",
-      "sheet": "all",
-      "item": "Create protected native working set",
-      "candidate_evidence": "confidential originals are immutable",
-      "planned_action": "Copy only after kickoff into approved working location",
-      "output": "working-set manifest",
-      "status": "Blocked",
-      "confidence": "High",
-      "dependency": "all kickoff gates",
-      "acceptance_evidence": "hash/stat evidence shows originals unchanged"
-    },
-    {
-      "check_id": "CDR-003",
-      "concern": "orientation",
-      "sheet": "all",
-      "item": "Establish project north",
-      "candidate_evidence": "concept pages use different displayed orientations",
-      "planned_action": "Normalize view orientation without altering sources",
-      "output": "orientation control record",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "dependency": "controlling CAD",
-      "acceptance_evidence": "project north and every source rotation are recorded"
-    },
-    {
-      "check_id": "CDR-004",
-      "concern": "orientation",
-      "sheet": "proposed",
-      "item": "Account for rotated enlarged concept",
-      "candidate_evidence": "enlarged partial plan shows north down-page",
-      "planned_action": "Apply documented 180-degree comparison rotation",
-      "output": "overlay check",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "dependency": "CDR-003",
-      "acceptance_evidence": "features align after documented rotation without scaling NTS raster"
-    },
-    {
-      "check_id": "CDR-005",
-      "concern": "units",
-      "sheet": "all",
-      "item": "Confirm drawing units",
-      "candidate_evidence": "analytical units remain candidate metres; concept uses feet/inches",
-      "planned_action": "Inspect native INSUNITS and dimension basis",
-      "output": "unit control record",
-      "status": "Blocked",
-      "confidence": "High",
-      "dependency": "licensed runtime",
-      "acceptance_evidence": "model and paper units are confirmed and recorded"
-    },
-    {
-      "check_id": "CDR-006",
-      "concern": "title block",
-      "sheet": "all",
-      "item": "Load authoritative title block",
-      "candidate_evidence": "not yet confirmed",
-      "planned_action": "Source BDPC block and populate controlled fields",
-      "output": "title-block xref/block",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "dependency": "BDPC",
-      "acceptance_evidence": "sheet titles/numbers/revision/issue fields match authorization"
-    },
-    {
-      "check_id": "CDR-007",
-      "concern": "dependencies",
-      "sheet": "all",
-      "item": "Audit xrefs/fonts/shapes/object support",
-      "candidate_evidence": "native dependencies unvalidated",
-      "planned_action": "Run native dependency inventory",
-      "output": "dependency report",
-      "status": "Blocked",
-      "confidence": "High",
-      "dependency": "licensed runtime",
-      "acceptance_evidence": "no unresolved production-critical dependency"
-    },
-    {
-      "check_id": "CDR-008",
-      "concern": "plot",
-      "sheet": "all",
-      "item": "Validate CTB/STB layouts and page setup",
-      "candidate_evidence": "plot fidelity unvalidated",
-      "planned_action": "Plot approved check sheets and compare",
-      "output": "plot QA record",
-      "status": "Blocked",
-      "confidence": "High",
-      "dependency": "licensed runtime",
-      "acceptance_evidence": "paper size, viewport scale, lineweights, and clipping pass"
-    },
-    {
-      "check_id": "CDR-009",
-      "concern": "layers",
-      "sheet": "all",
-      "item": "Map BDPC layer standards",
-      "candidate_evidence": "standards package awaiting confirmation",
-      "planned_action": "Create layer mapping and exception list",
-      "output": "layer matrix",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "dependency": "BDPC",
-      "acceptance_evidence": "all entities use approved layers and properties"
-    },
-    {
-      "check_id": "CDR-010",
-      "concern": "existing plan",
-      "sheet": "existing",
-      "item": "Reconcile exterior footprint",
-      "candidate_evidence": "area diagram supplies candidate topology",
-      "planned_action": "Compare controlling CAD, photos, scans, and accepted dimensions",
-      "output": "closed footprint polyline",
-      "status": "Not started",
-      "confidence": "Medium",
-      "dependency": "CDR-001",
-      "acceptance_evidence": "dimension closure and area reconciliation recorded"
-    },
-    {
-      "check_id": "CDR-011",
-      "concern": "existing plan",
-      "sheet": "existing",
-      "item": "Reconcile base area",
-      "candidate_evidence": "candidate 1,116 square feet",
-      "planned_action": "Verify 30x38 less 12x2 topology against controlling CAD",
-      "output": "area record",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "dependency": "CDR-010",
-      "acceptance_evidence": "accepted area basis and boundary are recorded"
-    },
-    {
-      "check_id": "CDR-012",
-      "concern": "existing plan",
-      "sheet": "existing",
-      "item": "Reconcile wood deck",
-      "candidate_evidence": "candidate 324 square feet / 27x12",
-      "planned_action": "Confirm location and existing/proposed role",
-      "output": "deck area polyline",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "dependency": "CDR-001",
-      "acceptance_evidence": "accepted limits and classification recorded"
-    },
-    {
-      "check_id": "CDR-013",
-      "concern": "existing plan",
-      "sheet": "existing",
-      "item": "Reconcile open frame porch",
-      "candidate_evidence": "candidate 108 square feet / 18x6",
-      "planned_action": "Confirm location and existing/proposed role",
-      "output": "porch area polyline",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "dependency": "CDR-001",
-      "acceptance_evidence": "accepted limits and classification recorded"
-    },
-    {
-      "check_id": "CDR-014",
-      "concern": "existing plan",
-      "sheet": "existing",
-      "item": "Inventory rooms",
-      "candidate_evidence": "reviewed area image does not label rooms",
-      "planned_action": "Use controlling CAD and reviewed evidence; leave unknowns explicit",
-      "output": "room register",
-      "status": "Not started",
-      "confidence": "Unknown",
-      "dependency": "CDR-001",
-      "acceptance_evidence": "every enclosed space has confirmed label or open question"
-    },
-    {
-      "check_id": "CDR-015",
-      "concern": "existing plan",
-      "sheet": "existing",
-      "item": "Inventory walls and thicknesses",
-      "candidate_evidence": "scan/photo/CAD evidence pending native reconciliation",
-      "planned_action": "Trace/reconcile faces and centerlines; record basis",
-      "output": "wall geometry",
-      "status": "Not started",
-      "confidence": "Unknown",
-      "dependency": "licensed runtime",
-      "acceptance_evidence": "wall joins close and thickness bases are documented"
-    },
-    {
-      "check_id": "CDR-016",
-      "concern": "existing plan",
-      "sheet": "existing",
-      "item": "Inventory windows",
-      "candidate_evidence": "private photos may provide context but no schedule is confirmed",
-      "planned_action": "Count, tag, size when supported; leave unknowns blank",
-      "output": "window register",
-      "status": "Not started",
-      "confidence": "Unknown",
-      "dependency": "CDR-001",
-      "acceptance_evidence": "plan count equals register; unknowns remain flagged"
-    },
-    {
-      "check_id": "CDR-017",
-      "concern": "existing plan",
-      "sheet": "existing",
-      "item": "Inventory doors and openings",
-      "candidate_evidence": "concept shows exterior openings without complete schedule",
-      "planned_action": "Count, tag, swing, width when supported",
-      "output": "door/opening register",
-      "status": "Not started",
-      "confidence": "Unknown",
-      "dependency": "CDR-001",
-      "acceptance_evidence": "plan count equals register; unknowns remain flagged"
-    },
-    {
-      "check_id": "CDR-018",
-      "concern": "existing plan",
-      "sheet": "existing",
-      "item": "Inventory stairs/steps/rails",
-      "candidate_evidence": "exterior context and concept show access elements",
-      "planned_action": "Document visible plan geometry and unresolved rise/run",
-      "output": "access-element register",
-      "status": "Not started",
-      "confidence": "Unknown",
-      "dependency": "CDR-001",
-      "acceptance_evidence": "locations verified; unmeasured values remain blank"
-    },
-    {
-      "check_id": "CDR-019",
-      "concern": "existing plan",
-      "sheet": "existing",
-      "item": "Inventory fixtures/equipment",
-      "candidate_evidence": "not established by area image",
-      "planned_action": "Use controlling CAD and supported evidence only",
-      "output": "fixture/equipment register",
-      "status": "Not started",
-      "confidence": "Unknown",
-      "dependency": "CDR-001",
-      "acceptance_evidence": "symbols and counts reconcile to evidence"
-    },
-    {
-      "check_id": "CDR-020",
-      "concern": "existing plan",
-      "sheet": "existing",
-      "item": "Dimension plan",
-      "candidate_evidence": "candidate dimensions are incomplete",
-      "planned_action": "Build dimension hierarchy from confirmed controls",
-      "output": "dimensioned existing plan",
-      "status": "Not started",
-      "confidence": "Unknown",
-      "dependency": "CDR-010",
-      "acceptance_evidence": "overall/segment/opening dimensions close without invented values"
-    },
-    {
-      "check_id": "CDR-021",
-      "concern": "existing plan",
-      "sheet": "existing",
-      "item": "Tag areas",
-      "candidate_evidence": "A/B/C categories supplied as candidates",
-      "planned_action": "Create separate closed boundaries and tags",
-      "output": "area-tagged plan",
-      "status": "Not started",
-      "confidence": "Medium",
-      "dependency": "CDR-011",
-      "acceptance_evidence": "computed values reconcile or discrepancy is logged"
-    },
-    {
-      "check_id": "CDR-022",
-      "concern": "proposed plan",
-      "sheet": "proposed",
-      "item": "Resolve living expansion width",
-      "candidate_evidence": "approximately 12 feet shown",
-      "planned_action": "Confirm endpoints and exact value",
-      "output": "control dimension",
-      "status": "Awaiting input",
-      "confidence": "Medium",
-      "dependency": "BDPC",
-      "acceptance_evidence": "written/confirmed dimension controls geometry"
-    },
-    {
-      "check_id": "CDR-023",
-      "concern": "proposed plan",
-      "sheet": "proposed",
-      "item": "Resolve deck expansion width",
-      "candidate_evidence": "approximately 9 feet versus 10 feet shown",
-      "planned_action": "Return conflict to BDPC; do not choose silently",
-      "output": "resolved discrepancy",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "dependency": "BDPC",
-      "acceptance_evidence": "one controlling value and endpoints are confirmed"
-    },
-    {
-      "check_id": "CDR-024",
-      "concern": "proposed plan",
-      "sheet": "proposed",
-      "item": "Resolve proposal length",
-      "candidate_evidence": "30 feet indicated",
-      "planned_action": "Confirm endpoints and whether it controls deck and living work",
-      "output": "control dimension",
-      "status": "Awaiting input",
-      "confidence": "Medium",
-      "dependency": "BDPC",
-      "acceptance_evidence": "one controlling value and endpoints are confirmed"
-    },
-    {
-      "check_id": "CDR-025",
-      "concern": "proposed plan",
-      "sheet": "proposed",
-      "item": "Create new kitchen zone",
-      "candidate_evidence": "concept labels new kitchen",
-      "planned_action": "Draft confirmed walls/openings and room tag",
-      "output": "proposed kitchen plan",
-      "status": "Not started",
-      "confidence": "High",
-      "dependency": "CDR-001",
-      "acceptance_evidence": "geometry matches confirmed concept and dimensions"
-    },
-    {
-      "check_id": "CDR-026",
-      "concern": "proposed plan",
-      "sheet": "proposed",
-      "item": "Create cabinet runs",
-      "candidate_evidence": "perimeter cabinet/appliance zones are shown",
-      "planned_action": "Source/create controlled cabinet modules",
-      "output": "cabinet layout",
-      "status": "Not started",
-      "confidence": "Medium",
-      "dependency": "CDR-025",
-      "acceptance_evidence": "runs, clearances, and equipment spaces are dimensioned"
-    },
-    {
-      "check_id": "CDR-027",
-      "concern": "proposed plan",
-      "sheet": "proposed",
-      "item": "Create island and seating",
-      "candidate_evidence": "large island with seating shown",
-      "planned_action": "Source/create block and verify circulation",
-      "output": "island layout",
-      "status": "Not started",
-      "confidence": "Medium",
-      "dependency": "CDR-025",
-      "acceptance_evidence": "island dimensions and clearances are confirmed"
-    },
-    {
-      "check_id": "CDR-028",
-      "concern": "proposed plan",
-      "sheet": "proposed",
-      "item": "Place appliances and sink",
-      "candidate_evidence": "range/cooktop and other appliance zones shown",
-      "planned_action": "Use confirmed equipment types or labeled placeholders",
-      "output": "equipment layout",
-      "status": "Not started",
-      "confidence": "Low",
-      "dependency": "BDPC",
-      "acceptance_evidence": "locations/types are confirmed or clearly provisional"
-    },
-    {
-      "check_id": "CDR-029",
-      "concern": "proposed plan",
-      "sheet": "proposed",
-      "item": "Create new living area",
-      "candidate_evidence": "concept labels new living",
-      "planned_action": "Draft boundary, openings, room tag, and circulation",
-      "output": "proposed living plan",
-      "status": "Not started",
-      "confidence": "High",
-      "dependency": "CDR-001",
-      "acceptance_evidence": "geometry matches confirmed concept"
-    },
-    {
-      "check_id": "CDR-030",
-      "concern": "proposed plan",
-      "sheet": "proposed",
-      "item": "Test furniture/circulation",
-      "candidate_evidence": "concept shows sofa/chair/table arrangement",
-      "planned_action": "Use planning blocks to test circulation",
-      "output": "test-fit overlay",
-      "status": "Not started",
-      "confidence": "Medium",
-      "dependency": "CDR-029",
-      "acceptance_evidence": "no obvious conflict; not represented as client furniture selection"
-    },
-    {
-      "check_id": "CDR-031",
-      "concern": "proposed plan",
-      "sheet": "proposed",
-      "item": "Create new deck",
-      "candidate_evidence": "concept labels new deck",
-      "planned_action": "Draft confirmed boundary and separate area polyline",
-      "output": "deck plan",
-      "status": "Not started",
-      "confidence": "High",
-      "dependency": "CDR-023",
-      "acceptance_evidence": "limits and area reconcile to accepted controls"
-    },
-    {
-      "check_id": "CDR-032",
-      "concern": "proposed plan",
-      "sheet": "proposed",
-      "item": "Create deck stairs and railings",
-      "candidate_evidence": "stairs shown; rail system not fully defined",
-      "planned_action": "Source/create plan blocks and flag unresolved details",
-      "output": "deck access plan",
-      "status": "Not started",
-      "confidence": "Medium",
-      "dependency": "CDR-031",
-      "acceptance_evidence": "locations coordinated; code/structural design excluded"
-    },
-    {
-      "check_id": "CDR-033",
-      "concern": "proposed plan",
-      "sheet": "proposed",
-      "item": "Coordinate exterior openings",
-      "candidate_evidence": "concept shows connections between living/kitchen and deck",
-      "planned_action": "Confirm door/window/opening types and sizes",
-      "output": "opening plan",
-      "status": "Not started",
-      "confidence": "Medium",
-      "dependency": "BDPC",
-      "acceptance_evidence": "tags and dimensions reconcile to schedules/registers"
-    },
-    {
-      "check_id": "CDR-034",
-      "concern": "proposed plan",
-      "sheet": "proposed",
-      "item": "Separate existing/demolition/new work",
-      "candidate_evidence": "concept overlay does not fully define demolition",
-      "planned_action": "Apply approved graphic conventions and questions",
-      "output": "phase-coded plan",
-      "status": "Not started",
-      "confidence": "Unknown",
-      "dependency": "BDPC",
-      "acceptance_evidence": "every changed element has an explicit phase state"
-    },
-    {
-      "check_id": "CDR-035",
-      "concern": "site plan",
-      "sheet": "site",
-      "item": "Reconcile house/deck/porch footprint",
-      "candidate_evidence": "site concept and area diagram provide candidates",
-      "planned_action": "Orient and reconcile to controlling CAD",
-      "output": "site footprint",
-      "status": "Not started",
-      "confidence": "Medium",
-      "dependency": "CDR-003",
-      "acceptance_evidence": "topology matches accepted plan controls"
-    },
-    {
-      "check_id": "CDR-036",
-      "concern": "site plan",
-      "sheet": "site",
-      "item": "Document drive and walk",
-      "candidate_evidence": "concept labels drive and walk",
-      "planned_action": "Draft accepted generalized limits",
-      "output": "site context linework",
-      "status": "Not started",
-      "confidence": "Medium",
-      "dependency": "CDR-001",
-      "acceptance_evidence": "labels and limits are confirmed; no survey claim"
-    },
-    {
-      "check_id": "CDR-037",
-      "concern": "site plan",
-      "sheet": "site",
-      "item": "Document proposed work limits",
-      "candidate_evidence": "living and deck expansion zones shown",
-      "planned_action": "Create distinct proposed-work graphics",
-      "output": "work-limit plan",
-      "status": "Not started",
-      "confidence": "Medium",
-      "dependency": "CDR-022",
-      "acceptance_evidence": "limits match confirmed proposal"
-    },
-    {
-      "check_id": "CDR-038",
-      "concern": "site plan",
-      "sheet": "site",
-      "item": "Handle clearance annotations",
-      "candidate_evidence": "several 7-foot and one 30-foot callouts shown",
-      "planned_action": "Verify meaning/endpoints; label as conceptual until confirmed",
-      "output": "dimension/question record",
-      "status": "Awaiting input",
-      "confidence": "Low",
-      "dependency": "BDPC",
-      "acceptance_evidence": "no setback or zoning claim; controlling meaning recorded"
-    },
-    {
-      "check_id": "CDR-039",
-      "concern": "site plan",
-      "sheet": "site",
-      "item": "Use aerial context safely",
-      "candidate_evidence": "private aerial pages available",
-      "planned_action": "Use only in protected working set; never publish/source as survey",
-      "output": "private underlay record",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "dependency": "access control",
-      "acceptance_evidence": "underlay remains private and is excluded from issued dependency set unless authorized"
-    },
-    {
-      "check_id": "CDR-040",
-      "concern": "QA",
-      "sheet": "all",
-      "item": "Run geometry closure",
-      "candidate_evidence": "closed polylines and dimensions required",
-      "planned_action": "Audit gaps, overlaps, duplicate entities, and area closure",
-      "output": "geometry QA report",
-      "status": "Not started",
-      "confidence": "High",
-      "dependency": "licensed runtime",
-      "acceptance_evidence": "zero unexplained closure errors"
-    },
-    {
-      "check_id": "CDR-041",
-      "concern": "QA",
-      "sheet": "all",
-      "item": "Run annotation QA",
-      "candidate_evidence": "tags, notes, and dimensions pending",
-      "planned_action": "Audit readability, hierarchy, precision, and unresolved blanks",
-      "output": "annotation QA report",
-      "status": "Not started",
-      "confidence": "High",
-      "dependency": "licensed runtime",
-      "acceptance_evidence": "no orphan tags or hidden unresolved values"
-    },
-    {
-      "check_id": "CDR-042",
-      "concern": "QA",
-      "sheet": "all",
-      "item": "Run sheet-to-sheet coordination",
-      "candidate_evidence": "three sheets share footprints/areas",
-      "planned_action": "Cross-check orientation, dimensions, tags, and revision state",
-      "output": "coordination report",
-      "status": "Not started",
-      "confidence": "High",
-      "dependency": "all sheets",
-      "acceptance_evidence": "shared values agree or discrepancies are logged"
-    },
-    {
-      "check_id": "CDR-043",
-      "concern": "QA",
-      "sheet": "all",
-      "item": "Run print QA",
-      "candidate_evidence": "SOW print QA does not prove CAD plot fidelity",
-      "planned_action": "Plot native sheets and compare on paper/PDF",
-      "output": "plot comparison",
-      "status": "Blocked",
-      "confidence": "High",
-      "dependency": "licensed runtime",
-      "acceptance_evidence": "no clipping; lineweights/text/viewport scales pass"
-    },
-    {
-      "check_id": "CDR-044",
-      "concern": "delivery",
-      "sheet": "all",
-      "item": "Prepare three-sheet check set",
-      "candidate_evidence": "target is three business days after all kickoff gates",
-      "planned_action": "Issue controlled review PDF",
-      "output": "check-set package",
-      "status": "Not started",
-      "confidence": "High",
-      "dependency": "all kickoff gates",
-      "acceptance_evidence": "three sheets open, plot, and pass internal QA"
-    },
-    {
-      "check_id": "CDR-045",
-      "concern": "delivery",
-      "sheet": "all",
-      "item": "Resolve one consolidated review",
-      "candidate_evidence": "one round included",
-      "planned_action": "Log and close one complete BDPC response",
-      "output": "review disposition log",
-      "status": "Not started",
-      "confidence": "High",
-      "dependency": "client review",
-      "acceptance_evidence": "every consolidated comment is resolved or accepted as open"
-    },
-    {
-      "check_id": "CDR-046",
-      "concern": "delivery",
-      "sheet": "all",
-      "item": "Prepare final native/PDF issue",
-      "candidate_evidence": "production has not begun",
-      "planned_action": "Package approved native CAD/PDF and record hashes",
-      "output": "final issue package",
-      "status": "Not started",
-      "confidence": "High",
-      "dependency": "CDR-045",
-      "acceptance_evidence": "licensed open/plot and package manifest pass"
-    }
-  ],
-  "cad_area_rooms": [
-    {
-      "record_id": "AR-001",
-      "category": "area",
-      "item": "Base Area A",
-      "candidate_value": "1116",
-      "units": "square feet",
-      "basis": "area diagram; 30x38 less 12x2 notch",
-      "production_use": "Reference reconciliation only",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "confirmation_required": "yes",
-      "notes": "Do not label as conditioned or verified building area"
-    },
-    {
-      "record_id": "AR-002",
-      "category": "area",
-      "item": "Wood Deck B",
-      "candidate_value": "324",
-      "units": "square feet",
-      "basis": "area diagram; 27x12",
-      "production_use": "Reference reconciliation only",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "confirmation_required": "yes",
-      "notes": "Existing/proposed role must be confirmed"
-    },
-    {
-      "record_id": "AR-003",
-      "category": "area",
-      "item": "Open Frame Porch C",
-      "candidate_value": "108",
-      "units": "square feet",
-      "basis": "area diagram; 18x6",
-      "production_use": "Reference reconciliation only",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "confirmation_required": "yes",
-      "notes": "Porch limits and existing/proposed role must be confirmed"
-    },
-    {
-      "record_id": "AR-004",
-      "category": "area",
-      "item": "Represented category sum",
-      "candidate_value": "1548",
-      "units": "square feet",
-      "basis": "sum of A+B+C",
-      "production_use": "Accounting check only",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "confirmation_required": "yes",
-      "notes": "Not conditioned area or gross building area without authority confirmation"
-    },
-    {
-      "record_id": "AR-005",
-      "category": "candidate dimension",
-      "item": "Living-area expansion band",
-      "candidate_value": "12 approximately",
-      "units": "feet",
-      "basis": "conceptual site plan and enlarged partial plan",
-      "production_use": "Dimension-control candidate",
-      "status": "Awaiting input",
-      "confidence": "Medium",
-      "confirmation_required": "yes",
-      "notes": "NTS source; verify exact endpoints"
-    },
-    {
-      "record_id": "AR-006",
-      "category": "candidate dimension",
-      "item": "Deck expansion band",
-      "candidate_value": "9 approximately / 10 indicated",
-      "units": "feet",
-      "basis": "conceptual site plan versus enlarged partial plan",
-      "production_use": "Conflict requiring resolution",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "confirmation_required": "yes",
-      "notes": "Do not choose silently"
-    },
-    {
-      "record_id": "AR-007",
-      "category": "candidate dimension",
-      "item": "Proposed plan length",
-      "candidate_value": "30 indicated",
-      "units": "feet",
-      "basis": "enlarged partial plan",
-      "production_use": "Dimension-control candidate",
-      "status": "Awaiting input",
-      "confidence": "Medium",
-      "confirmation_required": "yes",
-      "notes": "NTS source; verify exact endpoints and whether dimension covers deck/living work"
-    },
-    {
-      "record_id": "AR-008",
-      "category": "candidate quantity",
-      "item": "Living expansion planning area",
-      "candidate_value": "360 candidate",
-      "units": "square feet",
-      "basis": "12x30 conceptual envelope",
-      "production_use": "Early task planning only",
-      "status": "Awaiting input",
-      "confidence": "Low",
-      "confirmation_required": "yes",
-      "notes": "Not a design or pricing quantity until dimensions are confirmed"
-    },
-    {
-      "record_id": "AR-009",
-      "category": "candidate quantity",
-      "item": "Deck expansion planning area",
-      "candidate_value": "270-300 candidate",
-      "units": "square feet",
-      "basis": "9-to-10x30 conceptual envelope",
-      "production_use": "Early task planning only",
-      "status": "Awaiting input",
-      "confidence": "Low",
-      "confirmation_required": "yes",
-      "notes": "Conflict remains open"
-    },
-    {
-      "record_id": "AR-010",
-      "category": "space",
-      "item": "New kitchen",
-      "candidate_value": "",
-      "units": "room/zone",
-      "basis": "conceptual floor-plan label",
-      "production_use": "Create proposed room/area tag and coordinate equipment",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "confirmation_required": "yes",
-      "notes": "Final name, limits, and area require controlling CAD"
-    },
-    {
-      "record_id": "AR-011",
-      "category": "space",
-      "item": "New living area",
-      "candidate_value": "",
-      "units": "room/zone",
-      "basis": "conceptual floor-plan label",
-      "production_use": "Create proposed room/area tag and furniture/circulation review",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "confirmation_required": "yes",
-      "notes": "Final name, limits, and area require controlling CAD"
-    },
-    {
-      "record_id": "AR-012",
-      "category": "space",
-      "item": "New deck",
-      "candidate_value": "",
-      "units": "exterior area",
-      "basis": "conceptual floor-plan label",
-      "production_use": "Create deck outline, notes, stairs, rails, and area tag",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "confirmation_required": "yes",
-      "notes": "Construction system and final dimensions are not established"
-    },
-    {
-      "record_id": "AR-013",
-      "category": "space",
-      "item": "Existing rooms",
-      "candidate_value": "",
-      "units": "rooms",
-      "basis": "not labeled by reviewed area diagram",
-      "production_use": "Inventory from controlling CAD and reviewed evidence",
-      "status": "Not started",
-      "confidence": "Unknown",
-      "confirmation_required": "yes",
-      "notes": "Do not infer names from furniture or scan appearance alone"
-    },
-    {
-      "record_id": "AR-014",
-      "category": "space",
-      "item": "Drive",
-      "candidate_value": "",
-      "units": "site element",
-      "basis": "conceptual site plan label",
-      "production_use": "Reconcile outline and label on site/area plan",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "confirmation_required": "yes",
-      "notes": "No civil or survey certification"
-    },
-    {
-      "record_id": "AR-015",
-      "category": "space",
-      "item": "Walk",
-      "candidate_value": "",
-      "units": "site element",
-      "basis": "conceptual site plan label",
-      "production_use": "Reconcile outline and label on site/area plan",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "confirmation_required": "yes",
-      "notes": "No civil or survey certification"
-    }
-  ],
-  "cad_assets": [
-    {
-      "asset_id": "AB-001",
-      "discipline_group": "architectural",
-      "asset_or_block": "BDPC title block",
-      "seen_or_required": "required",
-      "source_or_create": "source",
-      "required_attributes": "sheet size; project fields; revision; issue; logo; sheet numbering",
-      "planned_sheet": "all",
-      "status": "Awaiting input",
-      "acceptance_evidence": "BDPC confirms authoritative title-block file",
-      "notes": "Licensed runtime validation required"
-    },
-    {
-      "asset_id": "AB-002",
-      "discipline_group": "architectural",
-      "asset_or_block": "existing wall types",
-      "seen_or_required": "required",
-      "source_or_create": "source/create",
-      "required_attributes": "layer; lineweight; wall thickness; material convention",
-      "planned_sheet": "existing/proposed",
-      "status": "Awaiting input",
-      "acceptance_evidence": "controlling CAD and standards reconcile",
-      "notes": "Typical wall basis must not replace measured/confirmed conditions"
-    },
-    {
-      "asset_id": "AB-003",
-      "discipline_group": "architectural",
-      "asset_or_block": "new wall types",
-      "seen_or_required": "required",
-      "source_or_create": "source/create",
-      "required_attributes": "layer; lineweight; wall thickness; material convention",
-      "planned_sheet": "proposed",
-      "status": "Awaiting input",
-      "acceptance_evidence": "BDPC confirms proposed graphic standard",
-      "notes": "No construction certification"
-    },
-    {
-      "asset_id": "AB-004",
-      "discipline_group": "architectural",
-      "asset_or_block": "window blocks and tags",
-      "seen_or_required": "seen/required",
-      "source_or_create": "source/create",
-      "required_attributes": "type; nominal size; operation; tag; existing/new status",
-      "planned_sheet": "existing/proposed",
-      "status": "Not started",
-      "acceptance_evidence": "window count and schedule reconcile to plan",
-      "notes": "Leave unknown sizes blank pending verification"
-    },
-    {
-      "asset_id": "AB-005",
-      "discipline_group": "architectural",
-      "asset_or_block": "door blocks and tags",
-      "seen_or_required": "seen/required",
-      "source_or_create": "source/create",
-      "required_attributes": "type; nominal width; swing; tag; existing/new status",
-      "planned_sheet": "existing/proposed",
-      "status": "Not started",
-      "acceptance_evidence": "door count and schedule reconcile to plan",
-      "notes": "Confirm exterior door locations from controlling input"
-    },
-    {
-      "asset_id": "AB-006",
-      "discipline_group": "architectural",
-      "asset_or_block": "opening/cased-opening symbols",
-      "seen_or_required": "seen",
-      "source_or_create": "source/create",
-      "required_attributes": "width; head condition if known; existing/new status",
-      "planned_sheet": "existing/proposed",
-      "status": "Not started",
-      "acceptance_evidence": "openings reconcile to plan and concept",
-      "notes": "Do not infer structural header design"
-    },
-    {
-      "asset_id": "AB-007",
-      "discipline_group": "interiors",
-      "asset_or_block": "kitchen base cabinets",
-      "seen_or_required": "seen",
-      "source_or_create": "source/create",
-      "required_attributes": "module width; depth; existing/new; appliance clearances",
-      "planned_sheet": "proposed",
-      "status": "Not started",
-      "acceptance_evidence": "cabinet run reconciles to confirmed concept",
-      "notes": "Concept establishes intent, not shop-drawing detail"
-    },
-    {
-      "asset_id": "AB-008",
-      "discipline_group": "interiors",
-      "asset_or_block": "kitchen wall/tall cabinets",
-      "seen_or_required": "seen",
-      "source_or_create": "source/create",
-      "required_attributes": "module width; depth; height if known",
-      "planned_sheet": "proposed",
-      "status": "Not started",
-      "acceptance_evidence": "cabinet run reconciles to confirmed concept",
-      "notes": "Leave heights blank pending direction"
-    },
-    {
-      "asset_id": "AB-009",
-      "discipline_group": "equipment",
-      "asset_or_block": "range/cooktop block",
-      "seen_or_required": "seen",
-      "source_or_create": "source/create",
-      "required_attributes": "type; nominal width; clearances",
-      "planned_sheet": "proposed",
-      "status": "Not started",
-      "acceptance_evidence": "equipment location and size confirmed",
-      "notes": "No MEP design implied"
-    },
-    {
-      "asset_id": "AB-010",
-      "discipline_group": "equipment",
-      "asset_or_block": "refrigerator/tall-appliance block",
-      "seen_or_required": "seen/possible",
-      "source_or_create": "source/create",
-      "required_attributes": "type; nominal width/depth; door clearance",
-      "planned_sheet": "proposed",
-      "status": "Not started",
-      "acceptance_evidence": "equipment type and location confirmed",
-      "notes": "Do not infer appliance selection"
-    },
-    {
-      "asset_id": "AB-011",
-      "discipline_group": "interiors",
-      "asset_or_block": "kitchen island with seating",
-      "seen_or_required": "seen",
-      "source_or_create": "source/create",
-      "required_attributes": "length; width; overhang; seat count; clearances",
-      "planned_sheet": "proposed",
-      "status": "Not started",
-      "acceptance_evidence": "island and circulation dimensions confirmed",
-      "notes": "Concept image indicates intent only"
-    },
-    {
-      "asset_id": "AB-012",
-      "discipline_group": "plumbing",
-      "asset_or_block": "kitchen sink symbol",
-      "seen_or_required": "seen/possible",
-      "source_or_create": "source/create",
-      "required_attributes": "type; size; orientation",
-      "planned_sheet": "proposed",
-      "status": "Not started",
-      "acceptance_evidence": "fixture type and location confirmed",
-      "notes": "No plumbing design implied"
-    },
-    {
-      "asset_id": "AB-013",
-      "discipline_group": "interiors",
-      "asset_or_block": "living furniture test-fit",
-      "seen_or_required": "seen",
-      "source_or_create": "create",
-      "required_attributes": "sofa/chair/table extents; circulation envelope",
-      "planned_sheet": "proposed",
-      "status": "Not started",
-      "acceptance_evidence": "furniture test-fit shows workable circulation",
-      "notes": "Furniture is planning context, not deliverable unless directed"
-    },
-    {
-      "asset_id": "AB-014",
-      "discipline_group": "exterior",
-      "asset_or_block": "deck hatch/board pattern",
-      "seen_or_required": "seen",
-      "source_or_create": "source/create",
-      "required_attributes": "direction; boundary; existing/new graphic",
-      "planned_sheet": "proposed/site",
-      "status": "Not started",
-      "acceptance_evidence": "pattern and limits match confirmed concept",
-      "notes": "Do not imply structural framing"
-    },
-    {
-      "asset_id": "AB-015",
-      "discipline_group": "exterior",
-      "asset_or_block": "deck stair block/detail",
-      "seen_or_required": "seen",
-      "source_or_create": "source/create",
-      "required_attributes": "run; width; direction; landing; annotation",
-      "planned_sheet": "proposed/site",
-      "status": "Not started",
-      "acceptance_evidence": "location and geometry confirmed",
-      "notes": "Code and structural compliance excluded"
-    },
-    {
-      "asset_id": "AB-016",
-      "discipline_group": "exterior",
-      "asset_or_block": "deck railing symbol",
-      "seen_or_required": "required",
-      "source_or_create": "source/create",
-      "required_attributes": "limits; posts; opening/gate if directed",
-      "planned_sheet": "proposed/site",
-      "status": "Not started",
-      "acceptance_evidence": "railing limits coordinated",
-      "notes": "No code certification"
-    },
-    {
-      "asset_id": "AB-017",
-      "discipline_group": "site",
-      "asset_or_block": "drive and walk linework",
-      "seen_or_required": "seen",
-      "source_or_create": "source/create",
-      "required_attributes": "existing/proposed line type; labels",
-      "planned_sheet": "site",
-      "status": "Not started",
-      "acceptance_evidence": "reconciled with controlling input",
-      "notes": "No survey/civil certification"
-    },
-    {
-      "asset_id": "AB-018",
-      "discipline_group": "site",
-      "asset_or_block": "north arrow",
-      "seen_or_required": "required",
-      "source_or_create": "source",
-      "required_attributes": "project north; sheet north; rotation note",
-      "planned_sheet": "all",
-      "status": "Awaiting input",
-      "acceptance_evidence": "orientation register clears",
-      "notes": "Page 3 is rotated relative to Pages 1 and 2"
-    },
-    {
-      "asset_id": "AB-019",
-      "discipline_group": "annotation",
-      "asset_or_block": "room name and area tags",
-      "seen_or_required": "required",
-      "source_or_create": "source/create",
-      "required_attributes": "room name; area; existing/new state",
-      "planned_sheet": "existing/proposed",
-      "status": "Not started",
-      "acceptance_evidence": "room and area registers reconcile",
-      "notes": "Blank values remain explicit until verified"
-    },
-    {
-      "asset_id": "AB-020",
-      "discipline_group": "annotation",
-      "asset_or_block": "dimension styles",
-      "seen_or_required": "required",
-      "source_or_create": "source",
-      "required_attributes": "precision; units; text; arrows; baseline/chain rules",
-      "planned_sheet": "all",
-      "status": "Awaiting input",
-      "acceptance_evidence": "BDPC standards confirmed and native plot checked",
-      "notes": "Public OS preserves current dimension rules"
-    },
-    {
-      "asset_id": "AB-021",
-      "discipline_group": "annotation",
-      "asset_or_block": "keynotes/general notes",
-      "seen_or_required": "required",
-      "source_or_create": "source/create",
-      "required_attributes": "existing/new/demolition; limitations; sheet notes",
-      "planned_sheet": "all",
-      "status": "Awaiting input",
-      "acceptance_evidence": "BDPC note authority confirmed",
-      "notes": "Avoid permit/code representations"
-    },
-    {
-      "asset_id": "AB-022",
-      "discipline_group": "annotation",
-      "asset_or_block": "area boundary polylines",
-      "seen_or_required": "required",
-      "source_or_create": "create",
-      "required_attributes": "closed; non-self-intersecting; classified by area type",
-      "planned_sheet": "all",
-      "status": "Not started",
-      "acceptance_evidence": "computed areas reconcile to accepted controls",
-      "notes": "Keep deck/porch/base categories separate"
-    },
-    {
-      "asset_id": "AB-023",
-      "discipline_group": "site",
-      "asset_or_block": "aerial/raster underlay",
-      "seen_or_required": "seen",
-      "source_or_create": "private reference only",
-      "required_attributes": "clip; rotation; transparency; no publication",
-      "planned_sheet": "site",
-      "status": "Awaiting input",
-      "acceptance_evidence": "used only in protected working set",
-      "notes": "Not survey control and contains private location imagery"
-    },
-    {
-      "asset_id": "AB-024",
-      "discipline_group": "coordination",
-      "asset_or_block": "xref attachment standard",
-      "seen_or_required": "required",
-      "source_or_create": "source/create",
-      "required_attributes": "relative path; overlay/attach; insertion; scale; rotation",
-      "planned_sheet": "all",
-      "status": "Blocked",
-      "acceptance_evidence": "xref audit passes in licensed runtime",
-      "notes": "No private absolute paths"
-    },
-    {
-      "asset_id": "AB-025",
-      "discipline_group": "plot",
-      "asset_or_block": "CTB/STB and page setup",
-      "seen_or_required": "required",
-      "source_or_create": "source",
-      "required_attributes": "plot style; paper; scale; viewport; PDF device",
-      "planned_sheet": "all",
-      "status": "Blocked",
-      "acceptance_evidence": "native plots match approved print reference",
-      "notes": "Licensed Autodesk runtime required"
-    }
-  ],
-  "cad_orientation_controls": [
-    {
-      "orientation_id": "OR-001",
-      "source_role": "conceptual site intent",
-      "view": "site plan page",
-      "displayed_north": "up-page",
-      "rotation_control": "project reference orientation",
-      "scale_state": "NTS",
-      "planned_action": "Establish project north in the native working file and verify against controlling CAD",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "limitation": "Conceptual image is not survey control"
-    },
-    {
-      "orientation_id": "OR-002",
-      "source_role": "conceptual floor intent",
-      "view": "partial plan page",
-      "displayed_north": "up-page",
-      "rotation_control": "same displayed north as site plan",
-      "scale_state": "NTS",
-      "planned_action": "Use only after BDPC confirms controlling intent",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "limitation": "Do not scale raster content"
-    },
-    {
-      "orientation_id": "OR-003",
-      "source_role": "conceptual floor intent",
-      "view": "enlarged partial plan page",
-      "displayed_north": "down-page",
-      "rotation_control": "rotated 180 degrees relative to prior two pages",
-      "scale_state": "NTS",
-      "planned_action": "Record a 180-degree view normalization before tracing or comparison",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "limitation": "Rotation is a presentation condition; source must remain unchanged"
-    },
-    {
-      "orientation_id": "OR-004",
-      "source_role": "area reference",
-      "view": "area diagram",
-      "displayed_north": "no north shown",
-      "rotation_control": "orientation unknown",
-      "scale_state": "dimensioned diagram",
-      "planned_action": "Match footprint topology to controlling CAD before assigning orientation",
-      "status": "Awaiting input",
-      "confidence": "High",
-      "limitation": "Area values do not establish project north"
-    },
-    {
-      "orientation_id": "OR-005",
-      "source_role": "aerial context",
-      "view": "aerial/site pages",
-      "displayed_north": "verify against north arrow and controlling CAD",
-      "rotation_control": "no scale authority",
-      "scale_state": "Use privately for visual context only; do not derive survey coordinates",
-      "planned_action": "Awaiting input",
-      "status": "Medium",
-      "confidence": "Private location imagery; prohibited from public release",
-      "limitation": null
-    },
-    {
-      "orientation_id": "OR-006",
-      "source_role": "scan evidence",
-      "view": "five analytical sessions",
-      "displayed_north": "native frames not registered",
-      "rotation_control": "no transform applied",
-      "scale_state": "analytical only",
-      "planned_action": "Maintain native-coordinate evidence and reconcile to confirmed drawing controls without claiming registration",
-      "status": "Blocked",
-      "confidence": "High",
-      "limitation": "Four weak native overlaps and one no-material-overlap"
-    }
-  ]
+  "updated_date": "2026-07-22",
+  "revision": "2026.07.22-publicscope.1"
 }

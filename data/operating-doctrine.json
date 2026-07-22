@@ -1,48 +1,54 @@
 {
-  "operating_model": "Enterprise-controlled one-day production trial",
+  "operating_model": "Cutting-edge, not bleeding-edge: automate evidence and repeatable checks; never automate away source authority, judgment, or acceptance.",
   "executive_objectives": [
     "Reduce the time and management burden of residential renovation drafting while preserving BDPC quality",
     "Produce clean, rational, self-checking floor plans that BDPC can continue without rework",
-    "Use cutting-edge, proven automation\u2014not bleeding-edge shortcuts that weaken reliability",
+    "Use cutting-edge, proven automation—not bleeding-edge shortcuts that weaken reliability",
     "Convert project evidence into repeatable standards, controls, and future one-day assignment leverage",
     "Keep scope, payment, evidence, production, QA, and acceptance states independently auditable"
   ],
   "source_hierarchy": [
     {
       "priority": 1,
-      "source": "Accepted written BDPC direction",
-      "role": "Controls scope, decisions, and explicit project instructions",
-      "rule": "Later mutually accepted written direction supersedes earlier assumptions"
+      "source": "Brian/BDPC written direction and SOW V4",
+      "role": "Controls active scope, fee, deliverables, and explicit decisions",
+      "rule": "One existing main-level as-built sheet only unless Brian changes the direction in writing"
     },
     {
       "priority": 2,
-      "source": "Confirmed project-specific dimensions, markups, PNG/JPG references, and current project CAD",
-      "role": "Primary project geometry and dimensional authority",
-      "rule": "Use only after confirming the file belongs to the active Dunn package"
+      "source": "Trace master DWG/DXF from CloudCompare slices",
+      "role": "Primary drafting reference for wall/opening/major-feature tracing",
+      "rule": "Use as trace reference; final issued linework still requires human CAD cleanup and scale check"
     },
     {
       "priority": 3,
-      "source": "Verified LiDAR / point-cloud evidence",
+      "source": "Primary and support point-cloud sessions",
       "role": "Measured existing-condition evidence",
-      "rule": "Preserve native coordinates; reconcile scale and orientation against reliable dimensions before reliance"
+      "rule": "Use 20260710222125 as primary; use 20260710222318 and 20260710222414 for unclear interior zones; preserve uncertainty"
     },
     {
       "priority": 4,
-      "source": "City of Atlanta floor plate",
-      "role": "Scale, footprint, and orientation corroboration",
-      "rule": "Supporting anchor only; it does not silently override confirmed project-specific evidence"
+      "source": "Area PNG / City floor-plate reference",
+      "role": "Gross area, footprint, and scale reconciliation only",
+      "rule": "Never generate final geometry from the area PNG alone"
     },
     {
       "priority": 5,
-      "source": "TCADD, legacy, and current BDPC reference drawings",
-      "role": "Blocks, drafting logic, model-space vocabulary, title block, dimension style, and presentation standards",
-      "rule": "Standards context only unless BDPC explicitly confirms project geometry"
+      "source": "TCADD.dwg",
+      "role": "Model-space blocks, drafting vocabulary, and floor-plan logic reference",
+      "rule": "Standards/model-space reference only; do not import unrelated project geometry"
     },
     {
       "priority": 6,
+      "source": "1419 Allene/Jurgena gold-standard package",
+      "role": "BDPC sheet, title, text, dimension, lineweight, and plotting style reference",
+      "rule": "Presentation standard only; not Dunn geometry"
+    },
+    {
+      "priority": 7,
       "source": "Inference",
       "role": "Last-resort analytical aid",
-      "rule": "Never issued as fact; material uncertainty is logged and returned to BDPC"
+      "rule": "Never issued as fact; material uncertainty is disclosed or returned to BDPC"
     }
   ],
   "standards_register": [
@@ -79,7 +85,7 @@
       "standard": "Typical framed-wall basis",
       "status": "confirmed",
       "applicability": "Active",
-      "rule": "Start typical 2\u00d74 framed walls and partitions at 3.5 inches.",
+      "rule": "Start typical 2×4 framed walls and partitions at 3.5 inches.",
       "basis": "Meeting direction + July 20 confirmation"
     },
     {
@@ -133,8 +139,8 @@
       "standard": "Paper-space presentation source",
       "status": "confirmed",
       "applicability": "Active",
-      "rule": "Use the current BDPC drawing for title block, paper-space organization, sheet flow, plotting, text, dimensions, and presentation.",
-      "basis": "Meeting direction + July 20 written confirmation"
+      "rule": "Use the current BDPC drawing standard, specifically the 1419 Allene/Jurgena gold-standard package, for title block, paper-space organization, sheet flow, plotting, text, dimensions, and presentation where compatible.",
+      "basis": "Brian direction: current BDPC gold-standard reference package"
     },
     {
       "id": "STD-11",
@@ -160,7 +166,7 @@
       "standard": "Measured-evidence rule",
       "status": "confirmed",
       "applicability": "Active",
-      "rule": "Treat LiDAR as measured evidence, not automatic truth; preserve native coordinates and reconcile against independent dimensions and references.",
+      "rule": "Treat LiDAR and trace DWG/DXF references as measured evidence, not automatic truth; reconcile against gross dimensions and disclose unresolved conditions.",
       "basis": "Meeting direction + analytical controls"
     },
     {
@@ -390,6 +396,6 @@
     }
   ],
   "truth_boundary": "The current authority is one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF. Pre-AutoCAD discovery, source organization, image contact sheets, point-cloud slices, trace DWG/DXF references, and kickoff-derived drafting rules are prepared. BDPC retains architectural authority, interpretation, code and permit responsibility, and final professional acceptance.",
-  "revision": "2026.07.22-preautocad.1",
-  "updated_at": "2026-07-22T14:20:00-04:00"
+  "revision": "2026.07.22-publicscope.1",
+  "updated_at": "2026-07-22T15:25:00-04:00"
 }

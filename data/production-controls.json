@@ -104,88 +104,100 @@
       "id": "M-09",
       "phase": "Activation",
       "milestone": "Native runtime and dependency validation",
-      "status": "awaiting AutoCAD license",
+      "status": "partial; final license pending",
       "acceptance": "Target DWG opens; xrefs, fonts, plot style, layouts, and title block reproduce"
     },
     {
       "id": "M-10",
       "phase": "Production",
       "milestone": "Existing main-level geometry",
-      "status": "not started",
+      "status": "queued after AutoCAD license",
       "acceptance": "Envelope, walls, partitions, openings, stairs, and fixed content drafted from controlling evidence"
     },
     {
       "id": "M-11",
       "phase": "Production",
       "milestone": "Rooms, dimensions, labels, and notes",
-      "status": "not started",
+      "status": "queued after linework",
       "acceptance": "Source-supported annotations follow confirmed BDPC standards and 1/2-inch convention"
     },
     {
       "id": "M-12",
       "phase": "QA",
       "milestone": "Geometry and standards QA",
-      "status": "not started",
+      "status": "queued after drafting",
       "acceptance": "No unexplained gaps, duplicates, unreviewed candidates, or standards violations"
     },
     {
       "id": "M-13",
       "phase": "QA",
       "milestone": "Native and plot QA",
-      "status": "not started",
+      "status": "queued after final DWG",
       "acceptance": "DWG opens cleanly and PDF matches final visible drawing without clipping"
     },
     {
       "id": "M-14",
       "phase": "Delivery",
       "milestone": "Controlled DWG + PDF issue",
-      "status": "not started",
+      "status": "queued after QA",
       "acceptance": "One native DWG and one PDF delivered with unresolved-condition disclosure if required"
     },
     {
       "id": "M-15",
       "phase": "Closeout",
       "milestone": "Minor correction and acceptance",
-      "status": "not started",
+      "status": "post-delivery",
       "acceptance": "One consolidated in-scope drafting correction resolved and final package accepted"
     }
   ],
   "file_controls": [
     {
-      "group": "Current project CAD",
-      "role": "Project geometry candidate",
-      "state": "confirm/freeze",
-      "control": "Use only files belonging to the active Dunn package; preserve originals and record the production copy"
+      "group": "Dunn_Main_Level_PointCloud_Trace_Master.dwg",
+      "role": "Primary trace reference",
+      "state": "ready",
+      "control": "Reference for wall/opening/major-feature tracing; not final issued linework by itself"
     },
     {
-      "group": "Dimensioned PNG/JPG and conceptual references",
-      "role": "Project-specific dimensional and visual evidence",
+      "group": "Dunn_Main_Level_PointCloud_Trace_Master.dxf",
+      "role": "Portable trace fallback",
+      "state": "ready",
+      "control": "Use if DWG reference path/version causes friction"
+    },
+    {
+      "group": "20260710222125/recalculate_result.las",
+      "role": "Primary point-cloud basis",
+      "state": "processed",
+      "control": "Primary horizontal slices and trace master are derived from this source"
+    },
+    {
+      "group": "20260710222318 and 20260710222414",
+      "role": "Support scans",
       "state": "available",
-      "control": "Reconcile against LiDAR and flag discrepancies"
+      "control": "Use to resolve unclear interior zones; disclose remaining uncertainty"
     },
     {
-      "group": "LiDAR / point cloud",
-      "role": "Measured existing-condition evidence",
-      "state": "validated analytically",
-      "control": "Preserve native coordinates; no unrecorded transform or registration claim"
+      "group": "2026_07_17_Grant_St_Floor_plan.png",
+      "role": "Gross area/scale reconciliation only",
+      "state": "supporting only",
+      "control": "Do not generate final geometry from this PNG"
     },
     {
-      "group": "City floor plate",
-      "role": "Scale/orientation corroboration",
-      "state": "supporting",
-      "control": "Anchor and cross-check only; do not elevate above confirmed project dimensions"
-    },
-    {
-      "group": "TCADD legacy drawing",
-      "role": "Model-space blocks and drafting logic",
+      "group": "TCADD.dwg",
+      "role": "Model-space standards and blocks reference",
       "state": "standards reference",
-      "control": "Validate block integrity and do not import unrelated project geometry"
+      "control": "Use compatible drafting logic/blocks; do not import unrelated project geometry"
     },
     {
-      "group": "Current BDPC reference drawing",
-      "role": "Title block, paper-space, dimensions, fonts, plotting, and presentation",
+      "group": "1419 Allene/Jurgena package",
+      "role": "Gold-standard presentation reference",
       "state": "standards reference",
-      "control": "Use current presentation logic after native dependency validation"
+      "control": "Match sheet/title/font/dimension/plot patterns where possible"
+    },
+    {
+      "group": "00_READ_FIRST_DRAFTER_SCOPE reports",
+      "role": "Drafter guidance and uncertainty log",
+      "state": "ready",
+      "control": "Use for known gaps, file roles, and stop conditions"
     }
   ],
   "cad_prep_register": [
@@ -215,77 +227,77 @@
       "control": "Confirm units and coordinate basis",
       "owner": "CAD Guardian",
       "status": "partially complete",
-      "acceptance": "Point-cloud units are persisted as metric trace references; final architectural scale must be locked against floor-plate/known dimension."
+      "acceptance": "Trace references are metric/source-preserved; final architectural scale must be locked in AutoCAD against floor plate or known dimension."
     },
     {
       "id": "PREP-05",
       "control": "Validate native runtime",
       "owner": "CAD Guardian",
-      "status": "not started",
-      "acceptance": "Target DWG opens without production-critical errors"
+      "status": "partial; final license pending",
+      "acceptance": "AutoCAD Core Console created/evaluated starting template; final native drafting/plotting license remains pending."
     },
     {
       "id": "PREP-06",
       "control": "Resolve dependencies",
       "owner": "CAD Guardian",
-      "status": "not started",
-      "acceptance": "Fonts, SHX, xrefs, images, object support, CTB/STB, and page setups are available or disclosed"
+      "status": "pending native production",
+      "acceptance": "Fonts, SHX, xrefs, images, object support, CTB/STB, and page setups must be checked in final AutoCAD environment."
     },
     {
       "id": "PREP-07",
       "control": "Extract approved blocks",
       "owner": "CAD Guardian",
-      "status": "not started",
-      "acceptance": "Door, window, fixture, appliance, and annotation blocks are inventoried as approved, reject, or needs review"
+      "status": "ready for native extraction",
+      "acceptance": "TCADD and 1419 references are identified; approved blocks still require native review."
     },
     {
       "id": "PREP-08",
       "control": "Audit exploded and inconsistent content",
       "owner": "CAD Guardian",
-      "status": "not started",
-      "acceptance": "Exploded blocks, duplicate definitions, scale anomalies, and layer contamination are identified"
+      "status": "ready for native audit",
+      "acceptance": "Run once final AutoCAD production file is active."
     },
     {
       "id": "PREP-09",
       "control": "Establish BDPC template",
       "owner": "CAD Guardian",
-      "status": "not started",
-      "acceptance": "Title block, paper space, dimensions, text, lineweights, viewport, and plot behavior reproduce"
+      "status": "partially complete",
+      "acceptance": "Starting template exists; final BDPC title block, plot style, and dependency behavior still require native confirmation."
     },
     {
       "id": "PREP-10",
       "control": "Reconcile LiDAR and references",
       "owner": "CAD Guardian",
-      "status": "not started",
-      "acceptance": "Scale/orientation are anchored and material discrepancies are logged"
+      "status": "complete as trace package",
+      "acceptance": "Primary/support slices, individual DXFs, screenshots, and master DWG/DXF are prepared for manual tracing."
     },
     {
       "id": "PREP-11",
       "control": "Draft rational wall system",
       "owner": "CAD Guardian",
-      "status": "not started",
-      "acceptance": "Typical framed walls begin at 3.5 inches and graduate only from evidence"
+      "status": "ready for drafting",
+      "acceptance": "Apply 3.5-inch baseline unless trace/source evidence supports another assembly."
     },
     {
       "id": "PREP-12",
       "control": "Apply opening vocabulary",
       "owner": "CAD Guardian",
-      "status": "not started",
-      "acceptance": "Established blocks and known sizes are reused where supported"
+      "status": "ready for drafting",
+      "acceptance": "Use established blocks/sizes where source-supported; disclose unresolved openings."
     },
     {
       "id": "PREP-13",
       "control": "Apply self-checking dimensions",
       "owner": "CAD Guardian",
-      "status": "not started",
-      "acceptance": "Chained and overall dimensions reconcile and display no finer than 1/2 inch"
+      "status": "ready for drafting",
+      "acceptance": "Use 1/2-inch display convention and reconcile chains/overall dimensions."
     },
     {
       "id": "PREP-14",
       "control": "Run release preflight",
       "owner": "CAD Guardian",
-      "status": "not started",
-      "acceptance": "Audit, purge judgment, layer/property, dependency, viewport, page setup, and plot checks pass"
+      "status": "queued after final DWG",
+      "acceptance": "Run native audit, dependency, viewport, page setup, and plot checks after linework exists."
     }
   ],
   "automation_register": [
@@ -393,35 +405,35 @@
       "id": "QA-01",
       "domain": "Scope",
       "check": "Exactly one existing main-level floor-plan sheet",
-      "status": "pending production",
+      "status": "ready; scope locked",
       "acceptance": "No proposed, site, design, or other-floor content is issued"
     },
     {
       "id": "QA-02",
       "domain": "Authority",
       "check": "Controlling package recorded",
-      "status": "pending payment",
+      "status": "ready; package recorded",
       "acceptance": "Production baseline is frozen and traceable"
     },
     {
       "id": "QA-03",
       "domain": "Units",
       "check": "Drawing and point-cloud units confirmed",
-      "status": "not started",
+      "status": "partially complete",
       "acceptance": "Scale checks reconcile with reliable project dimensions"
     },
     {
       "id": "QA-04",
       "domain": "Coordinates",
       "check": "Point-cloud coordinate handling documented",
-      "status": "not started",
+      "status": "complete",
       "acceptance": "No unrecorded transform or registration claim"
     },
     {
       "id": "QA-05",
       "domain": "Walls",
       "check": "Typical framed-wall baseline",
-      "status": "not started",
+      "status": "ready for drafting",
       "acceptance": "3.5-inch basis used unless evidence supports another assembly"
     },
     {
@@ -449,7 +461,7 @@
       "id": "QA-09",
       "domain": "Dimensions",
       "check": "1/2-inch display precision",
-      "status": "not started",
+      "status": "ready for drafting",
       "acceptance": "No finer residential dimension is displayed without direction"
     },
     {
@@ -470,63 +482,63 @@
       "id": "QA-12",
       "domain": "Standards",
       "check": "Layers, text, dimensions, and lineweights",
-      "status": "not started",
+      "status": "standards identified",
       "acceptance": "Matches supplied BDPC standards with no unexplained overrides"
     },
     {
       "id": "QA-13",
       "domain": "Blocks",
       "check": "Block integrity",
-      "status": "not started",
+      "status": "queued native audit",
       "acceptance": "Scale, layer, attributes, and insertion behavior are valid"
     },
     {
       "id": "QA-14",
       "domain": "Dependencies",
       "check": "Xrefs, fonts, SHX, images, and object support",
-      "status": "not started",
+      "status": "queued native audit",
       "acceptance": "No production-critical unresolved reference or substitution"
     },
     {
       "id": "QA-15",
       "domain": "Native file",
       "check": "Target AutoCAD openability",
-      "status": "not started",
+      "status": "partial; final DWG pending",
       "acceptance": "DWG opens in confirmed target environment without critical errors"
     },
     {
       "id": "QA-16",
       "domain": "Native file",
       "check": "Audit and database health",
-      "status": "not started",
+      "status": "queued after final DWG",
       "acceptance": "No unresolved audit error affecting delivery"
     },
     {
       "id": "QA-17",
       "domain": "Paper space",
       "check": "Title block, layout, viewport, and page setup",
-      "status": "not started",
+      "status": "partially complete",
       "acceptance": "Sheet presentation reproduces the confirmed BDPC standard"
     },
     {
       "id": "QA-18",
       "domain": "Plot",
       "check": "CTB/STB and PDF fidelity",
-      "status": "not started",
+      "status": "queued after final PDF",
       "acceptance": "PDF is legible, correctly framed, unclipped, and visually consistent with the final DWG"
     },
     {
       "id": "QA-19",
       "domain": "Disclosure",
       "check": "Unresolved conditions",
-      "status": "not started",
+      "status": "active",
       "acceptance": "Material uncertainty is disclosed rather than concealed"
     },
     {
       "id": "QA-20",
       "domain": "Package",
       "check": "Controlled issue package",
-      "status": "not started",
+      "status": "queued after delivery files",
       "acceptance": "One native DWG and one PDF are delivered with required dependency or exception notes"
     }
   ],
@@ -535,7 +547,7 @@
     "The DWG opens in the confirmed target version with no known production-critical dependency failure",
     "The plan reflects the controlling point cloud and supporting information without proposed design or unsupported conditions",
     "Walls and closed boundaries have no unexplained gaps, duplicates, or unreviewed candidate geometry",
-    "Typical 2\u00d74 framed walls use the confirmed 3.5-inch basis unless evidence supports a different assembly",
+    "Typical 2×4 framed walls use the confirmed 3.5-inch basis unless evidence supports a different assembly",
     "Doors, windows, openings, stairs, fixtures, and fixed equipment are placed where supported or disclosed as unresolved",
     "Dimensions follow the confirmed 1/2-inch residential convention and chained/overall dimensions reconcile",
     "Dimensions, labels, room names, and notes are source-supported or clearly qualified",
@@ -604,13 +616,13 @@
     {
       "component": "Licensed AutoCAD runtime",
       "version": "Compatible native production environment",
-      "status": "awaiting activation",
-      "purpose": "DWG openability, drafting, dependencies, audit, layouts, and plotting"
+      "status": "partial; final license pending",
+      "purpose": "Core Console created/evaluated a starting template; final manual drafting, dependency validation, and plotting require licensed AutoCAD."
     },
     {
       "component": "Point-cloud inspection workflow",
       "version": "Compatible licensed/native workflow",
-      "status": "ready after activation",
+      "status": "ready with prepared trace refs",
       "purpose": "Visual reconciliation and production coordination"
     },
     {
@@ -657,19 +669,20 @@
     }
   ],
   "zero_friction_activation": {
-    "client_action": "Provide AutoCAD license/runtime access or confirm when the local AutoCAD license is available; payment is due after delivery.",
+    "client_action": "Review the public file-role list and object if any source role is wrong; confirm when licensed AutoCAD production access is available. Payment remains due after delivery.",
     "default_authority": "Unless Brian sends replacements, CAD Guardian will use the existing shared project package and the drafting doctrine already confirmed in the meeting and July 20 email.",
     "provider_actions_after_payment": [
       "Use the organized Thomas CAD source package and current trace-reference package",
-      "Freeze a dated production copy when AutoCAD drafting starts",
-      "Open the master trace DWG/DXF and apply TCADD floor-plan logic and 1419 paper-space standards",
-      "Lock scale against the floor plate or one known dimension",
-      "Draft clean wall/opening geometry manually from the trace reference",
-      "Disclose unresolved room names, swings, fixtures, or source conflicts instead of inventing them"
+      "Open the starting template and attach/reference the trace master DWG/DXF",
+      "Use 20260710222318 and 20260710222414 support material for unclear interior zones",
+      "Use the area PNG only to reconcile gross dimensions and area",
+      "Draft clean wall/opening geometry manually in AutoCAD",
+      "Apply TCADD model-space logic and 1419 sheet/presentation standards",
+      "Run native DWG and plot QA; disclose unresolved conditions instead of inventing them"
     ],
-    "acceptance_message": "Authorization and payment timing are settled. The remaining production gate is AutoCAD license/runtime availability plus final scale/source confirmation."
+    "acceptance_message": "Source roles, standards, and trace references are ready. The remaining production gate is AutoCAD license/runtime availability plus final scale/source confirmation."
   },
-  "deadline_control": "Payment no longer blocks production. AutoCAD license/runtime availability, scale lock, and unresolved source evidence are the remaining schedule controls.",
-  "revision": "2026.07.22-preautocad.1",
-  "updated_at": "2026-07-22T14:20:00-04:00"
+  "deadline_control": "Production is ready to resume when licensed AutoCAD access is available; delivery timing must reflect the license gate and final native QA.",
+  "revision": "2026.07.22-publicscope.1",
+  "updated_at": "2026-07-22T15:25:00-04:00"
 }

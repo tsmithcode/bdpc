@@ -1,7 +1,7 @@
 {
   "schema_version": "1.2",
-  "revision": "2026.07.22-sowv4.1",
-  "updated_at": "2026-07-22T14:45:00-04:00",
+  "revision": "2026.07.22-publicscope.1",
+  "updated_at": "2026-07-22T15:25:00-04:00",
   "project": "Dunn Residence",
   "client": "BDPC Architects",
   "provider": "CAD Guardian LLC",
@@ -72,19 +72,19 @@
       "name": "Controlling point cloud and support package",
       "status": "organized and classified",
       "owner": "CAD Guardian",
-      "evidence": "Thomas CAD is organized by scope; 930 media/CAD/point-cloud files were classified; primary/support LAS and trace references are identified."
+      "evidence": "Thomas CAD is organized by scope; primary/support LAS, trace master DWG/DXF, read-first reports, and current Codex package run 20260722-151236 are prepared."
     },
     {
       "name": "AutoCAD version, title block, CTB/STB, fonts, xrefs, and BDPC standards",
       "status": "standards clarified; native dependencies pending",
       "owner": "BDPC + CAD Guardian",
-      "evidence": "BDPC-confirmed drafting notes preserve 1/2-inch precision, 3.5-inch wall baseline, TCADD floor-plan logic, 1419 paper-space/title-block standard, and floor-plate scale anchor."
+      "evidence": "BDPC-confirmed drafting rules preserve 1/2-inch precision, 3.5-inch wall baseline, TCADD model-space logic, and 1419 Allene/Jurgena paper-space/style standard."
     },
     {
       "name": "Licensed compatible AutoCAD runtime",
-      "status": "awaiting license",
+      "status": "partial; final license pending",
       "owner": "CAD Guardian",
-      "evidence": "AutoCAD/Core Console trace-reference save succeeded, but final production and plotting still require licensed AutoCAD workflow."
+      "evidence": "AutoCAD Core Console created/evaluated a starting template and trace-reference DWG/DXF; final manual production/plotting still requires licensed AutoCAD workflow."
     },
     {
       "name": "Locked production day",
@@ -98,37 +98,37 @@
       "sequence": 1,
       "workstream": "Authorization and protected setup",
       "hours": 0.75,
-      "status": "complete through pre-AutoCAD setup"
+      "status": "complete"
     },
     {
       "sequence": 2,
       "workstream": "Point-cloud and source reconciliation",
       "hours": 1.25,
-      "status": "complete: primary/support scans, crawl, slices, trace DWG/DXF, and scope register prepared"
+      "status": "complete: source crawl, image review, point-cloud slices, trace DWG/DXF, and read-first package prepared"
     },
     {
       "sequence": 3,
       "workstream": "Existing main-level geometry production",
       "hours": 2.75,
-      "status": "blocked until AutoCAD license: trace manually from prepared master DWG/DXF"
+      "status": "queued after licensed AutoCAD access: trace manually from prepared master DWG/DXF"
     },
     {
       "sequence": 4,
       "workstream": "Openings, rooms, content, dimensions, and notes",
       "hours": 1.5,
-      "status": "blocked until drafting; room names, door swings, windows, fixtures need confirmation or disclosure"
+      "status": "queued after linework: confirm or disclose unsupported room names, swings, fixtures, and notes"
     },
     {
       "sequence": 5,
       "workstream": "Native QA, plot QA, and delivery package",
       "hours": 1.25,
-      "status": "blocked until final DWG/PDF exists"
+      "status": "queued after final DWG: native open, dependency, layout, and plot QA"
     },
     {
       "sequence": 6,
       "workstream": "Managed reserve and minor correction allowance",
       "hours": 0.5,
-      "status": "reserved only for documented in-scope issue"
+      "status": "reserved for documented in-scope issue only"
     }
   ],
   "standards_required": [
@@ -188,13 +188,16 @@
     "trace_master_dwg": 1,
     "trace_master_dxf": 1,
     "current_crawl_report": "bdpc_current_scope_crawl_20260722",
-    "trace_reference_package": "bdpc_pointcloud_slices_20260722"
+    "trace_reference_package": "bdpc_pointcloud_slices_20260722",
+    "active_public_scope": "Client-safe public tabs expose only mission-critical file roles, standards, CAD-prep status, runtime gate, delivery/QA status, and acceptance boundaries.",
+    "trace_ready_run": "codex-floorplan-absolute-ceiling-package-20260722-1202/runs/20260722-151236",
+    "starting_template_dwg": 1
   },
   "supersedes": {
-    "scope": "Three-sheet $3,200 proposal",
+    "scope": "Prior broader proposal",
     "status": "superseded by authorized one-sheet trial",
     "archive_url": "/bdpc/sow/archive/2026-07-21-three-sheet/",
     "archive_data_url": "/bdpc/data/archive/2026-07-21-three-sheet/project-summary.json"
   },
-  "truth_boundary": "The current authority is one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF, authorized by email with no executed signature block currently on file. SOW V4 is the concise one-page working reference. Pre-AutoCAD discovery, source organization, image contact sheets, point-cloud slices, trace DWG/DXF references, and BDPC-confirmed drafting rules are prepared. BDPC retains architectural authority, interpretation, code and permit responsibility, and final professional acceptance."
+  "truth_boundary": "Current authority is one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF, authorized by email with no executed signature block. SOW V4 is the concise one-page working reference. Pre-AutoCAD source organization, image/contact-sheet review, point-cloud slices, trace DWG/DXF references, and BDPC-confirmed drafting rules are prepared. Final production remains gated by licensed AutoCAD drafting, final scale/source confirmation, and BDPC professional acceptance."
 }

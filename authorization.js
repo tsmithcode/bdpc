@@ -75,12 +75,17 @@
     return `<${tag}>${items.map(item => `<li>${esc(item)}</li>`).join('')}</${tag}>`;
   }
 
+  function byId(items, ids) {
+    const source = Array.isArray(items) ? items : [];
+    return ids.map(id => source.find(item => item.id === id)).filter(Boolean);
+  }
+
   function currentHero(auth) {
-    return `<div class="scope-hero"><div class="scope-hero__top"><div><span class="scope-eyebrow">Authorized enterprise-controlled trial</span><h2>${esc(auth.scope.deliverable)}</h2><p>Written authorization and the BDPC drafting doctrine are complete. The active authority remains one existing-condition sheet in native AutoCAD DWG and PDF. Payment is due after delivery; the remaining production gate is licensed AutoCAD availability plus final scale/source confirmation.</p></div><div class="scope-price">$${esc(auth.commercial.fixed_fee_usd)}</div></div><div class="scope-grid"><article><span>Authorization</span><strong>Email authorization</strong></article><article><span>Signature</span><strong>Not executed</strong></article><article><span>Payment</span><strong>${esc(auth.commercial.payment_status)}</strong></article><article><span>Delivery direction</span><strong>4 PM EDT · Jul 22</strong></article></div><div class="scope-actions"><a class="primary" href="${SOW_URL}">Current SOW V4</a><a href="${GOVERNING_PDF_URL}">Print / Save PDF</a><a href="${ARCHIVE_URL}">Revision archive</a></div></div>`;
+    return `<div class="scope-hero"><div class="scope-hero__top"><div><span class="scope-eyebrow">Authorized one-sheet trial</span><h2>${esc(auth.scope.deliverable)}</h2><p>Written authorization and the BDPC drafting rules are recorded. The trace package, source roles, and starting template are ready. Final production still needs licensed AutoCAD drafting plus final scale/source confirmation.</p></div><div class="scope-price">$${esc(auth.commercial.fixed_fee_usd)}</div></div><div class="scope-grid"><article><span>Authorization</span><strong>Email authorization</strong></article><article><span>Signature</span><strong>Not executed</strong></article><article><span>Payment</span><strong>${esc(auth.commercial.payment_status)}</strong></article><article><span>Current gate</span><strong>AutoCAD production</strong></article></div><div class="scope-actions"><a class="primary" href="${SOW_URL}">Current SOW V4</a><a href="${GOVERNING_PDF_URL}">Print / Save PDF</a><a href="${ARCHIVE_URL}">Revision archive</a></div></div>`;
   }
 
   function actionCenter(auth) {
-    return `<div class="action-center"><div class="action-center__grid"><div><span class="scope-eyebrow">Zero-friction acceptance</span><h3>${esc(auth.zero_friction_activation.acceptance_message)}</h3><p>${esc(auth.zero_friction_activation.default_authority)} CAD Guardian handles the remaining production setup and contacts Brian only when a material conflict prevents responsible completion.</p></div><div class="action-center__actions"><a class="primary" href="${SOW_URL}">Open SOW V4</a><a href="${GOVERNING_PDF_URL}">Print / Save PDF</a></div></div></div>`;
+    return `<div class="action-center"><div class="action-center__grid"><div><span class="scope-eyebrow">Current action</span><h3>${esc(auth.zero_friction_activation.acceptance_message)}</h3><p>${esc(auth.zero_friction_activation.client_action)}</p></div><div class="action-center__actions"><a class="primary" href="${SOW_URL}">Open SOW V4</a><a href="${GOVERNING_PDF_URL}">Print / Save PDF</a></div></div></div>`;
   }
 
   function gates(auth) {
@@ -96,26 +101,23 @@
 
   function renderOverview(auth) {
     const e = auth.evidence_snapshot;
-    const openRisks = auth.risk_register.filter(item => !/controlled|closed/i.test(item.state)).length;
     return `${currentHero(auth)}
       ${actionCenter(auth)}
-      <div class="enterprise-principle"><span>Operating doctrine</span><strong>Cutting-edge, not bleeding-edge. Automate evidence and repeatable checks; never automate away source authority, judgment, or acceptance.</strong><p>${esc(auth.truth_boundary)}</p></div>
+      <div class="enterprise-principle"><span>Working rule</span><strong>Use the prepared evidence. Do not invent missing conditions.</strong><p>${esc(auth.truth_boundary)}</p></div>
       <div class="enterprise-metrics">
         <article><span>Protected source inventory</span><strong>${Number(e.source_files).toLocaleString()} files · ${esc(e.source_size_gib)} GiB</strong></article>
         <article><span>Validated scan sessions</span><strong>${esc(e.validated_sessions)} / ${esc(e.scan_sessions)}</strong></article>
-        <article><span>Analyzed source points</span><strong>${(Number(e.source_points) / 1e6).toFixed(2)}M</strong></article>
-        <article><span>Preserved standards</span><strong>${auth.standards_register.length} controlled rules</strong></article>
-        <article><span>QA acceptance gates</span><strong>${auth.qa_register.length} explicit checks</strong></article>
-        <article><span>Enterprise controls</span><strong>${auth.enterprise_controls.length} active controls</strong></article>
-        <article><span>Open risks</span><strong>${openRisks}</strong></article>
-        <article><span>Evidence status</span><strong>Paused for current scope</strong></article>
+        <article><span>Trace master</span><strong>DWG + DXF ready</strong></article>
+        <article><span>Starting template</span><strong>Created and evaluated</strong></article>
       </div>
-      ${sectionHead('Executive control', 'Activation gates', 'Authorization, standards, payment, source freeze, runtime, and scheduling are separate auditable states.')}
+      ${sectionHead('Current status', 'Activation gates', 'Short version of what is complete and what still controls production.')}
       ${gates(auth)}
-      ${sectionHead('Business objective', 'What this operating system is designed to accomplish')}
-      <div class="check-grid"><article class="check-card"><h3>Executive objectives</h3>${list(auth.executive_objectives)}</article><article class="check-card"><h3>When AutoCAD is available</h3>${list(auth.zero_friction_activation.provider_actions_after_payment, true)}</article></div>
-      ${sectionHead('Enterprise governance', 'Control framework', 'Scope reductions must not erase standards, evidence, QA, or decision history.')}
-      ${table(['Control ID', 'Enterprise control', 'State', 'Evidence'], auth.enterprise_controls.map(item => [item.id, item.control, { status: item.state }, item.evidence]))}`;
+      <div class="check-grid" style="margin-top:18px"><article class="check-card"><h3>When AutoCAD is available</h3>${list(auth.zero_friction_activation.provider_actions_after_payment, true)}</article><article class="check-card"><h3>Do not proceed if</h3>${list([
+        'Brian objects to a listed file role',
+        'Scale or source coverage cannot be responsibly locked',
+        'A material architectural decision is required',
+        'Native dependencies prevent a reproducible DWG/PDF'
+      ])}</article></div>`;
   }
 
   function renderMilestones(auth) {
@@ -136,62 +138,57 @@
 
   function renderFiles(auth) {
     const e = auth.evidence_snapshot;
-    return `${sectionHead('Source authority', 'Files, evidence, and production-baseline controls', 'Only the frozen controlling package may drive production. Confidential raw files remain private and originals remain immutable.', `<a class="button button--secondary" href="/bdpc/reports/intake/">Open intake report</a>`)}
+    return `${sectionHead('Public file scope', 'What I am using and what each file is allowed to control', 'This is intentionally short so Brian can correct a file role before production. Confidential raw files remain private and originals remain unchanged.')}
       <div class="evidence-grid">
         <article><span>Files inventoried</span><strong>${Number(e.source_files).toLocaleString()}</strong></article>
-        <article><span>Protected source size</span><strong>${esc(e.source_size_gib)} GiB</strong></article>
-        <article><span>Source points processed</span><strong>${Number(e.source_points).toLocaleString()}</strong></article>
-        <article><span>Derived controls</span><strong>${e.full_source_figures + e.plan_control_slices + e.native_overlays}</strong></article>
+        <article><span>Images reviewed</span><strong>${Number(e.reviewed_images).toLocaleString()}</strong></article>
+        <article><span>Trace DXFs</span><strong>${esc(e.individual_slice_dxfs)}</strong></article>
+        <article><span>Trace master</span><strong>DWG + DXF</strong></article>
       </div>
-      <div class="enterprise-principle"><span>Authority hierarchy</span><strong>Direction first. Project-specific evidence second. Measured evidence third. Standards references never silently become project geometry.</strong><p>Every material discrepancy is documented and escalated; inference is never issued as fact.</p></div>
-      <h3 class="subhead">Approved source hierarchy</h3>
-      ${table(['Priority', 'Source', 'Role', 'Operating rule'], auth.source_hierarchy.map(item => [item.priority, item.source, item.role, item.rule]))}
-      <h3 class="subhead">File-role register</h3>
-      ${table(['File group', 'Assigned role', 'State', 'Control'], auth.file_controls.map(item => [item.group, item.role, { status: item.state }, item.control]))}
-      <div class="truth-note"><strong>Registration boundary:</strong> ${esc(e.registration_boundary)}</div>
-      <div class="actions"><a class="button button--secondary" href="${REPORTS_URL}">Open evidence library</a><a class="button button--secondary" href="/bdpc/data/archive/index.json">Open revision catalog</a></div>`;
+      <div class="enterprise-principle"><span>Source rule</span><strong>Standards files do not become Dunn geometry.</strong><p>Trace references guide drafting. TCADD and 1419 guide standards and presentation. The area PNG only reconciles gross size/area.</p></div>
+      ${table(['File or group', 'Use', 'State', 'Limit'], auth.file_controls.map(item => [item.group, item.role, { status: item.state }, item.control]))}
+      <div class="truth-note"><strong>Registration boundary:</strong> ${esc(e.registration_boundary)}</div>`;
   }
 
   function renderStandards(auth) {
-    return `${sectionHead('Preserved production doctrine', 'BDPC residential CAD standards and decision controls', 'These detailed rules survive scope changes. The current one-sheet trial uses every active rule that applies; future-only graphics remain clearly labeled rather than deleted.')}
-      <div class="enterprise-principle"><span>Primary drafting principle</span><strong>Clean, rational, self-checking geometry that BDPC can continue without rework.</strong><p>Use Brian's preferred model-space logic and current BDPC presentation standard. Do not substitute cosmetic dimension rounding for correct geometry.</p></div>
-      ${table(['ID', 'Category', 'Standard', 'State', 'Applicability', 'Documented rule', 'Basis'], auth.standards_register.map(item => [item.id, item.category, item.standard, { status: item.status }, item.applicability, item.rule, item.basis]))}
+    const activeStandards = byId(auth.standards_register, ['STD-01', 'STD-04', 'STD-07', 'STD-09', 'STD-10', 'STD-13', 'STD-15', 'STD-16']);
+    return `${sectionHead('Drafting standards', 'Rules I will apply unless Brian corrects them', 'Condensed to mission-critical drafting decisions for the current existing-condition sheet.')}
+      <div class="enterprise-principle"><span>Primary drafting principle</span><strong>Clean, rational, self-checking geometry that BDPC can continue without rework.</strong><p>Do not substitute cosmetic dimension rounding for correct geometry. Do not invent concealed conditions.</p></div>
       <div class="check-grid" style="margin-top:18px">
-        <article class="check-card"><h3>Dimensional and wall doctrine</h3>${list([
+        <article class="check-card"><h3>Geometry and dimensions</h3>${list([
           'Residential dimensions display no finer than 1/2 inch unless Brian directs otherwise',
-          'Internal geometry remains accurate; rounding may not hide avoidable errors',
-          'Typical 2×4 framed walls begin at 3.5 inches',
-          'Other wall thicknesses require evidence or direction',
-          'Chained and overall dimensions reconcile for rapid self-checking'
+          'Typical framed walls start at 3.5 inches unless evidence supports another assembly',
+          'Chained and overall dimensions must reconcile',
+          'Unsupported rooms, openings, or concealed conditions are disclosed, not invented'
         ])}</article>
-        <article class="check-card"><h3>Block and presentation doctrine</h3>${list([
-          'Reuse established doors, windows, fixtures, appliances, and symbols before inventing new content',
-          'Audit exploded blocks, scale, layers, attributes, and insertion behavior',
-          'Use TCADD for compatible model-space vocabulary and drafting logic',
-          'Use the current BDPC drawing for title block, paper space, fonts, dimensions, plotting, and sheet flow',
-          'Treat LiDAR as measured evidence and disclose unresolved conflicts'
+        <article class="check-card"><h3>Reference standards</h3>${list([
+          'Use TCADD for compatible model-space blocks and drafting logic',
+          'Use 1419 Allene/Jurgena for title, sheet, text, dimensions, lineweights, and plotting style',
+          'Reuse established BDPC door/window/fixture vocabulary before creating new content',
+          'Treat LiDAR and trace vectors as evidence, not automatic truth'
         ])}</article>
       </div>
+      <h3 class="subhead">Current standards register</h3>
+      ${table(['ID', 'Standard', 'State', 'Rule'], activeStandards.map(item => [item.id, item.standard, { status: item.status }, item.rule]))}
       <div class="truth-note"><strong>Professional boundary:</strong> BDPC retains architectural interpretation, code and permit responsibility, and final professional acceptance. CAD Guardian provides controlled CAD production, automation, and QA.</div>`;
   }
 
   function renderAutomation(auth) {
-    return `${sectionHead('Human-reviewed acceleration', 'Enterprise automation register', 'Automation is governed by explicit status, production use, and human-control fields so experiments cannot quietly become release dependencies.')}
-      <div class="enterprise-principle"><span>Cutting-edge control</span><strong>Use automation to reduce repetitive work and increase evidence—not to take shortcuts through uncertainty.</strong><p>Source selection, architectural judgment, concealed conditions, final CAD review, and BDPC acceptance remain human-controlled.</p></div>
-      ${table(['ID', 'Capability', 'State', 'Production use', 'Human control'], auth.automation_register.map(item => [item.id, item.capability, { status: item.status }, item.production_use, item.human_control]))}
+    const currentAutomation = byId(auth.automation_register, ['AUT-01', 'AUT-03', 'AUT-04', 'AUT-08', 'AUT-09', 'AUT-11', 'AUT-14']);
+    return `${sectionHead('Automation', 'What automation has done and what it is not allowed to decide', 'Only client-relevant controls are shown here. Full internal logs stay out of the public surface.')}
+      <div class="enterprise-principle"><span>Human review required</span><strong>Automation prepared references; it does not issue architectural truth.</strong><p>Final CAD linework, unsupported conditions, native QA, and BDPC acceptance remain human-controlled.</p></div>
+      ${table(['ID', 'Capability', 'State', 'Use / limit'], currentAutomation.map(item => [item.id, item.capability, { status: item.status }, `${item.production_use}. ${item.human_control}`]))}
       <div class="check-grid" style="margin-top:18px">
-        <article class="check-card"><h3>High-leverage authorized acceleration</h3>${list([
-          'Read-only source inventory and integrity validation',
-          'Point-cloud statistics, figures, slices, and overlap controls',
-          'Block extraction and exploded-content audits',
-          'Candidate geometry and dimension reconciliation checks',
-          'Layer, dependency, viewport, page-setup, and plot validation',
-          'Controlled publish and dependency manifests'
+        <article class="check-card"><h3>Already prepared</h3>${list([
+          'Source inventory and image review',
+          'Point-cloud statistics, slices, screenshots, and trace references',
+          'Master trace DWG/DXF and starting template',
+          'Current Codex package and validation checks'
         ])}</article>
-        <article class="check-card"><h3>Never automated away</h3>${list([
+        <article class="check-card"><h3>Never automated</h3>${list([
           'Selection of the controlling source',
           'Architectural judgment or design authority',
-          'Acceptance of unsupported dimensions or concealed conditions',
+          'Unsupported dimensions or concealed conditions',
           'Final human CAD review and release',
           'BDPC professional acceptance'
         ])}</article>
@@ -199,32 +196,30 @@
   }
 
   function renderCadPrep(auth) {
-    return `${sectionHead('One-sheet production control', 'CAD preparation and execution runbook', 'The production runbook is detailed enough to execute without ambiguity but remains constrained to the one-sheet scope and eight-hour ceiling.', `<a class="button button--secondary" href="/bdpc/reports/cad-prep/">Open detailed CAD Prep report</a>`)}
+    const prep = byId(auth.cad_prep_register, ['PREP-02', 'PREP-04', 'PREP-05', 'PREP-06', 'PREP-09', 'PREP-10', 'PREP-11', 'PREP-13', 'PREP-14']);
+    return `${sectionHead('CAD Prep', 'Execution path from trace package to final DWG/PDF', 'Current prep is trace-ready. The only remaining production gate is licensed AutoCAD drafting, dependency validation, and plot QA.')}
       ${actionCenter(auth)}
-      <h3 class="subhead">Time-boxed work plan</h3>
-      ${table(['Sequence', 'Workstream', 'Hours', 'State'], auth.work_plan.map(item => [item.sequence, item.workstream, Number(item.hours).toFixed(2), { status: item.status }]))}
-      <h3 class="subhead">Production-readiness register</h3>
-      ${table(['ID', 'Control', 'Owner', 'State', 'Acceptance condition'], auth.cad_prep_register.map(item => [item.id, item.control, item.owner, { status: item.status }, item.acceptance]))}
       <div class="check-grid" style="margin-top:18px">
-        <article class="check-card"><h3>Proceed by default when AutoCAD is available</h3>${list(auth.zero_friction_activation.provider_actions_after_payment, true)}</article>
-        <article class="check-card"><h3>Stop-work triggers</h3>${list([
+        <article class="check-card"><h3>Execution path</h3>${list(auth.zero_friction_activation.provider_actions_after_payment, true)}</article>
+        <article class="check-card"><h3>Stop and ask Brian if</h3>${list([
+          'A listed file role is wrong',
           'The controlling source cannot be identified or frozen',
           'Units, scale, or main-level coverage cannot be responsibly established',
           'Critical fonts, xrefs, object support, plot styles, or title-block dependencies prevent reproducible output',
-          'A material conflict requires an architectural decision',
-          'Continuing would require unsupported fabrication or exceed the eight-hour ceiling'
+          'A material conflict requires an architectural decision'
         ])}</article>
-      </div>`;
+      </div>
+      <h3 class="subhead">Production-readiness status</h3>
+      ${table(['ID', 'Control', 'State', 'What remains'], prep.map(item => [item.id, item.control, { status: item.status }, item.acceptance]))}`;
   }
 
   function renderDelivery(auth) {
-    return `${sectionHead('Authorized delivery', 'One-sheet production, QA, and acceptance', 'Existing conditions only. No proposed plan, site plan, demolition plan, or design work is included.', `<a class="button button--secondary" href="${SOW_URL}">Open current SOW</a>`)}
+    const criticalQa = byId(auth.qa_register, ['QA-01', 'QA-02', 'QA-03', 'QA-05', 'QA-06', 'QA-07', 'QA-12', 'QA-14', 'QA-15', 'QA-18', 'QA-19', 'QA-20']);
+    return `${sectionHead('Delivery + QA', 'What can be delivered after AutoCAD production', 'Existing conditions only. No proposed plan, site plan, demolition plan, or design work is included.', `<a class="button button--secondary" href="${SOW_URL}">Open current SOW</a>`)}
       <div class="enterprise-principle"><span>Issue rule</span><strong>No drawing advances by optimism.</strong><p>Every release condition is explicit: authority, source lock, geometry, standards, dependencies, native openability, plot fidelity, disclosure, and package completeness.</p></div>
-      ${table(['Deliverable', 'Format', 'State', 'Target'], auth.scope.formats.map(format => [auth.scope.deliverable, format, { status: 'not started' }, auth.schedule.delivery_due_display]))}
-      <h3 class="subhead">Contract acceptance criteria</h3>
-      <div class="check-grid">${auth.acceptance_criteria.map((criterion, index) => `<article class="check-card"><h3>AC-${String(index + 1).padStart(2, '0')}</h3><p>${esc(criterion)}</p></article>`).join('')}</div>
-      <h3 class="subhead">Detailed QA register</h3>
-      ${table(['ID', 'Domain', 'Check', 'State', 'Acceptance condition'], auth.qa_register.map(item => [item.id, item.domain, item.check, { status: item.status }, item.acceptance]))}
+      ${table(['Deliverable', 'Format', 'State', 'Target'], auth.scope.formats.map(format => [auth.scope.deliverable, format, { status: format === 'PDF' ? 'awaiting final plot/export' : 'awaiting final AutoCAD production' }, auth.schedule.delivery_due_display]))}
+      <h3 class="subhead">Mission-critical QA</h3>
+      ${table(['ID', 'Check', 'State', 'Acceptance condition'], criticalQa.map(item => [item.id, item.check, { status: item.status }, item.acceptance]))}
       <div class="scope-note"><strong>Correction allowance:</strong> ${esc(auth.commercial.minor_correction)}.</div>`;
   }
 
@@ -245,24 +240,23 @@
         <article class="check-card"><h3>Explicitly excluded</h3>${list(auth.scope.excluded)}</article>
       </div>
       <h3 class="subhead">Separate written authorization required</h3>${list(auth.change_control)}
-      <div class="scope-note"><strong>Superseded:</strong> the earlier three-sheet $3,200 proposal remains in the revision archive for transparency and cannot drive current production.</div>`;
+      <div class="scope-note"><strong>Superseded:</strong> the earlier broader proposal remains in the revision archive for transparency and cannot drive current production.</div>`;
   }
 
   function renderUpdates(auth) {
-    return `${sectionHead('Controlling record', 'Decisions, updates, risks, and responses', 'The current release preserves why each rule exists and how open risks are controlled.')}
-      <h3 class="subhead">Decision log</h3>
-      ${table(['Date', 'Decision', 'Authority', 'Effect'], auth.decision_log.map(item => [item.date, item.decision, item.authority, item.effect]))}
-      <h3 class="subhead">Risk register</h3>
-      ${table(['ID', 'Risk', 'Severity', 'State', 'Response'], auth.risk_register.map(item => [item.id, item.risk, { status: item.severity }, { status: item.state }, item.response]))}
-      <div class="actions"><a class="button button--secondary" href="${ARCHIVE_URL}">Open SOW revision archive</a><a class="button button--secondary" href="/bdpc/data/archive/index.json">Open data revision catalog</a><a class="button button--secondary" href="${AUTH_URL}">Open current authorization JSON</a></div>`;
+    const keyRisks = byId(auth.risk_register, ['R-02', 'R-04', 'R-05', 'R-07', 'R-08']);
+    return `${sectionHead('Updates', 'Current decisions and risks', 'Only the active one-sheet production issues are shown here.')}
+      <h3 class="subhead">Current decisions</h3>
+      ${table(['Date', 'Decision', 'Effect'], auth.decision_log.slice(-6).map(item => [item.date, item.decision, item.effect]))}
+      <h3 class="subhead">Risks Brian should know about</h3>
+      ${table(['ID', 'Risk', 'State', 'Response'], keyRisks.map(item => [item.id, item.risk, { status: item.state }, item.response]))}
+      <div class="actions"><a class="button button--secondary" href="${ARCHIVE_URL}">Revision archive</a><a class="button button--secondary" href="${AUTH_URL}">Current JSON</a></div>`;
   }
 
   function renderRuntime(auth) {
-    return `${sectionHead('Production activation', 'Runtime, governance, and kickoff controls', 'The analytical and client-facing control plane is ready. Native production remains blocked until compatible AutoCAD runtime activation and final scale/source confirmation.', `<a class="button button--secondary" href="${SOW_URL}">SOW V4</a>`)}
+    return `${sectionHead('Runtime', 'What is ready and what still blocks production', 'Trace references and starting template are ready. Final DWG/PDF production still needs licensed AutoCAD drafting and plot QA.', `<a class="button button--secondary" href="${SOW_URL}">SOW V4</a>`)}
       ${table(['Component', 'Version / class', 'State', 'Purpose'], auth.runtime_register.map(item => [item.component, item.version, { status: item.status }, item.purpose]))}
       <h3 class="subhead">Activation gates</h3>${gates(auth)}
-      <h3 class="subhead">Enterprise control plane</h3>
-      ${table(['ID', 'Control', 'State', 'Evidence'], auth.enterprise_controls.map(item => [item.id, item.control, { status: item.state }, item.evidence]))}
       <div class="check-grid" style="margin-top:18px">
         <article class="check-card"><h3>Client action</h3><p>${esc(auth.zero_friction_activation.client_action)}</p><div class="scope-actions"><a class="primary" href="${SOW_URL}">Open SOW V4</a></div></article>
         <article class="check-card"><h3>Clock-start rule</h3><p>${esc(auth.schedule.clock_start_rule)}</p></article>
@@ -320,7 +314,7 @@
     const wrapper = document.createElement('section');
     wrapper.className = 'authorized-banner';
     wrapper.setAttribute('aria-labelledby', 'authorized-banner-title');
-    wrapper.innerHTML = `<div class="authorized-banner__grid"><div><div class="authorized-banner__eyebrow">Current email authorization · SOW V4 one-page release</div><h2 id="authorized-banner-title">${esc(auth.scope.deliverable)}</h2><p>Authorized by ${esc(auth.authorization.authorized_by)} on July 21, 2026 · signature block not executed · Native AutoCAD DWG + PDF · $600 fixed fee · ${esc(auth.schedule.delivery_due_display)}. Payment is due after delivery. BDPC standards, crawl registers, and trace references are prepared; native AutoCAD activation remains.</p></div><div class="authorized-banner__actions"><a href="${SOW_URL}">Current SOW V4</a><a href="${GOVERNING_PDF_URL}">Print / Save PDF</a><a href="${ARCHIVE_URL}">Archive</a><a href="${REPORTS_URL}">Reports</a></div></div>`;
+    wrapper.innerHTML = `<div class="authorized-banner__grid"><div><div class="authorized-banner__eyebrow">Current email authorization · SOW V4 one-page release</div><h2 id="authorized-banner-title">${esc(auth.scope.deliverable)}</h2><p>Authorized by ${esc(auth.authorization.authorized_by)} on July 21, 2026 · signature block not executed · Native AutoCAD DWG + PDF · $600 fixed fee. Payment is due after delivery. File roles, BDPC standards, trace references, and starting template are prepared; licensed AutoCAD production remains.</p></div><div class="authorized-banner__actions"><a href="${SOW_URL}">Current SOW V4</a><a href="${GOVERNING_PDF_URL}">Print / Save PDF</a><a href="${ARCHIVE_URL}">Archive</a></div></div>`;
     document.querySelector('.project-bar')?.insertAdjacentElement('afterend', wrapper);
   }
 
@@ -343,7 +337,7 @@
       top.textContent = 'SOW V4';
     }
     const revision = document.getElementById('revision-label');
-    if (revision) revision.textContent = 'Client Service OS · enterprise control release';
+    if (revision) revision.textContent = 'Client Service OS · current one-sheet release';
     const footer = document.getElementById('footer-revision');
     if (footer) footer.textContent = auth.revision;
   }
