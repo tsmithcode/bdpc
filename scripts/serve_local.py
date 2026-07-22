@@ -36,7 +36,7 @@ def main() -> int:
     parser.add_argument("--port", type=int, default=8766)
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
-    if not (root / ".git").is_file():
+    if not (root / ".git").exists():
         raise SystemExit(f"Expected Git worktree root: {root}")
     handler = partial(BasePathHandler, directory=str(root))
     with ThreadingHTTPServer(("127.0.0.1", args.port), handler) as server:

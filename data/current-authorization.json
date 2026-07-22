@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.1",
-  "revision": "2026.07.21-authorized-trial.2",
-  "updated_at": "2026-07-21T20:06:05Z",
+  "schema_version": "1.2",
+  "revision": "2026.07.22-preautocad.1",
+  "updated_at": "2026-07-22T14:20:00-04:00",
   "project": "Dunn Residence",
   "client": "BDPC Architects",
   "provider": "CAD Guardian LLC",
@@ -40,8 +40,8 @@
   },
   "commercial": {
     "fixed_fee_usd": 600,
-    "payment_status": "awaiting payment",
-    "payment_requirement": "Full payment before production begins",
+    "payment_status": "due after delivery",
+    "payment_requirement": "Payment will be provided after delivery per current agreement; payment is not a pre-production blocker.",
     "payment_link": "https://buy.stripe.com/dRm5kCgwF17vbGC4yZe3e03",
     "effort_ceiling_hours": 8.0,
     "minor_correction": "One consolidated minor correction pass limited to a demonstrable drafting error or omission, returned within two business days",
@@ -52,7 +52,7 @@
     "production_duration": "One working day",
     "delivery_due": "2026-07-22T16:00:00-04:00",
     "delivery_due_display": "4:00 PM EDT on July 22, 2026",
-    "clock_start_rule": "Production begins only after written authorization, full payment, controlling inputs, target AutoCAD and BDPC standards confirmation, licensed compatible runtime access, and a locked production day."
+    "clock_start_rule": "Production may begin after written authorization, controlling inputs, target AutoCAD and BDPC standards confirmation, licensed compatible runtime access, and a locked production window. Payment is due after delivery under the current agreement."
   },
   "activation_gates": [
     {
@@ -63,27 +63,27 @@
     },
     {
       "name": "$600 payment",
-      "status": "awaiting payment",
+      "status": "due after delivery",
       "owner": "BDPC",
-      "evidence": "Secure Stripe payment link issued"
+      "evidence": "Current agreement: payment will be provided after delivery."
     },
     {
       "name": "Controlling point cloud and support package",
-      "status": "confirm final set",
-      "owner": "BDPC",
-      "evidence": "Identify the exact files that control production"
+      "status": "organized and classified",
+      "owner": "CAD Guardian",
+      "evidence": "Thomas CAD is organized by scope; 930 media/CAD/point-cloud files were classified; primary/support LAS and trace references are identified."
     },
     {
       "name": "AutoCAD version, title block, CTB/STB, fonts, xrefs, and BDPC standards",
-      "status": "confirm before production",
+      "status": "standards clarified; native dependencies pending",
       "owner": "BDPC + CAD Guardian",
-      "evidence": "Native drawing and plotting basis must be reproducible"
+      "evidence": "Kickoff transcript confirms 1/2-inch precision, 3.5-inch wall baseline, TCADD floor-plan logic, 1419 paper-space/title-block standard, and floor-plate scale anchor."
     },
     {
       "name": "Licensed compatible AutoCAD runtime",
-      "status": "awaiting activation",
+      "status": "awaiting license",
       "owner": "CAD Guardian",
-      "evidence": "Monthly AutoCAD subscription and native production environment"
+      "evidence": "AutoCAD/Core Console trace-reference save succeeded, but final production and plotting still require licensed AutoCAD workflow."
     },
     {
       "name": "Locked production day",
@@ -97,31 +97,31 @@
       "sequence": 1,
       "workstream": "Authorization and protected setup",
       "hours": 0.75,
-      "status": "authorization complete; setup pending"
+      "status": "complete through pre-AutoCAD setup"
     },
     {
       "sequence": 2,
       "workstream": "Point-cloud and source reconciliation",
       "hours": 1.25,
-      "status": "pending controlling-source confirmation"
+      "status": "complete: primary/support scans, crawl, slices, trace DWG/DXF, and scope register prepared"
     },
     {
       "sequence": 3,
       "workstream": "Existing main-level geometry production",
       "hours": 2.75,
-      "status": "not started"
+      "status": "blocked until AutoCAD license: trace manually from prepared master DWG/DXF"
     },
     {
       "sequence": 4,
       "workstream": "Openings, rooms, content, dimensions, and notes",
       "hours": 1.5,
-      "status": "not started"
+      "status": "blocked until drafting; room names, door swings, windows, fixtures need confirmation or disclosure"
     },
     {
       "sequence": 5,
       "workstream": "Native QA, plot QA, and delivery package",
       "hours": 1.25,
-      "status": "not started"
+      "status": "blocked until final DWG/PDF exists"
     },
     {
       "sequence": 6,
@@ -152,7 +152,9 @@
     "The plan reflects the controlling point cloud and supporting information without proposed design or unsupported conditions",
     "Walls and closed boundaries have no unexplained gaps, duplicates, or unreviewed candidate geometry",
     "Doors, windows, openings, stairs, fixtures, and fixed equipment are placed where supported or disclosed as unresolved",
+    "Typical framed walls use the confirmed 3.5-inch baseline unless evidence supports a different assembly.",
     "Dimensions, labels, room names, and notes are source-supported or clearly qualified",
+    "Dimensions display no finer than the confirmed 1/2-inch residential convention and chained/overall dimensions reconcile.",
     "The PDF is legible, correctly framed, free of clipping, and consistent with the final visible DWG",
     "Material unresolved conditions or approved departures are disclosed rather than concealed"
   ],
@@ -167,8 +169,8 @@
     "Effort beyond the 8.0-hour ceiling"
   ],
   "evidence_snapshot": {
-    "source_files": 908,
-    "source_size_gib": 8.2,
+    "source_files": 930,
+    "source_size_gib": 3.23,
     "scan_sessions": 5,
     "validated_sessions": 5,
     "source_points": 91688946,
@@ -176,7 +178,16 @@
     "plan_control_slices": 9,
     "native_overlays": 5,
     "reports": 8,
-    "registration_boundary": "Five native-coordinate scan pairs were analyzed: four showed weak overlap and one showed no material overlap. No transform, accepted registration tolerance, or survey-grade registration claim was adopted."
+    "registration_boundary": "Five native-coordinate scan pairs were analyzed: four showed weak overlap and one showed no material overlap. No transform, accepted registration tolerance, or survey-grade registration claim was adopted.",
+    "classified_media_cad_pointcloud_files": 930,
+    "classified_media_cad_pointcloud_bytes": 3470993306,
+    "reviewed_images": 897,
+    "image_contact_sheets": 17,
+    "individual_slice_dxfs": 12,
+    "trace_master_dwg": 1,
+    "trace_master_dxf": 1,
+    "current_crawl_report": "bdpc_current_scope_crawl_20260722",
+    "trace_reference_package": "bdpc_pointcloud_slices_20260722"
   },
   "supersedes": {
     "scope": "Three-sheet $3,200 proposal",
@@ -184,5 +195,5 @@
     "archive_url": "/bdpc/sow/archive/2026-07-21-three-sheet/",
     "archive_data_url": "/bdpc/data/archive/2026-07-21-three-sheet/project-summary.json"
   },
-  "truth_boundary": "The report library remains project-control evidence. The contractual delivery for this authorization is one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF. BDPC retains architectural authority, interpretation, code and permit responsibility, and final professional acceptance."
+  "truth_boundary": "The current authority is one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF. Pre-AutoCAD discovery, source organization, image contact sheets, point-cloud slices, trace DWG/DXF references, and kickoff-derived drafting rules are prepared. BDPC retains architectural authority, interpretation, code and permit responsibility, and final professional acceptance."
 }

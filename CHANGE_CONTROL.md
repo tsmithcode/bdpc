@@ -24,7 +24,21 @@ The current contractual state is:
 - One working day
 - One consolidated minor correction pass
 - Delivery directed for 4:00 PM EDT on July 22, 2026
-- Written authorization complete; payment and native setup pending
+- Written authorization complete; payment due after delivery; pre-AutoCAD source/trace package ready; native AutoCAD license/runtime setup pending
+
+## 2026-07-22 pre-AutoCAD update
+
+The current pre-AutoCAD package now records:
+
+- Payment will be provided after delivery; payment is no longer a pre-production blocker.
+- The remaining production gate is licensed AutoCAD availability, plus final scale/source confirmation.
+- `Thomas CAD` is organized into active source, support source, standards, reference-only, trace-reference, and read-first folders.
+- A current Desktop `BDPC` crawl classified 930 media/CAD/point-cloud files totaling 3,470,993,306 bytes.
+- 897 image files are represented in contact-sheet artifacts; the 829-image mass is exterior driveway/deck/yard/facade context, not an interior room-photo set.
+- Point-cloud trace references are ready: 12 individual slice DXFs, one combined master DXF, one AutoCAD 2018 master DWG, slice screenshots, and manifests.
+- Kickoff transcript requirements are now explicit: 1/2-inch precision, 3.5-inch typical framed-wall baseline, TCADD for floor-plan drafting logic, 1419 for paper-space/title-block standard, and the floor-plate PNG as LiDAR scale anchor.
+
+This update does not expand scope. The current deliverable remains one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF.
 
 The governing issued source document is SOW Version 3, revision `2026.07.21.4`. Its manifest records 5 pages, 22,974 bytes, and SHA-256 `8a1195f91f909e7528d94ff9a1695cea977aa85acf60b609ee3e219367229602`.
 
@@ -110,8 +124,8 @@ The validation script checks:
 - Enterprise doctrine and production-control data drive the renderer
 - At least 18 preserved standards, 20 QA checks, 15 milestones, 14 CAD-prep controls, 14 automation controls, 12 enterprise controls, eight risks, and six decisions remain
 - The 1/2-inch dimension rule, 3.5-inch wall basis, block-reuse rule, model-space source, paper-space source, LiDAR boundary, unknown-condition rule, and conflict-escalation rule remain intact
-- Payment is the only remaining commercial acceptance action; redundant reconfirmation is not introduced
-- Root payment access works before JavaScript loads
+- Payment-after-delivery status is accepted; redundant reconfirmation is not introduced
+- Root payment/closeout access works before JavaScript loads
 - Active home navigation does not advertise retired reports
 - The focused-scope controller loads after the enterprise renderer and neutralizes dynamically generated report links
 - All previously emailed report routes resolve to the retirement disclaimer

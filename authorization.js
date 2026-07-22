@@ -76,11 +76,11 @@
   }
 
   function currentHero(auth) {
-    return `<div class="scope-hero"><div class="scope-hero__top"><div><span class="scope-eyebrow">Authorized enterprise-controlled trial</span><h2>${esc(auth.scope.deliverable)}</h2><p>Written authorization and the BDPC drafting doctrine are complete. The active authority remains one existing-condition sheet in native AutoCAD DWG and PDF. Payment is still outstanding, so production remains blocked.</p></div><div class="scope-price">$${esc(auth.commercial.fixed_fee_usd)}</div></div><div class="scope-grid"><article><span>Authorization</span><strong>Complete</strong></article><article><span>Payment</span><strong>${esc(auth.commercial.payment_status)}</strong></article><article><span>Effort ceiling</span><strong>${esc(auth.commercial.effort_ceiling_hours)} hours</strong></article><article><span>Delivery direction</span><strong>4 PM EDT · Jul 22</strong></article></div><div class="scope-actions"><a class="primary" href="${esc(auth.commercial.payment_link)}" target="_blank" rel="noopener">Pay $600 and activate production</a><a href="${SOW_URL}">Current SOW</a><a href="${GOVERNING_PDF_URL}">Issued V3 PDF</a><a href="${ARCHIVE_URL}">Revision archive</a></div></div>`;
+    return `<div class="scope-hero"><div class="scope-hero__top"><div><span class="scope-eyebrow">Authorized enterprise-controlled trial</span><h2>${esc(auth.scope.deliverable)}</h2><p>Written authorization and the BDPC drafting doctrine are complete. The active authority remains one existing-condition sheet in native AutoCAD DWG and PDF. Payment is due after delivery; the remaining production gate is licensed AutoCAD availability plus final scale/source confirmation.</p></div><div class="scope-price">$${esc(auth.commercial.fixed_fee_usd)}</div></div><div class="scope-grid"><article><span>Authorization</span><strong>Complete</strong></article><article><span>Payment</span><strong>${esc(auth.commercial.payment_status)}</strong></article><article><span>Effort ceiling</span><strong>${esc(auth.commercial.effort_ceiling_hours)} hours</strong></article><article><span>Delivery direction</span><strong>4 PM EDT · Jul 22</strong></article></div><div class="scope-actions"><a class="primary" href="${esc(auth.commercial.payment_link)}" target="_blank" rel="noopener">Payment link for closeout</a><a href="${SOW_URL}">Current SOW</a><a href="${GOVERNING_PDF_URL}">Issued V3 PDF</a><a href="${ARCHIVE_URL}">Revision archive</a></div></div>`;
   }
 
   function actionCenter(auth) {
-    return `<div class="action-center"><div class="action-center__grid"><div><span class="scope-eyebrow">Zero-friction acceptance</span><h3>${esc(auth.zero_friction_activation.acceptance_message)}</h3><p>${esc(auth.zero_friction_activation.default_authority)} CAD Guardian handles the remaining production setup and contacts Brian only when a material conflict prevents responsible completion.</p></div><div class="action-center__actions"><a class="primary" href="${esc(auth.commercial.payment_link)}" target="_blank" rel="noopener">Pay $600 securely</a><a href="${GOVERNING_PDF_URL}">Verify governing SOW</a></div></div></div>`;
+    return `<div class="action-center"><div class="action-center__grid"><div><span class="scope-eyebrow">Zero-friction acceptance</span><h3>${esc(auth.zero_friction_activation.acceptance_message)}</h3><p>${esc(auth.zero_friction_activation.default_authority)} CAD Guardian handles the remaining production setup and contacts Brian only when a material conflict prevents responsible completion.</p></div><div class="action-center__actions"><a class="primary" href="${esc(auth.commercial.payment_link)}" target="_blank" rel="noopener">Payment link for closeout</a><a href="${GOVERNING_PDF_URL}">Verify governing SOW</a></div></div></div>`;
   }
 
   function gates(auth) {
@@ -113,7 +113,7 @@
       ${sectionHead('Executive control', 'Activation gates', 'Authorization, standards, payment, source freeze, runtime, and scheduling are separate auditable states.')}
       ${gates(auth)}
       ${sectionHead('Business objective', 'What this operating system is designed to accomplish')}
-      <div class="check-grid"><article class="check-card"><h3>Executive objectives</h3>${list(auth.executive_objectives)}</article><article class="check-card"><h3>After payment</h3>${list(auth.zero_friction_activation.provider_actions_after_payment, true)}</article></div>
+      <div class="check-grid"><article class="check-card"><h3>Executive objectives</h3>${list(auth.executive_objectives)}</article><article class="check-card"><h3>When AutoCAD is available</h3>${list(auth.zero_friction_activation.provider_actions_after_payment, true)}</article></div>
       ${sectionHead('Enterprise governance', 'Control framework', 'Scope reductions must not erase standards, evidence, QA, or decision history.')}
       ${table(['Control ID', 'Enterprise control', 'State', 'Evidence'], auth.enterprise_controls.map(item => [item.id, item.control, { status: item.state }, item.evidence]))}
       ${sectionHead('Evidence access', 'Client-safe control library', 'Supporting evidence remains available without expanding the authorized one-sheet delivery.', `<a href="${REPORTS_URL}">Open all reports →</a>`)}
@@ -129,7 +129,7 @@
     }).join('');
     return `${sectionHead('Evidence-backed lifecycle', 'Milestones and acceptance states', 'Discovery, evidence, authorization, activation, production, QA, delivery, and closeout remain independently auditable.')}
       <div class="phase-grid">${phaseCards}</div>
-      <div class="truth-note"><strong>Reading the ledger:</strong> completed preflight evidence does not imply production completion. Payment is still outstanding and native drawing production has not started.</div>
+      <div class="truth-note"><strong>Reading the ledger:</strong> completed preflight evidence does not imply production completion. Payment is due after delivery; native drawing production still needs licensed AutoCAD access and final scale/source confirmation.</div>
       ${table(['ID', 'Phase', 'Milestone', 'State', 'Acceptance evidence'], auth.milestone_register.map(item => [item.id, item.phase, item.milestone, { status: item.status }, item.acceptance]))}
       <h3 class="subhead">Eight-hour controlled effort plan</h3>
       ${table(['Sequence', 'Workstream', 'Planned hours', 'Current state'], auth.work_plan.map(item => [item.sequence, item.workstream, Number(item.hours).toFixed(2), { status: item.status }]))}
@@ -208,9 +208,8 @@
       <h3 class="subhead">Production-readiness register</h3>
       ${table(['ID', 'Control', 'Owner', 'State', 'Acceptance condition'], auth.cad_prep_register.map(item => [item.id, item.control, item.owner, { status: item.status }, item.acceptance]))}
       <div class="check-grid" style="margin-top:18px">
-        <article class="check-card"><h3>Proceed by default after payment</h3>${list(auth.zero_friction_activation.provider_actions_after_payment, true)}</article>
+        <article class="check-card"><h3>Proceed by default when AutoCAD is available</h3>${list(auth.zero_friction_activation.provider_actions_after_payment, true)}</article>
         <article class="check-card"><h3>Stop-work triggers</h3>${list([
-          'Payment is not successful',
           'The controlling source cannot be identified or frozen',
           'Units, scale, or main-level coverage cannot be responsibly established',
           'Critical fonts, xrefs, object support, plot styles, or title-block dependencies prevent reproducible output',
@@ -261,13 +260,13 @@
   }
 
   function renderRuntime(auth) {
-    return `${sectionHead('Production activation', 'Runtime, governance, and kickoff controls', 'The analytical and client-facing control plane is ready. Native production remains blocked until payment and compatible runtime activation.', `<a class="button button--secondary" href="${esc(auth.commercial.payment_link)}" target="_blank" rel="noopener">Pay $600</a>`)}
+    return `${sectionHead('Production activation', 'Runtime, governance, and kickoff controls', 'The analytical and client-facing control plane is ready. Native production remains blocked until compatible AutoCAD runtime activation and final scale/source confirmation.', `<a class="button button--secondary" href="${esc(auth.commercial.payment_link)}" target="_blank" rel="noopener">Payment link</a>`)}
       ${table(['Component', 'Version / class', 'State', 'Purpose'], auth.runtime_register.map(item => [item.component, item.version, { status: item.status }, item.purpose]))}
       <h3 class="subhead">Activation gates</h3>${gates(auth)}
       <h3 class="subhead">Enterprise control plane</h3>
       ${table(['ID', 'Control', 'State', 'Evidence'], auth.enterprise_controls.map(item => [item.id, item.control, { status: item.state }, item.evidence]))}
       <div class="check-grid" style="margin-top:18px">
-        <article class="check-card"><h3>Client action</h3><p>${esc(auth.zero_friction_activation.client_action)}</p><div class="scope-actions"><a class="primary" href="${esc(auth.commercial.payment_link)}" target="_blank" rel="noopener">Pay $600 securely</a></div></article>
+        <article class="check-card"><h3>Client action</h3><p>${esc(auth.zero_friction_activation.client_action)}</p><div class="scope-actions"><a class="primary" href="${esc(auth.commercial.payment_link)}" target="_blank" rel="noopener">Payment link for closeout</a></div></article>
         <article class="check-card"><h3>Clock-start rule</h3><p>${esc(auth.schedule.clock_start_rule)}</p></article>
       </div>
       <div class="truth-note"><strong>Deadline control:</strong> ${esc(auth.deadline_control || auth.schedule.clock_start_rule)}</div>`;
@@ -323,21 +322,21 @@
     const wrapper = document.createElement('section');
     wrapper.className = 'authorized-banner';
     wrapper.setAttribute('aria-labelledby', 'authorized-banner-title');
-    wrapper.innerHTML = `<div class="authorized-banner__grid"><div><div class="authorized-banner__eyebrow">Current written authorization · enterprise control release</div><h2 id="authorized-banner-title">${esc(auth.scope.deliverable)}</h2><p>Authorized by ${esc(auth.authorization.authorized_by)} on July 21, 2026 · Native AutoCAD DWG + PDF · $600 fixed fee · ${esc(auth.schedule.delivery_due_display)}. BDPC standards are preserved; payment and native activation remain.</p></div><div class="authorized-banner__actions"><a href="${esc(auth.commercial.payment_link)}" target="_blank" rel="noopener">Pay $600 securely</a><a href="${SOW_URL}">Current SOW</a><a href="${GOVERNING_PDF_URL}">Issued PDF</a><a href="${REPORTS_URL}">Reports</a></div></div>`;
+    wrapper.innerHTML = `<div class="authorized-banner__grid"><div><div class="authorized-banner__eyebrow">Current written authorization · pre-AutoCAD trace-ready release</div><h2 id="authorized-banner-title">${esc(auth.scope.deliverable)}</h2><p>Authorized by ${esc(auth.authorization.authorized_by)} on July 21, 2026 · Native AutoCAD DWG + PDF · $600 fixed fee · ${esc(auth.schedule.delivery_due_display)}. Payment is due after delivery. BDPC standards, crawl registers, and trace references are prepared; native AutoCAD activation remains.</p></div><div class="authorized-banner__actions"><a href="${esc(auth.commercial.payment_link)}" target="_blank" rel="noopener">Payment link</a><a href="${SOW_URL}">Current SOW</a><a href="${GOVERNING_PDF_URL}">Issued PDF</a><a href="${REPORTS_URL}">Reports</a></div></div>`;
     document.querySelector('.project-bar')?.insertAdjacentElement('afterend', wrapper);
   }
 
   function paymentDock(auth) {
-    if (String(auth.commercial.payment_status).toLowerCase().includes('paid') || document.querySelector('.payment-dock')) return;
+    if (String(auth.commercial.payment_status).toLowerCase().includes('paid') || String(auth.commercial.payment_status).toLowerCase().includes('after delivery') || document.querySelector('.payment-dock')) return;
     const dock = document.createElement('div');
     dock.className = 'payment-dock';
-    dock.innerHTML = `<span>Authorization complete<small>Payment is the remaining commercial gate</small></span><a href="${esc(auth.commercial.payment_link)}" target="_blank" rel="noopener">Pay $600 securely</a>`;
+    dock.innerHTML = `<span>Authorization complete<small>Payment due after delivery</small></span><a href="${esc(auth.commercial.payment_link)}" target="_blank" rel="noopener">Payment link</a>`;
     document.body.appendChild(dock);
   }
 
   function patchStatic(auth) {
-    document.querySelector('.project-bar .gate strong')?.replaceChildren(document.createTextNode('Authorized · payment pending'));
-    document.querySelector('.project-bar .gate small')?.replaceChildren(document.createTextNode('Enterprise standards preserved. Native production blocked.'));
+    document.querySelector('.project-bar .gate strong')?.replaceChildren(document.createTextNode('Authorized · pre-AutoCAD package ready'));
+    document.querySelector('.project-bar .gate small')?.replaceChildren(document.createTextNode('Payment due after delivery. AutoCAD license controls production.'));
     const top = document.getElementById('authorize-top');
     if (top) {
       const anchor = document.createElement('a');
