@@ -4,277 +4,160 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="Dunn Residence fixed-fee estimate, assignment-ready CAD effort plan, authorization gates, and production schedule.">
+  <meta name="description" content="Authorized Dunn Residence one-day trial assignment for one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF.">
   <link rel="icon" href="data:,">
-  <title>Dunn Residence — Scope &amp; Authorization</title>
+  <title>Dunn Residence — Authorized Existing Main Level As-Built SOW</title>
   <style>
-    :root { --ink:#111827; --muted:#667085; --line:#d9e1ea; --line2:#edf1f5; --blue:#087ea4; --purple:#6d28d9; --green:#147a4b; --amber:#946200; --navy:#0b1220; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; background:#eef2f6; }
-    body { margin:0; background:#eef2f6; color:var(--ink); font-family:Arial,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
-    a:focus-visible, button:focus-visible, summary:focus-visible { outline:3px solid #00a8d6; outline-offset:3px; }
-    .skip-link { position:fixed; left:12px; top:-80px; z-index:20; padding:9px 12px; border-radius:8px; background:#fff; color:var(--ink); }
-    .skip-link:focus { top:12px; }
-    .toolbar { position:sticky; top:0; z-index:10; display:flex; justify-content:space-between; align-items:center; gap:12px; padding:12px max(18px,calc((100vw - 8.5in)/2)); background:var(--navy); color:#fff; }
-    .toolbar__actions { display:flex; gap:8px; flex-wrap:wrap; }
-    .toolbar a, .toolbar button { display:inline-flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,.2); border-radius:999px; background:rgba(255,255,255,.08); color:#fff; padding:9px 13px; font:700 12px Arial; text-decoration:none; cursor:pointer; }
-    .toolbar .primary { border-color:#17b6d8; background:#087ea4; }
-    .section-nav { position:sticky; top:57px; z-index:9; display:flex; gap:4px; overflow-x:auto; padding:8px max(18px,calc((100vw - 8.5in)/2)); border-bottom:1px solid #d3dae4; background:rgba(255,255,255,.96); }
-    .section-nav a { flex:0 0 auto; border-radius:999px; padding:7px 10px; color:#344054; font-size:10px; font-weight:800; text-decoration:none; }
-    .section-nav a:hover { background:#eef4f8; color:#075f82; }
-    .page { width:min(8.5in,calc(100% - 28px)); margin:24px auto; padding:.62in .68in .68in; border-top:8px solid var(--purple); background:#fff; box-shadow:0 20px 60px rgba(15,23,42,.15); }
-    .brand { font-size:12px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); }
-    h1 { margin:14px 0 6px; font-size:30px; line-height:1.05; text-transform:uppercase; letter-spacing:-.02em; }
-    .subtitle { color:var(--muted); font-size:13px; }
-    .status { display:inline-flex; margin-top:14px; padding:6px 9px; border-radius:999px; background:#fff8e5; color:var(--amber); font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
-    .summary { display:grid; grid-template-columns:repeat(5,1fr); gap:9px; margin:24px 0; }
-    .summary div { border:1px solid var(--line); border-radius:12px; padding:12px; }
-    .summary span { display:block; font-size:8px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); font-weight:800; }
-    .summary strong { display:block; margin-top:6px; font-size:18px; }
-    .next-step { display:flex; align-items:center; justify-content:space-between; gap:18px; margin:20px 0 26px; padding:16px; border:1px solid #bfe1cc; border-radius:14px; background:#f0faf4; }
-    .next-step span { display:block; color:var(--green); font-size:9px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; }
-    .next-step strong { display:block; margin:4px 0; font-size:16px; }
-    .next-step p { margin:0; color:#446253; font-size:10.5px; line-height:1.45; }
-    .action { display:inline-flex; flex:0 0 auto; align-items:center; justify-content:center; min-height:38px; border-radius:999px; padding:9px 14px; background:var(--green); color:#fff; font-size:10px; font-weight:900; text-decoration:none; }
-    .section { margin-top:26px; scroll-margin-top:112px; }
-    .section h2 { margin:0 0 9px; padding-bottom:7px; border-bottom:1px solid var(--line); font-size:15px; text-transform:uppercase; letter-spacing:.04em; }
-    .section h3 { margin:18px 0 8px; font-size:13px; }
-    .section p, .section li, .section td, .section th { font-size:11.5px; line-height:1.5; }
-    .section p { margin:7px 0; }
-    .section ul, .section ol { margin:8px 0 0; padding-left:18px; }
-    .section li { margin:5px 0; }
-    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-    .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:12px; }
-    table { width:100%; border-collapse:collapse; }
-    th, td { padding:8px 9px; border-bottom:1px solid var(--line2); text-align:left; vertical-align:top; }
-    th { background:#f7f9fc; color:#475467; font-size:8px!important; text-transform:uppercase; letter-spacing:.08em; white-space:nowrap; }
-    tr:last-child td, tr:last-child th { border-bottom:0; }
-    .terms th { width:31%; padding-right:14px; }
-    .hours { text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
-    .total-row th, .total-row td { background:#f1fbfd; color:#075f82; font-weight:900; }
-    .ceiling { display:grid; grid-template-columns:150px 1fr; gap:18px; align-items:center; margin:14px 0; padding:16px; border-radius:14px; background:linear-gradient(135deg,#0b1220,#17243e); color:#fff; }
-    .ceiling strong { display:block; font-size:30px; }
-    .ceiling span { color:#66ddf5; font-size:8px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; }
-    .ceiling p { margin:0; color:#d7e0ec; font-size:10.5px; }
-    .workstream { margin-top:10px; border:1px solid var(--line); border-radius:12px; background:#fff; }
-    .workstream summary { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:12px 14px; cursor:pointer; list-style:none; font-size:11px; font-weight:900; }
-    .workstream summary::-webkit-details-marker { display:none; }
-    .workstream summary::before { content:"+"; color:var(--blue); }
-    .workstream[open] summary::before { content:"−"; }
-    .workstream summary span { flex:1; }
-    .workstream summary strong { border-radius:999px; background:#eef8ff; color:#075f82; padding:5px 8px; font-size:9px; }
-    .workstream .table-wrap { margin:0 10px 10px; border-radius:8px; }
-    .workstream table { min-width:920px; }
-    .workstream td { font-size:9.5px; line-height:1.4; }
-    .workstream td:first-child { color:#075f82; font-weight:900; white-space:nowrap; }
-    .load-state { margin:12px 0; padding:12px; border-radius:10px; background:#f7f9fc; color:var(--muted); font-size:10px; }
-    .download-row { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:12px; font-size:10px; }
-    .download-row a { color:#075f82; font-weight:900; }
-    .notice { border-left:3px solid var(--blue); background:#f1fbfd; padding:10px 12px; color:#315363; font-size:10.5px; line-height:1.45; }
-    .authorization { margin-top:28px; padding:16px; border:1px solid #bfe1cc; border-radius:14px; background:#f0faf4; scroll-margin-top:112px; }
-    .authorization h2 { margin:0 0 8px; font-size:15px; text-transform:uppercase; }
-    .authorization p, .authorization li { font-size:11.5px; line-height:1.5; }
-    .authorization ol { margin:8px 0 0; padding-left:18px; }
-    .authorization .action { margin-top:12px; }
-    .signatures { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:30px; }
-    .signature-line { padding-top:6px; border-top:1px solid #111; color:var(--muted); font-size:10px; }
-    .footer { display:flex; justify-content:space-between; gap:12px; margin-top:28px; padding-top:12px; border-top:1px solid var(--line); color:var(--muted); font-size:9.5px; }
-    @media (max-width:720px) {
-      .summary { grid-template-columns:repeat(2,1fr); }
-      .two-col, .signatures, .ceiling { grid-template-columns:1fr; }
-      .page { padding:28px 22px; }
-      .toolbar { position:static; }
-      .toolbar > span { display:none; }
-      .section-nav { top:0; }
-      .section, .authorization { scroll-margin-top:54px; }
-      .next-step { align-items:flex-start; flex-direction:column; }
-    }
-    @media print {
-      @page { size:letter; margin:.4in; }
-      html, body { background:#fff; }
-      .toolbar, .section-nav, .skip-link, .action { display:none!important; }
-      .page { width:100%; margin:0; padding:0; border-top:6px solid var(--purple); box-shadow:none; }
-      .section, .authorization, .summary, .notice, .ceiling, tr { break-inside:avoid; page-break-inside:avoid; }
-      .workstream { break-before:auto; }
-      .workstream .table-wrap { overflow:visible; }
-      .workstream table { min-width:0; table-layout:fixed; }
-      .workstream th, .workstream td { padding:4px; font-size:7.2px!important; overflow-wrap:anywhere; }
-      .workstream th:nth-child(1) { width:8%; }
-      .workstream th:nth-child(2) { width:20%; }
-      .workstream th:nth-child(3) { width:5%; }
-      .workstream th:nth-child(4) { width:11%; }
-      .workstream th:nth-child(5) { width:16%; }
-      .workstream th:nth-child(6) { width:15%; }
-      .workstream th:nth-child(7) { width:25%; }
-      details { display:block; }
-      details > summary { break-after:avoid; }
-      details > :not(summary) { display:block!important; }
-      a { color:inherit; text-decoration:none; }
-    }
+    :root{--ink:#111827;--ink2:#344054;--muted:#667085;--line:#d9e1ea;--line2:#edf1f5;--blue:#087ea4;--purple:#6d28d9;--green:#147a4b;--green2:#f0faf4;--amber:#946200;--amber2:#fff8e5;--navy:#0b1220}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;background:#eef2f6}body{margin:0;background:#eef2f6;color:var(--ink);font-family:Arial,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+    a:focus-visible,button:focus-visible{outline:3px solid #00a8d6;outline-offset:3px}.skip-link{position:fixed;left:12px;top:-80px;z-index:30;padding:9px 12px;border-radius:8px;background:#fff;color:#111}.skip-link:focus{top:12px}
+    .toolbar{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px max(18px,calc((100vw - 8.5in)/2));background:var(--navy);color:#fff}.toolbar__actions{display:flex;gap:8px;flex-wrap:wrap}.toolbar a,.toolbar button{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.08);color:#fff;padding:9px 13px;font:700 12px Arial;text-decoration:none;cursor:pointer}.toolbar .primary{border-color:#17b6d8;background:#087ea4}
+    .section-nav{position:sticky;top:57px;z-index:19;display:flex;gap:4px;overflow-x:auto;padding:8px max(18px,calc((100vw - 8.5in)/2));border-bottom:1px solid #d3dae4;background:rgba(255,255,255,.97)}.section-nav a{flex:0 0 auto;border-radius:999px;padding:7px 10px;color:#344054;font-size:10px;font-weight:800;text-decoration:none}.section-nav a:hover{background:#eef4f8;color:#075f82}
+    .page{width:min(8.5in,calc(100% - 28px));margin:24px auto;padding:.62in .68in .68in;border-top:8px solid var(--green);background:#fff;box-shadow:0 20px 60px rgba(15,23,42,.15)}
+    .brand{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}h1{margin:14px 0 6px;font-size:31px;line-height:1.04;text-transform:uppercase;letter-spacing:-.02em}.subtitle{color:var(--muted);font-size:13px}.status{display:inline-flex;margin-top:14px;padding:7px 10px;border-radius:999px;background:#eaf8f0;color:var(--green);font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+    .summary{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:24px 0}.summary div{border:1px solid var(--line);border-radius:12px;padding:12px}.summary span{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:800}.summary strong{display:block;margin-top:6px;font-size:17px;line-height:1.15}
+    .decision{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;margin:20px 0 26px;padding:18px;border:1px solid #bfe1cc;border-radius:14px;background:var(--green2)}.decision span{display:block;color:var(--green);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.decision strong{display:block;margin:4px 0;font-size:17px}.decision p{margin:0;color:#446253;font-size:10.5px;line-height:1.5}.action{display:inline-flex;align-items:center;justify-content:center;min-height:40px;border-radius:999px;padding:10px 15px;background:var(--green);color:#fff;font-size:10px;font-weight:900;text-decoration:none;white-space:nowrap}
+    .section{margin-top:27px;scroll-margin-top:112px}.section h2{margin:0 0 9px;padding-bottom:7px;border-bottom:1px solid var(--line);font-size:15px;text-transform:uppercase;letter-spacing:.04em}.section h3{margin:18px 0 8px;font-size:13px}.section p,.section li,.section td,.section th{font-size:11.5px;line-height:1.5}.section p{margin:7px 0}.section ul,.section ol{margin:8px 0 0;padding-left:18px}.section li{margin:5px 0}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse}th,td{padding:9px 10px;border-bottom:1px solid var(--line2);text-align:left;vertical-align:top}th{background:#f7f9fc;color:#475467;font-size:8px!important;text-transform:uppercase;letter-spacing:.08em}tr:last-child td,tr:last-child th{border-bottom:0}.terms th{width:32%}
+    .notice{border-left:4px solid var(--blue);background:#f1fbfd;padding:12px 14px;color:#315363;font-size:10.5px;line-height:1.5}.notice--warn{border-left-color:var(--amber);background:var(--amber2);color:#684d00}.authorization{margin-top:28px;padding:18px;border:1px solid #bfe1cc;border-radius:14px;background:var(--green2);scroll-margin-top:112px}.authorization h2{margin:0 0 8px;font-size:15px;text-transform:uppercase}.authorization p,.authorization li{font-size:11.5px;line-height:1.5}.authorization ol{padding-left:18px}.signatures{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:34px}.signature-line{padding-top:7px;border-top:1px solid #111;color:var(--muted);font-size:10px}.footer{display:flex;justify-content:space-between;gap:12px;margin-top:30px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:9.5px}
+    @media(max-width:720px){.summary{grid-template-columns:repeat(2,1fr)}.two-col,.signatures,.decision{grid-template-columns:1fr}.page{padding:28px 22px}.toolbar{position:static}.toolbar>span{display:none}.section-nav{top:0}.section,.authorization{scroll-margin-top:54px}}
+    @media print{@page{size:letter;margin:.42in}html,body{background:#fff}.toolbar,.section-nav,.skip-link,.action{display:none!important}.page{width:100%;margin:0;padding:0;border-top:6px solid var(--green);box-shadow:none}.section,.authorization,.summary,.notice,.decision,tr{break-inside:avoid;page-break-inside:avoid}a{color:inherit;text-decoration:none}}
   </style>
 </head>
 <body>
   <a class="skip-link" href="#sow">Skip to scope</a>
   <div class="toolbar">
-    <span>Dunn Residence — Scope &amp; Authorization</span>
+    <span>Dunn Residence — Authorized Trial Assignment</span>
     <div class="toolbar__actions">
       <a href="/bdpc/">Workspace</a>
-      <a href="../reports/data/cad-effort-plan.csv" download>Download work plan</a>
-      <a href="/bdpc/sow/archive/">Prior revision</a>
+      <a href="/bdpc/reports/">Reports</a>
+      <a href="archive/">Revision archive</a>
       <button class="primary" type="button" onclick="window.print()">Print / Save PDF</button>
     </div>
   </div>
   <nav class="section-nav" aria-label="Statement of work sections">
-    <a href="#overview">Overview</a><a href="#scope">Scope</a><a href="#effort">Effort plan</a><a href="#commercial">Terms</a><a href="#schedule">Schedule</a><a href="#acceptance">Acceptance</a><a href="#authorize">Authorize</a>
+    <a href="#overview">Overview</a><a href="#scope">Scope</a><a href="#deliverables">Deliverables</a><a href="#terms">Terms</a><a href="#schedule">Schedule</a><a href="#inputs">Inputs</a><a href="#acceptance">Acceptance</a><a href="#activate">Activate</a>
   </nav>
 
-  <main class="page" id="sow" data-sow-revision="2026.07.21.3">
+  <main class="page" id="sow" data-sow-revision="2026.07.21-authorized-trial">
     <header id="overview">
       <div class="brand">BDPC Architects × CAD Guardian LLC</div>
-      <h1>Dunn Residence CAD Production</h1>
-      <div class="subtitle">Detailed Statement of Work · Three-sheet residential CAD engagement · Revision 2026.07.21.3</div>
-      <div class="status">Awaiting written authorization, start payment, controlling inputs, and runtime access</div>
+      <h1>Dunn Residence Existing Main Level As-Built Floor Plan</h1>
+      <div class="subtitle">Authorized one-day trial assignment · Existing conditions only · Revision 2026.07.21-authorized-trial</div>
+      <div class="status">Written authorization received from BDPC</div>
 
       <div class="summary" aria-label="Commercial summary">
-        <div><span>Deliverables</span><strong>3 sheets</strong></div>
-        <div><span>Fixed fee</span><strong>$3,200</strong></div>
-        <div><span>Effort ceiling</span><strong>40 hours</strong></div>
-        <div><span>Check set</span><strong>3 business days</strong></div>
-        <div><span>Review</span><strong>1 round</strong></div>
+        <div><span>Deliverables</span><strong>1 sheet</strong></div>
+        <div><span>Fixed fee</span><strong>$600</strong></div>
+        <div><span>Duration</span><strong>1 working day</strong></div>
+        <div><span>Formats</span><strong>DWG + PDF</strong></div>
+        <div><span>Due</span><strong>4 PM · Jul 22</strong></div>
       </div>
-      <div class="next-step" aria-label="Next step">
-        <div><span>Next step</span><strong>Authorize the scope and confirm the four kickoff gates</strong><p>A single authorization response starts the handoff. The production clock begins only after every gate is complete.</p></div>
-        <a class="action" data-authorize href="mailto:tsmithcad@gmail.com">Authorize by email</a>
+
+      <div class="decision" aria-label="Current activation state">
+        <div><span>Current state</span><strong>Authorized; payment and production-runtime setup remain</strong><p>Brian Dillman authorized the assignment by email on July 21, 2026. Production activation requires the $600 payment plus final AutoCAD/version/standards setup.</p></div>
+        <a class="action" href="https://buy.stripe.com/dRm5kCgwF17vbGC4yZe3e03" target="_blank" rel="noopener">Pay $600 securely</a>
       </div>
     </header>
 
-    <section class="section" id="parties">
-      <h2>1. Parties and objective</h2>
-      <p><strong>Client:</strong> BDPC Architects. <strong>Service provider:</strong> CAD Guardian LLC.</p>
-      <p>After all kickoff gates, CAD Guardian will prepare and coordinate a three-sheet Dunn Residence drawing package using BDPC-confirmed controlling project inputs and the reviewed point-cloud evidence. Unresolved architectural decisions or conflicting controls will be returned to BDPC rather than inferred.</p>
-    </section>
-
-    <section class="section two-col" id="scope">
-      <div>
-        <h2>2. Included scope</h2>
-        <ul>
-          <li>Existing-condition floor-plan drawing.</li>
-          <li>Proposed-plan drawing reflecting confirmed BDPC direction only.</li>
-          <li>Site and area plan showing agreed footprint, work limits, and context without survey representation.</li>
-          <li>LiDAR and controlling-source reconciliation required for responsible drafting.</li>
-          <li>Standard setup: working set, title block, layers, styles, units, orientation, layouts, viewports, and baseline plot.</li>
-          <li>Check-set PDF for one consolidated BDPC review round.</li>
-          <li>Final native drawing and PDF issue after the included review.</li>
-          <li>Change summary and unresolved-condition record at final issue.</li>
-        </ul>
-      </div>
-      <div>
-        <h2>3. Excluded scope</h2>
-        <ul>
-          <li>Land survey or certified as-built measurement.</li>
-          <li>Architectural, engineering, structural, MEP, civil, zoning, code, permit, or life-safety certification.</li>
-          <li>Scan-registration certification or accepted alignment tolerance.</li>
-          <li>Elevations, sections, roof plans, reflected ceiling plans, details, rendering, or BIM/3D modeling unless separately authorized.</li>
-          <li>Concealed-condition verification, destructive investigation, or field survey.</li>
-          <li>Permit submission, agency coordination, consultants, printing, or third-party fees.</li>
-          <li>Additional or fragmented review rounds and scope additions.</li>
-        </ul>
+    <section class="section" id="scope">
+      <h2>1. Authorized scope</h2>
+      <p>CAD Guardian will produce one clean architectural Existing Main Level As-Built Floor Plan from the point cloud and supporting information provided by BDPC.</p>
+      <div class="two-col">
+        <div>
+          <h3>Included</h3>
+          <ul>
+            <li>One Existing Main Level As-Built Floor Plan.</li>
+            <li>Existing conditions only.</li>
+            <li>Drafting from the supplied point cloud and supporting project information.</li>
+            <li>Standard architectural plan graphics appropriate for the trial assignment.</li>
+            <li>Internal drawing and plot review before delivery.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Not included</h3>
+          <ul>
+            <li>Proposed floor plan, site/area plan, or design work.</li>
+            <li>Permit-ready documentation, elevations, sections, roof, reflected ceiling, MEP, or structural drawings.</li>
+            <li>Field survey, concealed-condition verification, code analysis, permit services, or professional certification.</li>
+            <li>Additional sheets, redesign, or revisions beyond correction of the authorized one-sheet trial unless separately approved.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="section" id="effort">
-      <h2>4. Assignment-ready CAD effort plan</h2>
-      <div class="ceiling"><div><span>Absolute included ceiling</span><strong>40.0 hours</strong></div><p>This is the maximum authorized effort for the fixed-fee scope, including standard setup, all three plan deliverables, integrated QA, the included review/final issue, and managed reserve. It is an assignment and capacity control—not time-and-material billing.</p></div>
-      <p><strong>Ceiling rule:</strong> CAD Guardian will not exceed 40.0 hours under this SOW. If the documented remaining work cannot be completed within the ceiling, work pauses before overrun and the issue is routed to BDPC for written change authorization. Unused reserve does not become additional scope.</p>
-      <div class="table-wrap">
-        <table aria-label="Effort allocation by workstream">
-          <thead><tr><th>Sequence</th><th>Workstream / deliverable</th><th>Primary assignment</th><th class="hours">Planned hours</th></tr></thead>
-          <tbody>
-            <tr data-effort-rollup="Standard setup" data-hours="5"><td>1</td><td>Standard setup</td><td>Project lead + CAD drafter</td><td class="hours">5.0</td></tr>
-            <tr data-effort-rollup="Existing floor plan" data-hours="9"><td>2</td><td>Existing floor plan</td><td>CAD drafter</td><td class="hours">9.0</td></tr>
-            <tr data-effort-rollup="Proposed floor plan" data-hours="8"><td>3</td><td>Proposed floor plan</td><td>CAD drafter</td><td class="hours">8.0</td></tr>
-            <tr data-effort-rollup="Site / area plan" data-hours="5"><td>4</td><td>Site / area plan</td><td>CAD drafter</td><td class="hours">5.0</td></tr>
-            <tr data-effort-rollup="Integrated QA / check set" data-hours="5"><td>5</td><td>Integrated QA / check set</td><td>CAD drafter + project lead</td><td class="hours">5.0</td></tr>
-            <tr data-effort-rollup="Included review / final" data-hours="5"><td>6</td><td>Included review / final issue</td><td>CAD drafter + project lead</td><td class="hours">5.0</td></tr>
-            <tr data-effort-rollup="Managed reserve" data-hours="3"><td>7</td><td>Managed reserve</td><td>Assigned only to a documented in-scope issue</td><td class="hours">3.0</td></tr>
-            <tr class="total-row"><th colspan="3">Absolute included effort ceiling</th><td class="hours">40.0</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <h3>Work-package breakdown</h3>
-      <p>Each package names the assignment, owner, start dependency, required handoff, and acceptance evidence. This structure can be reused for future floor-plan assignments without inventing a project-specific workflow.</p>
-      <div id="effort-load-state" class="load-state" role="status">Loading the 31 assignment work packages from the verified project record…</div>
-      <div id="effort-details" aria-live="polite"></div>
-      <div class="download-row"><span>Need a handoff-ready task list?</span><a href="../reports/data/cad-effort-plan.csv" download>Download the complete CAD effort plan CSV</a></div>
-    </section>
-
-    <section class="section" id="commercial">
-      <h2>5. Commercial authorization</h2>
-      <table class="terms">
+    <section class="section" id="deliverables">
+      <h2>2. Deliverables</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Item</th><th>Format</th><th>Acceptance basis</th></tr></thead>
         <tbody>
-          <tr><th>Fixed fee</th><td><strong>$3,200</strong> for the included scope and one consolidated review round.</td></tr>
-          <tr><th>Included ceiling</th><td><strong>40.0 planned hours maximum.</strong> The fixed fee remains controlling; this is not hourly billing.</td></tr>
-          <tr><th>Start payment</th><td><strong>$1,600</strong>, arranged before production begins.</td></tr>
-          <tr><th>Final payment</th><td><strong>$1,600</strong>, due at final issue.</td></tr>
-          <tr><th>Additional services</th><td><strong>$90/hour</strong>, performed only after separate written authorization.</td></tr>
-          <tr><th>Estimate validity</th><td>Issued July 20, 2026; valid through August 19, 2026.</td></tr>
+          <tr><td>Existing Main Level As-Built Floor Plan</td><td>Native AutoCAD DWG</td><td>Opens in the agreed AutoCAD version and reflects the authorized existing-condition scope.</td></tr>
+          <tr><td>Existing Main Level As-Built Floor Plan</td><td>PDF</td><td>Readable plotted sheet corresponding to the delivered DWG.</td></tr>
         </tbody>
-      </table>
+      </table></div>
+      <div class="notice"><strong>Reports are supporting project-control records.</strong> The public report library documents intake, scan review, source controls, and drafting readiness. Those reports are not additional design deliverables under this trial.</div>
+    </section>
+
+    <section class="section" id="terms">
+      <h2>3. Commercial terms</h2>
+      <div class="table-wrap"><table class="terms">
+        <tbody>
+          <tr><th>Fixed fee</th><td>$600.00 USD</td></tr>
+          <tr><th>Payment requirement</th><td>Full payment before production begins.</td></tr>
+          <tr><th>Payment method</th><td><a href="https://buy.stripe.com/dRm5kCgwF17vbGC4yZe3e03" target="_blank" rel="noopener">Secure Stripe payment link</a>.</td></tr>
+          <tr><th>AutoCAD runtime</th><td>CAD Guardian will purchase and activate the required monthly AutoCAD subscription after receipt of the $600 payment. This production setup is not a separate add-on charge to the authorized trial.</td></tr>
+          <tr><th>Additional work</th><td>Not included unless separately described and authorized in writing.</td></tr>
+          <tr><th>Superseded proposal</th><td>The earlier three-sheet $3,200 proposal is archived and is not current production authority.</td></tr>
+        </tbody>
+      </table></div>
     </section>
 
     <section class="section" id="schedule">
-      <h2>6. Schedule and delivery sequence</h2>
-      <p><strong>Check-set target:</strong> three business days after all kickoff gates are satisfied. <strong>Typical production duration:</strong> four to five business days, excluding BDPC review time.</p>
-      <p><strong>Delivery sequence:</strong> standard setup → existing floor plan → proposed floor plan → site/area plan → integrated QA and check set → one consolidated review → final QA and issue.</p>
-      <p>The production clock begins only after written authorization, start-payment arrangement, confirmation of controlling inputs, and licensed compatible Autodesk runtime or approved remote-workstation access.</p>
+      <h2>4. Schedule</h2>
+      <p>BDPC authorized delivery by <strong>4:00 PM EDT on July 22, 2026</strong>. The production duration is one working day. The assignment is activated when payment and the required production setup are complete.</p>
+      <div class="notice notice--warn"><strong>Schedule dependency:</strong> Prompt payment and timely confirmation of the AutoCAD version, title block, CTB/STB, and BDPC standards are required to protect the authorized delivery target.</div>
     </section>
 
-    <section class="section two-col" id="acceptance">
-      <div>
-        <h2>7. Client responsibilities and kickoff gates</h2>
-        <ol>
-          <li>Provide written authorization of the $3,200 scope, 40-hour ceiling, and one consolidated review round.</li>
-          <li>Arrange the $1,600 start payment.</li>
-          <li>Confirm the controlling CAD, design/redline intent, title block, standards, dependencies, written dimensions, and decisions.</li>
-          <li>Provide a licensed compatible Autodesk runtime or approved remote workstation.</li>
-          <li>Return one complete, consolidated review response.</li>
-        </ol>
-      </div>
-      <div>
-        <h2>8. Acceptance criteria</h2>
-        <ul>
-          <li>Three included sheets address the confirmed BDPC direction and documented existing-condition evidence.</li>
-          <li>Native files and PDFs open and plot through the licensed production workflow.</li>
-          <li>Confirmed title block, layers, notes, dimensions, layouts, and plotting controls are applied.</li>
-          <li>Every work package has its required handoff and acceptance evidence or a documented unresolved condition.</li>
-          <li>One consolidated review response is incorporated.</li>
-          <li>Unresolved conditions and approved departures are recorded rather than concealed.</li>
-        </ul>
-      </div>
+    <section class="section" id="inputs">
+      <h2>5. Production inputs and responsibilities</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Responsibility</th><th>Owner</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td>Written authorization of the one-sheet trial</td><td>BDPC</td><td>Complete</td></tr>
+          <tr><td>$600 payment</td><td>BDPC</td><td>Awaiting payment</td></tr>
+          <tr><td>Point cloud and supporting information</td><td>BDPC</td><td>Provided / confirm final controlling set</td></tr>
+          <tr><td>AutoCAD version, title block, CTB/STB, and applicable BDPC standards</td><td>BDPC + CAD Guardian</td><td>Confirm before production</td></tr>
+          <tr><td>Monthly AutoCAD license and production environment</td><td>CAD Guardian</td><td>Purchase/setup after payment</td></tr>
+        </tbody>
+      </table></div>
     </section>
 
-    <section class="section" id="change-control">
-      <h2>9. Change control</h2>
-      <p>Scope additions, extra sheets, additional or fragmented review rounds, missing-input reconstruction, third-party coordination, effort beyond the 40.0-hour ceiling, and services outside the listed deliverables require written authorization. They are billed at $90/hour unless a separate fixed fee is agreed in writing.</p>
+    <section class="section" id="acceptance">
+      <h2>6. Acceptance and limitations</h2>
+      <ul>
+        <li>The controlling authorization is Brian Dillman’s July 21, 2026 email directing CAD Guardian to proceed with the one-sheet $600 assignment for completion by 4:00 PM on July 22, 2026.</li>
+        <li>The floor plan is based on the supplied point cloud and supporting information; unresolved conflicts or unavailable conditions will be flagged rather than invented.</li>
+        <li>No survey-grade accuracy, registration certification, architectural/engineering certification, or code compliance is represented.</li>
+        <li>Native production and delivery remain subject to the agreed runtime, standards, and plotting setup.</li>
+      </ul>
     </section>
 
-    <div class="notice"><strong>Current technical state:</strong> native CAD production has not begun. No final native DWG or production PDF exists. Native openability, dependencies, title-block behavior, layouts, plot styles, page setup, and plot fidelity remain subject to licensed-runtime validation.</div>
-
-    <section class="authorization" id="authorize">
-      <h2>10. Authorization</h2>
-      <p>To authorize, use the email action below or reply <strong>Authorized</strong> in the existing project correspondence. Confirm the fixed-fee scope, 40-hour ceiling, controlling input package, runtime path, and start-payment arrangement. Production begins only when all four kickoff gates are complete.</p>
+    <section class="authorization" id="activate">
+      <h2>Activate the authorized assignment</h2>
+      <p>Written authorization is complete. To activate production and reserve the delivery effort:</p>
       <ol>
-        <li>Authorize the $3,200 fixed-fee scope, 40-hour absolute ceiling, and one consolidated review round.</li>
-        <li>Confirm the controlling project inputs.</li>
-        <li>Provide or initiate licensed runtime access.</li>
-        <li>Arrange the $1,600 start payment.</li>
+        <li>Complete the $600 payment through the secure link.</li>
+        <li>Confirm the target AutoCAD version, title block, CTB/STB, and applicable BDPC standards.</li>
+        <li>CAD Guardian will purchase the AutoCAD subscription, complete the native setup, and begin the one-day floor-plan work.</li>
       </ol>
-      <a class="action" data-authorize href="mailto:tsmithcad@gmail.com">Authorize by email</a>
-      <div class="signatures"><div class="signature-line">Authorized for BDPC / date</div><div class="signature-line">CAD Guardian acknowledgment / date</div></div>
+      <a class="action" href="https://buy.stripe.com/dRm5kCgwF17vbGC4yZe3e03" target="_blank" rel="noopener">Pay $600 and activate production</a>
     </section>
 
-    <div class="footer"><span>CAD Guardian LLC · Dunn Residence · SOW revision 2026.07.21.3</span><span>Current revision · Prior issued revision retained in the archive</span></div>
+    <div class="signatures">
+      <div class="signature-line">Brian Dillman, AIA · BDPC · Written authorization received July 21, 2026</div>
+      <div class="signature-line">Thomas Smith · CAD Guardian LLC</div>
+    </div>
+
+    <div class="footer"><span>Current authorized SOW · Existing Main Level As-Built Floor Plan</span><span><a href="archive/">Revision archive</a> · <a href="/bdpc/data/current-authorization.json">Authorization data</a></span></div>
   </main>
-  <script src="sow.js?v=20260721.3" defer></script>
 </body>
 </html>
