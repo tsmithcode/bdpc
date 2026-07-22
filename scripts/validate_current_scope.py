@@ -36,7 +36,7 @@ ACTIVE_FILES = [
 ]
 EXPECTED_PANELS = [
     "overview", "milestones", "files", "standards", "automation",
-    "cad-prep", "delivery", "commercial", "updates", "runtime",
+    "glossary", "cad-prep", "delivery", "commercial", "updates", "runtime",
 ]
 REQUIRED_STANDARD_RULES = {
     "Residential dimension precision": "1/2 inch",
@@ -87,6 +87,14 @@ def main() -> None:
     require(len(controls["automation_register"]) >= 14, "automation register was oversimplified")
     require(len(controls["qa_register"]) >= 20, "QA register was oversimplified")
     require(len(controls["risk_register"]) >= 8, "risk register was oversimplified")
+    require(len(controls.get("glossary_register", [])) >= 30, "glossary register was oversimplified")
+    glossary_terms = {item["term"] for item in controls["glossary_register"]}
+    for term in [
+        "Native AutoCAD DWG", "PDF", "Trace master DWG/DXF", "Licensed AutoCAD runtime",
+        "TCADD.dwg", "1419 Allene/Jurgena", "CTB/STB", "Xref", "Plot QA",
+        "Unresolved-condition disclosure", "BDPC acceptance",
+    ]:
+        require(term in glossary_terms, f"glossary term missing: {term}")
 
     standards = {item["standard"]: item["rule"] for item in doctrine["standards_register"]}
     for standard, required_text in REQUIRED_STANDARD_RULES.items():
@@ -148,7 +156,7 @@ def main() -> None:
     for token in [
         "standards_register", "source_hierarchy", "enterprise_controls",
         "automation_register", "cad_prep_register", "qa_register",
-        "risk_register", "decision_log", "zero_friction_activation",
+        "risk_register", "decision_log", "zero_friction_activation", "glossary_register",
         "Cutting-edge, not bleeding-edge", "1/2 inch", "3.5 inches",
     ]:
         require(token in script or token in DOCTRINE_PATH.read_text(encoding="utf-8") or token in CONTROLS_PATH.read_text(encoding="utf-8"), f"enterprise preservation token missing: {token}")

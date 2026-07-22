@@ -1,7 +1,7 @@
 {
   "schema_version": "1.2",
-  "revision": "2026.07.22-publicscope.1",
-  "updated_at": "2026-07-22T15:25:00-04:00",
+  "revision": "2026.07.22-glossary.1",
+  "updated_at": "2026-07-22T15:45:00-04:00",
   "project": "Dunn Residence",
   "client": "BDPC Architects",
   "provider": "CAD Guardian LLC",
@@ -191,7 +191,8 @@
     "trace_reference_package": "bdpc_pointcloud_slices_20260722",
     "active_public_scope": "Client-safe public tabs expose only mission-critical file roles, standards, CAD-prep status, runtime gate, delivery/QA status, and acceptance boundaries.",
     "trace_ready_run": "codex-floorplan-absolute-ceiling-package-20260722-1202/runs/20260722-151236",
-    "starting_template_dwg": 1
+    "starting_template_dwg": 1,
+    "glossary_terms": 34
   },
   "supersedes": {
     "scope": "Prior broader proposal",

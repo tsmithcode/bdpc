@@ -683,6 +683,246 @@
     "acceptance_message": "Source roles, standards, and trace references are ready. The remaining production gate is AutoCAD license/runtime availability plus final scale/source confirmation."
   },
   "deadline_control": "Production is ready to resume when licensed AutoCAD access is available; delivery timing must reflect the license gate and final native QA.",
-  "revision": "2026.07.22-publicscope.1",
-  "updated_at": "2026-07-22T15:25:00-04:00"
+  "revision": "2026.07.22-glossary.1",
+  "updated_at": "2026-07-22T15:45:00-04:00",
+  "glossary_register": [
+    {
+      "term": "Existing Main Level As-Built Floor Plan",
+      "category": "Delivery",
+      "meaning": "The only authorized drawing sheet: existing main level floor plan only.",
+      "delivery_relevance": "Defines what the DWG/PDF must contain.",
+      "action_or_limit": "Do not add proposed, site, other-floor, section, elevation, or design work."
+    },
+    {
+      "term": "Existing conditions only",
+      "category": "Scope",
+      "meaning": "Draw observed/source-supported current conditions, not new design intent.",
+      "delivery_relevance": "Prevents scope creep from older proposal material.",
+      "action_or_limit": "Unsupported or proposed conditions are excluded unless Brian authorizes them."
+    },
+    {
+      "term": "Native AutoCAD DWG",
+      "category": "Delivery",
+      "meaning": "The editable AutoCAD drawing file BDPC receives.",
+      "delivery_relevance": "Primary deliverable must open and remain usable in the target AutoCAD workflow.",
+      "action_or_limit": "Requires final licensed AutoCAD openability, dependency, and audit checks."
+    },
+    {
+      "term": "PDF",
+      "category": "Delivery",
+      "meaning": "The plotted sheet exported from the final visible DWG.",
+      "delivery_relevance": "Client-readable issue format and visual check record.",
+      "action_or_limit": "Must be legible, correctly framed, unclipped, and consistent with the DWG."
+    },
+    {
+      "term": "SOW V4",
+      "category": "Authority",
+      "meaning": "Current concise one-page working scope reference.",
+      "delivery_relevance": "Controls active fee, scope, and commercial boundary.",
+      "action_or_limit": "Earlier broader proposals are archive-only."
+    },
+    {
+      "term": "Email authorization",
+      "category": "Authority",
+      "meaning": "Brian authorized the one-sheet trial by email.",
+      "delivery_relevance": "Allows work to proceed under the current scope.",
+      "action_or_limit": "Signature block remains not executed; disclose as current status."
+    },
+    {
+      "term": "Payment due after delivery",
+      "category": "Commercial",
+      "meaning": "Payment is not a pre-production blocker under the current agreement.",
+      "delivery_relevance": "Keeps production gate focused on AutoCAD/runtime and source confirmation.",
+      "action_or_limit": "Collect after accepted DWG/PDF delivery."
+    },
+    {
+      "term": "Licensed AutoCAD runtime",
+      "category": "Runtime",
+      "meaning": "The full AutoCAD environment needed for final drafting, dependencies, and plotting.",
+      "delivery_relevance": "Main remaining production gate.",
+      "action_or_limit": "Do not represent the final DWG/PDF as complete until this workflow passes."
+    },
+    {
+      "term": "AutoCAD Core Console",
+      "category": "Runtime",
+      "meaning": "Headless AutoCAD tool that created/evaluated the starting template.",
+      "delivery_relevance": "Useful preflight evidence, but not final manual drafting by itself.",
+      "action_or_limit": "Does not replace final licensed AutoCAD review and plot QA."
+    },
+    {
+      "term": "Starting template DWG",
+      "category": "CAD Prep",
+      "meaning": "Clean trace-ready DWG created from the standards/template path.",
+      "delivery_relevance": "Starting point for final production drafting.",
+      "action_or_limit": "Not the final deliverable; it contains setup/reference state only."
+    },
+    {
+      "term": "Trace master DWG/DXF",
+      "category": "Source",
+      "meaning": "Plan/wall-height trace reference generated from point-cloud slices.",
+      "delivery_relevance": "Primary drafting reference for walls, openings, and major features.",
+      "action_or_limit": "Trace aid only; final issued linework requires manual cleanup and QA."
+    },
+    {
+      "term": "LAS",
+      "category": "Source",
+      "meaning": "Point-cloud file format used by the scan sessions.",
+      "delivery_relevance": "Measured source evidence behind the trace references.",
+      "action_or_limit": "Use 20260710222125 as primary and support scans for unclear zones."
+    },
+    {
+      "term": "LiDAR / point cloud",
+      "category": "Source",
+      "meaning": "Measured scan evidence of existing conditions.",
+      "delivery_relevance": "Supports geometry and feature placement.",
+      "action_or_limit": "Measured evidence, not automatic truth; reconcile and disclose uncertainty."
+    },
+    {
+      "term": "Support scans 20260710222318 and 20260710222414",
+      "category": "Source",
+      "meaning": "Additional scan sessions for unclear interior areas.",
+      "delivery_relevance": "Reduces uncertainty where the primary trace is ambiguous.",
+      "action_or_limit": "Use to resolve interior zones; do not force certainty where evidence remains weak."
+    },
+    {
+      "term": "Area PNG",
+      "category": "Source",
+      "meaning": "Dimensioned/gross area reference image.",
+      "delivery_relevance": "Useful for gross area and scale reconciliation.",
+      "action_or_limit": "Never generate final geometry from this PNG alone."
+    },
+    {
+      "term": "TCADD.dwg",
+      "category": "Standards",
+      "meaning": "Model-space drafting logic and block/vocabulary reference.",
+      "delivery_relevance": "Helps match BDPC drafting behavior.",
+      "action_or_limit": "Standards reference only; not Dunn project geometry."
+    },
+    {
+      "term": "1419 Allene/Jurgena",
+      "category": "Standards",
+      "meaning": "Brian-provided gold-standard drawing package.",
+      "delivery_relevance": "Guides title, sheet, fonts, dimensions, lineweights, and plotting style.",
+      "action_or_limit": "Presentation/style reference only; not Dunn geometry."
+    },
+    {
+      "term": "Model space",
+      "category": "CAD",
+      "meaning": "AutoCAD area where real-size drawing geometry is drafted.",
+      "delivery_relevance": "Walls/openings/features should be clean and measurable here.",
+      "action_or_limit": "Keep rational geometry; avoid cosmetic-only fixes."
+    },
+    {
+      "term": "Paper space / layout",
+      "category": "CAD",
+      "meaning": "AutoCAD sheet environment for title block, viewport, notes, and plotting.",
+      "delivery_relevance": "Controls final plotted PDF appearance.",
+      "action_or_limit": "Match BDPC/1419 presentation where possible."
+    },
+    {
+      "term": "Viewport",
+      "category": "CAD",
+      "meaning": "Paper-space window showing model-space geometry at a sheet scale.",
+      "delivery_relevance": "Affects what appears on the final PDF.",
+      "action_or_limit": "Verify scale, clipping, lock state, and framing before issue."
+    },
+    {
+      "term": "Title block",
+      "category": "CAD",
+      "meaning": "Sheet identity block with project/sheet/revision/issue information.",
+      "delivery_relevance": "Part of the final deliverable presentation.",
+      "action_or_limit": "Use BDPC/1419 standard fields where available; disclose missing dependencies."
+    },
+    {
+      "term": "CTB/STB",
+      "category": "CAD",
+      "meaning": "AutoCAD plot-style files controlling lineweight/color plotting.",
+      "delivery_relevance": "Critical to matching the expected PDF appearance.",
+      "action_or_limit": "Final plot QA must confirm the correct plot style or disclose substitution."
+    },
+    {
+      "term": "SHX / fonts",
+      "category": "CAD",
+      "meaning": "Text and shape dependencies used by AutoCAD drawings.",
+      "delivery_relevance": "Missing files can change drawing appearance or warnings.",
+      "action_or_limit": "Audit final DWG dependencies and disclose unresolved substitutions."
+    },
+    {
+      "term": "Xref",
+      "category": "CAD",
+      "meaning": "External reference attached to a DWG.",
+      "delivery_relevance": "Can affect title blocks, backgrounds, or reference geometry.",
+      "action_or_limit": "No broken or private absolute-path xrefs in final issue package."
+    },
+    {
+      "term": "Dimension precision",
+      "category": "Standards",
+      "meaning": "Displayed residential dimensions no finer than 1/2 inch unless Brian directs otherwise.",
+      "delivery_relevance": "Controls annotation style and review expectations.",
+      "action_or_limit": "Do not use rounding to hide avoidable geometric error."
+    },
+    {
+      "term": "3.5 inch wall baseline",
+      "category": "Standards",
+      "meaning": "Typical 2x4 framed walls start at 3.5 inches.",
+      "delivery_relevance": "Controls default wall thickness assumptions.",
+      "action_or_limit": "Use other thicknesses only when evidence or BDPC direction supports them."
+    },
+    {
+      "term": "Source hierarchy",
+      "category": "Source",
+      "meaning": "Priority order for deciding which evidence controls.",
+      "delivery_relevance": "Prevents silent conflicts between scans, references, standards, and inference.",
+      "action_or_limit": "Written direction, trace/source evidence, then standards/reference material; inference last."
+    },
+    {
+      "term": "Final scale/source confirmation",
+      "category": "QA",
+      "meaning": "Last check that units, scale, source coverage, and authority are responsible.",
+      "delivery_relevance": "Gate before final drafting confidence.",
+      "action_or_limit": "Stop if scale or coverage cannot be locked."
+    },
+    {
+      "term": "Native openability",
+      "category": "QA",
+      "meaning": "Final DWG opens in the target AutoCAD environment without critical issues.",
+      "delivery_relevance": "Required for a usable native deliverable.",
+      "action_or_limit": "Run before issue and record/disclose dependency problems."
+    },
+    {
+      "term": "Plot QA",
+      "category": "QA",
+      "meaning": "Check that the PDF matches the final visible DWG and sheet setup.",
+      "delivery_relevance": "Required before sending final PDF.",
+      "action_or_limit": "Verify framing, clipping, text, lineweights, scale, and legibility."
+    },
+    {
+      "term": "Unresolved-condition disclosure",
+      "category": "QA",
+      "meaning": "Clear note/log for material unknowns that could not be responsibly resolved.",
+      "delivery_relevance": "Protects against false certainty in the final package.",
+      "action_or_limit": "Disclose instead of inventing room names, swings, hidden construction, or unsupported dimensions."
+    },
+    {
+      "term": "Change control",
+      "category": "Scope",
+      "meaning": "Written approval required for added sheets, design work, changed inputs, or extra services.",
+      "delivery_relevance": "Protects schedule and fixed-fee scope.",
+      "action_or_limit": "Do not absorb new scope into the current one-sheet delivery."
+    },
+    {
+      "term": "Minor correction pass",
+      "category": "Delivery",
+      "meaning": "One consolidated correction for demonstrable drafting error or omission.",
+      "delivery_relevance": "Defines post-delivery included response.",
+      "action_or_limit": "Not a fragmented review round or new-scope redesign."
+    },
+    {
+      "term": "BDPC acceptance",
+      "category": "Delivery",
+      "meaning": "Brian/BDPC retain architectural interpretation and final professional acceptance.",
+      "delivery_relevance": "Final authority is not automated or transferred.",
+      "action_or_limit": "CAD Guardian produces controlled CAD; BDPC accepts professional use."
+    }
+  ]
 }

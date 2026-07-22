@@ -173,6 +173,24 @@
       <div class="truth-note"><strong>Professional boundary:</strong> BDPC retains architectural interpretation, code and permit responsibility, and final professional acceptance. CAD Guardian provides controlled CAD production, automation, and QA.</div>`;
   }
 
+  function renderGlossary(auth) {
+    const terms = Array.isArray(auth.glossary_register) ? auth.glossary_register : [];
+    const mustWatch = terms.filter(item => /scope|source|delivery|qa/i.test(item.category)).slice(0, 8);
+    return `${sectionHead('Glossary', 'Terms to keep final delivery aligned', 'Client-facing definitions for the words that control the DWG/PDF handoff, source authority, QA, and stop conditions.')}
+      <div class="enterprise-principle"><span>Alignment rule</span><strong>If a term below sounds wrong, correct it before final AutoCAD drafting.</strong><p>The glossary is here to prevent hidden assumptions, especially around source roles, final delivery, and what is not included.</p></div>
+      <div class="check-grid" style="margin-top:18px">
+        <article class="check-card"><h3>Terms most likely to affect delivery</h3>${list(mustWatch.map(item => `${item.term}: ${item.meaning}`))}</article>
+        <article class="check-card"><h3>Zero-friction rule</h3>${list([
+          'Object to any file role that is wrong',
+          'Confirm AutoCAD access when available',
+          'Expect unsupported conditions to be disclosed instead of invented',
+          'Treat final DWG/PDF as complete only after native QA and plot QA pass'
+        ])}</article>
+      </div>
+      <h3 class="subhead">Delivery glossary</h3>
+      ${table(['Term', 'Category', 'Meaning', 'Why it matters', 'Action / limit'], terms.map(item => [item.term, item.category, item.meaning, item.delivery_relevance, item.action_or_limit]))}`;
+  }
+
   function renderAutomation(auth) {
     const currentAutomation = byId(auth.automation_register, ['AUT-01', 'AUT-03', 'AUT-04', 'AUT-08', 'AUT-09', 'AUT-11', 'AUT-14']);
     return `${sectionHead('Automation', 'What automation has done and what it is not allowed to decide', 'Only client-relevant controls are shown here. Full internal logs stay out of the public surface.')}
@@ -269,6 +287,7 @@
     milestones: renderMilestones,
     files: renderFiles,
     standards: renderStandards,
+    glossary: renderGlossary,
     automation: renderAutomation,
     'cad-prep': renderCadPrep,
     delivery: renderDelivery,

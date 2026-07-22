@@ -1,8 +1,8 @@
 {
   "database": "data/bdpc_client_os.sqlite",
   "database_download_name": "bdpc_client_os.sqlite",
-  "generated_at": "2026-07-22T15:25:00-04:00",
-  "revision": "2026.07.22-publicscope.1",
+  "generated_at": "2026-07-22T15:45:00-04:00",
+  "revision": "2026.07.22-glossary.1",
   "parts": [
     "data/sqlite/part-01.b64",
     "data/sqlite/part-02.b64",
@@ -16,7 +16,8 @@
     "data/sqlite/part-10.b64",
     "data/sqlite/part-11.b64",
     "data/sqlite/part-12.b64",
-    "data/sqlite/part-13.b64"
+    "data/sqlite/part-13.b64",
+    "data/sqlite/part-14.b64"
   ],
   "files": {
     "data/README.txt": {
@@ -24,28 +25,28 @@
       "sha256": "26d3846e0f9d1f4fd7c1f067b9da70a7276b9bb913c5f43429a65d2aa860e380"
     },
     "data/bdpc_client_os.sqlite": {
-      "bytes": 155648,
-      "sha256": "8d7a48d37deb857fcf7aa99f79c595da237666d5c1dadc496fb5ff205840bece"
+      "bytes": 163840,
+      "sha256": "5eb5c711fc69f9ebf9f6c332c9e37dcf7972ce1185fd5786fb20b70691a394c2"
     },
     "data/project.json": {
-      "bytes": 16696,
-      "sha256": "3e7493eb251f84ca84193c4406bfdae1c5ecdceb412eb85724243502722bf348"
+      "bytes": 16693,
+      "sha256": "403543f43219cc5a6cc837ca617ae1de2359508026b25dc82b242e23a646414a"
     },
     "data/current-authorization.json": {
-      "bytes": 10628,
-      "sha256": "db95e7f7820da2e7b041439528d1194a0f5e696c70a318e6a2748649dd6bd6d1"
+      "bytes": 10652,
+      "sha256": "d96715d468237b471c181e7fdb32e0bb7aa284e973c6954cf163c54465d1db95"
     },
     "data/operating-doctrine.json": {
-      "bytes": 16352,
-      "sha256": "5d5d96637b3529089543102d5819ddb319dbddcf0bea0d4a0600e1456c7c8500"
+      "bytes": 16349,
+      "sha256": "de9f309c9d55248ed4825411894c079ef6a3c086493dcb50691c89f2daa2efd7"
     },
     "data/production-controls.json": {
-      "bytes": 26904,
-      "sha256": "a55b932b1e5bccfcff4b0d6cbf2be2b05e98fe8c4aaf3984695f4338cc56d751"
+      "bytes": 38542,
+      "sha256": "409c1d1dcde4742b1fb4be7f7e500de64bbe350d80b975d14a7e602e10664b58"
     },
     "data/release.json": {
-      "bytes": 144,
-      "sha256": "d4151d8f9217964d24c73c957a914279d7f8872dd0148131dc1fbf51ea5f79b0"
+      "bytes": 152,
+      "sha256": "8fc3f3f5d9a8a24fdf731aee2f265edb79bb5aa663e3daa2f6d0d6627c3e9487"
     },
     "data/schema.sql": {
       "bytes": 3663,
@@ -53,11 +54,11 @@
     },
     "data/sqlite/part-01.b64": {
       "bytes": 16000,
-      "sha256": "5c12b2b3d418ad519088518abe50ffe93ac0f5e7c6348b644e1964de6219f04e"
+      "sha256": "851a8fa036d36829c0fcd19215858e58174d3e2bf8620850f83cacab529dd97a"
     },
     "data/sqlite/part-02.b64": {
       "bytes": 16000,
-      "sha256": "2feabf09c265bad87ffb140b4c07c60f80824aeff5abe05c44b800c5e10893bf"
+      "sha256": "2ac53ec3c292c0895044a4b9890e826ec4cf91ce73143a53af6cab4cd7effdbb"
     },
     "data/sqlite/part-03.b64": {
       "bytes": 16000,
@@ -93,16 +94,20 @@
     },
     "data/sqlite/part-11.b64": {
       "bytes": 16000,
-      "sha256": "91cc19f5ba12d83252b3ae8f6735dffb5b16cb2e5dc075ecaa17e98d07651189"
+      "sha256": "b81bab02af516f53b54f51883a200f9b13bcdf7af9276e6aa5ac131e4447e186"
     },
     "data/sqlite/part-12.b64": {
       "bytes": 16000,
-      "sha256": "66f39a060b4a67fda830d683e4ae2580eb7a7128de55e8313e5abc608b5053c5"
+      "sha256": "829f9d57c518a4418533acabf1cb5654721d79a34e200e96b9fc6e4561a286d9"
     },
     "data/sqlite/part-13.b64": {
-      "bytes": 15532,
-      "sha256": "b0e490f6e56aae33186568ab20c4e987904801af20166a7ee6c0c1f6f0ba278d"
+      "bytes": 16000,
+      "sha256": "4ffa8367c2caf310323646ca05b1edcffd97cbcc61f7020377ef9bfef1bedaca"
+    },
+    "data/sqlite/part-14.b64": {
+      "bytes": 10456,
+      "sha256": "864c0820a572ab534b9cf327cbdd870c10f3affe6767352c234c77379b51296b"
     }
   },
-  "note": "Current one-sheet public data bundle. Legacy report CSV files are not part of the active public tab source."
+  "note": "Current one-sheet public data bundle including glossary register."
 }
