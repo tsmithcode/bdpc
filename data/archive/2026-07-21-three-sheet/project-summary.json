@@ -1,0 +1,28 @@
+{
+  "archive_schema": "1.0",
+  "archived_at": "2026-07-21T20:06:05Z",
+  "reason": "Superseded by Brian Dillman's written authorization of a one-sheet, one-day trial assignment",
+  "immutable_source_commit": "53bd430716718d7df01dc011abb21cbb234e7a7d",
+  "immutable_project_json": "https://github.com/tsmithcode/bdpc/blob/53bd430716718d7df01dc011abb21cbb234e7a7d/data/project.json",
+  "immutable_sow": "https://github.com/tsmithcode/bdpc/blob/53bd430716718d7df01dc011abb21cbb234e7a7d/sow/index.html",
+  "superseded_scope": {
+    "deliverables": [
+      "Existing Floor Plan",
+      "Proposed Floor Plan",
+      "Site/Area Plan"
+    ],
+    "fixed_fee_usd": 3200,
+    "start_payment_usd": 1600,
+    "final_payment_usd": 1600,
+    "additional_services": "$90/hour with written authorization",
+    "check_set_target": "3 business days after all kickoff gates",
+    "production_duration": "4–5 business days excluding client review",
+    "included_review": "1 consolidated review round",
+    "status": "superseded—not authorized for current production"
+  },
+  "current_authorization": {
+    "url": "/bdpc/data/current-authorization.json",
+    "sow_url": "/bdpc/sow/"
+  },
+  "archive_note": "Git history remains the exact byte-level archive. This summary makes the superseded commercial state easy to locate and compare without treating it as current scope."
+}
