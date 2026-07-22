@@ -1,9 +1,9 @@
 {
-  "schema_version": "1.0",
-  "revision": "2026.07.21-authorized-trial",
+  "schema_version": "1.1",
+  "revision": "2026.07.21-authorized-trial.2",
   "updated_at": "2026-07-21T20:06:05Z",
   "project": "Dunn Residence",
-  "client": "BDPC",
+  "client": "BDPC Architects",
   "provider": "CAD Guardian LLC",
   "authorization": {
     "status": "authorized",
@@ -22,12 +22,20 @@
       "Native AutoCAD DWG",
       "PDF"
     ],
+    "included": [
+      "One Existing Main Level As-Built Floor Plan",
+      "Existing walls, partitions, rooms, doors, windows, openings, stairs, fixed fixtures/equipment, and observed architectural context where supported",
+      "Confirmed dimensions, labels, notes, room names, title block, layers, styles, layout, viewport, page setup, and CTB/STB when supplied",
+      "Internal geometry, dependency, annotation, native-open, and plot QA",
+      "Controlled delivery package containing one native AutoCAD DWG and one PDF"
+    ],
     "excluded": [
       "Proposed floor plan",
       "Site or area plan",
-      "Design work",
-      "Permit-ready documents",
-      "Survey, architectural, engineering, code, zoning, structural, MEP, civil, or life-safety certification"
+      "Design work, alternates, demolition plans, or space planning",
+      "Other floors, elevations, sections, roof plans, reflected ceiling plans, details, BIM/3D modeling, rendering, or schedules",
+      "Field survey, certified as-built measurement, scan-registration certification, permit submission, or professional certification",
+      "Additional assignments, added sheets, design changes, fragmented reviews, or revisions based on new or changed inputs"
     ]
   },
   "commercial": {
@@ -35,40 +43,146 @@
     "payment_status": "awaiting payment",
     "payment_requirement": "Full payment before production begins",
     "payment_link": "https://buy.stripe.com/dRm5kCgwF17vbGC4yZe3e03",
-    "additional_services": "Not included in the trial unless separately authorized"
+    "effort_ceiling_hours": 8.0,
+    "minor_correction": "One consolidated minor correction pass limited to a demonstrable drafting error or omission, returned within two business days",
+    "additional_services": "$90/hour or a separately authorized fixed/day rate",
+    "valid_through": "2026-07-28"
   },
   "schedule": {
     "production_duration": "One working day",
     "delivery_due": "2026-07-22T16:00:00-04:00",
-    "delivery_due_display": "4:00 PM EDT on July 22, 2026"
+    "delivery_due_display": "4:00 PM EDT on July 22, 2026",
+    "clock_start_rule": "Production begins only after written authorization, full payment, controlling inputs, target AutoCAD and BDPC standards confirmation, licensed compatible runtime access, and a locked production day."
   },
   "activation_gates": [
     {
       "name": "Written authorization",
       "status": "complete",
+      "owner": "BDPC",
       "evidence": "Brian Dillman email received July 21, 2026"
     },
     {
       "name": "$600 payment",
       "status": "awaiting payment",
+      "owner": "BDPC",
       "evidence": "Secure Stripe payment link issued"
     },
     {
-      "name": "Licensed AutoCAD runtime",
-      "status": "awaiting purchase",
-      "evidence": "CAD Guardian will purchase the monthly AutoCAD subscription after payment is received"
+      "name": "Controlling point cloud and support package",
+      "status": "confirm final set",
+      "owner": "BDPC",
+      "evidence": "Identify the exact files that control production"
     },
     {
-      "name": "AutoCAD version, title block, CTB/STB, and BDPC standards confirmation",
+      "name": "AutoCAD version, title block, CTB/STB, fonts, xrefs, and BDPC standards",
       "status": "confirm before production",
-      "evidence": "To be discussed before native drafting begins"
+      "owner": "BDPC + CAD Guardian",
+      "evidence": "Native drawing and plotting basis must be reproducible"
+    },
+    {
+      "name": "Licensed compatible AutoCAD runtime",
+      "status": "awaiting activation",
+      "owner": "CAD Guardian",
+      "evidence": "Monthly AutoCAD subscription and native production environment"
+    },
+    {
+      "name": "Locked production day",
+      "status": "authorized for July 22",
+      "owner": "BDPC + CAD Guardian",
+      "evidence": "Delivery directed for 4:00 PM EDT on July 22, 2026"
     }
   ],
+  "work_plan": [
+    {
+      "sequence": 1,
+      "workstream": "Authorization and protected setup",
+      "hours": 0.75,
+      "status": "authorization complete; setup pending"
+    },
+    {
+      "sequence": 2,
+      "workstream": "Point-cloud and source reconciliation",
+      "hours": 1.25,
+      "status": "pending controlling-source confirmation"
+    },
+    {
+      "sequence": 3,
+      "workstream": "Existing main-level geometry production",
+      "hours": 2.75,
+      "status": "not started"
+    },
+    {
+      "sequence": 4,
+      "workstream": "Openings, rooms, content, dimensions, and notes",
+      "hours": 1.5,
+      "status": "not started"
+    },
+    {
+      "sequence": 5,
+      "workstream": "Native QA, plot QA, and delivery package",
+      "hours": 1.25,
+      "status": "not started"
+    },
+    {
+      "sequence": 6,
+      "workstream": "Managed reserve and minor correction allowance",
+      "hours": 0.5,
+      "status": "reserved only for documented in-scope issue"
+    }
+  ],
+  "standards_required": [
+    "Target AutoCAD/DWG version",
+    "Controlling BDPC title block",
+    "CTB or STB plotting standard",
+    "Layer, text, dimension, and annotation standards",
+    "Required fonts, shapes, xrefs, and object dependencies",
+    "File naming, layout, viewport, page setup, and issue requirements",
+    "Required room names and known source limitations"
+  ],
+  "automation_controls": [
+    "Scripts, point-cloud processing, AutoCAD APIs, AI-assisted visual analysis, and repeatable QA may accelerate production",
+    "All generated geometry and deliverables remain subject to human review",
+    "Automation does not replace BDPC architectural authority, source authority, or final professional acceptance",
+    "Source files remain protected; production uses controlled working copies",
+    "Unsupported dimensions, room names, openings, wall construction, and concealed conditions are not invented"
+  ],
+  "acceptance_criteria": [
+    "The package contains one Existing Main Level As-Built Floor Plan only, in native AutoCAD DWG and PDF formats",
+    "The DWG opens in the confirmed target version with no known production-critical dependency failure",
+    "The plan reflects the controlling point cloud and supporting information without proposed design or unsupported conditions",
+    "Walls and closed boundaries have no unexplained gaps, duplicates, or unreviewed candidate geometry",
+    "Doors, windows, openings, stairs, fixtures, and fixed equipment are placed where supported or disclosed as unresolved",
+    "Dimensions, labels, room names, and notes are source-supported or clearly qualified",
+    "The PDF is legible, correctly framed, free of clipping, and consistent with the final visible DWG",
+    "Material unresolved conditions or approved departures are disclosed rather than concealed"
+  ],
+  "change_control": [
+    "Added sheets or floors",
+    "Proposed plan, site work, or design changes",
+    "New or materially changed inputs after production begins",
+    "Point-cloud registration or transformation beyond the confirmed basis",
+    "Reconstruction of materially missing conditions or field verification",
+    "Additional or fragmented review rounds",
+    "Third-party coordination",
+    "Effort beyond the 8.0-hour ceiling"
+  ],
+  "evidence_snapshot": {
+    "source_files": 908,
+    "source_size_gib": 8.2,
+    "scan_sessions": 5,
+    "validated_sessions": 5,
+    "source_points": 91688946,
+    "full_source_figures": 25,
+    "plan_control_slices": 9,
+    "native_overlays": 5,
+    "reports": 8,
+    "registration_boundary": "Five native-coordinate scan pairs were analyzed: four showed weak overlap and one showed no material overlap. No transform, accepted registration tolerance, or survey-grade registration claim was adopted."
+  },
   "supersedes": {
     "scope": "Three-sheet $3,200 proposal",
     "status": "superseded by authorized one-sheet trial",
     "archive_url": "/bdpc/sow/archive/2026-07-21-three-sheet/",
     "archive_data_url": "/bdpc/data/archive/2026-07-21-three-sheet/project-summary.json"
   },
-  "truth_boundary": "The public analytical reports remain project-control evidence. The contractual delivery for this authorization is one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF."
+  "truth_boundary": "The report library remains project-control evidence. The contractual delivery for this authorization is one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF. BDPC retains architectural authority, interpretation, code and permit responsibility, and final professional acceptance."
 }
