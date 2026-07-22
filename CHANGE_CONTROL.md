@@ -5,15 +5,15 @@
 The active workspace separates three responsibilities so a scope change cannot erase useful operating knowledge:
 
 - `data/current-authorization.json` — active contractual, commercial, schedule, and scope authority
-- `data/operating-doctrine.json` — stable BDPC drafting standards, source hierarchy, enterprise controls, decisions, and evidence links
+- `data/operating-doctrine.json` — stable BDPC drafting standards, source hierarchy, enterprise controls, decisions, and historical evidence references
 - `data/production-controls.json` — activation gates, milestones, CAD preparation, automation, QA, risks, runtime, and zero-friction acceptance controls
 
-The active pages consume or align to those files:
+The active client pages are:
 
-- `/index.html` + `/authorization.js` — all ten enterprise workspace tabs
+- `/index.html` + `/authorization.js` + `/scope-focus.js` — ten enterprise workspace tabs with retired report access neutralized after rendering
 - `/sow/index.html` — current client-readable SOW
 - `/sow/current/index.html` + `/sow/current/manifest.json` — checksum-verified governing issued PDF
-- `/reports/index.html` — supporting evidence library
+- `/reports/index.html` — focused-scope disclaimer and expanded-reporting teaser only
 
 The current contractual state is:
 
@@ -30,7 +30,7 @@ The governing issued source document is SOW Version 3, revision `2026.07.21.4`. 
 
 ## Preserved operating doctrine
 
-Requirement reductions may narrow contractual output, but they must not delete reusable standards, evidence, decision history, QA controls, or production doctrine.
+Requirement reductions may narrow contractual output, but they must not delete reusable standards, decision history, QA controls, or production doctrine.
 
 The minimum preserved doctrine includes:
 
@@ -47,9 +47,35 @@ The minimum preserved doctrine includes:
 
 A rule that does not apply to the active assignment must be marked future, conditional, or not applicable. It must not be removed merely because the current scope is smaller.
 
+## Report-retirement policy
+
+Detailed project-control reports are not part of the active one-sheet client workspace.
+
+Previously emailed report URLs remain stable and must never expose stale or superseded report content. Each route redirects to `/reports/`, which must display:
+
+- A clear focused-scope disclaimer
+- The current one-sheet deliverable boundary
+- A `Return to Project Home` button
+- A link to the current SOW
+- A restrained teaser for optimized reporting available only through separate written authorization
+
+The preserved emailed routes are:
+
+- `/reports/`
+- `/reports/intake/`
+- `/reports/scan-visual/`
+- `/reports/las-header/`
+- `/reports/las-core/`
+- `/reports/registration/`
+- `/reports/completion/`
+- `/reports/context-visual/`
+- `/reports/cad-prep/`
+
+The home workspace must not actively advertise report access. `scope-focus.js` converts any report cards generated from preserved historical data into non-clickable expanded-scope teasers and removes report navigation links.
+
 ## Archive policy
 
-Historical commercial proposals are immutable audit records:
+Historical commercial proposals and report implementations remain immutable through Git history and archived data:
 
 - Human-readable SOW revisions: `sow/archive/`
 - Machine-readable revisions: `data/archive/`
@@ -66,12 +92,12 @@ Never edit an archived revision to make it look current. Create a new revision, 
 4. Update `data/current-authorization.json` only for active scope, fee, schedule, payment, or commercial authority.
 5. Update `data/operating-doctrine.json` only when an accepted standard, hierarchy, or decision is added or changed.
 6. Update `data/production-controls.json` for gates, milestones, CAD preparation, automation, QA, risks, runtime, or acceptance workflow.
-7. Publish any newly issued governing PDF under `sow/current/` and update its checksum manifest.
-8. Update the concise current SOW and report index only where needed.
-9. Run `python scripts/validate_current_scope.py` and `node --check authorization.js`.
+7. Preserve previously shared public URLs; retire stale content behind explicit status pages rather than breaking links.
+8. Publish any newly issued governing PDF under `sow/current/` and update its checksum manifest.
+9. Run `python scripts/validate_current_scope.py`, `node --check authorization.js`, and `node --check scope-focus.js`.
 10. Commit to `main`.
 11. Fast-forward `gh-pages` to the validated `main` commit.
-12. Verify `/bdpc/`, `/bdpc/sow/`, `/bdpc/sow/current/`, `/bdpc/reports/`, and the Stripe CTA.
+12. Verify `/bdpc/`, `/bdpc/sow/`, `/bdpc/sow/current/`, every preserved report route, and the Stripe CTA.
 
 ## Regression controls
 
@@ -86,9 +112,12 @@ The validation script checks:
 - The 1/2-inch dimension rule, 3.5-inch wall basis, block-reuse rule, model-space source, paper-space source, LiDAR boundary, unknown-condition rule, and conflict-escalation rule remain intact
 - Payment is the only remaining commercial acceptance action; redundant reconfirmation is not introduced
 - Root payment access works before JavaScript loads
-- Current SOW, report pages, and governing-document viewer expose the secure payment action
+- Active home navigation does not advertise retired reports
+- The focused-scope controller loads after the enterprise renderer and neutralizes dynamically generated report links
+- All previously emailed report routes resolve to the retirement disclaimer
+- The disclaimer includes a home redirect button and expanded-scope reporting teaser
 - Governing PDF segments reconstruct to the exact declared byte count and SHA-256
-- Current and archived paths are separated and directly linked
+- Current and archived paths remain separated and directly linked
 - `index.html` does not load the legacy three-sheet renderer
 
-The legacy evidence dataset and scripts may remain available for historical analysis, but they must not drive the active client workspace.
+The legacy evidence dataset and scripts may remain available in Git history or protected internal storage, but they must not drive the active client workspace.
