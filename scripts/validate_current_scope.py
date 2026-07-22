@@ -12,16 +12,29 @@ DOCTRINE_PATH = ROOT / "data" / "operating-doctrine.json"
 CONTROLS_PATH = ROOT / "data" / "production-controls.json"
 CURRENT_MANIFEST_PATH = ROOT / "sow" / "current" / "manifest.json"
 CURRENT_VIEWER_PATH = ROOT / "sow" / "current" / "index.html"
+REPORT_INDEX_PATH = ROOT / "reports" / "index.html"
+REPORT_ROUTES = [
+    ROOT / "reports" / "intake" / "index.html",
+    ROOT / "reports" / "scan-visual" / "index.html",
+    ROOT / "reports" / "las-header" / "index.html",
+    ROOT / "reports" / "las-core" / "index.html",
+    ROOT / "reports" / "registration" / "index.html",
+    ROOT / "reports" / "completion" / "index.html",
+    ROOT / "reports" / "context-visual" / "index.html",
+    ROOT / "reports" / "cad-prep" / "index.html",
+]
 ACTIVE_FILES = [
     ROOT / "index.html",
     ROOT / "authorization.js",
+    ROOT / "scope-focus.js",
     AUTH_PATH,
     DOCTRINE_PATH,
     CONTROLS_PATH,
     ROOT / "sow" / "index.html",
-    ROOT / "sow" / "current" / "index.html",
-    ROOT / "sow" / "current" / "manifest.json",
-    ROOT / "reports" / "index.html",
+    CURRENT_VIEWER_PATH,
+    CURRENT_MANIFEST_PATH,
+    REPORT_INDEX_PATH,
+    *REPORT_ROUTES,
 ]
 EXPECTED_PANELS = [
     "overview", "milestones", "files", "standards", "automation",
@@ -105,25 +118,42 @@ def main() -> None:
 
     index = (ROOT / "index.html").read_text(encoding="utf-8")
     script = (ROOT / "authorization.js").read_text(encoding="utf-8")
+    focus_script = (ROOT / "scope-focus.js").read_text(encoding="utf-8")
     sow = (ROOT / "sow" / "index.html").read_text(encoding="utf-8")
     viewer = CURRENT_VIEWER_PATH.read_text(encoding="utf-8")
     archive = (ROOT / "sow" / "archive" / "index.html").read_text(encoding="utf-8")
-    reports = (ROOT / "reports" / "index.html").read_text(encoding="utf-8")
+    report_index = REPORT_INDEX_PATH.read_text(encoding="utf-8")
     payment_link = auth["commercial"]["payment_link"]
     deliverable = auth["scope"]["deliverable"]
 
     require("os.js" not in index, "active index must not load the legacy three-sheet renderer")
     require("sqlite.js" not in index, "active index must not load the legacy evidence renderer")
     require("authorization.js" in index, "active index must load the current authorization renderer")
+    require("scope-focus.js" in index, "active index must load the focused-scope controller")
+    require(index.index("authorization.js") < index.index("scope-focus.js"), "focused-scope controller must load after the renderer")
+    require('href="/bdpc/reports/"' not in index, "active header must not advertise retired reports")
+    require("REPORT_PREFIX" in focus_script and "MutationObserver" in focus_script, "focused-scope controller must neutralize dynamically rendered report links")
+    require("Expanded-scope reporting" in focus_script and "Expanded scope" in focus_script, "expanded reporting teaser must remain visible without active report links")
     require("operating-doctrine.json" in script and "production-controls.json" in script, "enterprise data sources must drive the renderer")
-    require(deliverable in sow and deliverable in reports, "current deliverable must appear on SOW and report index")
-    require("commercial.payment_link" in script and payment_link in sow and payment_link in reports, "secure payment CTA must be available across active pages")
+    require(deliverable in sow and deliverable in report_index, "current deliverable must appear on SOW and report retirement notice")
+    require("commercial.payment_link" in script and payment_link in sow, "secure payment CTA must remain available on active production pages")
     require(f'href="{payment_link}"' in index, "root payment CTA must work before JavaScript loads")
     require("/bdpc/sow/current/" in index and "/bdpc/sow/current/" in archive, "issued V3 document must be directly linked from current navigation and archive")
     require("crypto.subtle.digest('SHA-256'" in viewer, "issued V3 viewer must verify SHA-256 before release")
     require(payment_link in viewer, "issued V3 viewer must expose the secure payment CTA")
-    require("$600" in index and "$600" in sow and "$600" in reports, "active fee must be visible across active pages")
-    require("8.0" in sow and "8.0" in reports, "effort ceiling must be visible on current SOW and report index")
+    require("$600" in index and "$600" in sow, "active fee must be visible across active production pages")
+    require("8.0" in sow, "effort ceiling must be visible on the current SOW")
+
+    require('data-report-retired="true"' in report_index, "report index must be explicitly retired")
+    require("Reports paused for the current scope" in report_index, "report index must explain the focused-scope pause")
+    require('href="/bdpc/"' in report_index and "Return to Project Home" in report_index, "report disclaimer must provide a home redirect button")
+    require("Expanded scope teaser" in report_index and "Optimized reporting" in report_index, "report disclaimer must include the expanded-scope reporting teaser")
+    require(payment_link not in report_index, "retired report page must not distract with a payment CTA")
+
+    for report_path in REPORT_ROUTES:
+        retired = report_path.read_text(encoding="utf-8")
+        require('data-report-retired="true"' in retired, f"emailed report route is not retired: {report_path.relative_to(ROOT)}")
+        require('url=/bdpc/reports/' in retired, f"emailed report route does not redirect to the disclaimer: {report_path.relative_to(ROOT)}")
 
     for token in [
         "standards_register", "source_hierarchy", "enterprise_controls",
@@ -143,7 +173,7 @@ def main() -> None:
     require((ROOT / archive_data_url).exists(), "machine-readable superseded data archive is missing")
     require((ROOT / "data" / "archive" / "index.json").exists(), "archive catalog is missing")
 
-    print("Current-scope enterprise validation passed.")
+    print("Current-scope enterprise validation passed with report-retirement controls.")
 
 
 if __name__ == "__main__":
