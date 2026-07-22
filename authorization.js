@@ -108,16 +108,14 @@
         <article><span>QA acceptance gates</span><strong>${auth.qa_register.length} explicit checks</strong></article>
         <article><span>Enterprise controls</span><strong>${auth.enterprise_controls.length} active controls</strong></article>
         <article><span>Open risks</span><strong>${openRisks}</strong></article>
-        <article><span>Supporting reports</span><strong>${auth.reports.length} client-safe controls</strong></article>
+        <article><span>Evidence status</span><strong>Paused for current scope</strong></article>
       </div>
       ${sectionHead('Executive control', 'Activation gates', 'Authorization, standards, payment, source freeze, runtime, and scheduling are separate auditable states.')}
       ${gates(auth)}
       ${sectionHead('Business objective', 'What this operating system is designed to accomplish')}
       <div class="check-grid"><article class="check-card"><h3>Executive objectives</h3>${list(auth.executive_objectives)}</article><article class="check-card"><h3>When AutoCAD is available</h3>${list(auth.zero_friction_activation.provider_actions_after_payment, true)}</article></div>
       ${sectionHead('Enterprise governance', 'Control framework', 'Scope reductions must not erase standards, evidence, QA, or decision history.')}
-      ${table(['Control ID', 'Enterprise control', 'State', 'Evidence'], auth.enterprise_controls.map(item => [item.id, item.control, { status: item.state }, item.evidence]))}
-      ${sectionHead('Evidence access', 'Client-safe control library', 'Supporting evidence remains available without expanding the authorized one-sheet delivery.', `<a href="${REPORTS_URL}">Open all reports →</a>`)}
-      ${reportCards(auth)}`;
+      ${table(['Control ID', 'Enterprise control', 'State', 'Evidence'], auth.enterprise_controls.map(item => [item.id, item.control, { status: item.state }, item.evidence]))}`;
   }
 
   function renderMilestones(auth) {

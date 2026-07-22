@@ -120,7 +120,7 @@ def main() -> None:
     require(index.index("authorization.js") < index.index("scope-focus.js"), "focused-scope controller must load after the renderer")
     require('href="/bdpc/reports/"' not in index, "active header must not advertise retired reports")
     require("REPORT_PREFIX" in focus_script and "MutationObserver" in focus_script, "focused-scope controller must neutralize dynamically rendered report links")
-    require("Expanded-scope reporting" in focus_script and "Expanded scope" in focus_script, "expanded reporting teaser must remain visible without active report links")
+    require("Expanded-scope reporting" not in focus_script and "Expanded scope" not in focus_script, "disabled expanded-reporting teaser must stay hidden")
     require("operating-doctrine.json" in script and "production-controls.json" in script, "enterprise data sources must drive the renderer")
     require(deliverable in sow and deliverable in report_index, "current deliverable must appear on SOW and report retirement notice")
     require("SOW V4" in index and "SOW V4" in sow, "current SOW V4 must be visible before JavaScript loads")
@@ -136,7 +136,8 @@ def main() -> None:
     require('data-report-retired="true"' in report_index, "report index must be explicitly retired")
     require("Reports paused for the current scope" in report_index, "report index must explain the focused-scope pause")
     require('href="/bdpc/"' in report_index and "Return to Project Home" in report_index, "report disclaimer must provide a home redirect button")
-    require("Expanded scope teaser" in report_index and "Optimized reporting" in report_index, "report disclaimer must include the expanded-scope reporting teaser")
+    for hidden_text in ["Evidence access", "Expanded-scope reporting", "Expanded scope teaser", "Optimized reporting"]:
+        require(hidden_text not in script and hidden_text not in focus_script and hidden_text not in report_index, f"disabled reporting teaser remains visible: {hidden_text}")
     require(auth["commercial"]["payment_link"] not in report_index, "retired report page must not distract with a payment CTA")
 
     for report_path in REPORT_ROUTES:

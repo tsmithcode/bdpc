@@ -15,13 +15,7 @@
   }
 
   function retireReportCard(anchor) {
-    const card = document.createElement('article');
-    card.className = anchor.className;
-    card.setAttribute('aria-label', `${anchor.querySelector('h3')?.textContent || 'Reporting capability'} — available with expanded scope`);
-    card.innerHTML = anchor.innerHTML;
-    const action = card.querySelector('strong');
-    if (action) action.textContent = 'Expanded scope';
-    anchor.replaceWith(card);
+    anchor.remove();
   }
 
   function applyFocusedScope() {
@@ -33,21 +27,10 @@
       else anchor.remove();
     });
 
-    document.querySelectorAll('.enterprise-metrics article').forEach(article => {
-      const label = article.querySelector('span');
-      const value = article.querySelector('strong');
-      if (label?.textContent.trim() !== 'Supporting reports') return;
-      label.textContent = 'Expanded reporting';
-      if (value) value.textContent = 'Available by separate scope';
-    });
-
     document.querySelectorAll('.section-head').forEach(head => {
       const title = head.querySelector('h2');
       if (!title || !/client-safe control library/i.test(title.textContent)) return;
-      title.textContent = 'Expanded-scope reporting';
-      const copy = head.querySelector('p');
-      if (copy) copy.textContent = 'Detailed optimized reports are intentionally paused for the current one-sheet trial and can be restored only through separate written authorization.';
-      head.querySelectorAll('a').forEach(anchor => anchor.remove());
+      head.remove();
     });
   }
 
