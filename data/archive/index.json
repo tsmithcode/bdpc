@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-07-21T20:06:05Z",
+  "current": {
+    "authorization": "/bdpc/data/current-authorization.json",
+    "sow": "/bdpc/sow/",
+    "status": "Authorized one-sheet trial"
+  },
+  "revisions": [
+    {
+      "id": "2026-07-21-three-sheet",
+      "title": "Three-Sheet Fixed-Fee Proposal",
+      "status": "superseded",
+      "scope": "Existing Floor Plan, Proposed Floor Plan, and Site/Area Plan",
+      "fixed_fee_usd": 3200,
+      "sow_archive": "/bdpc/sow/archive/2026-07-21-three-sheet/",
+      "data_summary": "/bdpc/data/archive/2026-07-21-three-sheet/project-summary.json",
+      "immutable_commit": "53bd430716718d7df01dc011abb21cbb234e7a7d",
+      "superseded_by": "Brian Dillman's written authorization of the one-sheet $600 trial"
+    }
+  ],
+  "archive_policy": "Current authorization and current SOW are separate from historical commercial revisions. Git history remains the byte-level record; this catalog provides a stable, client-readable revision index."
+}
