@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "revision": "2026.07.21-authorized-trial",
+  "updated_at": "2026-07-21T20:06:05Z",
+  "project": "Dunn Residence",
+  "client": "BDPC",
+  "provider": "CAD Guardian LLC",
+  "authorization": {
+    "status": "authorized",
+    "authorized_by": "Brian Dillman, AIA",
+    "authorized_at": "2026-07-21T20:06:05Z",
+    "source": "Written email authorization",
+    "statement": "Please proceed for completion by 4:00 pm 07/22/26, Deliver in ACAD and PDF $600.00, Existing Main Level As-Built Floor Plan."
+  },
+  "scope": {
+    "type": "one-day trial assignment",
+    "sheet_count": 1,
+    "deliverable": "Existing Main Level As-Built Floor Plan",
+    "condition": "existing conditions only",
+    "drafting_basis": "Point cloud and supporting information provided by BDPC",
+    "formats": [
+      "Native AutoCAD DWG",
+      "PDF"
+    ],
+    "excluded": [
+      "Proposed floor plan",
+      "Site or area plan",
+      "Design work",
+      "Permit-ready documents",
+      "Survey, architectural, engineering, code, zoning, structural, MEP, civil, or life-safety certification"
+    ]
+  },
+  "commercial": {
+    "fixed_fee_usd": 600,
+    "payment_status": "awaiting payment",
+    "payment_requirement": "Full payment before production begins",
+    "payment_link": "https://buy.stripe.com/dRm5kCgwF17vbGC4yZe3e03",
+    "additional_services": "Not included in the trial unless separately authorized"
+  },
+  "schedule": {
+    "production_duration": "One working day",
+    "delivery_due": "2026-07-22T16:00:00-04:00",
+    "delivery_due_display": "4:00 PM EDT on July 22, 2026"
+  },
+  "activation_gates": [
+    {
+      "name": "Written authorization",
+      "status": "complete",
+      "evidence": "Brian Dillman email received July 21, 2026"
+    },
+    {
+      "name": "$600 payment",
+      "status": "awaiting payment",
+      "evidence": "Secure Stripe payment link issued"
+    },
+    {
+      "name": "Licensed AutoCAD runtime",
+      "status": "awaiting purchase",
+      "evidence": "CAD Guardian will purchase the monthly AutoCAD subscription after payment is received"
+    },
+    {
+      "name": "AutoCAD version, title block, CTB/STB, and BDPC standards confirmation",
+      "status": "confirm before production",
+      "evidence": "To be discussed before native drafting begins"
+    }
+  ],
+  "supersedes": {
+    "scope": "Three-sheet $3,200 proposal",
+    "status": "superseded by authorized one-sheet trial",
+    "archive_url": "/bdpc/sow/archive/2026-07-21-three-sheet/",
+    "archive_data_url": "/bdpc/data/archive/2026-07-21-three-sheet/project-summary.json"
+  },
+  "truth_boundary": "The public analytical reports remain project-control evidence. The contractual delivery for this authorization is one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF."
+}
