@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "project": "Dunn Residence",
+  "client": "BDPC Architects",
+  "provider": "CAD Guardian LLC",
+  "document": {
+    "display_name": "Dunn Residence Existing Main Level SOW V3",
+    "original_filename": "Dunn_Residence_Existing_Main_Level_SOW_V3.pdf",
+    "revision": "2026.07.21.4",
+    "pages": 5,
+    "size_bytes": 22974,
+    "sha256": "8a1195f91f909e7528d94ff9a1695cea977aa85acf60b609ee3e219367229602",
+    "encoding": "base64",
+    "parts": [
+      "pdf-parts/part00.b64",
+      "pdf-parts/part01.b64",
+      "pdf-parts/part02.b64",
+      "pdf-parts/part03.b64",
+      "pdf-parts/part04.b64",
+      "pdf-parts/part05.b64",
+      "pdf-parts/part06.b64"
+    ]
+  },
+  "authorization": {
+    "status": "authorized",
+    "authorized_by": "Brian Dillman, AIA",
+    "authorized_at": "2026-07-21T16:06:05-04:00",
+    "statement": "Please proceed for completion by 4:00 pm 07/22/26, Deliver in ACAD and PDF $600.00, Existing Main Level As-Built Floor Plan.",
+    "scope": "One Existing Main Level As-Built Floor Plan; existing conditions only; native AutoCAD DWG and PDF",
+    "fixed_fee_usd": 600,
+    "delivery_due": "2026-07-22T16:00:00-04:00"
+  },
+  "source": {
+    "channel": "Gmail project thread",
+    "subject": "Re: 965 Grant - SOW, Reports & Authorization.",
+    "issued_at": "2026-07-21T16:37:08-04:00"
+  }
+}
