@@ -1,42 +1,33 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "project": "Dunn Residence",
   "client": "BDPC Architects",
   "provider": "CAD Guardian LLC",
   "document": {
-    "display_name": "Dunn Residence Existing Main Level SOW V3",
-    "original_filename": "Dunn_Residence_Existing_Main_Level_SOW_V3.pdf",
-    "revision": "2026.07.21.4",
-    "pages": 5,
-    "size_bytes": 22974,
-    "sha256": "8a1195f91f909e7528d94ff9a1695cea977aa85acf60b609ee3e219367229602",
-    "encoding": "base64",
-    "parts": [
-      "pdf-parts/part00.b64",
-      "pdf-parts/part01.b64",
-      "pdf-parts/part02.b64",
-      "pdf-parts/part03.b64",
-      "pdf-parts/part04.b64",
-      "pdf-parts/part05-00.b64",
-      "pdf-parts/part05-01.b64",
-      "pdf-parts/part05-02.b64",
-      "pdf-parts/part05-03.b64",
-      "pdf-parts/part05-04.b64",
-      "pdf-parts/part06.b64"
-    ]
+    "display_name": "Dunn Residence Existing Main Level SOW V4",
+    "original_filename": "current-html-sow-v4",
+    "revision": "2026.07.22.1",
+    "version": "4",
+    "pages": 1,
+    "canonical_url": "/bdpc/sow/",
+    "export_method": "Browser print/save PDF from current HTML SOW",
+    "supersedes_revision": "2026.07.21.4",
+    "supersedes_sha256": "8a1195f91f909e7528d94ff9a1695cea977aa85acf60b609ee3e219367229602"
   },
   "authorization": {
-    "status": "authorized",
+    "status": "authorized_by_email",
+    "signature_status": "not executed",
     "authorized_by": "Brian Dillman, AIA",
     "authorized_at": "2026-07-21T16:06:05-04:00",
     "statement": "Please proceed for completion by 4:00 pm 07/22/26, Deliver in ACAD and PDF $600.00, Existing Main Level As-Built Floor Plan.",
     "scope": "One Existing Main Level As-Built Floor Plan; existing conditions only; native AutoCAD DWG and PDF",
     "fixed_fee_usd": 600,
+    "payment_status": "due after delivery",
     "delivery_due": "2026-07-22T16:00:00-04:00"
   },
   "source": {
     "channel": "Gmail project thread",
     "subject": "Re: 965 Grant - SOW, Reports & Authorization.",
-    "issued_at": "2026-07-21T16:37:08-04:00"
+    "issued_at": "2026-07-22T14:45:00-04:00"
   }
 }

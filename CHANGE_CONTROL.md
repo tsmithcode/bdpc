@@ -11,8 +11,8 @@ The active workspace separates three responsibilities so a scope change cannot e
 The active client pages are:
 
 - `/index.html` + `/authorization.js` + `/scope-focus.js` — ten enterprise workspace tabs with retired report access neutralized after rendering
-- `/sow/index.html` — current client-readable SOW
-- `/sow/current/index.html` + `/sow/current/manifest.json` — checksum-verified governing issued PDF
+- `/sow/index.html` — current one-page client-readable SOW V4 and browser print/save source
+- `/sow/current/index.html` + `/sow/current/manifest.json` — compatibility route that forwards to current SOW V4
 - `/reports/index.html` — focused-scope disclaimer and expanded-reporting teaser only
 
 The current contractual state is:
@@ -25,6 +25,10 @@ The current contractual state is:
 - One consolidated minor correction pass
 - Delivery directed for 4:00 PM EDT on July 22, 2026
 - Written authorization complete; payment due after delivery; pre-AutoCAD source/trace package ready; native AutoCAD license/runtime setup pending
+
+## 2026-07-22 SOW V4 simplification
+
+Brian authorized the assignment by email, but no executed signature block is on file. Because Brian indicated he has limited time and the previous SOWs were too verbose, the current working SOW is now Version 4: a one-page HTML source that can be printed/saved to PDF through the existing browser workflow. The old Version 3 issued PDF is preserved for history only.
 
 ## 2026-07-22 pre-AutoCAD update
 
@@ -40,7 +44,7 @@ The current pre-AutoCAD package now records:
 
 This update does not expand scope. The current deliverable remains one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF.
 
-The governing issued source document is SOW Version 3, revision `2026.07.21.4`. Its manifest records 5 pages, 22,974 bytes, and SHA-256 `8a1195f91f909e7528d94ff9a1695cea977aa85acf60b609ee3e219367229602`.
+The prior issued source document was SOW Version 3, revision `2026.07.21.4`. Its manifest recorded 5 pages, 22,974 bytes, and SHA-256 `8a1195f91f909e7528d94ff9a1695cea977aa85acf60b609ee3e219367229602`. It is no longer presented as the current working SOW.
 
 ## Preserved operating doctrine
 
@@ -93,7 +97,8 @@ Historical commercial proposals and report implementations remain immutable thro
 
 - Human-readable SOW revisions: `sow/archive/`
 - Machine-readable revisions: `data/archive/`
-- Governing source PDF and integrity manifest: `sow/current/`
+- Current working SOW V4: `sow/index.html`
+- Historical source PDF and integrity references: `sow/archive/`
 - Git history remains the byte-level audit trail
 
 Never edit an archived revision to make it look current. Create a new revision, preserve the prior governing document under the archive, update the archive index, and change the current source of truth.
@@ -107,30 +112,30 @@ Never edit an archived revision to make it look current. Create a new revision, 
 5. Update `data/operating-doctrine.json` only when an accepted standard, hierarchy, or decision is added or changed.
 6. Update `data/production-controls.json` for gates, milestones, CAD preparation, automation, QA, risks, runtime, or acceptance workflow.
 7. Preserve previously shared public URLs; retire stale content behind explicit status pages rather than breaking links.
-8. Publish any newly issued governing PDF under `sow/current/` and update its checksum manifest.
+8. Publish any new concise current SOW through `sow/index.html`; only publish a separate PDF when explicitly requested.
 9. Run `python scripts/validate_current_scope.py`, `node --check authorization.js`, and `node --check scope-focus.js`.
 10. Commit to `main`.
 11. Fast-forward `gh-pages` to the validated `main` commit.
-12. Verify `/bdpc/`, `/bdpc/sow/`, `/bdpc/sow/current/`, every preserved report route, and the Stripe CTA.
+12. Verify `/bdpc/`, `/bdpc/sow/`, `/bdpc/sow/current/`, every preserved report route, and absence of current-facing payment CTAs.
 
 ## Regression controls
 
 The validation script checks:
 
 - Current authorization and commercial invariants
-- One-sheet scope and $600 payment link
+- One-sheet scope, SOW V4 status, and payment-after-delivery language
 - 8.0-hour ceiling and current delivery date
 - Every workspace tab has an active renderer
 - Enterprise doctrine and production-control data drive the renderer
 - At least 18 preserved standards, 20 QA checks, 15 milestones, 14 CAD-prep controls, 14 automation controls, 12 enterprise controls, eight risks, and six decisions remain
 - The 1/2-inch dimension rule, 3.5-inch wall basis, block-reuse rule, model-space source, paper-space source, LiDAR boundary, unknown-condition rule, and conflict-escalation rule remain intact
 - Payment-after-delivery status is accepted; redundant reconfirmation is not introduced
-- Root payment/closeout access works before JavaScript loads
+- Root current-SOW access works before JavaScript loads
 - Active home navigation does not advertise retired reports
 - The focused-scope controller loads after the enterprise renderer and neutralizes dynamically generated report links
 - All previously emailed report routes resolve to the retirement disclaimer
 - The disclaimer includes a home redirect button and expanded-scope reporting teaser
-- Governing PDF segments reconstruct to the exact declared byte count and SHA-256
+- Current SOW V4 is HTML-first and print/save ready
 - Current and archived paths remain separated and directly linked
 - `index.html` does not load the legacy three-sheet renderer
 

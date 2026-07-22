@@ -1,12 +1,13 @@
 {
   "schema_version": "1.2",
-  "revision": "2026.07.22-preautocad.1",
-  "updated_at": "2026-07-22T14:20:00-04:00",
+  "revision": "2026.07.22-sowv4.1",
+  "updated_at": "2026-07-22T14:45:00-04:00",
   "project": "Dunn Residence",
   "client": "BDPC Architects",
   "provider": "CAD Guardian LLC",
   "authorization": {
     "status": "authorized",
+    "signature_status": "not executed",
     "authorized_by": "Brian Dillman, AIA",
     "authorized_at": "2026-07-21T20:06:05Z",
     "source": "Written email authorization",
@@ -195,5 +196,5 @@
     "archive_url": "/bdpc/sow/archive/2026-07-21-three-sheet/",
     "archive_data_url": "/bdpc/data/archive/2026-07-21-three-sheet/project-summary.json"
   },
-  "truth_boundary": "The current authority is one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF. Pre-AutoCAD discovery, source organization, image contact sheets, point-cloud slices, trace DWG/DXF references, and kickoff-derived drafting rules are prepared. BDPC retains architectural authority, interpretation, code and permit responsibility, and final professional acceptance."
+  "truth_boundary": "The current authority is one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF, authorized by email with no executed signature block currently on file. SOW V4 is the concise one-page working reference. Pre-AutoCAD discovery, source organization, image contact sheets, point-cloud slices, trace DWG/DXF references, and BDPC-confirmed drafting rules are prepared. BDPC retains architectural authority, interpretation, code and permit responsibility, and final professional acceptance."
 }

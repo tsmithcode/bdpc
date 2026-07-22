@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-import base64
-import hashlib
 import json
 from pathlib import Path
 
@@ -67,6 +65,7 @@ def main() -> None:
     manifest = json.loads(CURRENT_MANIFEST_PATH.read_text(encoding="utf-8"))
 
     require(auth["authorization"]["status"] == "authorized", "written authorization must be recorded as authorized")
+    require(auth["authorization"]["signature_status"] == "not executed", "signature status must be explicit")
     require(auth["scope"]["sheet_count"] == 1, "active scope must contain exactly one sheet")
     require(auth["scope"]["deliverable"] == "Existing Main Level As-Built Floor Plan", "unexpected active deliverable")
     require(auth["scope"]["condition"] == "existing conditions only", "active scope must remain existing conditions only")
@@ -95,26 +94,15 @@ def main() -> None:
         require(required_text in standards[standard], f"preserved standard changed or weakened: {standard}")
 
     require(manifest["project"] == auth["project"], "governing SOW project does not match current authorization")
-    require(manifest["authorization"]["status"] == "authorized", "governing SOW manifest must record authorization")
+    require(manifest["authorization"]["status"] == "authorized_by_email", "current SOW manifest must record email authorization")
+    require(manifest["authorization"]["signature_status"] == "not executed", "current SOW manifest must record unsigned status")
     require(manifest["authorization"]["fixed_fee_usd"] == auth["commercial"]["fixed_fee_usd"], "governing SOW fee does not match current authorization")
     require(auth["scope"]["deliverable"] in manifest["authorization"]["scope"], "governing SOW scope does not match active deliverable")
-    require(manifest["document"]["revision"] == "2026.07.21.4", "unexpected governing SOW revision")
-    require(manifest["document"]["pages"] == 5, "unexpected governing SOW page count")
-    require(manifest["document"]["size_bytes"] == 22974, "unexpected governing SOW byte count")
-    require(manifest["document"]["sha256"] == "8a1195f91f909e7528d94ff9a1695cea977aa85acf60b609ee3e219367229602", "unexpected governing SOW checksum")
-
-    encoded_parts = []
-    for relative_path in manifest["document"]["parts"]:
-        part_path = CURRENT_MANIFEST_PATH.parent / relative_path
-        require(part_path.exists(), f"governing SOW segment is missing: {relative_path}")
-        encoded_parts.append(part_path.read_text(encoding="ascii").strip())
-    try:
-        pdf_bytes = base64.b64decode("".join(encoded_parts), validate=True)
-    except Exception as error:
-        raise SystemExit(f"VALIDATION FAILED: governing SOW Base64 is invalid: {error}") from error
-    require(len(pdf_bytes) == manifest["document"]["size_bytes"], "governing SOW reconstructed byte count does not match manifest")
-    require(hashlib.sha256(pdf_bytes).hexdigest() == manifest["document"]["sha256"], "governing SOW reconstructed checksum does not match manifest")
-    require(pdf_bytes.startswith(b"%PDF-"), "governing document does not reconstruct as a PDF")
+    require(manifest["document"]["revision"] == "2026.07.22.1", "unexpected current SOW revision")
+    require(manifest["document"]["version"] == "4", "current SOW must be Version 4")
+    require(manifest["document"]["pages"] == 1, "current SOW must be a one-page working reference")
+    require(manifest["document"]["canonical_url"] == "/bdpc/sow/", "current SOW canonical URL must be the HTML SOW")
+    require("print/save" in manifest["document"]["export_method"].lower(), "current SOW export method must remain browser print/save")
 
     index = (ROOT / "index.html").read_text(encoding="utf-8")
     script = (ROOT / "authorization.js").read_text(encoding="utf-8")
@@ -123,7 +111,6 @@ def main() -> None:
     viewer = CURRENT_VIEWER_PATH.read_text(encoding="utf-8")
     archive = (ROOT / "sow" / "archive" / "index.html").read_text(encoding="utf-8")
     report_index = REPORT_INDEX_PATH.read_text(encoding="utf-8")
-    payment_link = auth["commercial"]["payment_link"]
     deliverable = auth["scope"]["deliverable"]
 
     require("os.js" not in index, "active index must not load the legacy three-sheet renderer")
@@ -136,19 +123,21 @@ def main() -> None:
     require("Expanded-scope reporting" in focus_script and "Expanded scope" in focus_script, "expanded reporting teaser must remain visible without active report links")
     require("operating-doctrine.json" in script and "production-controls.json" in script, "enterprise data sources must drive the renderer")
     require(deliverable in sow and deliverable in report_index, "current deliverable must appear on SOW and report retirement notice")
-    require("commercial.payment_link" in script and payment_link in sow, "payment closeout link must remain available on active production pages")
-    require(f'href="{payment_link}"' in index, "root payment/closeout link must work before JavaScript loads")
-    require("/bdpc/sow/current/" in index and "/bdpc/sow/current/" in archive, "issued V3 document must be directly linked from current navigation and archive")
-    require("crypto.subtle.digest('SHA-256'" in viewer, "issued V3 viewer must verify SHA-256 before release")
-    require(payment_link in viewer, "issued V3 viewer must expose the payment closeout link")
+    require("SOW V4" in index and "SOW V4" in sow, "current SOW V4 must be visible before JavaScript loads")
+    require("Print / Save PDF" in sow and "window.print()" in sow, "current SOW must preserve browser print/save export")
+    require("/bdpc/sow/current/" in index and "/bdpc/sow/current/" in archive, "current SOW compatibility route must remain linked")
+    require("location.replace('/bdpc/sow/')" in viewer, "current compatibility route must forward to SOW V4")
+    require("Preparing the verified PDF" not in viewer, "stale PDF-preparation fallback must not appear on current route")
+    for stale_token in ["Pay $600", "Pay $600 securely", "Pay $600 and activate", "Issued V3 PDF"]:
+        require(stale_token not in index and stale_token not in script and stale_token not in sow and stale_token not in viewer, f"stale current-facing token remains: {stale_token}")
     require("$600" in index and "$600" in sow, "active fee must be visible across active production pages")
-    require("8.0" in sow, "effort ceiling must be visible on the current SOW")
+    require("payment due after delivery" in sow.lower(), "payment timing must be visible on the current SOW")
 
     require('data-report-retired="true"' in report_index, "report index must be explicitly retired")
     require("Reports paused for the current scope" in report_index, "report index must explain the focused-scope pause")
     require('href="/bdpc/"' in report_index and "Return to Project Home" in report_index, "report disclaimer must provide a home redirect button")
     require("Expanded scope teaser" in report_index and "Optimized reporting" in report_index, "report disclaimer must include the expanded-scope reporting teaser")
-    require(payment_link not in report_index, "retired report page must not distract with a payment CTA")
+    require(auth["commercial"]["payment_link"] not in report_index, "retired report page must not distract with a payment CTA")
 
     for report_path in REPORT_ROUTES:
         retired = report_path.read_text(encoding="utf-8")
