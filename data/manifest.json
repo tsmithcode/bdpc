@@ -1,8 +1,8 @@
 {
   "database": "data/bdpc_client_os.sqlite",
   "database_download_name": "bdpc_client_os.sqlite",
-  "generated_at": "2026-07-22T15:45:00-04:00",
-  "revision": "2026.07.22-glossary.1",
+  "generated_at": "2026-07-22T16:05:00-04:00",
+  "revision": "2026.07.22-enterprise-shell.1",
   "parts": [
     "data/sqlite/part-01.b64",
     "data/sqlite/part-02.b64",
@@ -25,28 +25,28 @@
       "sha256": "26d3846e0f9d1f4fd7c1f067b9da70a7276b9bb913c5f43429a65d2aa860e380"
     },
     "data/bdpc_client_os.sqlite": {
-      "bytes": 163840,
-      "sha256": "5eb5c711fc69f9ebf9f6c332c9e37dcf7972ce1185fd5786fb20b70691a394c2"
+      "bytes": 167936,
+      "sha256": "d53cbc812492a62e83d946503889e19123641c22a0956a674c613cba4dd02ef9"
     },
     "data/project.json": {
-      "bytes": 16693,
-      "sha256": "403543f43219cc5a6cc837ca617ae1de2359508026b25dc82b242e23a646414a"
+      "bytes": 16701,
+      "sha256": "e779dc29f54c84a115218168489aa2fa5dde850b11d1c5413928aba6c6916873"
     },
     "data/current-authorization.json": {
-      "bytes": 10652,
-      "sha256": "d96715d468237b471c181e7fdb32e0bb7aa284e973c6954cf163c54465d1db95"
+      "bytes": 10660,
+      "sha256": "0014a195822ed0f23bcaee3e9ffc9c25d67b3a3daca00926e952104af2cce802"
     },
     "data/operating-doctrine.json": {
-      "bytes": 16349,
-      "sha256": "de9f309c9d55248ed4825411894c079ef6a3c086493dcb50691c89f2daa2efd7"
+      "bytes": 16357,
+      "sha256": "04c58adf79e22098a40862da95d5b45a1f6362e417bbcef2bb878c9c71561199"
     },
     "data/production-controls.json": {
-      "bytes": 38542,
-      "sha256": "409c1d1dcde4742b1fb4be7f7e500de64bbe350d80b975d14a7e602e10664b58"
+      "bytes": 38550,
+      "sha256": "8d3c697991975ef8a8f5ebc2a2384745048c9b9ae05e2329420aa1e662c33a2d"
     },
     "data/release.json": {
-      "bytes": 152,
-      "sha256": "8fc3f3f5d9a8a24fdf731aee2f265edb79bb5aa663e3daa2f6d0d6627c3e9487"
+      "bytes": 160,
+      "sha256": "6d7a23c96164d24c0f27d0b3bbac41e65ad89fba1a76a02ab61b068ff8e2b1b9"
     },
     "data/schema.sql": {
       "bytes": 3663,
@@ -54,7 +54,7 @@
     },
     "data/sqlite/part-01.b64": {
       "bytes": 16000,
-      "sha256": "851a8fa036d36829c0fcd19215858e58174d3e2bf8620850f83cacab529dd97a"
+      "sha256": "e6fdf67851ed9fe02e0a16b1b989ea15da3fe0d6ff55a5d711a567fcf79c942e"
     },
     "data/sqlite/part-02.b64": {
       "bytes": 16000,
@@ -94,20 +94,20 @@
     },
     "data/sqlite/part-11.b64": {
       "bytes": 16000,
-      "sha256": "b81bab02af516f53b54f51883a200f9b13bcdf7af9276e6aa5ac131e4447e186"
+      "sha256": "0199a2ab13b3c35719c1c02b1a18c1d4213fc36fe201c01de66945171b5f24e5"
     },
     "data/sqlite/part-12.b64": {
       "bytes": 16000,
-      "sha256": "829f9d57c518a4418533acabf1cb5654721d79a34e200e96b9fc6e4561a286d9"
+      "sha256": "a3ceb82ccf5c9001eb935f9751567180a8802650a177d3a2f26e1d57f9446633"
     },
     "data/sqlite/part-13.b64": {
       "bytes": 16000,
-      "sha256": "4ffa8367c2caf310323646ca05b1edcffd97cbcc61f7020377ef9bfef1bedaca"
+      "sha256": "1f71c75ca4716ca1dfe4f335e427d70151f3860f95c791fa052a5f0ad187922a"
     },
     "data/sqlite/part-14.b64": {
-      "bytes": 10456,
-      "sha256": "864c0820a572ab534b9cf327cbdd870c10f3affe6767352c234c77379b51296b"
+      "bytes": 15916,
+      "sha256": "4b6164900664f8296a1687fdad29232c09593fe060413144972027418a12d6fd"
     }
   },
-  "note": "Current one-sheet public data bundle including glossary register."
+  "note": "Current one-sheet public data bundle with enterprise project workspace shell."
 }

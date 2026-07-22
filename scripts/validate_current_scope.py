@@ -23,6 +23,7 @@ REPORT_ROUTES = [
 ]
 ACTIVE_FILES = [
     ROOT / "index.html",
+    ROOT / "enterprise.css",
     ROOT / "authorization.js",
     ROOT / "scope-focus.js",
     AUTH_PATH,
@@ -124,6 +125,7 @@ def main() -> None:
     require("os.js" not in index, "active index must not load the legacy three-sheet renderer")
     require("sqlite.js" not in index, "active index must not load the legacy evidence renderer")
     require("authorization.js" in index, "active index must load the current authorization renderer")
+    require("enterprise.css" in index, "active index must load the enterprise project shell stylesheet")
     require("scope-focus.js" in index, "active index must load the focused-scope controller")
     require(index.index("authorization.js") < index.index("scope-focus.js"), "focused-scope controller must load after the renderer")
     require('href="/bdpc/reports/"' not in index, "active header must not advertise retired reports")

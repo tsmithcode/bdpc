@@ -683,8 +683,8 @@
     "acceptance_message": "Source roles, standards, and trace references are ready. The remaining production gate is AutoCAD license/runtime availability plus final scale/source confirmation."
   },
   "deadline_control": "Production is ready to resume when licensed AutoCAD access is available; delivery timing must reflect the license gate and final native QA.",
-  "revision": "2026.07.22-glossary.1",
-  "updated_at": "2026-07-22T15:45:00-04:00",
+  "revision": "2026.07.22-enterprise-shell.1",
+  "updated_at": "2026-07-22T16:05:00-04:00",
   "glossary_register": [
     {
       "term": "Existing Main Level As-Built Floor Plan",

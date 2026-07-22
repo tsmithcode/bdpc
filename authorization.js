@@ -328,15 +328,6 @@
     window.addEventListener('hashchange', () => activate(location.hash.replace('#', '') || 'overview'));
   }
 
-  function banner(auth) {
-    if (document.querySelector('.authorized-banner')) return;
-    const wrapper = document.createElement('section');
-    wrapper.className = 'authorized-banner';
-    wrapper.setAttribute('aria-labelledby', 'authorized-banner-title');
-    wrapper.innerHTML = `<div class="authorized-banner__grid"><div><div class="authorized-banner__eyebrow">Current email authorization · SOW V4 one-page release</div><h2 id="authorized-banner-title">${esc(auth.scope.deliverable)}</h2><p>Authorized by ${esc(auth.authorization.authorized_by)} on July 21, 2026 · signature block not executed · Native AutoCAD DWG + PDF · $600 fixed fee. Payment is due after delivery. File roles, BDPC standards, trace references, and starting template are prepared; licensed AutoCAD production remains.</p></div><div class="authorized-banner__actions"><a href="${SOW_URL}">Current SOW V4</a><a href="${GOVERNING_PDF_URL}">Print / Save PDF</a><a href="${ARCHIVE_URL}">Archive</a></div></div>`;
-    document.querySelector('.project-bar')?.insertAdjacentElement('afterend', wrapper);
-  }
-
   function paymentDock(auth) {
     if (String(auth.commercial.payment_status).toLowerCase().includes('paid') || String(auth.commercial.payment_status).toLowerCase().includes('after delivery') || document.querySelector('.payment-dock')) return;
     const dock = document.createElement('div');
@@ -356,7 +347,7 @@
       top.textContent = 'SOW V4';
     }
     const revision = document.getElementById('revision-label');
-    if (revision) revision.textContent = 'Client Service OS · current one-sheet release';
+    if (revision) revision.textContent = 'Project Workspace · current status';
     const footer = document.getElementById('footer-revision');
     if (footer) footer.textContent = auth.revision;
   }
@@ -385,7 +376,6 @@
       ]);
       const auth = { ...authorization, ...doctrine, ...controls };
       patchStatic(auth);
-      banner(auth);
       paymentDock(auth);
       renderAll(auth);
       activate(location.hash.replace('#', '') || 'overview');
