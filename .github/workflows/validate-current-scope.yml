@@ -17,7 +17,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Validate active scope and archive boundaries
+      - name: Validate active scope, report retirement, and archive boundaries
         run: python scripts/validate_current_scope.py
       - name: Syntax-check current workspace renderer
         run: node --check authorization.js
+      - name: Syntax-check focused-scope controller
+        run: node --check scope-focus.js
