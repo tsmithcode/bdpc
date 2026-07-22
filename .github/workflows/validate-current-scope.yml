@@ -1,0 +1,23 @@
+name: Validate current BDPC scope
+
+on:
+  push:
+    branches: [main, gh-pages]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-current-scope:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate active scope and archive boundaries
+        run: python scripts/validate_current_scope.py
+      - name: Syntax-check current workspace renderer
+        run: node --check authorization.js
