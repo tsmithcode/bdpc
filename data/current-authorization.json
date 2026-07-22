@@ -77,7 +77,7 @@
       "name": "AutoCAD version, title block, CTB/STB, fonts, xrefs, and BDPC standards",
       "status": "standards clarified; native dependencies pending",
       "owner": "BDPC + CAD Guardian",
-      "evidence": "Kickoff transcript confirms 1/2-inch precision, 3.5-inch wall baseline, TCADD floor-plan logic, 1419 paper-space/title-block standard, and floor-plate scale anchor."
+      "evidence": "BDPC-confirmed drafting notes preserve 1/2-inch precision, 3.5-inch wall baseline, TCADD floor-plan logic, 1419 paper-space/title-block standard, and floor-plate scale anchor."
     },
     {
       "name": "Licensed compatible AutoCAD runtime",

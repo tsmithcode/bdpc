@@ -36,7 +36,7 @@ The current pre-AutoCAD package now records:
 - A current Desktop `BDPC` crawl classified 930 media/CAD/point-cloud files totaling 3,470,993,306 bytes.
 - 897 image files are represented in contact-sheet artifacts; the 829-image mass is exterior driveway/deck/yard/facade context, not an interior room-photo set.
 - Point-cloud trace references are ready: 12 individual slice DXFs, one combined master DXF, one AutoCAD 2018 master DWG, slice screenshots, and manifests.
-- Kickoff transcript requirements are now explicit: 1/2-inch precision, 3.5-inch typical framed-wall baseline, TCADD for floor-plan drafting logic, 1419 for paper-space/title-block standard, and the floor-plate PNG as LiDAR scale anchor.
+- BDPC-confirmed drafting requirements are now explicit: 1/2-inch precision, 3.5-inch typical framed-wall baseline, TCADD for floor-plan drafting logic, 1419 for paper-space/title-block standard, and the floor-plate PNG as LiDAR scale anchor.
 
 This update does not expand scope. The current deliverable remains one Existing Main Level As-Built Floor Plan in native AutoCAD DWG and PDF.
 
