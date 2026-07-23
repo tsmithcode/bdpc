@@ -24,6 +24,7 @@ REPORT_ROUTES = [
 ACTIVE_FILES = [
     ROOT / "index.html",
     ROOT / "enterprise.css",
+    ROOT / "mobile.css",
     ROOT / "authorization.js",
     ROOT / "scope-focus.js",
     AUTH_PATH,
@@ -114,6 +115,8 @@ def main() -> None:
     require("print/save" in manifest["document"]["export_method"].lower(), "current SOW export method must remain browser print/save")
 
     index = (ROOT / "index.html").read_text(encoding="utf-8")
+    enterprise_css = (ROOT / "enterprise.css").read_text(encoding="utf-8")
+    mobile_css = (ROOT / "mobile.css").read_text(encoding="utf-8")
     script = (ROOT / "authorization.js").read_text(encoding="utf-8")
     focus_script = (ROOT / "scope-focus.js").read_text(encoding="utf-8")
     sow = (ROOT / "sow" / "index.html").read_text(encoding="utf-8")
@@ -126,6 +129,9 @@ def main() -> None:
     require("sqlite.js" not in index, "active index must not load the legacy evidence renderer")
     require("authorization.js" in index, "active index must load the current authorization renderer")
     require("enterprise.css" in index, "active index must load the enterprise project shell stylesheet")
+    require("mobile.css" in index, "active index must load the enterprise mobile stylesheet")
+    require(index.index("enterprise.css") < index.index("mobile.css"), "mobile stylesheet must load after the enterprise shell")
+    require("viewport-fit=cover" in index, "active viewport must support iPhone safe areas")
     require("scope-focus.js" in index, "active index must load the focused-scope controller")
     require(index.index("authorization.js") < index.index("scope-focus.js"), "focused-scope controller must load after the renderer")
     require('href="/bdpc/reports/"' not in index, "active header must not advertise retired reports")
@@ -142,6 +148,15 @@ def main() -> None:
         require(stale_token not in index and stale_token not in script and stale_token not in sow and stale_token not in viewer, f"stale current-facing token remains: {stale_token}")
     require("$600" in index and "$600" in sow, "active fee must be visible across active production pages")
     require("payment due after delivery" in sow.lower(), "payment timing must be visible on the current SOW")
+
+    require("overflow-x: clip" in mobile_css, "mobile layer must prevent page-level horizontal overflow")
+    require("env(safe-area-inset-top)" in mobile_css, "mobile layer must support the iPhone top safe area")
+    require("env(safe-area-inset-bottom)" in mobile_css, "mobile layer must support the iPhone bottom safe area")
+    require("scroll-snap-type: inline proximity" in mobile_css, "mobile tabs must preserve deliberate horizontal navigation")
+    require("min-width: 680px" in mobile_css, "dense data tables must use contained horizontal scrolling")
+    require("@media (max-width: 430px)" in mobile_css, "iPhone-width refinement breakpoint is missing")
+    require("grid-template-columns: minmax(0, 1fr)" in mobile_css, "mobile content grids must collapse without intrinsic overflow")
+    require("@media (max-width: 980px)" in enterprise_css, "enterprise shell tablet breakpoint is missing")
 
     require('data-report-retired="true"' in report_index, "report index must be explicitly retired")
     require("Reports paused for the current scope" in report_index, "report index must explain the focused-scope pause")
@@ -173,7 +188,7 @@ def main() -> None:
     require((ROOT / archive_data_url).exists(), "machine-readable superseded data archive is missing")
     require((ROOT / "data" / "archive" / "index.json").exists(), "archive catalog is missing")
 
-    print("Current-scope enterprise validation passed with report-retirement controls.")
+    print("Current-scope enterprise validation passed with mobile-responsive and report-retirement controls.")
 
 
 if __name__ == "__main__":
