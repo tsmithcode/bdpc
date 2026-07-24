@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import runpy
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -58,6 +59,18 @@ def require(condition: bool, message: str) -> None:
 
 
 def main() -> None:
+    current_status = ROOT / "data" / "current-status.json"
+    if current_status.exists():
+        runpy.run_path(str(ROOT / "scripts" / "validate_current_status.py"), run_name="__main__")
+        index = (ROOT / "index.html").read_text(encoding="utf-8")
+        for panel in EXPECTED_PANELS:
+            require(f'data-tab="{panel}"' in index, f"missing tab declaration: {panel}")
+            require(f'id="panel-{panel}"' in index, f"missing panel declaration: {panel}")
+        for route in ("/bdpc/sow/", "/bdpc/sow/current/", "/bdpc/sow/archive/"):
+            require(route in index, f"current public route missing: {route}")
+        require("authorization.js" not in index and "scope-focus.js" not in index, "stale status modules remain on the active page")
+        print("Current status validation passed with SQL-backed 2026-07-24 data and preserved public routes.")
+        return
     for path in ACTIVE_FILES:
         require(path.exists(), f"active file missing: {path.relative_to(ROOT)}")
 

@@ -20,6 +20,6 @@ jobs:
       - name: Validate active scope, report retirement, and archive boundaries
         run: python scripts/validate_current_scope.py
       - name: Syntax-check current workspace renderer
-        run: node --check authorization.js
-      - name: Syntax-check focused-scope controller
-        run: node --check scope-focus.js
+        run: node --check status-render.js
+      - name: Syntax-check current status dataset and SQLite download helper
+        run: node --check status-data.js && node --check sqlite.js
