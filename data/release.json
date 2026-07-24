@@ -1,6 +1,6 @@
 {
-  "revision": "2026.07.24-absolute-ceiling.2",
-  "updated_at": "2026-07-24T15:08:03-04:00",
-  "status": "Absolute-ceiling corrected A101 ready for BDPC review",
+  "revision": "2026.07.24-review-ready.3",
+  "updated_at": "2026-07-24T17:27:15-04:00",
+  "status": "Corrected A101 package ready for BDPC review",
   "delivery_readiness_percent": 92
 }

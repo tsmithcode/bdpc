@@ -247,7 +247,7 @@ QA_CHECKS = [
 ]
 
 UPDATES = [
-    {"date": "2026-07-21", "title": "Assignment-ready SOW effort plan added", "status": "Ready", "detail": "The existing SOW now includes a 40-hour absolute ceiling, standard setup, per-plan allocations, 31 assignable work packages, handoffs, acceptance evidence, and a reusable CSV."},
+    {"date": "2026-07-21", "title": "Assignment-ready SOW effort plan added", "status": "Ready", "detail": "The existing SOW now includes a 40-hour maximum effort limit, standard setup, per-plan allocations, 31 assignable work packages, handoffs, acceptance evidence, and a reusable CSV."},
     {"date": "2026-07-21", "title": "Detailed OS preservation repair", "status": "Complete", "detail": "The nine tab groups, documented rules, milestone visualization, detailed inventories, and preservation checks were restored from the pre-regression implementation and reconciled to current evidence."},
     {"date": "2026-07-21", "title": "Detailed report and SOW preservation repair", "status": "Complete", "detail": "The image-driven report library and print-optimized estimate/SOW were restored with regression safeguards."},
     {"date": "2026-07-21", "title": "Client-safe evidence published", "status": "Ready for human review", "detail": "Twenty-five full-source figures, nine plan-control slices, and five native-coordinate overlays are available in the report library."},

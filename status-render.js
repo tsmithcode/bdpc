@@ -30,7 +30,8 @@
   function visualCards() {
     const items = status.visuals || [];
     if (!items.length) return `<div class="callout">No public preview images are available.</div>`;
-    return `<div class="two-col">${items.map((item) => `<article class="card"><h3>${esc(item.title)}</h3><p><a href="${esc(item.src)}" target="_blank" rel="noopener"><img src="${esc(item.src)}" alt="${esc(item.alt)}" width="${Number(item.width)}" height="${Number(item.height)}" loading="lazy" style="display:block;width:100%;height:auto;border:1px solid #d8e2ec"></a></p><p>${esc(item.caption)}</p></article>`).join("")}</div>`;
+    return `${heading("Public visual evidence", "Current drawing and source controls", "Latest corrected CAD previews are shown with curated source evidence. Raw point-cloud files remain private.")}
+      <div class="visual-grid">${items.map((item) => `<article class="card"><h3>${esc(item.title)}</h3><p><a href="${esc(item.src)}" target="_blank" rel="noopener"><img src="${esc(item.src)}" alt="${esc(item.alt)}" width="${Number(item.width)}" height="${Number(item.height)}" loading="lazy"></a></p><p>${esc(item.caption)}</p></article>`).join("")}</div>`;
   }
 
   function renderOverview() {
@@ -40,7 +41,7 @@
       ${visualCards()}
       <div class="two-col">
         <article class="decision-card"><span>Issuance gate</span><h3>${esc(status.project.current_state)}</h3><p class="decision-note">${esc(status.project.remaining_gate)}</p><ul class="gate-list"><li><span>Native DWG audit</span><strong>0 errors</strong></li><li><span>PDF visual QA</span><strong>Complete</strong></li><li><span>BDPC dependencies</span><strong>Pending</strong></li></ul></article>
-        <article class="card"><h3>Public preview boundary</h3><p>The previews above are client-safe derived images. The editable DWG and full-resolution PDF remain in the controlled delivery package and are not published in this public repository.</p></article>
+        <article class="card"><h3>Public preview boundary</h3><p>The previews above include the latest client-safe drawing views, the supplied City control image, and curated derived scan evidence. Raw point clouds, the editable DWG, and the controlled full-resolution delivery PDF are not published.</p></article>
       </div>
       <div class="callout"><strong>Scope boundary:</strong> ${esc(status.project.scope_boundary)}</div>`;
   }

@@ -126,8 +126,8 @@ with connection:
 
     effort = [
         ("EFT-COMPLETE", "Completed project work", "A101", "Authority, evidence, model, and client direction", 5.5, "CAD Guardian", "Complete", "Review-ready base", "68 percent readiness before final pass"),
-        ("EFT-PASS", "Absolute-ceiling completion pass", "A101", "Cleanup, native audit, plot, visual QA, package", 2.0, "CAD Guardian", "Approved", "Review-ready DWG/PDF", "92 percent readiness"),
-        ("EFT-RESERVE", "Minor correction reserve", "A101", "Seven bounded presentation and defect corrections", 0.5, "CAD Guardian", "Consumed", "Corrected review-ready DWG/PDF", "8.0-hour absolute ceiling reached"),
+        ("EFT-PASS", "Review-ready completion pass", "A101", "Cleanup, native audit, plot, visual QA, package", 2.0, "CAD Guardian", "Approved", "Review-ready DWG/PDF", "92 percent readiness"),
+        ("EFT-RESERVE", "Minor correction reserve", "A101", "Seven bounded presentation and defect corrections", 0.5, "CAD Guardian", "Consumed", "Corrected review-ready DWG/PDF", "8.0-hour contracted effort limit reached"),
     ]
     replace_rows(connection, "sow_effort_plan", "INSERT INTO sow_effort_plan VALUES (?,?,?,?,?,?,?,?,?)", effort)
 

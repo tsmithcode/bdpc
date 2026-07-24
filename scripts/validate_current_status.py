@@ -24,18 +24,18 @@ status_js = (ROOT / "status-data.js").read_text(encoding="utf-8")
 assert status["revision"] == manifest["revision"]
 assert status["project"]["overall_delivery_readiness_percent"] == 92
 assert [(item["stage"], item["percent"]) for item in status["readiness_history"]] == [
-    ("Before absolute-ceiling pass", 68),
-    ("After absolute-ceiling pass", 92),
+    ("Before correction pass", 68),
+    ("After correction pass", 92),
 ]
 assert set(status["deliverable_hashes"]) == {"dwg", "pdf"}
 assert all(len(item["sha256"]) == 64 for item in status["deliverable_hashes"].values())
-assert 'src="status-data.js?v=20260724.2"' in index
-assert 'src="sqlite.js?v=20260724.1"' in index
-assert 'src="status-render.js?v=20260724.2"' in index
+assert 'src="status-data.js?v=20260724.3"' in index
+assert 'src="sqlite.js?v=20260724.2"' in index
+assert 'src="status-render.js?v=20260724.3"' in index
 assert "authorization.js" not in index and "scope-focus.js" not in index
 assert json.loads(status_js.removeprefix("window.BDPC_STATUS=").rstrip().removesuffix(";")) == status
 
-assert len(status["visuals"]) == 2
+assert len(status["visuals"]) == 7
 for visual in status["visuals"]:
     asset = ROOT / visual["src"]
     assert asset.is_file(), asset

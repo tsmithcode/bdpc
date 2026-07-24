@@ -190,7 +190,7 @@
     "current_crawl_report": "bdpc_current_scope_crawl_20260722",
     "trace_reference_package": "bdpc_pointcloud_slices_20260722",
     "active_public_scope": "Client-safe public tabs expose only mission-critical file roles, standards, CAD-prep status, runtime gate, delivery/QA status, and acceptance boundaries.",
-    "trace_ready_run": "codex-floorplan-absolute-ceiling-package-20260722-1202/runs/20260722-151236",
+    "trace_ready_run": "controlled-trace-package/runs/20260722-151236",
     "starting_template_dwg": 1,
     "glossary_terms": 34
   },
