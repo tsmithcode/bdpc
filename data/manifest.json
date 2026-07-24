@@ -1,10 +1,10 @@
 {
   "schema_version": "3.1",
-  "revision": "2026.07.24-review-ready.4",
-  "generated_at": "2026-07-24T17:42:36-04:00",
+  "revision": "2026.07.24-review-ready.5",
+  "generated_at": "2026-07-24T17:59:55-04:00",
   "database": "data/bdpc_client_os.sqlite",
   "database_download_name": "bdpc_client_os.sqlite",
-  "database_sha256": "d7b21d38f3aae5da3d36269a167130ee58a5104c450f8ea1dabe25337d3af4ad",
+  "database_sha256": "d67b4ebf50f7ed5cd01d00e4d7c409aa2e0cd3c8ae8e5aac213f52ffd1c34208",
   "database_bytes": 167936,
   "database_transport": [
     "data/sqlite/part-01.b64",
@@ -22,13 +22,13 @@
     "data/sqlite/part-13.b64",
     "data/sqlite/part-14.b64"
   ],
-  "database_transport_sha256": "6031ccd2e7992d6c7f1fb705385bc20a5259eae6630de0420fcb90ba50b0a81c",
+  "database_transport_sha256": "a5718ab3beb46b1016581da8cc9e0978c2d30b45168a15a3c6bbda61e6fd6519",
   "table_counts": {
     "access_controls": 0,
     "automation": 6,
     "cad_preparation": 7,
     "cad_public_registers": 85,
-    "commercial": 6,
+    "commercial": 7,
     "deliverables": 2,
     "file_groups": 8,
     "kickoff_gates": 5,
@@ -43,7 +43,7 @@
     "slice_evidence": 0,
     "sow_effort_plan": 3,
     "standards": 10,
-    "updates": 9,
+    "updates": 10,
     "validation_sessions": 0
   },
   "status_source": "data/current-status.json",

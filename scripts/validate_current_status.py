@@ -29,9 +29,17 @@ assert [(item["stage"], item["percent"]) for item in status["readiness_history"]
 ]
 assert set(status["deliverable_hashes"]) == {"dwg", "pdf"}
 assert all(len(item["sha256"]) == 64 for item in status["deliverable_hashes"].values())
-assert 'src="status-data.js?v=20260724.4"' in index
-assert 'src="sqlite.js?v=20260724.3"' in index
-assert 'src="status-render.js?v=20260724.4"' in index
+payment = status["payment"]
+assert payment["provider"] == "Stripe"
+assert payment["mode"] == "one-time"
+assert payment["currency"] == "USD" and payment["amount_minor"] == 60000
+assert payment["status"] == "requested"
+assert payment["checkout_url"].startswith("https://buy.stripe.com/")
+assert "sk_" not in json.dumps(status) and "rk_" not in json.dumps(status)
+assert 'href="os.css?v=20260724.2"' in index
+assert 'src="status-data.js?v=20260724.5"' in index
+assert 'src="sqlite.js?v=20260724.4"' in index
+assert 'src="status-render.js?v=20260724.5"' in index
 assert "authorization.js" not in index and "scope-focus.js" not in index
 assert json.loads(status_js.removeprefix("window.BDPC_STATUS=").rstrip().removesuffix(";")) == status
 
@@ -69,6 +77,9 @@ metrics = dict(connection.execute("SELECT key, value_text FROM metrics"))
 assert metrics["delivery_readiness_current"] == "92"
 assert metrics["delivery_readiness_prepass"] == "68"
 assert connection.execute("SELECT phase FROM project").fetchone()[0] == status["project"]["current_state"]
+assert connection.execute(
+    "SELECT value, status FROM commercial WHERE term='Stripe payment request'"
+).fetchone() == (payment["checkout_url"], "requested")
 connection.close()
 
 print(json.dumps({

@@ -34,8 +34,18 @@
       <div class="visual-grid">${items.map((item) => `<article class="card"><h3>${esc(item.title)}</h3><p><a href="${esc(item.src)}" target="_blank" rel="noopener"><img src="${esc(item.src)}" alt="${esc(item.alt)}" width="${Number(item.width)}" height="${Number(item.height)}" loading="lazy"></a></p><p>${esc(item.caption)}</p></article>`).join("")}</div>`;
   }
 
+  function paymentRequest() {
+    const payment = status.payment;
+    if (!payment) return "";
+    return `<article class="payment-request" aria-labelledby="payment-request-title">
+      <div><span>Project closeout payment</span><h3 id="payment-request-title">Payment requested · ${esc(payment.amount_display)}</h3><p>${esc(payment.request_text)}</p></div>
+      <div class="payment-request__action"><a class="button button--primary" href="${esc(payment.checkout_url)}" target="_blank" rel="noopener noreferrer">${esc(payment.button_label)}</a><small>One-time ${esc(payment.currency)} payment · Stripe-hosted checkout</small></div>
+    </article>`;
+  }
+
   function renderOverview() {
     return `${heading("Current public status", "A101 is review-ready", status.project.status_summary)}
+      ${paymentRequest()}
       ${readiness()}
       ${metrics(status.dashboard_metrics)}
       ${visualCards()}
@@ -48,7 +58,7 @@
 
   const renders = {
     overview: renderOverview,
-    commercial: () => `${heading("Contract boundary", "Authorized one-sheet scope", "Execution status changed; the written scope did not.")}${metrics(status.scope_metrics)}${table(status.scope_terms)}`,
+    commercial: () => `${heading("Contract boundary", "Authorized one-sheet scope", "Execution status changed; the written scope did not.")}${paymentRequest()}${metrics(status.scope_metrics)}${table(status.scope_terms)}`,
     files: () => `${heading("Controlled evidence", "Files and deliverable roles", "Source evidence remains confidential and outside the client package.")}${table(status.files)}`,
     standards: () => `${heading("Drawing controls", "A101 standards", "Current source hierarchy, client decisions, and known dependency exceptions.")}${table(status.standards)}`,
     "cad-prep": () => `${heading("Native production", "CAD completion pass", status.project.production_status)}${metrics(status.cad_metrics)}${table(status.cad_preparation)}`,

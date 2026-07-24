@@ -80,6 +80,12 @@ with connection:
         (index, item["term"], item["value"], item["status"])
         for index, item in enumerate(status["scope_terms"], 1)
     ]
+    commercial.append((
+        len(commercial) + 1,
+        "Stripe payment request",
+        status["payment"]["checkout_url"],
+        status["payment"]["status"],
+    ))
     replace_rows(connection, "commercial", "INSERT INTO commercial VALUES (?,?,?,?)", commercial)
 
     deliverables = [

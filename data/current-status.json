@@ -1,7 +1,7 @@
 {
   "schema_version": "3.1",
-  "revision": "2026.07.24-review-ready.4",
-  "updated_at": "2026-07-24T17:42:36-04:00",
+  "revision": "2026.07.24-review-ready.5",
+  "updated_at": "2026-07-24T17:59:55-04:00",
   "project": {
     "id": "BDPC-DUNN-OS",
     "name": "Dunn Residence",
@@ -13,6 +13,17 @@
     "scope_boundary": "One Existing Main Level As-Built Floor Plan only; existing conditions only; no proposed plan, site plan, design work, additional sheets, or unsupported conditions.",
     "production_status": "The 0.5-hour consolidated correction reserve is consumed and the contracted 8.0-hour effort limit is reached. The package remains review-ready pending BDPC acceptance.",
     "overall_delivery_readiness_percent": 92
+  },
+  "payment": {
+    "provider": "Stripe",
+    "mode": "one-time",
+    "currency": "USD",
+    "amount_minor": 60000,
+    "amount_display": "$600.00",
+    "status": "requested",
+    "checkout_url": "https://buy.stripe.com/dRm5kCgwF17vbGC4yZe3e03",
+    "button_label": "Pay $600 securely with Stripe",
+    "request_text": "Payment is requested for the authorized Dunn Residence one-sheet CAD engagement. Stripe hosts and secures the checkout."
   },
   "visuals": [
     {
@@ -560,6 +571,12 @@
       "title": "Consolidated correction reserve completed",
       "status": "review-ready",
       "effect": "SHX comments removed; 1419-led layers, Arial annotation, plot hierarchy, title alignment, preview assets, and release validators applied"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Stripe payment request published",
+      "status": "requested",
+      "effect": "$600 fixed-fee checkout verified and linked from the public project workspace"
     }
   ],
   "dependencies": [
@@ -771,8 +788,8 @@
   "sqlite": {
     "data_key": "sqlite",
     "database_url": "/bdpc/data/bdpc_client_os.sqlite",
-    "database_sha256": "d7b21d38f3aae5da3d36269a167130ee58a5104c450f8ea1dabe25337d3af4ad",
-    "transport_sha256": "6031ccd2e7992d6c7f1fb705385bc20a5259eae6630de0420fcb90ba50b0a81c",
+    "database_sha256": "d67b4ebf50f7ed5cd01d00e4d7c409aa2e0cd3c8ae8e5aac213f52ffd1c34208",
+    "transport_sha256": "a5718ab3beb46b1016581da8cc9e0978c2d30b45168a15a3c6bbda61e6fd6519",
     "download_name": "bdpc_client_os.sqlite"
   }
 }
