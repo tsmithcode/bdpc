@@ -36,13 +36,17 @@ assert payment["currency"] == "USD" and payment["amount_minor"] == 60000
 assert payment["status"] == "received" and payment["received_date"] == "2026-07-24"
 assert "checkout_url" not in payment and "button_label" not in payment
 assert len(status["outstanding_questions"]) == 4
-assert all(item["status"] == "awaiting BDPC response" for item in status["outstanding_questions"])
+assert len(status["client_closeout"]) == 5
+assert any("Monday, July 27" in item["record"] for item in status["client_closeout"])
+assert {item["status"] for item in status["outstanding_questions"]} == {
+    "Monday review pending", "awaiting BDPC response", "pending client review"
+}
 assert "buy.stripe.com" not in json.dumps(status)
 assert "sk_" not in json.dumps(status) and "rk_" not in json.dumps(status)
 assert 'href="os.css?v=20260724.3"' in index
-assert 'src="status-data.js?v=20260724.6"' in index
-assert 'src="sqlite.js?v=20260724.5"' in index
-assert 'src="status-render.js?v=20260724.6"' in index
+assert 'src="status-data.js?v=20260724.7"' in index
+assert 'src="sqlite.js?v=20260724.6"' in index
+assert 'src="status-render.js?v=20260724.7"' in index
 assert "authorization.js" not in index and "scope-focus.js" not in index
 assert json.loads(status_js.removeprefix("window.BDPC_STATUS=").rstrip().removesuffix(";")) == status
 

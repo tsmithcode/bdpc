@@ -72,9 +72,9 @@ with connection:
         (2, "Licensed AutoCAD Architecture 2026", "complete", "CAD Guardian", "Native drafting and plotting environment operational"),
         (3, "Brian's July 24 drafting decisions", "complete", "BDPC", "ROOM, field verification, no north arrow, DWG + PDF"),
         (4, "Fixed-fee payment", "complete", "BDPC", "$600 received via Zelle"),
-        (5, "Wall termination and red-flag review", "pending", "BDPC", "Confirm current topology or identify specific corrections"),
+        (5, "Monday CAD review and comments", "pending", "BDPC", "Brian plans to review the DWG on 2026-07-27"),
         (6, "Sheet and view boundary", "pending", "BDPC", "Confirm main level only or identify separately authorized additional views"),
-        (7, "BDPC fonts / CTB / title standards", "pending", "BDPC", "Confirm controlled review plot or supply exact resources"),
+        (7, "Remaining BDPC standards", "pending", "BDPC", "Lock CTB/STB, fonts, copyright, title format, and drawing conventions"),
         (8, "BDPC professional acceptance", "pending", "BDPC", "Final architectural release authority"),
     ]
     replace_rows(connection, "kickoff_gates", "INSERT INTO kickoff_gates VALUES (?,?,?,?,?)", gates)

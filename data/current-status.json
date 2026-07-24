@@ -1,15 +1,15 @@
 {
   "schema_version": "3.1",
-  "revision": "2026.07.24-review-ready.6",
-  "updated_at": "2026-07-24T18:26:45-04:00",
+  "revision": "2026.07.24-review-ready.7",
+  "updated_at": "2026-07-24T18:40:24-04:00",
   "project": {
     "id": "BDPC-DUNN-OS",
     "name": "Dunn Residence",
     "client": "BDPC Architects",
     "provider": "CAD Guardian LLC",
-    "current_state": "Payment received; A101 awaiting BDPC closeout responses",
-    "status_summary": "The bounded geometry and presentation corrections are applied. The drawing now uses clean closed wall footprints, 1419-led existing-condition layers, readable annotation, a controlled black/gray plot hierarchy, an aligned plan title, and a PDF with zero SHX comments or annotations. AutoCAD Architecture 2026 AUDIT found zero errors.",
-    "remaining_gate": "Await Brian/BDPC responses on wall terminations and red flags, the required sheet/view boundary, final plotting/title resources, and professional acceptance.",
+    "current_state": "Payment received; Brian CAD review and comments expected Monday",
+    "status_summary": "The corrected A101 remains internally review-ready at 92%. Brian's preliminary closeout feedback was positive: the drawing looks good and was not overcomplicated. He plans to open and work with the CAD file Monday, July 27, and may provide comments. Client acceptance remains pending.",
+    "remaining_gate": "Await Brian's Monday CAD comments, confirmation of any remaining sheet/view scope, exact BDPC standards direction, and final professional acceptance.",
     "scope_boundary": "One Existing Main Level As-Built Floor Plan only; existing conditions only; no proposed plan, site plan, design work, additional sheets, or unsupported conditions.",
     "production_status": "The 0.5-hour consolidated correction reserve is consumed and the contracted 8.0-hour effort limit is reached. The package remains review-ready pending BDPC acceptance.",
     "overall_delivery_readiness_percent": 92
@@ -24,25 +24,52 @@
     "received_date": "2026-07-24",
     "status_text": "Payment was received via Zelle for the authorized Dunn Residence one-sheet CAD engagement. No further payment is requested. Transaction details remain private."
   },
-  "outstanding_questions": [
+  "client_closeout": [
     {
-      "question": "Are the cleaned wall terminations and opening returns acceptable, and are there any red flags or major omissions?",
-      "status": "awaiting BDPC response",
-      "impact": "Required for architectural closeout confidence"
+      "item": "Preliminary drawing feedback",
+      "record": "Brian said the drawing looks pretty good and appreciated that it was not overcomplicated.",
+      "status": "positive; comments pending"
     },
     {
-      "question": "Is A101 limited to the Existing Main Level, or are a crawl-space plan, another floor, or additional views expected?",
+      "item": "Next CAD review",
+      "record": "Brian plans to open and work with the CAD file Monday, July 27, and expects he may have comments.",
+      "status": "scheduled"
+    },
+    {
+      "item": "Standards maturity",
+      "record": "Brian said more floor-plan work remains and the remaining standards need to be locked for a repeatable workflow.",
+      "status": "in progress"
+    },
+    {
+      "item": "Human review",
+      "record": "Brian confirmed that human-in-the-loop review remains part of the production process.",
+      "status": "required"
+    },
+    {
+      "item": "Payment evidence",
+      "record": "$600 received via Zelle. Receipt is confirmed by CAD Guardian after the meeting; the transcript records Brian's agreement to use Zelle.",
+      "status": "complete"
+    }
+  ],
+  "outstanding_questions": [
+    {
+      "question": "What corrections or comments result from Brian's Monday CAD review, including any wall, opening, or major-omission concerns?",
+      "status": "Monday review pending",
+      "impact": "Controls the next bounded correction decision"
+    },
+    {
+      "question": "Does the authorized one-sheet scope end with the Existing Main Level A101, or is separate authorization needed for a crawl-space plan, another floor, or additional views?",
       "status": "awaiting BDPC response",
       "impact": "Confirms the final sheet and scope boundary"
     },
     {
-      "question": "Is the controlled review plot acceptable, or should BDPC supply exact CTB/STB, fonts, copyright, or title-format resources?",
+      "question": "Which remaining BDPC standards must be locked, including CTB/STB, fonts, copyright, title format, and drawing conventions?",
       "status": "awaiting BDPC response",
-      "impact": "Controls final graphic and dependency status"
+      "impact": "Closes the standards gap Brian identified"
     },
     {
-      "question": "Does Brian/BDPC accept the current DWG and PDF as the completed one-sheet engagement?",
-      "status": "awaiting BDPC response",
+      "question": "After the Monday comments are resolved, does Brian/BDPC accept the current DWG and PDF as the completed one-sheet engagement?",
+      "status": "pending client review",
       "impact": "Final professional acceptance remains open"
     }
   ],
@@ -139,7 +166,7 @@
     {
       "label": "Current readiness",
       "value": "92%",
-      "detail": "Final BDPC fonts/plot/title standards remain"
+      "detail": "Internal QA complete; Brian comments and acceptance pending"
     },
     {
       "label": "Main-level control",
@@ -604,6 +631,12 @@
       "title": "Payment received via Zelle",
       "status": "complete",
       "effect": "The $600 fixed fee was received; the public Stripe payment request was removed to prevent duplicate payment"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Closeout meeting feedback recorded",
+      "status": "client review pending",
+      "effect": "Brian gave positive preliminary feedback, retained human review, and scheduled CAD review/comments for Monday, July 27"
     }
   ],
   "dependencies": [
@@ -815,8 +848,8 @@
   "sqlite": {
     "data_key": "sqlite",
     "database_url": "/bdpc/data/bdpc_client_os.sqlite",
-    "database_sha256": "052a4e1947a75ba46d3c7c1fcc95a7fded756728107ff2088315eb9b3d7b2bdf",
-    "transport_sha256": "27d743e77e598152822487a4371321c94a05c26d6bf5d17660d00d8a45da498c",
+    "database_sha256": "48fbd3fd33d6ada16209e3bd73bd2291df0932176a6575c90ca76f9fa06a09fb",
+    "transport_sha256": "4e4d5c2bcf3af2658064a49d9a77907ec2d9110b703bb0b1eca8810cd5efac35",
     "download_name": "bdpc_client_os.sqlite"
   }
 }

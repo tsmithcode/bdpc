@@ -44,12 +44,17 @@
   }
 
   function outstandingQuestions() {
-    return `${heading("Awaiting BDPC response", "Outstanding closeout questions", "Payment is complete. Technical and professional closeout remains dependent on the responses below.")}${table(status.outstanding_questions, ["question", "status", "impact"])}`;
+    return `${heading("Awaiting client review", "Outstanding closeout questions", "Brian plans to review the CAD file Monday. These items remain open until his comments and standards direction are received.")}${table(status.outstanding_questions, ["question", "status", "impact"])}`;
+  }
+
+  function clientCloseout() {
+    return `${heading("Corrected closeout record", "Brian's meeting feedback", "Preliminary feedback is positive, but it is not final acceptance. Payment receipt is separately confirmed after the meeting.")}${table(status.client_closeout, ["item", "record", "status"])}`;
   }
 
   function renderOverview() {
     return `${heading("Current public status", "A101 is review-ready", status.project.status_summary)}
       ${paymentRequest()}
+      ${clientCloseout()}
       ${readiness()}
       ${metrics(status.dashboard_metrics)}
       ${outstandingQuestions()}
@@ -68,7 +73,7 @@
     standards: () => `${heading("Drawing controls", "A101 standards", "Current source hierarchy, client decisions, and known dependency exceptions.")}${table(status.standards)}`,
     "cad-prep": () => `${heading("Native production", "CAD completion pass", status.project.production_status)}${metrics(status.cad_metrics)}${table(status.cad_preparation)}`,
     delivery: () => `${heading("Acceptance evidence", "QA and controlled delivery", "Review-ready means technically checked, with BDPC-native graphic dependencies still open.")}${metrics(status.delivery_metrics)}${table(status.qa)}<div class="actions"><button class="button button--secondary" id="download-status-db" type="button">Download current SQLite status</button></div>` ,
-    updates: () => `${outstandingQuestions()}${heading("Controlling direction", "Confirmed decisions", "Brian's latest written direction controls this pass.")}${table(status.confirmed_decisions)}${heading("Status log", "Decision history", "Public execution record.")}${table(status.decisions_log)}`,
+    updates: () => `${clientCloseout()}${outstandingQuestions()}${heading("Controlling direction", "Confirmed decisions", "Brian's latest written direction controls this pass.")}${table(status.confirmed_decisions)}${heading("Status log", "Decision history", "Public execution record.")}${table(status.decisions_log)}`,
     runtime: () => `${heading("Environment", "Dependencies", "ObjectARX is installed but was not used or required by this native 2D build.")}${table(status.dependencies)}`,
     glossary: () => `${heading("Plain-language reference", "Project glossary", "Terms used in the public status and QA record.")}${table(status.glossary)}`,
     milestones: () => `${heading("Project sequence", "Timeline and readiness", "The status dataset records the 68% pre-pass and 92% post-pass states.")}${readiness()}${table(status.timeline)}`,
