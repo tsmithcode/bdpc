@@ -71,8 +71,11 @@ with connection:
         (1, "One-sheet written authorization", "complete", "BDPC", "A101 existing main level only"),
         (2, "Licensed AutoCAD Architecture 2026", "complete", "CAD Guardian", "Native drafting and plotting environment operational"),
         (3, "Brian's July 24 drafting decisions", "complete", "BDPC", "ROOM, field verification, no north arrow, DWG + PDF"),
-        (4, "BDPC fonts / CTB / title standards", "pending", "BDPC", "Required before final issuance"),
-        (5, "BDPC professional acceptance", "pending", "BDPC", "Final architectural release authority"),
+        (4, "Fixed-fee payment", "complete", "BDPC", "$600 received via Zelle"),
+        (5, "Wall termination and red-flag review", "pending", "BDPC", "Confirm current topology or identify specific corrections"),
+        (6, "Sheet and view boundary", "pending", "BDPC", "Confirm main level only or identify separately authorized additional views"),
+        (7, "BDPC fonts / CTB / title standards", "pending", "BDPC", "Confirm controlled review plot or supply exact resources"),
+        (8, "BDPC professional acceptance", "pending", "BDPC", "Final architectural release authority"),
     ]
     replace_rows(connection, "kickoff_gates", "INSERT INTO kickoff_gates VALUES (?,?,?,?,?)", gates)
 
@@ -82,8 +85,8 @@ with connection:
     ]
     commercial.append((
         len(commercial) + 1,
-        "Stripe payment request",
-        status["payment"]["checkout_url"],
+        "Payment",
+        f'{status["payment"]["amount_display"]} received via {status["payment"]["provider"]}',
         status["payment"]["status"],
     ))
     replace_rows(connection, "commercial", "INSERT INTO commercial VALUES (?,?,?,?)", commercial)

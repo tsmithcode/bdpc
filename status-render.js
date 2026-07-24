@@ -37,10 +37,14 @@
   function paymentRequest() {
     const payment = status.payment;
     if (!payment) return "";
-    return `<article class="payment-request" aria-labelledby="payment-request-title">
-      <div><span>Project closeout payment</span><h3 id="payment-request-title">Payment requested · ${esc(payment.amount_display)}</h3><p>${esc(payment.request_text)}</p></div>
-      <div class="payment-request__action"><a class="button button--primary" href="${esc(payment.checkout_url)}" target="_blank" rel="noopener noreferrer">${esc(payment.button_label)}</a><small>One-time ${esc(payment.currency)} payment · Stripe-hosted checkout</small></div>
+    return `<article class="payment-request payment-request--received" aria-labelledby="payment-status-title">
+      <div><span>Project payment</span><h3 id="payment-status-title">Payment received · ${esc(payment.amount_display)}</h3><p>${esc(payment.status_text)}</p></div>
+      <div class="payment-request__action"><strong>Received via ${esc(payment.provider)}</strong><small>${esc(payment.received_date)} · No further payment requested</small></div>
     </article>`;
+  }
+
+  function outstandingQuestions() {
+    return `${heading("Awaiting BDPC response", "Outstanding closeout questions", "Payment is complete. Technical and professional closeout remains dependent on the responses below.")}${table(status.outstanding_questions, ["question", "status", "impact"])}`;
   }
 
   function renderOverview() {
@@ -48,6 +52,7 @@
       ${paymentRequest()}
       ${readiness()}
       ${metrics(status.dashboard_metrics)}
+      ${outstandingQuestions()}
       ${visualCards()}
       <div class="two-col">
         <article class="decision-card"><span>Issuance gate</span><h3>${esc(status.project.current_state)}</h3><p class="decision-note">${esc(status.project.remaining_gate)}</p><ul class="gate-list"><li><span>Native DWG audit</span><strong>0 errors</strong></li><li><span>PDF visual QA</span><strong>Complete</strong></li><li><span>BDPC dependencies</span><strong>Pending</strong></li></ul></article>
@@ -63,7 +68,7 @@
     standards: () => `${heading("Drawing controls", "A101 standards", "Current source hierarchy, client decisions, and known dependency exceptions.")}${table(status.standards)}`,
     "cad-prep": () => `${heading("Native production", "CAD completion pass", status.project.production_status)}${metrics(status.cad_metrics)}${table(status.cad_preparation)}`,
     delivery: () => `${heading("Acceptance evidence", "QA and controlled delivery", "Review-ready means technically checked, with BDPC-native graphic dependencies still open.")}${metrics(status.delivery_metrics)}${table(status.qa)}<div class="actions"><button class="button button--secondary" id="download-status-db" type="button">Download current SQLite status</button></div>` ,
-    updates: () => `${heading("Controlling direction", "Confirmed decisions", "Brian's latest written direction controls this pass.")}${table(status.confirmed_decisions)}${heading("Status log", "Decision history", "Public execution record.")}${table(status.decisions_log)}`,
+    updates: () => `${outstandingQuestions()}${heading("Controlling direction", "Confirmed decisions", "Brian's latest written direction controls this pass.")}${table(status.confirmed_decisions)}${heading("Status log", "Decision history", "Public execution record.")}${table(status.decisions_log)}`,
     runtime: () => `${heading("Environment", "Dependencies", "ObjectARX is installed but was not used or required by this native 2D build.")}${table(status.dependencies)}`,
     glossary: () => `${heading("Plain-language reference", "Project glossary", "Terms used in the public status and QA record.")}${table(status.glossary)}`,
     milestones: () => `${heading("Project sequence", "Timeline and readiness", "The status dataset records the 68% pre-pass and 92% post-pass states.")}${readiness()}${table(status.timeline)}`,

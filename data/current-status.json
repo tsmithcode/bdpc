@@ -1,30 +1,51 @@
 {
   "schema_version": "3.1",
-  "revision": "2026.07.24-review-ready.5",
-  "updated_at": "2026-07-24T17:59:55-04:00",
+  "revision": "2026.07.24-review-ready.6",
+  "updated_at": "2026-07-24T18:26:45-04:00",
   "project": {
     "id": "BDPC-DUNN-OS",
     "name": "Dunn Residence",
     "client": "BDPC Architects",
     "provider": "CAD Guardian LLC",
-    "current_state": "Corrected A101 package ready for BDPC review",
+    "current_state": "Payment received; A101 awaiting BDPC closeout responses",
     "status_summary": "The bounded geometry and presentation corrections are applied. The drawing now uses clean closed wall footprints, 1419-led existing-condition layers, readable annotation, a controlled black/gray plot hierarchy, an aligned plan title, and a PDF with zero SHX comments or annotations. AutoCAD Architecture 2026 AUDIT found zero errors.",
-    "remaining_gate": "Obtain Brian/BDPC professional acceptance and confirm whether the controlled review plot is accepted or must be replaced with BDPC's exact CTB and remaining proprietary fonts.",
+    "remaining_gate": "Await Brian/BDPC responses on wall terminations and red flags, the required sheet/view boundary, final plotting/title resources, and professional acceptance.",
     "scope_boundary": "One Existing Main Level As-Built Floor Plan only; existing conditions only; no proposed plan, site plan, design work, additional sheets, or unsupported conditions.",
     "production_status": "The 0.5-hour consolidated correction reserve is consumed and the contracted 8.0-hour effort limit is reached. The package remains review-ready pending BDPC acceptance.",
     "overall_delivery_readiness_percent": 92
   },
   "payment": {
-    "provider": "Stripe",
-    "mode": "one-time",
+    "provider": "Zelle",
+    "mode": "external transfer",
     "currency": "USD",
     "amount_minor": 60000,
     "amount_display": "$600.00",
-    "status": "requested",
-    "checkout_url": "https://buy.stripe.com/dRm5kCgwF17vbGC4yZe3e03",
-    "button_label": "Pay $600 securely with Stripe",
-    "request_text": "Payment is requested for the authorized Dunn Residence one-sheet CAD engagement. Stripe hosts and secures the checkout."
+    "status": "received",
+    "received_date": "2026-07-24",
+    "status_text": "Payment was received via Zelle for the authorized Dunn Residence one-sheet CAD engagement. No further payment is requested. Transaction details remain private."
   },
+  "outstanding_questions": [
+    {
+      "question": "Are the cleaned wall terminations and opening returns acceptable, and are there any red flags or major omissions?",
+      "status": "awaiting BDPC response",
+      "impact": "Required for architectural closeout confidence"
+    },
+    {
+      "question": "Is A101 limited to the Existing Main Level, or are a crawl-space plan, another floor, or additional views expected?",
+      "status": "awaiting BDPC response",
+      "impact": "Confirms the final sheet and scope boundary"
+    },
+    {
+      "question": "Is the controlled review plot acceptable, or should BDPC supply exact CTB/STB, fonts, copyright, or title-format resources?",
+      "status": "awaiting BDPC response",
+      "impact": "Controls final graphic and dependency status"
+    },
+    {
+      "question": "Does Brian/BDPC accept the current DWG and PDF as the completed one-sheet engagement?",
+      "status": "awaiting BDPC response",
+      "impact": "Final professional acceptance remains open"
+    }
+  ],
   "visuals": [
     {
       "title": "Latest corrected model view",
@@ -135,7 +156,7 @@
     {
       "label": "Authorized fee",
       "value": "$600 fixed",
-      "detail": "Payment due after delivery"
+      "detail": "Payment received via Zelle"
     },
     {
       "label": "Authorized sheets",
@@ -175,8 +196,8 @@
     {
       "term": "Fixed fee",
       "value": "$600",
-      "status": "authorized",
-      "control": "Payment due after delivery"
+      "status": "received",
+      "control": "Payment received via Zelle on 2026-07-24"
     },
     {
       "term": "Correction allowance",
@@ -451,8 +472,8 @@
     },
     {
       "label": "Payment",
-      "value": "Due after delivery",
-      "detail": "SOW unchanged"
+      "value": "Received",
+      "detail": "$600 via Zelle; no further payment requested"
     }
   ],
   "qa": [
@@ -577,6 +598,12 @@
       "title": "Stripe payment request published",
       "status": "requested",
       "effect": "$600 fixed-fee checkout verified and linked from the public project workspace"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Payment received via Zelle",
+      "status": "complete",
+      "effect": "The $600 fixed fee was received; the public Stripe payment request was removed to prevent duplicate payment"
     }
   ],
   "dependencies": [
@@ -788,8 +815,8 @@
   "sqlite": {
     "data_key": "sqlite",
     "database_url": "/bdpc/data/bdpc_client_os.sqlite",
-    "database_sha256": "d67b4ebf50f7ed5cd01d00e4d7c409aa2e0cd3c8ae8e5aac213f52ffd1c34208",
-    "transport_sha256": "a5718ab3beb46b1016581da8cc9e0978c2d30b45168a15a3c6bbda61e6fd6519",
+    "database_sha256": "052a4e1947a75ba46d3c7c1fcc95a7fded756728107ff2088315eb9b3d7b2bdf",
+    "transport_sha256": "27d743e77e598152822487a4371321c94a05c26d6bf5d17660d00d8a45da498c",
     "download_name": "bdpc_client_os.sqlite"
   }
 }
