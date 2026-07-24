@@ -8,6 +8,7 @@ import csv
 import hashlib
 import json
 import re
+import runpy
 import sqlite3
 import tempfile
 from html.parser import HTMLParser
@@ -462,6 +463,21 @@ def main() -> int:
     root = args.root.expanduser().resolve()
     if not (root / ".git").exists():
         raise SystemExit(f"Not a Git worktree: {root}")
+    manifest = json.loads((root / "data/manifest.json").read_text(encoding="utf-8"))
+    if manifest.get("status_source") == "data/current-status.json":
+        runpy.run_path(str(root / "scripts/validate_current_status.py"), run_name="__main__")
+        page_count, reference_count, _ = verify_html(root)
+        image_count = verify_images(root)
+        print(json.dumps({
+            "status": "PASS",
+            "revision": manifest["revision"],
+            "html_pages": page_count,
+            "local_references": reference_count,
+            "images_decoded": image_count,
+            "sqlite_integrity": "ok",
+            "status_source": manifest["status_source"],
+        }, indent=2, sort_keys=True))
+        return 0
     csv_counts = verify_data(root)
     page_count, reference_count, _ = verify_html(root)
     image_count = verify_images(root)

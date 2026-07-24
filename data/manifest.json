@@ -1,9 +1,12 @@
 {
+  "schema_version": "3.1",
+  "revision": "2026.07.24-review-ready.1",
+  "generated_at": "2026-07-24T14:05:00-04:00",
   "database": "data/bdpc_client_os.sqlite",
   "database_download_name": "bdpc_client_os.sqlite",
-  "generated_at": "2026-07-22T16:05:00-04:00",
-  "revision": "2026.07.22-enterprise-shell.1",
-  "parts": [
+  "database_sha256": "e546564e1002a2f8bb4506781b0236b0bb8e6a0713119f8d53e7c2818bb904eb",
+  "database_bytes": 167936,
+  "database_transport": [
     "data/sqlite/part-01.b64",
     "data/sqlite/part-02.b64",
     "data/sqlite/part-03.b64",
@@ -19,95 +22,30 @@
     "data/sqlite/part-13.b64",
     "data/sqlite/part-14.b64"
   ],
-  "files": {
-    "data/README.txt": {
-      "bytes": 471,
-      "sha256": "26d3846e0f9d1f4fd7c1f067b9da70a7276b9bb913c5f43429a65d2aa860e380"
-    },
-    "data/bdpc_client_os.sqlite": {
-      "bytes": 167936,
-      "sha256": "d53cbc812492a62e83d946503889e19123641c22a0956a674c613cba4dd02ef9"
-    },
-    "data/project.json": {
-      "bytes": 16701,
-      "sha256": "e779dc29f54c84a115218168489aa2fa5dde850b11d1c5413928aba6c6916873"
-    },
-    "data/current-authorization.json": {
-      "bytes": 10660,
-      "sha256": "0014a195822ed0f23bcaee3e9ffc9c25d67b3a3daca00926e952104af2cce802"
-    },
-    "data/operating-doctrine.json": {
-      "bytes": 16357,
-      "sha256": "04c58adf79e22098a40862da95d5b45a1f6362e417bbcef2bb878c9c71561199"
-    },
-    "data/production-controls.json": {
-      "bytes": 38550,
-      "sha256": "8d3c697991975ef8a8f5ebc2a2384745048c9b9ae05e2329420aa1e662c33a2d"
-    },
-    "data/release.json": {
-      "bytes": 160,
-      "sha256": "6d7a23c96164d24c0f27d0b3bbac41e65ad89fba1a76a02ab61b068ff8e2b1b9"
-    },
-    "data/schema.sql": {
-      "bytes": 3663,
-      "sha256": "3db7d99068493961ba1688220f2ae10a2178e7cf8f22b0e70942f446c5f01dae"
-    },
-    "data/sqlite/part-01.b64": {
-      "bytes": 16000,
-      "sha256": "e6fdf67851ed9fe02e0a16b1b989ea15da3fe0d6ff55a5d711a567fcf79c942e"
-    },
-    "data/sqlite/part-02.b64": {
-      "bytes": 16000,
-      "sha256": "2ac53ec3c292c0895044a4b9890e826ec4cf91ce73143a53af6cab4cd7effdbb"
-    },
-    "data/sqlite/part-03.b64": {
-      "bytes": 16000,
-      "sha256": "774b47c1a96cb8f5e7f5fafc24a88deb45ec5b72abfc0a9adabb3f8d8699aec0"
-    },
-    "data/sqlite/part-04.b64": {
-      "bytes": 16000,
-      "sha256": "6ff9a330bfe830cf79a965b57ae7a1b4c0c53244607aae8239a7f3b82b7bd855"
-    },
-    "data/sqlite/part-05.b64": {
-      "bytes": 16000,
-      "sha256": "ab4060e773fa9764f9b3733ea6a688854518a71488399d5aa3d0b25aa5ddfcc4"
-    },
-    "data/sqlite/part-06.b64": {
-      "bytes": 16000,
-      "sha256": "87a9beba3247da140af4268c9d988c61b014c6de08a5a342a2d35edb9ae89df5"
-    },
-    "data/sqlite/part-07.b64": {
-      "bytes": 16000,
-      "sha256": "8d0000fcc3989428c8bc5fdb9c40fb47e4248ac74c0ddad9de3ad00ad96b94d6"
-    },
-    "data/sqlite/part-08.b64": {
-      "bytes": 16000,
-      "sha256": "56fb84500027c7a974b87ca61db51a3d9aef13c28ae56e695bfef6793abfc3a0"
-    },
-    "data/sqlite/part-09.b64": {
-      "bytes": 16000,
-      "sha256": "c327360fd08f78dbba0776789e3723e5ee4ca58a307ab062e859fc5cc45bcfd4"
-    },
-    "data/sqlite/part-10.b64": {
-      "bytes": 16000,
-      "sha256": "6d6f617b44619a2ed14d19475b48b28a382991f57720115f84b4ed45d7a08c5d"
-    },
-    "data/sqlite/part-11.b64": {
-      "bytes": 16000,
-      "sha256": "0199a2ab13b3c35719c1c02b1a18c1d4213fc36fe201c01de66945171b5f24e5"
-    },
-    "data/sqlite/part-12.b64": {
-      "bytes": 16000,
-      "sha256": "a3ceb82ccf5c9001eb935f9751567180a8802650a177d3a2f26e1d57f9446633"
-    },
-    "data/sqlite/part-13.b64": {
-      "bytes": 16000,
-      "sha256": "1f71c75ca4716ca1dfe4f335e427d70151f3860f95c791fa052a5f0ad187922a"
-    },
-    "data/sqlite/part-14.b64": {
-      "bytes": 15916,
-      "sha256": "4b6164900664f8296a1687fdad29232c09593fe060413144972027418a12d6fd"
-    }
+  "database_transport_sha256": "b71991bba4beba1dbce82d39f2fa7fc56534fa8df0eb94c62b2fade38455a617",
+  "table_counts": {
+    "access_controls": 0,
+    "automation": 6,
+    "cad_preparation": 7,
+    "cad_public_registers": 85,
+    "commercial": 6,
+    "deliverables": 2,
+    "file_groups": 8,
+    "kickoff_gates": 5,
+    "metrics": 11,
+    "milestones": 7,
+    "native_overlap_pairs": 0,
+    "project": 1,
+    "qa_checks": 10,
+    "reports": 0,
+    "role_views": 0,
+    "runtime": 8,
+    "slice_evidence": 0,
+    "sow_effort_plan": 3,
+    "standards": 10,
+    "updates": 8,
+    "validation_sessions": 0
   },
-  "note": "Current one-sheet public data bundle with enterprise project workspace shell."
+  "status_source": "data/current-status.json",
+  "privacy": "Client-safe aggregate and derived project controls only; confidential sources are excluded."
 }

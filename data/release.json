@@ -1,5 +1,6 @@
 {
-  "revision": "2026.07.22-enterprise-shell.1",
-  "updated_at": "2026-07-22T16:05:00-04:00",
-  "status": "enterprise project workspace shell published"
+  "revision": "2026.07.24-review-ready.1",
+  "updated_at": "2026-07-24T14:05:00-04:00",
+  "status": "Review-ready A101 DWG/PDF package produced",
+  "delivery_readiness_percent": 92
 }

@@ -47,9 +47,9 @@
   <div class="workspace-column">
     <section class="project-bar">
       <div><span class="eyebrow" id="revision-label">Project Workspace · current status</span><h1>Dunn Residence</h1></div>
-      <div class="gate"><span>Current state</span><strong>Authorized · pre-AutoCAD package ready</strong><small>One-sheet scope. $600 fixed fee. Payment due after delivery. AutoCAD license controls production.</small></div>
+      <div class="gate"><span>Current state</span><strong>Loading current status</strong><small>The public status dataset is loading.</small></div>
     </section>
-    <main id="workspace" data-current-source="/bdpc/data/current-authorization.json">
+    <main id="workspace" data-current-source="/bdpc/data/current-status.json">
       <section class="panel" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview" data-panel="overview"><div class="loading">Loading current project status…</div></section>
       <section class="panel" id="panel-milestones" role="tabpanel" aria-labelledby="tab-milestones" data-panel="milestones" hidden></section>
       <section class="panel" id="panel-files" role="tabpanel" aria-labelledby="tab-files" data-panel="files" hidden></section>
@@ -73,7 +73,8 @@
 </noscript>
 <footer><div><strong>Thomas D. Smith II</strong> · CAD Guardian LLC</div><div>Project workspace · revision <span id="footer-revision">loading</span> · <a href="mailto:tsmithcad@gmail.com">tsmithcad@gmail.com</a></div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="authorization.js?v=20260722.3" defer></script>
-<script src="scope-focus.js?v=20260722.2" defer></script>
+<script src="status-data.js?v=20260724.1" defer></script>
+<script src="sqlite.js?v=20260724.1" defer></script>
+<script src="status-render.js?v=20260724.1" defer></script>
 </body>
 </html>

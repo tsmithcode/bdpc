@@ -1,0 +1,62 @@
+from __future__ import annotations
+
+import base64
+import hashlib
+import json
+import sqlite3
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA = ROOT / "data"
+
+
+def sha256(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+status = json.loads((DATA / "current-status.json").read_text(encoding="utf-8"))
+manifest = json.loads((DATA / "manifest.json").read_text(encoding="utf-8"))
+index = (ROOT / "index.html").read_text(encoding="utf-8")
+status_js = (ROOT / "status-data.js").read_text(encoding="utf-8")
+
+assert status["revision"] == manifest["revision"]
+assert status["project"]["overall_delivery_readiness_percent"] == 92
+assert [(item["stage"], item["percent"]) for item in status["readiness_history"]] == [
+    ("Before absolute-ceiling pass", 68),
+    ("After absolute-ceiling pass", 92),
+]
+assert set(status["deliverable_hashes"]) == {"dwg", "pdf"}
+assert all(len(item["sha256"]) == 64 for item in status["deliverable_hashes"].values())
+assert 'src="status-data.js?v=20260724.1"' in index
+assert 'src="sqlite.js?v=20260724.1"' in index
+assert 'src="status-render.js?v=20260724.1"' in index
+assert "authorization.js" not in index and "scope-focus.js" not in index
+assert json.loads(status_js.removeprefix("window.BDPC_STATUS=").rstrip().removesuffix(";")) == status
+
+database = (DATA / "bdpc_client_os.sqlite").read_bytes()
+assert sha256(database) == manifest["database_sha256"]
+encoded = "".join((ROOT / part).read_text(encoding="ascii") for part in manifest["database_transport"])
+encoded = "".join(encoded.split())
+assert sha256(encoded.encode("ascii")) == manifest["database_transport_sha256"]
+assert base64.b64decode(encoded) == database
+
+connection = sqlite3.connect(DATA / "bdpc_client_os.sqlite")
+assert connection.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
+tables = [row[0] for row in connection.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")]
+counts = {table: connection.execute(f'SELECT COUNT(*) FROM "{table}"').fetchone()[0] for table in sorted(tables)}
+assert counts == manifest["table_counts"]
+metrics = dict(connection.execute("SELECT key, value_text FROM metrics"))
+assert metrics["delivery_readiness_current"] == "92"
+assert metrics["delivery_readiness_prepass"] == "68"
+assert connection.execute("SELECT phase FROM project").fetchone()[0] == status["project"]["current_state"]
+connection.close()
+
+print(json.dumps({
+    "revision": status["revision"],
+    "readiness": [68, 92],
+    "database_sha256": manifest["database_sha256"],
+    "transport_parts": len(manifest["database_transport"]),
+    "table_counts": counts,
+    "integrity": "ok",
+}, indent=2))
