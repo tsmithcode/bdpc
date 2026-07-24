@@ -1,7 +1,7 @@
 {
   "schema_version": "3.1",
-  "revision": "2026.07.24-review-ready.3",
-  "updated_at": "2026-07-24T17:27:15-04:00",
+  "revision": "2026.07.24-review-ready.4",
+  "updated_at": "2026-07-24T17:42:36-04:00",
   "project": {
     "id": "BDPC-DUNN-OS",
     "name": "Dunn Residence",
@@ -22,7 +22,8 @@
       "width": 1600,
       "height": 1200,
       "mime": "image/png",
-      "src": "assets/dunn-model-space.png",
+      "src": "assets/dunn-model-space-ecbc468d6a8b.png",
+      "sha256": "ecbc468d6a8b958d6205de944a1af3d6a03425aa3cd2518d089d39b01d6c098b",
       "data_key": "model"
     },
     {
@@ -32,7 +33,8 @@
       "width": 1800,
       "height": 1200,
       "mime": "image/png",
-      "src": "assets/dunn-a101-preview.png",
+      "src": "assets/dunn-a101-preview-e4d9a4e000a6.png",
+      "sha256": "e4d9a4e000a652f3360ac3126dc3b5cb07035f765da9f09d2cf4ead7db8c4467",
       "data_key": "sheet"
     },
     {
@@ -769,8 +771,8 @@
   "sqlite": {
     "data_key": "sqlite",
     "database_url": "/bdpc/data/bdpc_client_os.sqlite",
-    "database_sha256": "3830c9c5cebcfead8979d91f86cd903f06b1f5b03990ed7846e083c0b76b2e88",
-    "transport_sha256": "faef9ac58b1aaa4aa27405cc051d789a3a0adc680ba24e25973bf03b32455780",
+    "database_sha256": "d7b21d38f3aae5da3d36269a167130ee58a5104c450f8ea1dabe25337d3af4ad",
+    "transport_sha256": "6031ccd2e7992d6c7f1fb705385bc20a5259eae6630de0420fcb90ba50b0a81c",
     "download_name": "bdpc_client_os.sqlite"
   }
 }

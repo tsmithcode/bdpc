@@ -29,9 +29,9 @@ assert [(item["stage"], item["percent"]) for item in status["readiness_history"]
 ]
 assert set(status["deliverable_hashes"]) == {"dwg", "pdf"}
 assert all(len(item["sha256"]) == 64 for item in status["deliverable_hashes"].values())
-assert 'src="status-data.js?v=20260724.3"' in index
-assert 'src="sqlite.js?v=20260724.2"' in index
-assert 'src="status-render.js?v=20260724.3"' in index
+assert 'src="status-data.js?v=20260724.4"' in index
+assert 'src="sqlite.js?v=20260724.3"' in index
+assert 'src="status-render.js?v=20260724.4"' in index
 assert "authorization.js" not in index and "scope-focus.js" not in index
 assert json.loads(status_js.removeprefix("window.BDPC_STATUS=").rstrip().removesuffix(";")) == status
 
@@ -43,6 +43,12 @@ for visual in status["visuals"]:
     payload = asset.read_bytes()
     assert payload.startswith(b"\x89PNG\r\n\x1a\n"), asset
     assert payload[12:16] == b"IHDR", asset
+    asset_hash = sha256(payload)
+    if "sha256" in visual:
+        assert visual["sha256"] == asset_hash, asset
+    if visual["data_key"] in {"model", "sheet"}:
+        assert len(visual.get("sha256", "")) == 64, asset
+        assert visual["sha256"][:12] in asset.name, asset
     width, height = struct.unpack(">II", payload[16:24])
     assert width == visual["width"] and height == visual["height"]
 assert "dunn-model-space.svg" not in (ROOT / "status-render.js").read_text(encoding="utf-8")
