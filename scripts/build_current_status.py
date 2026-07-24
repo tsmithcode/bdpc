@@ -45,7 +45,7 @@ with connection:
     metrics = [
         ("delivery_readiness_current", 92, "92", "percent"),
         ("delivery_readiness_prepass", 68, "68", "percent"),
-        ("model_entities", 168, "168", "entities"),
+        ("model_entities", 167, "167", "entities"),
         ("native_dimensions", 14, "14", "dimensions"),
         ("opening_assemblies", 6, "6", "assemblies"),
         ("window_zones", 8, "8", "zones"),
@@ -127,7 +127,7 @@ with connection:
     effort = [
         ("EFT-COMPLETE", "Completed project work", "A101", "Authority, evidence, model, and client direction", 5.5, "CAD Guardian", "Complete", "Review-ready base", "68 percent readiness before final pass"),
         ("EFT-PASS", "Absolute-ceiling completion pass", "A101", "Cleanup, native audit, plot, visual QA, package", 2.0, "CAD Guardian", "Approved", "Review-ready DWG/PDF", "92 percent readiness"),
-        ("EFT-RESERVE", "Minor correction reserve", "A101", "One consolidated in-scope drafting correction", 0.5, "CAD Guardian", "BDPC consolidated review", "Corrected DWG/PDF if needed", "8.0-hour ceiling preserved"),
+        ("EFT-RESERVE", "Minor correction reserve", "A101", "Seven bounded presentation and defect corrections", 0.5, "CAD Guardian", "Consumed", "Corrected review-ready DWG/PDF", "8.0-hour absolute ceiling reached"),
     ]
     replace_rows(connection, "sow_effort_plan", "INSERT INTO sow_effort_plan VALUES (?,?,?,?,?,?,?,?,?)", effort)
 

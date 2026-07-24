@@ -1,49 +1,51 @@
 {
   "schema_version": "3.1",
-  "revision": "2026.07.24-review-ready.1",
-  "updated_at": "2026-07-24T14:05:00-04:00",
+  "revision": "2026.07.24-absolute-ceiling.2",
+  "updated_at": "2026-07-24T15:08:03-04:00",
   "project": {
     "id": "BDPC-DUNN-OS",
     "name": "Dunn Residence",
     "client": "BDPC Architects",
     "provider": "CAD Guardian LLC",
-    "current_state": "Review-ready A101 DWG/PDF package produced",
-    "status_summary": "Brian's July 24 decisions are applied. The native DWG passed AUDIT with zero errors, and a one-page 24 x 36 PDF was plotted and visually checked. BDPC fonts, CTB/STB, copyright, and final sheet-format direction remain the final issuance gate.",
-    "remaining_gate": "Receive or accept BDPC fonts, CTB/STB, copyright, and sheet-format direction; then apply the approved dependencies and obtain BDPC professional acceptance.",
+    "current_state": "Absolute-ceiling corrected A101 ready for BDPC review",
+    "status_summary": "The seven bounded correction items are applied. The drawing now uses 1419-led existing-condition layers, Arial annotation, a controlled black/gray plot hierarchy, aligned plan-title resources, and a PDF with zero SHX comments or annotations. AutoCAD 2026 AUDIT found zero errors.",
+    "remaining_gate": "Obtain Brian/BDPC professional acceptance and confirm whether the controlled review plot is accepted or must be replaced with BDPC's exact CTB and remaining proprietary fonts.",
     "scope_boundary": "One Existing Main Level As-Built Floor Plan only; existing conditions only; no proposed plan, site plan, design work, additional sheets, or unsupported conditions.",
-    "production_status": "Absolute-ceiling completion pass finished at review-ready status; final issuance is held for BDPC-native dependency direction.",
+    "production_status": "The 0.5-hour consolidated correction reserve is consumed and the contractual 8.0-hour absolute ceiling is reached. The package remains review-ready pending BDPC acceptance.",
     "overall_delivery_readiness_percent": 92
   },
   "visuals": [
     {
       "title": "Current source-reviewed floor plan",
-      "caption": "Native AutoCAD model-space view showing the current evidence-supported main-level geometry, dimensions, porch, and deck. Click to inspect.",
+      "caption": "Corrected native-plan preview showing the evidence-supported main-level geometry, 14 City controls, porch, and deck. Click to inspect.",
       "alt": "Current source-reviewed Dunn Residence model-space floor plan",
-      "width": 900,
-      "height": 500,
-      "mime": "image/jpeg",
+      "width": 1600,
+      "height": 1200,
+      "mime": "image/png",
+      "src": "assets/dunn-model-space.png",
       "data_key": "model"
     },
     {
       "title": "Current A101 sheet composition",
-      "caption": "Current 24 \u00d7 36 A101 paper-space composition at 1/4 inch equals 1 foot, pending final BDPC graphic and plot standards. Click to inspect.",
+      "caption": "Corrected 24 x 36 A101 paper-space composition at 1/4 inch equals 1 foot. The public image is a derived preview; the delivery PDF remains controlled. Click to inspect.",
       "alt": "Current A101 existing main level as-built sheet composition",
-      "width": 900,
-      "height": 588,
-      "mime": "image/jpeg",
+      "width": 1800,
+      "height": 1200,
+      "mime": "image/png",
+      "src": "assets/dunn-a101-preview.png",
       "data_key": "sheet"
     }
   ],
   "dashboard_metrics": [
     {
       "label": "Current DWG",
-      "value": "Review-ready A101",
-      "detail": "Native AutoCAD 2026; AUDIT found 0 errors"
+      "value": "Corrected A101",
+      "detail": "Native AutoCAD 2026; 1419-led layers; AUDIT found 0 errors"
     },
     {
       "label": "Current PDF",
-      "value": "Plotted and checked",
-      "detail": "One page; ARCH D 24 x 36; visual QA complete"
+      "value": "Clean plot; 0 annotations",
+      "detail": "One page; ARCH D 24 x 36; zero SHX comments"
     },
     {
       "label": "Pre-pass readiness",
@@ -353,7 +355,7 @@
     },
     {
       "item": "Release preflight",
-      "evidence": "Native audit and PDF visual QA completed; dependency exception recorded",
+      "evidence": "Native audit, PDF annotation gate, and rendered visual QA completed; dependency exception recorded",
       "status": "complete with dependency exception",
       "next_action": "Apply BDPC fonts/CTB/title direction and obtain final acceptance"
     }
@@ -429,7 +431,7 @@
     },
     {
       "check": "Graphic hierarchy and annotation cleanup",
-      "evidence": "ROOM label applied; progress notes removed; one field-verification note retained",
+      "evidence": "ROOM retained; automation prefixes removed; Arial annotation and 1419-led layer hierarchy applied",
       "status": "complete",
       "owner": "CAD Guardian"
     },
@@ -441,7 +443,7 @@
     },
     {
       "check": "PDF visual QA",
-      "evidence": "One-page 24 x 36 PDF rendered and inspected; colors/lineweights remain provisional without BDPC CTB/STB",
+      "evidence": "One-page 24 x 36 PDF rendered and inspected; zero annotations and zero AutoCAD SHX comments; controlled monochrome review plot applied",
       "status": "complete with dependency exception",
       "owner": "CAD Guardian"
     },
@@ -500,6 +502,12 @@
       "title": "Absolute-ceiling completion pass finished",
       "status": "review-ready",
       "effect": "A101 DWG/PDF package advanced from 68% to 92%; final issuance held for BDPC dependencies"
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Consolidated correction reserve completed",
+      "status": "review-ready",
+      "effect": "SHX comments removed; 1419-led layers, Arial annotation, plot hierarchy, title alignment, preview assets, and release validators applied"
     }
   ],
   "dependencies": [
@@ -580,13 +588,13 @@
     {
       "term": "Native QA",
       "meaning": "Opening and auditing the final DWG in the target AutoCAD environment, including dependencies, layouts, and page setup.",
-      "status": "remaining",
+      "status": "complete",
       "relevance": "Final issue gate"
     },
     {
       "term": "Visual PDF QA",
       "meaning": "Inspection of the plotted PDF for framing, clipping, lineweight hierarchy, legibility, and consistency with the DWG.",
-      "status": "remaining",
+      "status": "complete",
       "relevance": "Final issue gate"
     },
     {
@@ -632,6 +640,12 @@
       "milestone": "Review-ready A101 DWG/PDF package produced",
       "status": "complete with dependency exception",
       "evidence": "ROOM treatment, field-verification note, native audit, 24 x 36 plot, visual QA, and controlled package completed"
+    },
+    {
+      "date": "2026-07-24",
+      "milestone": "Absolute-ceiling correction reserve completed",
+      "status": "complete with dependency exception",
+      "evidence": "Zero-error native audit, exact 1:48 locked viewport, zero PDF annotations, 1419-led graphic hierarchy, and valid public previews"
     },
     {
       "date": "Next",
@@ -692,21 +706,21 @@
   ],
   "deliverable_hashes": {
     "dwg": {
-      "name": "Dunn_Residence_Existing_Main_Level_A101_REVIEW_READY.dwg",
-      "sha256": "69da25dfc33ffb8ec5ff7310870f896bb667bae5a6aa1b5c89ea6a0acf44abec",
-      "bytes": 2374246
+      "name": "Dunn_Residence_Existing_Main_Level_A101_ABSOLUTE_CEILING.dwg",
+      "sha256": "71aea6301d92a79cd52800142416056637de2824c11ec934019a2b92f254a585",
+      "bytes": 2342864
     },
     "pdf": {
-      "name": "Dunn_Residence_Existing_Main_Level_A101_REVIEW_READY.pdf",
-      "sha256": "00269b1fd7708a9b1a18f3ae999add649a3a0f88e314f0097ed7305c8842d9f8",
-      "bytes": 159350
+      "name": "Dunn_Residence_Existing_Main_Level_A101_ABSOLUTE_CEILING.pdf",
+      "sha256": "eed237cf2a8a7562b8adb9748bbe0fc10343aa083c86b29900a09f402d612874",
+      "bytes": 119865
     }
   },
   "sqlite": {
     "data_key": "sqlite",
     "database_url": "/bdpc/data/bdpc_client_os.sqlite",
-    "database_sha256": "e546564e1002a2f8bb4506781b0236b0bb8e6a0713119f8d53e7c2818bb904eb",
-    "transport_sha256": "b71991bba4beba1dbce82d39f2fa7fc56534fa8df0eb94c62b2fade38455a617",
+    "database_sha256": "b144fa5465484d92f3773599d0fdff572d60e5b7d6371fad7be97a4a2ff5cb11",
+    "transport_sha256": "784a0d5b6b0ee76c68bc5ff4f1d275deaa215c12774aa37008a6f1a5d224dbb9",
     "download_name": "bdpc_client_os.sqlite"
   }
 }

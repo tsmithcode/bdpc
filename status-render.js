@@ -27,13 +27,20 @@
     return `<div class="phase-progress-grid">${status.readiness_history.map((item) => `<article class="phase-progress"><div><span>${esc(item.stage)}</span><strong>${esc(item.percent)}%</strong></div><progress max="100" value="${Number(item.percent)}">${esc(item.percent)}%</progress><small>${esc(item.date)}</small></article>`).join("")}</div>`;
   }
 
+  function visualCards() {
+    const items = status.visuals || [];
+    if (!items.length) return `<div class="callout">No public preview images are available.</div>`;
+    return `<div class="two-col">${items.map((item) => `<article class="card"><h3>${esc(item.title)}</h3><p><a href="${esc(item.src)}" target="_blank" rel="noopener"><img src="${esc(item.src)}" alt="${esc(item.alt)}" width="${Number(item.width)}" height="${Number(item.height)}" loading="lazy" style="display:block;width:100%;height:auto;border:1px solid #d8e2ec"></a></p><p>${esc(item.caption)}</p></article>`).join("")}</div>`;
+  }
+
   function renderOverview() {
     return `${heading("Current public status", "A101 is review-ready", status.project.status_summary)}
       ${readiness()}
       ${metrics(status.dashboard_metrics)}
+      ${visualCards()}
       <div class="two-col">
-        <article class="card"><h3>Current controlled sheet</h3><p><img src="assets/dunn-model-space.svg" alt="Evidence-supported Dunn Residence main-level model space" style="display:block;width:100%;height:auto;border:1px solid #d8e2ec"></p><p>Porch-left / deck-right orientation. Fourteen City controls remain native dimensions. Unknown room use is labeled ROOM.</p></article>
         <article class="decision-card"><span>Issuance gate</span><h3>${esc(status.project.current_state)}</h3><p class="decision-note">${esc(status.project.remaining_gate)}</p><ul class="gate-list"><li><span>Native DWG audit</span><strong>0 errors</strong></li><li><span>PDF visual QA</span><strong>Complete</strong></li><li><span>BDPC dependencies</span><strong>Pending</strong></li></ul></article>
+        <article class="card"><h3>Public preview boundary</h3><p>The previews above are client-safe derived images. The editable DWG and full-resolution PDF remain in the controlled delivery package and are not published in this public repository.</p></article>
       </div>
       <div class="callout"><strong>Scope boundary:</strong> ${esc(status.project.scope_boundary)}</div>`;
   }

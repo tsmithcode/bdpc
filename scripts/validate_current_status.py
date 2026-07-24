@@ -4,6 +4,7 @@ import base64
 import hashlib
 import json
 import sqlite3
+import struct
 from pathlib import Path
 
 
@@ -28,11 +29,23 @@ assert [(item["stage"], item["percent"]) for item in status["readiness_history"]
 ]
 assert set(status["deliverable_hashes"]) == {"dwg", "pdf"}
 assert all(len(item["sha256"]) == 64 for item in status["deliverable_hashes"].values())
-assert 'src="status-data.js?v=20260724.1"' in index
+assert 'src="status-data.js?v=20260724.2"' in index
 assert 'src="sqlite.js?v=20260724.1"' in index
-assert 'src="status-render.js?v=20260724.1"' in index
+assert 'src="status-render.js?v=20260724.2"' in index
 assert "authorization.js" not in index and "scope-focus.js" not in index
 assert json.loads(status_js.removeprefix("window.BDPC_STATUS=").rstrip().removesuffix(";")) == status
+
+assert len(status["visuals"]) == 2
+for visual in status["visuals"]:
+    asset = ROOT / visual["src"]
+    assert asset.is_file(), asset
+    assert asset.suffix.lower() == ".png", asset
+    payload = asset.read_bytes()
+    assert payload.startswith(b"\x89PNG\r\n\x1a\n"), asset
+    assert payload[12:16] == b"IHDR", asset
+    width, height = struct.unpack(">II", payload[16:24])
+    assert width == visual["width"] and height == visual["height"]
+assert "dunn-model-space.svg" not in (ROOT / "status-render.js").read_text(encoding="utf-8")
 
 database = (DATA / "bdpc_client_os.sqlite").read_bytes()
 assert sha256(database) == manifest["database_sha256"]

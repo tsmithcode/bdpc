@@ -1,10 +1,10 @@
 {
   "schema_version": "3.1",
-  "revision": "2026.07.24-review-ready.1",
-  "generated_at": "2026-07-24T14:05:00-04:00",
+  "revision": "2026.07.24-absolute-ceiling.2",
+  "generated_at": "2026-07-24T15:08:03-04:00",
   "database": "data/bdpc_client_os.sqlite",
   "database_download_name": "bdpc_client_os.sqlite",
-  "database_sha256": "e546564e1002a2f8bb4506781b0236b0bb8e6a0713119f8d53e7c2818bb904eb",
+  "database_sha256": "b144fa5465484d92f3773599d0fdff572d60e5b7d6371fad7be97a4a2ff5cb11",
   "database_bytes": 167936,
   "database_transport": [
     "data/sqlite/part-01.b64",
@@ -22,7 +22,7 @@
     "data/sqlite/part-13.b64",
     "data/sqlite/part-14.b64"
   ],
-  "database_transport_sha256": "b71991bba4beba1dbce82d39f2fa7fc56534fa8df0eb94c62b2fade38455a617",
+  "database_transport_sha256": "784a0d5b6b0ee76c68bc5ff4f1d275deaa215c12774aa37008a6f1a5d224dbb9",
   "table_counts": {
     "access_controls": 0,
     "automation": 6,
@@ -33,7 +33,7 @@
     "file_groups": 8,
     "kickoff_gates": 5,
     "metrics": 11,
-    "milestones": 7,
+    "milestones": 8,
     "native_overlap_pairs": 0,
     "project": 1,
     "qa_checks": 10,
@@ -43,7 +43,7 @@
     "slice_evidence": 0,
     "sow_effort_plan": 3,
     "standards": 10,
-    "updates": 8,
+    "updates": 9,
     "validation_sessions": 0
   },
   "status_source": "data/current-status.json",
