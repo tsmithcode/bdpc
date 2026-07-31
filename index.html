@@ -4,38 +4,56 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="Plan Grid for BDPC is coming soon. Awarded SOW and invoice records remain available.">
+  <meta name="description" content="Plan Relay partnership timeline for BDPC Architects and CAD Guardian LLC, including completed work, pending opportunities, SOWs, and invoices.">
   <meta name="theme-color" content="#0b1220">
   <link rel="icon" href="data:,">
-  <title>Plan Grid — BDPC</title>
+  <title>Plan Relay × BDPC</title>
   <style>
-    :root{--ink:#101828;--muted:#667085;--line:#d0d5dd;--navy:#0b1220;--green:#147a4b;--green-soft:#ecfdf3}
-    *{box-sizing:border-box}
-    html,body{min-height:100%}
-    body{margin:0;display:grid;place-items:center;padding:24px;background:#eef2f6;color:var(--ink);font:15px/1.5 Arial,"Segoe UI",sans-serif}
-    main{width:min(620px,100%);padding:42px;border-top:8px solid var(--green);border-radius:18px;background:#fff;box-shadow:0 20px 60px rgba(15,23,42,.12)}
-    .mark{display:grid;grid-template-columns:repeat(3,10px);gap:4px;width:max-content;margin-bottom:24px}
-    .mark span{width:10px;height:10px;border:1px solid var(--green);border-radius:2px;background:var(--green-soft)}
-    .mark span:nth-child(2),.mark span:nth-child(5),.mark span:nth-child(8){background:var(--green)}
-    .eyebrow{color:var(--green);font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-    h1{margin:8px 0 10px;font-size:44px;line-height:1;letter-spacing:-.04em}
-    p{margin:0;color:var(--muted);font-size:16px}
-    .status{display:inline-flex;margin-top:18px;padding:6px 9px;border-radius:999px;background:var(--green-soft);color:var(--green);font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
-    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
-    a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid var(--green);border-radius:999px;background:var(--green);color:#fff;font-weight:800;text-decoration:none}
-    footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
-    @media(max-width:560px){main{padding:30px 24px}h1{font-size:38px}}
+    :root{--ink:#101828;--muted:#667085;--line:#d0d5dd;--navy:#0b1220;--green:#147a4b;--green-soft:#ecfdf3;--amber:#946200;--amber-soft:#fff8e5;--purple:#6d3bd1;--purple-soft:#f4f0ff;--blue:#175cd3;--soft:#f8fafc}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#eef2f6;color:var(--ink);font:15px/1.52 Arial,"Segoe UI",sans-serif}a{color:inherit}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.96);color:#fff}.topbar__inner{width:min(1120px,calc(100% - 28px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:13px 0}.brand{font-weight:900}.nav{display:flex;gap:9px;flex-wrap:wrap}.nav a{padding:8px 11px;border:1px solid rgba(255,255,255,.2);border-radius:999px;text-decoration:none;font-size:12px;font-weight:800}
+    main{width:min(1120px,calc(100% - 28px));margin:26px auto 48px}.panel{margin-top:22px;padding:28px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 18px 48px rgba(15,23,42,.09)}
+    .eyebrow{color:var(--green);font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}h1{margin:8px 0 10px;font-size:46px;line-height:1;letter-spacing:-.045em}h2{margin:0;font-size:25px;line-height:1.12}h3{margin:0;font-size:17px;line-height:1.2}p{margin:7px 0;color:var(--muted)}
+    .badge{display:inline-flex;padding:5px 8px;border-radius:999px;font-size:9px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}.pending{background:var(--amber-soft);color:var(--amber)}.awarded{background:var(--green-soft);color:var(--green)}.private{background:var(--purple-soft);color:var(--purple)}
+    .decision-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}.callout{max-width:440px;padding:14px 16px;border-left:4px solid var(--amber);border-radius:9px;background:var(--amber-soft);color:#664900;font-size:13px}
+    .opportunities{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}.opportunity{display:grid;grid-template-columns:78px 1fr;gap:14px;padding:15px;border:1px solid var(--line);border-radius:14px;background:var(--soft)}.icon{display:grid;place-items:center;height:78px;border-radius:11px;background:linear-gradient(145deg,#eaf0f6,#fff);border:1px solid var(--line);font-size:19px;font-weight:900;color:#344054}.meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}.scope{font-size:12px;line-height:1.45;color:var(--muted)}.guardrail{margin-top:14px;font-size:11px;color:var(--muted)}
+    .hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(380px,1.1fr);padding:0;overflow:hidden}.hero-copy{padding:34px}.hero-image{min-height:390px;background:#08111f}.hero-image img{width:100%;height:100%;display:block;object-fit:cover}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid var(--line);border-radius:999px;background:#fff;text-decoration:none;font-size:12px;font-weight:900}.button.primary{border-color:var(--green);background:var(--green);color:#fff}
+    .timeline{position:relative;margin-top:18px;padding-left:28px}.timeline:before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:var(--line)}.week{position:relative;display:grid;grid-template-columns:145px 1fr;gap:18px;margin-bottom:18px}.week:before{content:"";position:absolute;left:-25px;top:7px;width:12px;height:12px;border:3px solid #fff;border-radius:50%;background:var(--green);box-shadow:0 0 0 2px var(--green)}.week-date{font-size:12px;font-weight:900;color:var(--muted)}.week-body{padding:20px;border:1px solid var(--line);border-radius:14px;background:#fff}.results{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:13px}.result{padding:11px 12px;border-radius:10px;background:var(--soft);font-size:12px}.result strong{display:block;margin-bottom:2px}.proof{margin-top:14px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}.proof img{display:block;width:100%;max-height:420px;object-fit:cover}.proof div{padding:10px 12px;color:var(--muted);font-size:11px}
+    footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:22px;padding:18px 2px;color:var(--muted);font-size:11px}
+    @media(max-width:860px){.opportunities,.results{grid-template-columns:1fr}.hero{grid-template-columns:1fr}.hero-image{min-height:270px}.week{grid-template-columns:1fr;gap:7px}.decision-head{align-items:flex-start;flex-direction:column}}
+    @media(max-width:560px){h1{font-size:39px}.panel{padding:22px}.topbar__inner{align-items:flex-start;flex-direction:column}.opportunity{grid-template-columns:62px 1fr}.icon{height:62px}.hero-copy{padding:26px 22px}}
   </style>
 </head>
 <body>
+  <header class="topbar"><div class="topbar__inner"><div class="brand">Plan Relay × BDPC</div><nav class="nav"><a href="#timeline">Partnership timeline</a><a href="/bdpc/sow/">SOWs & invoices</a></nav></div></header>
   <main>
-    <div class="mark" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-    <div class="eyebrow">CAD Guardian LLC × BDPC Architects</div>
-    <h1>Plan Grid</h1>
-    <p>A simplified project-control experience for BDPC is coming soon. Existing awarded SOW and invoice records remain available.</p>
-    <span class="status">Coming soon</span>
-    <div class="actions"><a href="/bdpc/sow/">Open commercial records →</a></div>
-    <footer>Plan Grid by CAD Guardian LLC</footer>
+    <section class="panel" id="next">
+      <div class="decision-head">
+        <div><div class="eyebrow">Next decision · non-awarded</div><h2>Ready for Brian’s direction</h2><p>These opportunities were discussed, but none is active production scope. Select one bounded SOW—or move to the proposed 20-hour/week program—when the timing is right.</p></div>
+        <div class="callout"><strong>No work begins without written authorization.</strong><br>The 20-hour/week program is a proposed operating path, not an active commitment.</div>
+      </div>
+      <div class="opportunities">
+        <article class="opportunity"><div class="icon">CR</div><div><div class="meta"><span class="badge pending">Paused</span><span class="badge private">Not awarded</span></div><h3>Crest on Peachtree</h3><p class="scope">Field measurements and one bounded as-built floor-plan assignment, with offshore coordination only as separately directed. Brian asked CAD Guardian to stand down pending reauthorization.</p></div></article>
+        <article class="opportunity"><div class="icon">FS</div><div><div class="meta"><span class="badge pending">Awaiting scope</span><span class="badge private">Not awarded</span></div><h3>Flat Shoals Factory Road Storage</h3><p class="scope">Commercial self-storage opportunity referenced in correspondence. Project boundaries, deliverables, schedule, and fee have not been assigned.</p></div></article>
+        <article class="opportunity"><div class="icon">965</div><div><div class="meta"><span class="badge pending">Next phase</span><span class="badge private">Not awarded</span></div><h3>965 Grant Street — Site & Concept</h3><p class="scope">Potential site-plan and concept-sheet phase. This remains separate from the completed and paid A101 existing-condition assignment.</p></div></article>
+        <article class="opportunity"><div class="icon">DWG</div><div><div class="meta"><span class="badge pending">Program candidate</span><span class="badge private">Not awarded</span></div><h3>BDPC Native DWG Standards Resolution</h3><p class="scope">Firm-wide resolution of missing references, fonts, plot settings, templates, and contributor handoff dependencies. Suitable for a bounded SOW or the proposed 20-hour/week program.</p></div></article>
+      </div>
+      <div class="guardrail">Pending-project basis: Thomas’s July 31 delivery email. Crest status reflects Brian’s July 30 stand-down direction.</div>
+    </section>
+
+    <section class="panel hero">
+      <div class="hero-copy"><div class="eyebrow">Private partnership preview</div><h1>Plan Relay</h1><p>A concise record of what BDPC and CAD Guardian accomplished each week, what was awarded, and what is ready for the next decision.</p><p><strong>Plan Relay has not been released.</strong> This page is a private visual recap—not a live production workspace.</p><div class="meta"><span class="badge private">Private preview</span><span class="badge awarded">2 partnership weeks recorded</span></div><div class="actions"><a class="button primary" href="/bdpc/sow/">Open SOWs & invoices →</a><a class="button" href="#timeline">Review weekly progress</a></div></div>
+      <div class="hero-image"><img src="https://drive.google.com/thumbnail?id=1jtV9ZpQWLLQ_IX7DgdKkWWcuUmfuI5nS&sz=w1600" alt="Plan Relay guided BDPC and Dunn Residence preview"></div>
+    </section>
+
+    <section class="panel" id="timeline">
+      <div class="eyebrow">Partnership timeline</div><h2>What we accomplished each week</h2><p>Completed work stays distinct from future opportunity so the next authorization remains clear.</p>
+      <div class="timeline">
+        <article class="week"><div class="week-date">Week of Jul 20–24</div><div class="week-body"><div class="meta"><span class="badge awarded">Awarded & paid</span></div><h3>Bounded one-sheet trial established and delivered</h3><div class="results"><div class="result"><strong>Commercial control</strong>$600 fixed-fee A101 SOW authorized by email.</div><div class="result"><strong>CAD production</strong>Existing main-level as-built developed from supplied evidence.</div><div class="result"><strong>Delivery</strong>Native AutoCAD DWG and matching PDF delivered.</div><div class="result"><strong>Closeout</strong>Payment received; invoice balance reduced to $0.</div></div><div class="actions"><a class="button" href="/bdpc/sow/awarded/dunn-residence-existing-main-level/">Open awarded SOW</a><a class="button" href="/bdpc/sow/invoices/cg-bdpc-072426-01/">Open paid invoice</a></div></div></article>
+        <article class="week"><div class="week-date">Week of Jul 27–31</div><div class="week-body"><div class="meta"><span class="badge awarded">Accepted support</span></div><h3>Drawing closeout, standards alignment, and reusable workflow proof</h3><div class="results"><div class="result"><strong>Principal coordination</strong>965 Grant A101 accepted for use as the architectural base.</div><div class="result"><strong>Standards intake</strong>BDPC templates, CTBs, fonts, title-block, and contributor resources registered.</div><div class="result"><strong>Interoperability</strong>Reusable contributor plotting and dependency guidance documented.</div><div class="result"><strong>Plan Relay proof</strong>Private governed-assignment, evidence, review, and delivery workflow demonstrated.</div><div class="result"><strong>Crest discipline</strong>Opportunity reviewed, bounded, and paused before field work at Brian’s direction.</div><div class="result"><strong>Commercial record</strong>$600 weekly production and standards-support invoice issued.</div></div><figure class="proof"><img src="https://drive.google.com/thumbnail?id=1K3uhu1sZGLI7LBinGgM1Qnzx5ORLlumY&sz=w1400" alt="Plan Relay drawing register preview"><div>Private Plan Relay drawing-register proof developed from the BDPC/Dunn workflow.</div></figure><div class="actions"><a class="button" href="/bdpc/sow/invoices/cg-bdpc-073126-02/">Open weekly invoice</a><a class="button" href="#next">Review next opportunities</a></div></div></article>
+      </div>
+    </section>
+    <footer><span>Plan Relay by CAD Guardian LLC · private BDPC partnership record</span><span>Only written authorization creates active scope.</span></footer>
   </main>
 </body>
 </html>
