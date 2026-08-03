@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="Device-local BDPC field alignment console for August 3, 2026.">
+  <meta name="theme-color" content="#0b1720">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="BDPC Field">
+  <link rel="manifest" href="/bdpc/field/manifest.webmanifest">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1720'/%3E%3Cpath d='M18 18h28v8H26v20h-8z' fill='%23ffffff'/%3E%3Cpath d='M32 30h14v16H32z' fill='%2329a36a'/%3E%3C/svg%3E">
+  <title>BDPC Field Alignment · August 3</title>
+  <style>
+    :root{
+      --ink:#13202b;--muted:#5e6b77;--line:#d7dee5;--paper:#ffffff;--soft:#f4f7f9;
+      --navy:#0b1720;--green:#147a4b;--green-soft:#eaf8f0;--amber:#8a5a00;--amber-soft:#fff5d9;
+      --red:#9f2f2f;--red-soft:#fff0f0;--blue:#175cd3;--blue-soft:#edf4ff;
+      --shadow:0 12px 34px rgba(11,23,32,.10);--radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--soft)}
+    body{margin:0;color:var(--ink);font:15px/1.45 Arial,"Segoe UI",sans-serif;background:linear-gradient(180deg,#eef3f6 0,#f8fafb 38%,#eef3f6 100%);padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+    button,input,textarea,select{font:inherit}
+    button,a{touch-action:manipulation}
+    a{color:inherit}
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(11,23,32,.97);color:#fff;border-bottom:1px solid rgba(255,255,255,.12);padding-top:env(safe-area-inset-top)}
+    .topbar__inner{max-width:980px;margin:auto;min-height:58px;padding:8px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .back{min-height:44px;display:inline-flex;align-items:center;padding:0 12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;text-decoration:none;font-size:12px;font-weight:900}
+    .top-status{text-align:right;font-size:11px;color:#cbd5df}.top-status strong{display:block;color:#fff;font-size:12px}
+    main{width:min(980px,calc(100% - 24px));margin:14px auto 0}
+    .card{margin-top:12px;background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .pad{padding:18px}
+    .hero{background:linear-gradient(135deg,#0b1720,#152d3c 62%,#174a36);color:#fff;border-color:#233b49}
+    .eyebrow{font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#64d89c}
+    h1,h2,h3,p{margin-top:0}h1{margin-bottom:10px;font-size:clamp(30px,8vw,48px);line-height:.98;letter-spacing:-.045em}h2{margin-bottom:7px;font-size:22px;line-height:1.1}h3{margin-bottom:5px;font-size:15px;line-height:1.2}
+    p{margin-bottom:0;color:var(--muted)}.hero p{color:#d4dde5;max-width:720px}
+    .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:15px}.chip{display:inline-flex;align-items:center;min-height:31px;padding:5px 9px;border-radius:999px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);font-size:10.5px;font-weight:900}
+    .timeboard{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:end;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.16)}
+    .clock{font-size:13px;font-weight:900}.countdown{text-align:right}.countdown strong{display:block;font-size:25px;line-height:1}.countdown span{font-size:10px;color:#c9d5de}
+    .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:13px}.section-head p{max-width:620px;font-size:12px}
+    .sequence{display:grid;gap:8px;counter-reset:step}.sequence-row{display:grid;grid-template-columns:36px 1fr;gap:10px;align-items:start;padding:12px;border:1px solid var(--line);border-radius:13px;background:var(--soft)}.sequence-row:before{counter-increment:step;content:counter(step);width:31px;height:31px;display:grid;place-items:center;border-radius:10px;background:var(--navy);color:#fff;font-weight:900}.sequence-row strong{display:block;margin-bottom:2px}.sequence-row span{font-size:12px;color:var(--muted)}
+    .callout{margin-top:11px;padding:12px 13px;border-left:4px solid var(--green);border-radius:10px;background:var(--green-soft);color:#23533c;font-size:12px}.callout strong{display:block;color:#173d2b}
+    .callout.amber{border-left-color:var(--amber);background:var(--amber-soft);color:#684800}.callout.red{border-left-color:var(--red);background:var(--red-soft);color:#6d2727}
+    .format-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.format-item{padding:11px;border:1px solid var(--line);border-radius:12px;background:var(--soft);min-height:96px}.format-item b{display:block;margin-bottom:4px;font-size:12px}.format-item span{font-size:11px;color:var(--muted)}
+    .workbench{display:grid;grid-template-columns:1.05fr .95fr;gap:12px}.panel{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px}.panel.sticky{position:sticky;top:76px;align-self:start;background:var(--navy);color:#fff;border-color:#243b49}.panel.sticky p{color:#bac7d1}
+    .field{margin-top:12px}.field:first-child{margin-top:0}.field label{display:flex;justify-content:space-between;gap:10px;margin-bottom:5px;font-size:11px;font-weight:900}.field label span{color:var(--muted);font-weight:400}.panel.sticky .field label span{color:#9fb0bc}
+    input,textarea,select{width:100%;border:1px solid #bfc9d2;border-radius:11px;background:#fff;color:var(--ink);padding:11px 12px;min-height:45px;outline:none}textarea{min-height:84px;resize:vertical}input:focus,textarea:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,92,211,.12)}
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:9px}.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+    .briefing{margin:12px 0 0;padding:13px;border:1px solid rgba(255,255,255,.16);border-radius:12px;background:#071119;color:#eef5fa;white-space:pre-wrap;font:13px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;min-height:214px}
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:11px}.btn{min-height:45px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);padding:9px 13px;font-weight:900;cursor:pointer}.btn.primary{border-color:var(--green);background:var(--green);color:#fff}.btn.dark{border-color:#395262;background:#162936;color:#fff}.btn.danger{border-color:#e6bcbc;background:#fff5f5;color:#862f2f}.btn:active{transform:translateY(1px)}
+    .save-status{display:inline-flex;align-items:center;gap:6px;font-size:10px;color:#8ca0ae}.save-status:before{content:"";width:7px;height:7px;border-radius:50%;background:#5be29a}
+    .timer-box{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:11px;padding:10px 12px;border:1px solid rgba(255,255,255,.16);border-radius:12px;background:#0f202b}.timer-box strong{font:900 25px/1 ui-monospace,SFMono-Regular,Menlo,monospace}.timer-box span{font-size:10px;color:#aebdc7}
+    .issue-toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}.issue-count{font-size:11px;color:var(--muted)}.issues{display:grid;gap:9px}.issue{border:1px solid var(--line);border-radius:14px;background:var(--soft);padding:12px}.issue-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}.issue-head strong{font-size:12px}.remove{min-height:36px;border:1px solid #e6c3c3;border-radius:10px;background:#fff;color:#8f3434;padding:6px 10px;font-size:11px;font-weight:900}
+    .route{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.route-stop{position:relative;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--soft)}.route-stop time{display:block;margin-bottom:7px;font-size:11px;font-weight:900;color:var(--green)}.route-stop h3{margin-bottom:5px}.route-stop p{font-size:11.5px}.route-stop .btn{width:100%;margin-top:10px;text-decoration:none;display:flex;align-items:center;justify-content:center}
+    .rules{display:grid;grid-template-columns:1fr 1fr;gap:8px}.rule{padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--soft)}.rule strong{display:block;margin-bottom:3px;font-size:12px}.rule span{font-size:11px;color:var(--muted)}
+    details{margin-top:10px;border:1px solid var(--line);border-radius:12px;background:var(--soft);padding:11px 12px}summary{font-weight:900;cursor:pointer}details p{margin-top:8px;font-size:11.5px}
+    .dock{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);border-top:1px solid var(--line);backdrop-filter:blur(12px)}.dock__inner{max-width:980px;margin:auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px}.dock .btn{min-height:48px;padding:8px;font-size:11px}
+    .toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));z-index:90;transform:translate(-50%,16px);padding:10px 14px;border-radius:999px;background:#061018;color:#fff;font-size:11px;font-weight:900;opacity:0;pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:translate(-50%,0)}
+    footer{max-width:980px;margin:14px auto 0;padding:0 6px;color:var(--muted);font-size:10.5px;text-align:center}
+    @media(max-width:820px){.format-grid{grid-template-columns:1fr 1fr}.workbench{grid-template-columns:1fr}.panel.sticky{position:static}.route{grid-template-columns:1fr}.rules{grid-template-columns:1fr}}
+    @media(max-width:520px){main{width:min(100% - 16px,980px);margin-top:8px}.pad{padding:15px}.topbar__inner{padding-left:8px;padding-right:8px}.top-status{font-size:9.5px}.top-status strong{font-size:11px}.timeboard{grid-template-columns:1fr}.countdown{text-align:left}.format-grid{grid-template-columns:1fr}.row2,.row3{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.dock__inner{grid-template-columns:1fr 1fr 1fr}.dock .btn{font-size:10px;padding:7px 4px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="back" href="/bdpc/">← BDPC portal</a>
+      <div class="top-status"><strong>Monday · August 3, 2026</strong><span id="saveTop">Device-local autosave</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="card hero">
+      <div class="pad">
+        <div class="eyebrow">Today’s operating mode</div>
+        <h1>Own the alignment.<br>Report like an operator.</h1>
+        <p>Listen for exact direction. Convert it into a bounded deliverable. Report completed, in progress, decision needed, recommendation, owner, and due time—then stop and let Brian correct the record.</p>
+        <div class="chips">
+          <span class="chip">Approx. 7:35 AM · alignment</span>
+          <span class="chip">9:00–9:30 AM · drawing pickup</span>
+          <span class="chip">10:00 AM · The Crest</span>
+          <span class="chip">Notes stay on this device</span>
+        </div>
+        <div class="timeboard">
+          <div class="clock"><span id="nowLabel">Atlanta time</span><br><strong id="clock">—</strong></div>
+          <div class="countdown"><strong id="countdown">—</strong><span id="countdownLabel">Next scheduled milestone</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="call-flow">
+      <div class="pad">
+        <div class="section-head"><div><div class="eyebrow">First 90 seconds</div><h2>Use this sequence with Brian</h2></div><p>The objective is not to sound impressive. The objective is to reduce his cognitive load and leave with clean ownership.</p></div>
+        <div class="sequence">
+          <div class="sequence-row"><div><strong>Reflect the objective.</strong><span>“My understanding of today’s objective is ______.” Use his language, not your system language.</span></div></div>
+          <div class="sequence-row"><div><strong>Give the operational status.</strong><span>“Completed: ____. In progress: ____.” One workstream at a time; no biography or architecture lecture.</span></div></div>
+          <div class="sequence-row"><div><strong>Surface the decision—not the anxiety.</strong><span>“Decision needed: ____. My recommendation is ____ because ____.” Bring an answer with the problem.</span></div></div>
+          <div class="sequence-row"><div><strong>Close the ownership loop.</strong><span>“I own ____ by ____. ____ owns the dependency by ____. Is that correct?”</span></div></div>
+          <div class="sequence-row"><div><strong>Stop.</strong><span>Let Brian clarify, redirect, or approve. Record the correction verbatim before moving on.</span></div></div>
+        </div>
+        <div class="callout"><strong>Brian’s visible standard</strong>Take ownership. Lead yourself. Come with solutions. Convert discussion into an answer, a responsible person, and a next time.</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="pad">
+        <div class="section-head"><div><div class="eyebrow">6 AM operator format</div><h2>Present in the same cadence as the offshore coordination</h2></div><p>The observed AEC pattern is brief, workstream-specific, resource-conscious, and closed with a concrete next commitment.</p></div>
+        <div class="format-grid">
+          <div class="format-item"><b>1 · Scope</b><span>Project, sheet, view, room, detail, or field location.</span></div>
+          <div class="format-item"><b>2 · Status</b><span>Completed / in progress / blocked. Never “working on it.”</span></div>
+          <div class="format-item"><b>3 · Evidence</b><span>Drawing, markup, photo, email, file, measurement, or direct observation.</span></div>
+          <div class="format-item"><b>4 · Dependency</b><span>Exact file, decision, consultant input, owner, or approval needed.</span></div>
+          <div class="format-item"><b>5 · Commitment</b><span>Recommended action, named owner, next artifact, and due time.</span></div>
+        </div>
+        <div class="callout amber"><strong>Meeting discipline</strong>Do not dump a list of discoveries on Brian. Group them by workstream, rank the most consequential decision first, and make the ask binary whenever possible.</div>
+      </div>
+    </section>
+
+    <section class="card" id="record">
+      <div class="pad">
+        <div class="section-head"><div><div class="eyebrow">Live alignment record</div><h2>Capture once. Speak from the record.</h2></div><div class="save-status" id="saveStatus">Ready</div></div>
+        <div class="workbench">
+          <div class="panel">
+            <div class="field"><label for="project">Workstream <span>one at a time</span></label><input id="project" data-key="project" value="The Crest — August 3 field coordination"></div>
+            <div class="field"><label for="objective">Today’s objective <span>use Brian’s language</span></label><textarea id="objective" data-key="objective">Align on my exact field role, the bounded deliverable, acceptance evidence, owners, and follow-up time.</textarea></div>
+            <div class="field"><label for="completed">Completed <span>facts only</span></label><textarea id="completed" data-key="completed" placeholder="What is actually complete and verifiable?"></textarea></div>
+            <div class="field"><label for="progress">In progress <span>current state</span></label><textarea id="progress" data-key="progress" placeholder="What is actively moving now?"></textarea></div>
+            <div class="field"><label for="decisionNeeded">Decision / blocker <span>single highest priority</span></label><textarea id="decisionNeeded" data-key="decisionNeeded" placeholder="What cannot advance without a decision or dependency?"></textarea></div>
+            <div class="field"><label for="recommendation">My recommendation <span>answer with rationale</span></label><textarea id="recommendation" data-key="recommendation" placeholder="Recommended path and why it protects time, quality, or scope."></textarea></div>
+            <div class="row2">
+              <div class="field"><label for="owner">Next owner</label><input id="owner" data-key="owner" placeholder="Thomas / Brian / Pranshu / consultant"></div>
+              <div class="field"><label for="due">Due / next check</label><input id="due" data-key="due" placeholder="Today 12:00 PM / Aug 4 6:00 AM"></div>
+            </div>
+            <div class="field"><label for="exactWords">Brian’s exact direction <span>quote, do not reinterpret</span></label><textarea id="exactWords" data-key="exactWords" placeholder="Write his operative instruction as closely as possible."></textarea></div>
+            <div class="row2">
+              <div class="field"><label for="reference">Sheet / view / detail / room / grid</label><input id="reference" data-key="reference" placeholder="A101 · north lobby · Grid B-3"></div>
+              <div class="field"><label for="decision">Confirmed decision</label><input id="decision" data-key="decision" placeholder="Approved / revise / hold / verify"></div>
+            </div>
+          </div>
+
+          <aside class="panel sticky">
+            <div class="eyebrow">Speak this</div>
+            <h2>30-second update</h2>
+            <p>Read it once. Remove anything that does not change the decision.</p>
+            <pre class="briefing" id="briefing"></pre>
+            <div class="timer-box"><div><strong id="timer">00:30</strong><br><span>Target speaking time</span></div><button class="btn dark" id="timerButton" type="button">Start timer</button></div>
+            <div class="actions"><button class="btn primary" id="copyBrief" type="button">Copy update</button><button class="btn dark" id="shareBrief" type="button">Share</button></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="issues">
+      <div class="pad">
+        <div class="section-head"><div><div class="eyebrow">Field issue ledger</div><h2>No orphan issues</h2></div><p>Every observation ends with a decision or a named owner and due time. Maximum five active rows today.</p></div>
+        <div class="issue-toolbar"><span class="issue-count" id="issueCount">0 of 5 issues</span><button class="btn primary" id="addIssue" type="button">+ Add issue</button></div>
+        <div class="issues" id="issueList"></div>
+        <div class="callout"><strong>Field reference rule</strong>Record enough location context that another person can find the condition without calling you: sheet/view + room/area + nearby grid, wall, door, column, or landmark.</div>
+      </div>
+    </section>
+
+    <section class="card" id="route">
+      <div class="pad">
+        <div class="section-head"><div><div class="eyebrow">Today’s field sequence</div><h2>Move deliberately</h2></div><p>Open this page before each transition. Do not rely on working memory.</p></div>
+        <div class="route">
+          <article class="route-stop"><time>Approx. 7:35 AM</time><h3>Alignment call</h3><p>Confirm today’s role, exact artifact, scope boundary, acceptance evidence, and post-field check-in.</p><a class="btn" href="#call-flow">Open call flow</a></article>
+          <article class="route-stop"><time>9:00–9:30 AM</time><h3>ABC Imaging pickup</h3><p>Count sets. Verify project title and sheet range. Record any missing or damaged pages before departure.</p><a class="btn" href="https://www.google.com/maps/search/?api=1&query=1430+W+Peachtree+Street+NW+Suite+105+Atlanta+GA+30309" target="_blank" rel="noopener">Open map</a></article>
+          <article class="route-stop"><time>10:00 AM</time><h3>The Crest</h3><p>Arrive with the record open. Capture exact conditions, directions, decisions, owners, and due times—not an unfiltered transcript.</p><a class="btn" href="https://www.google.com/maps/search/?api=1&query=710+Peachtree+Street+Atlanta+GA" target="_blank" rel="noopener">Open map</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="pad">
+        <div class="section-head"><div><div class="eyebrow">Agency guardrails</div><h2>Protect attention, trust, and scope</h2></div></div>
+        <div class="rules">
+          <div class="rule"><strong>Do not volunteer vague work.</strong><span>Convert every ask into deliverable, acceptance evidence, owner, and due time.</span></div>
+          <div class="rule"><strong>Do not explain the whole system.</strong><span>Surface only what moves the current project decision.</span></div>
+          <div class="rule"><strong>Do not bring a naked problem.</strong><span>State the issue, your recommended path, and the tradeoff.</span></div>
+          <div class="rule"><strong>Do not confuse discussion with authorization.</strong><span>Record proposed work as proposed until Brian assigns it.</span></div>
+          <div class="rule"><strong>Do not hide uncertainty.</strong><span>Restate your interpretation and ask one precise confirming question.</span></div>
+          <div class="rule"><strong>Do not leave without the loop closed.</strong><span>Name who does what, by when, and what proves completion.</span></div>
+        </div>
+        <div class="callout red"><strong>Emergency reset</strong>When attention fragments: stop talking, write the exact noun—project, sheet, room, issue—then ask, “What is the one decision we need before we move?”</div>
+        <details><summary>Add to iPhone Home Screen</summary><p>Open this page in Safari, tap Share, choose “Add to Home Screen,” and name it “BDPC Field.” The page is configured for a full-screen field view and will retain notes in Safari on this iPhone.</p></details>
+        <details><summary>Privacy and persistence</summary><p>The fixed instructions are served from the BDPC portal. Anything you type is stored only in this browser’s local storage and is not uploaded to GitHub, Brian, AEC, or a server. Clearing Safari website data or using another device removes access to those local notes unless you copy or share the record.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer>Plan Relay × BDPC · August 3, 2026 field operating aid · Device-local notes · No production authorization implied</footer>
+
+  <div class="dock"><div class="dock__inner"><button class="btn primary" id="copyRecord" type="button">Copy full record</button><button class="btn" id="shareRecord" type="button">Share record</button><button class="btn danger" id="clearRecord" type="button">Clear today</button></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite">Saved</div>
+
+  <script>
+    (function(){
+      'use strict';
+      var STORAGE_KEY='planRelay.bdpc.field.2026-08-03.v1';
+      var MAX_ISSUES=5;
+      var saveTimer=null;
+      var toastTimer=null;
+      var speakInterval=null;
+      var speakRemaining=30;
+      var issueList=document.getElementById('issueList');
+      var defaults={
+        project:'The Crest — August 3 field coordination',
+        objective:'Align on my exact field role, the bounded deliverable, acceptance evidence, owners, and follow-up time.'
+      };
+
+      function safeLoad(){
+        try{return JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');}catch(e){return null;}
+      }
+      function showToast(message){
+        var el=document.getElementById('toast');
+        el.textContent=message;el.classList.add('show');
+        clearTimeout(toastTimer);toastTimer=setTimeout(function(){el.classList.remove('show');},1700);
+      }
+      function stamp(){
+        return new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit',second:'2-digit'}).format(new Date());
+      }
+      function getValues(){
+        var values={};
+        document.querySelectorAll('[data-key]').forEach(function(el){values[el.getAttribute('data-key')]=el.value.trim();});
+        return values;
+      }
+      function getIssues(){
+        return Array.prototype.map.call(document.querySelectorAll('.issue'),function(card){
+          var row={};
+          card.querySelectorAll('[data-issue-key]').forEach(function(el){row[el.getAttribute('data-issue-key')]=el.value.trim();});
+          return row;
+        });
+      }
+      function saveNow(){
+        var state={version:1,date:'2026-08-03',updatedAt:new Date().toISOString(),values:getValues(),issues:getIssues()};
+        try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}
+        catch(e){document.getElementById('saveStatus').textContent='Local save unavailable';return;}
+        var label='Saved '+stamp();
+        document.getElementById('saveStatus').textContent=label;
+        document.getElementById('saveTop').textContent=label;
+        updateBriefing();
+      }
+      function scheduleSave(){
+        document.getElementById('saveStatus').textContent='Saving…';
+        clearTimeout(saveTimer);saveTimer=setTimeout(saveNow,220);
+      }
+      function value(key){
+        var el=document.querySelector('[data-key="'+key+'"]');
+        return el&&el.value.trim()?el.value.trim():'—';
+      }
+      function buildBriefing(){
+        var lines=[];
+        lines.push('OBJECTIVE: '+value('objective'));
+        lines.push('COMPLETED: '+value('completed'));
+        lines.push('IN PROGRESS: '+value('progress'));
+        lines.push('DECISION NEEDED: '+value('decisionNeeded'));
+        lines.push('RECOMMENDATION: '+value('recommendation'));
+        lines.push('NEXT: '+value('owner')+' · '+value('due'));
+        if(value('reference')!=='—')lines.push('REFERENCE: '+value('reference'));
+        return lines.join('\n');
+      }
+      function updateBriefing(){document.getElementById('briefing').textContent=buildBriefing();}
+      function issueTemplate(item,index){
+        item=item||{};
+        var card=document.createElement('article');card.className='issue';
+        card.innerHTML='<div class="issue-head"><strong>Issue '+(index+1)+'</strong><button class="remove" type="button">Remove</button></div>'+
+          '<div class="row2"><div class="field"><label>Location / reference</label><input data-issue-key="reference" placeholder="A201 · Room 104 · east wall" value="'+escapeHtml(item.reference||'')+'"></div><div class="field"><label>Status</label><select data-issue-key="status"><option value="Observed">Observed</option><option value="Decision needed">Decision needed</option><option value="Assigned">Assigned</option><option value="Verified">Verified</option><option value="Closed">Closed</option></select></div></div>'+
+          '<div class="field"><label>Condition / question</label><textarea data-issue-key="condition" placeholder="What exactly was observed or asked?">'+escapeHtml(item.condition||'')+'</textarea></div>'+
+          '<div class="field"><label>Decision / direction</label><textarea data-issue-key="decision" placeholder="Exact decision, or state what remains open.">'+escapeHtml(item.decision||'')+'</textarea></div>'+
+          '<div class="row2"><div class="field"><label>Owner</label><input data-issue-key="owner" placeholder="Named person" value="'+escapeHtml(item.owner||'')+'"></div><div class="field"><label>Due / next check</label><input data-issue-key="due" placeholder="Time or date" value="'+escapeHtml(item.due||'')+'"></div></div>';
+        var select=card.querySelector('select');select.value=item.status||'Observed';
+        card.querySelector('.remove').addEventListener('click',function(){card.remove();renumberIssues();scheduleSave();});
+        card.querySelectorAll('input,textarea,select').forEach(function(el){el.addEventListener('input',scheduleSave);el.addEventListener('change',scheduleSave);});
+        return card;
+      }
+      function escapeHtml(text){return String(text).replace(/[&<>'"]/g,function(ch){return {'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch];});}
+      function renderIssues(items){
+        issueList.innerHTML='';
+        (items&&items.length?items:[{}]).slice(0,MAX_ISSUES).forEach(function(item,index){issueList.appendChild(issueTemplate(item,index));});
+        renumberIssues();
+      }
+      function renumberIssues(){
+        var cards=document.querySelectorAll('.issue');
+        cards.forEach(function(card,index){card.querySelector('.issue-head strong').textContent='Issue '+(index+1);});
+        document.getElementById('issueCount').textContent=cards.length+' of '+MAX_ISSUES+' issues';
+        document.getElementById('addIssue').disabled=cards.length>=MAX_ISSUES;
+      }
+      function restore(){
+        var state=safeLoad();
+        if(state&&state.values){
+          Object.keys(state.values).forEach(function(key){var el=document.querySelector('[data-key="'+key+'"]');if(el)el.value=state.values[key];});
+          renderIssues(state.issues||[{}]);
+          if(state.updatedAt){
+            var label='Restored '+new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'}).format(new Date(state.updatedAt));
+            document.getElementById('saveStatus').textContent=label;document.getElementById('saveTop').textContent=label;
+          }
+        }else{
+          Object.keys(defaults).forEach(function(key){var el=document.querySelector('[data-key="'+key+'"]');if(el&&!el.value)el.value=defaults[key];});
+          renderIssues([{}]);
+        }
+        updateBriefing();
+      }
+      function buildRecord(){
+        var lines=[];
+        lines.push('BDPC FIELD ALIGNMENT RECORD — AUGUST 3, 2026');
+        lines.push('Workstream: '+value('project'));
+        lines.push('Objective: '+value('objective'));
+        lines.push('Completed: '+value('completed'));
+        lines.push('In progress: '+value('progress'));
+        lines.push('Decision / blocker: '+value('decisionNeeded'));
+        lines.push('Recommendation: '+value('recommendation'));
+        lines.push('Next owner: '+value('owner'));
+        lines.push('Due / next check: '+value('due'));
+        lines.push('Brian exact direction: '+value('exactWords'));
+        lines.push('Reference: '+value('reference'));
+        lines.push('Confirmed decision: '+value('decision'));
+        var issues=getIssues().filter(function(i){return Object.keys(i).some(function(k){return i[k];});});
+        if(issues.length){
+          lines.push('');lines.push('FIELD ISSUES');
+          issues.forEach(function(i,index){
+            lines.push((index+1)+'. '+(i.reference||'No reference')+' · '+(i.status||'Observed'));
+            lines.push('   Condition: '+(i.condition||'—'));
+            lines.push('   Decision: '+(i.decision||'—'));
+            lines.push('   Owner / due: '+(i.owner||'—')+' / '+(i.due||'—'));
+          });
+        }
+        lines.push('');lines.push('Generated '+new Date().toLocaleString('en-US',{timeZone:'America/New_York'})+' ET');
+        return lines.join('\n');
+      }
+      function copyText(text,label){
+        if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(function(){showToast(label);},function(){fallbackCopy(text,label);});}
+        else{fallbackCopy(text,label);}
+      }
+      function fallbackCopy(text,label){
+        var area=document.createElement('textarea');area.value=text;area.style.position='fixed';area.style.opacity='0';document.body.appendChild(area);area.select();
+        try{document.execCommand('copy');showToast(label);}catch(e){showToast('Select and copy manually');}
+        area.remove();
+      }
+      function shareText(title,text){
+        if(navigator.share){navigator.share({title:title,text:text,url:location.href}).catch(function(){});}else{copyText(text,'Copied for sharing');}
+      }
+      function updateClock(){
+        var now=new Date();
+        document.getElementById('clock').textContent=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'numeric',minute:'2-digit',second:'2-digit'}).format(now)+' ET';
+        var milestones=[
+          {at:new Date('2026-08-03T07:35:00-04:00'),label:'to alignment target'},
+          {at:new Date('2026-08-03T09:00:00-04:00'),label:'to drawing pickup'},
+          {at:new Date('2026-08-03T10:00:00-04:00'),label:'to The Crest meeting'}
+        ];
+        var next=milestones.filter(function(m){return m.at>now;})[0];
+        if(!next){document.getElementById('countdown').textContent='FIELD MODE';document.getElementById('countdownLabel').textContent='Use the record for decisions and closeout';return;}
+        var seconds=Math.max(0,Math.floor((next.at-now)/1000));
+        var h=Math.floor(seconds/3600),m=Math.floor((seconds%3600)/60),s=seconds%60;
+        document.getElementById('countdown').textContent=(h?h+'h ':'')+String(m).padStart(2,'0')+'m '+String(s).padStart(2,'0')+'s';
+        document.getElementById('countdownLabel').textContent=next.label;
+      }
+      function resetSpeakTimer(){
+        clearInterval(speakInterval);speakInterval=null;speakRemaining=30;document.getElementById('timer').textContent='00:30';document.getElementById('timerButton').textContent='Start timer';
+      }
+      function toggleSpeakTimer(){
+        if(speakInterval){resetSpeakTimer();return;}
+        document.getElementById('timerButton').textContent='Reset';
+        speakInterval=setInterval(function(){
+          speakRemaining-=1;document.getElementById('timer').textContent='00:'+String(Math.max(0,speakRemaining)).padStart(2,'0');
+          if(speakRemaining<=0){clearInterval(speakInterval);speakInterval=null;document.getElementById('timerButton').textContent='Restart';showToast('30 seconds — stop and invite correction');if(navigator.vibrate)navigator.vibrate([80,60,80]);}
+        },1000);
+      }
+
+      document.querySelectorAll('[data-key]').forEach(function(el){el.addEventListener('input',scheduleSave);el.addEventListener('change',scheduleSave);});
+      document.getElementById('addIssue').addEventListener('click',function(){
+        if(document.querySelectorAll('.issue').length>=MAX_ISSUES)return;
+        issueList.appendChild(issueTemplate({},document.querySelectorAll('.issue').length));renumberIssues();scheduleSave();
+      });
+      document.getElementById('copyBrief').addEventListener('click',function(){copyText(buildBriefing(),'30-second update copied');});
+      document.getElementById('shareBrief').addEventListener('click',function(){shareText('BDPC 30-second update',buildBriefing());});
+      document.getElementById('copyRecord').addEventListener('click',function(){saveNow();copyText(buildRecord(),'Full record copied');});
+      document.getElementById('shareRecord').addEventListener('click',function(){saveNow();shareText('BDPC field alignment record',buildRecord());});
+      document.getElementById('clearRecord').addEventListener('click',function(){
+        if(!confirm('Clear all August 3 notes stored on this device?'))return;
+        try{localStorage.removeItem(STORAGE_KEY);}catch(e){}
+        document.querySelectorAll('[data-key]').forEach(function(el){el.value=defaults[el.getAttribute('data-key')]||'';});
+        renderIssues([{}]);saveNow();showToast('Today’s notes cleared');
+      });
+      document.getElementById('timerButton').addEventListener('click',toggleSpeakTimer);
+      restore();updateClock();setInterval(updateClock,1000);
+      if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/bdpc/field/sw.js').catch(function(){});});}
+    }());
+  </script>
+</body>
+</html>
