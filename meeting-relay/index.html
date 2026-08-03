@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Meeting Relay">
+  <meta name="description" content="Mobile-first Plan Relay field and meeting guide for BDPC coordination.">
+  <title>BDPC Meeting Relay · August 3, 2026</title>
+  <style>
+    :root{
+      --ink:#101828;--muted:#667085;--line:#d0d5dd;--paper:#f4f7fb;--card:#fff;
+      --navy:#0b1220;--green:#147a4b;--green-soft:#ecfdf3;--amber:#9a6700;
+      --amber-soft:#fff7df;--blue:#175cd3;--blue-soft:#eff8ff;--red:#b42318;
+      --red-soft:#fff1f0;--shadow:0 14px 38px rgba(15,23,42,.10)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--paper)}
+    body{margin:0;color:var(--ink);font:15px/1.46 Arial,"Segoe UI",sans-serif;background:var(--paper)}
+    button,a{font:inherit}
+    a{color:inherit}
+    .topbar{position:sticky;top:0;z-index:30;padding-top:env(safe-area-inset-top);background:rgba(11,18,32,.97);color:#fff;box-shadow:0 6px 20px rgba(11,18,32,.18)}
+    .topbar__inner{width:min(760px,calc(100% - 28px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .brand{font-size:13px;font-weight:900;letter-spacing:.02em}.date{color:#cbd5e1;font-size:11px;font-weight:800;text-align:right}
+    main{width:min(760px,calc(100% - 28px));margin:18px auto 42px;padding-bottom:env(safe-area-inset-bottom)}
+    .panel{margin-top:14px;border:1px solid var(--line);border-radius:18px;background:var(--card);box-shadow:var(--shadow);overflow:hidden}
+    .pad{padding:20px}.compact{padding:16px 18px}
+    .eyebrow{margin-bottom:7px;color:var(--green);font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    h1,h2,h3,p{margin-top:0}h1{margin-bottom:9px;font-size:34px;line-height:1.02;letter-spacing:-.045em}h2{margin-bottom:7px;font-size:23px;line-height:1.12;letter-spacing:-.02em}h3{margin-bottom:5px;font-size:16px;line-height:1.2}p{margin-bottom:0;color:var(--muted)}
+    .hero{background:linear-gradient(145deg,#0b1220,#17223a);color:#fff}.hero p{color:#cbd5e1}.hero .eyebrow{color:#86efac}
+    .hero-grid{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end}.hero-stamp{min-width:110px;padding:12px;border:1px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(255,255,255,.06);text-align:center}.hero-stamp strong{display:block;font-size:27px}.hero-stamp span{font-size:10px;color:#cbd5e1;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+    .alert{margin-top:14px;padding:13px 14px;border-left:5px solid var(--amber);border-radius:10px;background:var(--amber-soft);color:#654900;font-size:13px}.alert strong{display:block;margin-bottom:3px;color:#3f2f00}
+    .actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}.button{display:flex;align-items:center;justify-content:center;min-height:48px;padding:11px 14px;border:1px solid var(--line);border-radius:13px;background:#fff;text-decoration:none;text-align:center;font-weight:900}.button.primary{border-color:var(--green);background:var(--green);color:#fff}.button.dark{border-color:#344054;background:#111827;color:#fff}.button.blue{border-color:var(--blue);background:var(--blue);color:#fff}.button:active{transform:translateY(1px)}
+    .section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}.status-pill{flex:0 0 auto;padding:5px 8px;border-radius:999px;background:var(--amber-soft);color:var(--amber);font-size:9px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+    .gates{display:grid;gap:9px;margin-top:14px}.gate{position:relative;display:grid;grid-template-columns:30px 1fr;gap:11px;align-items:start;padding:14px;border:1px solid var(--line);border-radius:13px;background:#fff;cursor:pointer}.gate input{position:absolute;opacity:0}.check{display:grid;place-items:center;width:28px;height:28px;border:2px solid #98a2b3;border-radius:9px;color:transparent;font-weight:900}.gate input:checked+.check{border-color:var(--green);background:var(--green);color:#fff}.gate input:checked~.gate-copy h3{text-decoration:line-through;color:var(--muted)}.gate-copy p{font-size:12px}.gate.critical{border-color:#f0b4ae;background:var(--red-soft)}
+    .timeline{display:grid;gap:10px;margin-top:14px}.step{display:grid;grid-template-columns:76px 1fr;gap:12px;padding:13px;border:1px solid var(--line);border-radius:12px;background:#fff}.time{padding-top:2px;color:var(--blue);font-size:12px;font-weight:900}.step p{font-size:12px}.step strong{color:var(--ink)}
+    .formula{margin-top:14px;padding:16px;border-radius:14px;background:var(--navy);color:#fff}.formula-label{color:#86efac;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.formula-text{margin-top:7px;font-size:18px;line-height:1.38;font-weight:900}.formula-note{margin-top:8px;color:#cbd5e1;font-size:11px}
+    .sequence{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:13px}.token{padding:9px 5px;border:1px solid #dbe3ef;border-radius:10px;background:#f8fafc;text-align:center;font-size:10px;font-weight:900}.token span{display:block;margin-bottom:3px;color:var(--blue);font-size:14px}
+    .do-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:13px}.do-card{padding:14px;border:1px solid var(--line);border-radius:13px;background:#fff}.do-card.good{border-top:5px solid var(--green)}.do-card.avoid{border-top:5px solid var(--red)}.do-card ul{margin:9px 0 0;padding-left:18px;color:var(--muted);font-size:12px}.do-card li+li{margin-top:6px}
+    .truth-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}.truth{padding:13px;border:1px solid var(--line);border-radius:12px;background:#f8fafc}.truth b{display:block;margin-bottom:3px}.truth span{color:var(--muted);font-size:11px}
+    .capture-frame{width:100%;height:720px;border:0;background:#fff}.frame-wrap{margin-top:13px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+    .micro{margin-top:10px;color:var(--muted);font-size:11px}.authority{padding:14px;border:1px solid #b8d5ff;border-radius:12px;background:var(--blue-soft);color:#18487d;font-size:11px}
+    .footer{padding:18px 4px;color:var(--muted);font-size:10px;text-align:center}
+    .toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));z-index:50;transform:translate(-50%,120px);padding:10px 14px;border-radius:999px;background:#101828;color:#fff;font-size:12px;font-weight:900;box-shadow:var(--shadow);opacity:0;transition:.22s}.toast.show{transform:translate(-50%,0);opacity:1}
+    @media(max-width:620px){main{width:min(100% - 20px,760px);margin-top:10px}.topbar__inner{width:calc(100% - 22px)}.pad{padding:18px}.hero-grid{grid-template-columns:1fr}.hero-stamp{display:none}h1{font-size:31px}.actions,.do-grid,.truth-grid{grid-template-columns:1fr}.sequence{grid-template-columns:1fr 1fr}.sequence .token:last-child{grid-column:1/-1}.step{grid-template-columns:66px 1fr}.capture-frame{height:760px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand">Plan Relay × BDPC · Field Mode</div>
+      <div class="date">MONDAY<br>3 AUG 2026</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel hero">
+      <div class="pad">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Today’s operating page</div>
+            <h1>See the truth. State the next move.</h1>
+            <p>Use this page during the commute, at ABC Imaging, in the Crest field meeting, and during Brian’s alignment call. Capture only what changes ownership, priority, risk, or the next checkpoint.</p>
+          </div>
+          <div class="hero-stamp"><strong>60s</strong><span>capture target</span></div>
+        </div>
+        <div class="alert"><strong>Current hard gate</strong>Brian advised ABC that approximately 140 ARCH D sheets are coming and are needed for a 9:30 AM pickup. ABC’s prior instruction states the order is not processed until payment is received. Do not assume “sent” means “printing.”</div>
+        <div class="actions">
+          <a class="button primary" href="#capture">Start 60-second relay</a>
+          <a class="button dark" href="tel:+14044788609">Call ABC Imaging</a>
+          <a class="button" href="https://www.google.com/maps/search/?api=1&query=1430+West+Peachtree+Street+NW+Suite+105+Atlanta+GA+30309">Route to ABC</a>
+          <a class="button" href="https://www.google.com/maps/search/?api=1&query=710+Peachtree+Street+Atlanta+GA">Route to The Crest</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="pad">
+        <div class="section-head">
+          <div><div class="eyebrow">Before pickup</div><h2>Three facts must be true</h2><p>Tap each gate only after direct confirmation. Your checks persist on this iPhone.</p></div>
+          <span class="status-pill" id="gateStatus">0 of 3</span>
+        </div>
+        <div class="gates">
+          <label class="gate">
+            <input type="checkbox" data-gate="files">
+            <span class="check">✓</span>
+            <span class="gate-copy"><h3>Files received by ABC</h3><p>Confirm the actual print package arrived—not merely that someone intends to send it.</p></span>
+          </label>
+          <label class="gate critical">
+            <input type="checkbox" data-gate="payment">
+            <span class="check">✓</span>
+            <span class="gate-copy"><h3>Payment cleared or accepted</h3><p>ABC previously stated the order will not be processed until payment is received.</p></span>
+          </label>
+          <label class="gate">
+            <input type="checkbox" data-gate="ready">
+            <span class="check">✓</span>
+            <span class="gate-copy"><h3>Print completion time confirmed</h3><p>Verify sheet count, 24 × 36 format, number of sets, finishing, and the actual pickup time.</p></span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="pad">
+        <div class="eyebrow">Today’s sequence</div><h2>Do the next physical thing</h2>
+        <div class="timeline">
+          <div class="step"><div class="time">6:00 AM</div><div><strong>Coordination call</strong><p>Listen for ordered priorities, completed work, remaining work, one bounded query, and the next review package.</p></div></div>
+          <div class="step"><div class="time">7:55 AM</div><div><strong>Latest email alignment</strong><p>Brian told ABC: approximately 140 drawings at 24 × 36; an associate will send files; pickup is needed by 9:30 AM.</p></div></div>
+          <div class="step"><div class="time">8:30 AM</div><div><strong>Arrival / verification target</strong><p>You reported an 8:30 AM ETA. Confirm all three print gates immediately.</p></div></div>
+          <div class="step"><div class="time">9:30 AM</div><div><strong>Pickup target</strong><p>Count packages, verify legibility and sheet size, photograph the receipt or pickup evidence, and record exceptions.</p></div></div>
+          <div class="step"><div class="time">10:00 AM</div><div><strong>The Crest field meeting</strong><p>Observe design intent, decisions, conflicts, owners, and what must be true before the next meeting. Do not convert discussion into unauthorized scope.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="pad">
+        <div class="eyebrow">Present like Pranshu</div><h2>Report in five moves</h2><p>Brian’s meeting rhythm is operational: priority first, evidence second, one query if needed, then the next checkpoint.</p>
+        <div class="sequence">
+          <div class="token"><span>1</span>Priority</div>
+          <div class="token"><span>2</span>Completed</div>
+          <div class="token"><span>3</span>Remaining</div>
+          <div class="token"><span>4</span>Query</div>
+          <div class="token"><span>5</span>Checkpoint</div>
+        </div>
+        <div class="formula">
+          <div class="formula-label">Say this</div>
+          <div class="formula-text" id="spokenFormula">“Priority is ____. Since the last check, ____ is complete. ____ remains. One decision is needed on ____. We will return ____ by ____.”</div>
+          <div class="formula-note">Stop after the checkpoint. Let Brian redirect the priority.</div>
+        </div>
+        <div class="actions">
+          <button class="button blue" type="button" id="copyFormula">Copy spoken update</button>
+          <a class="button" href="#capture">Capture the update</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="pad">
+        <div class="eyebrow">Agency standard</div><h2>Own the outcome without overstepping authority</h2>
+        <div class="do-grid">
+          <div class="do-card good"><h3>Do</h3><ul><li>Bring a recommended solution with every blocker.</li><li>Translate discussion into owner, deliverable, evidence, and next check.</li><li>Use the structural grid, coordinated sheets, and visible design intent as the organizing truth.</li><li>State uncertainty early and bound it.</li><li>Confirm before acting outside written scope.</li></ul></div>
+          <div class="do-card avoid"><h3>Avoid</h3><ul><li>Long biographies, tool explanations, or automation demonstrations during operational alignment.</li><li>Reporting effort without a reviewable artifact.</li><li>Multiple open-ended questions when one bounded decision will move the work.</li><li>Calling progressive work complete.</li><li>Treating verbal discussion as professional issue authority or commercial authorization.</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="pad">
+        <div class="eyebrow">Visual truth in the field</div><h2>Every note needs a location and an effect</h2>
+        <div class="truth-grid">
+          <div class="truth"><b>Fact</b><span>What is physically visible or explicitly stated?</span></div>
+          <div class="truth"><b>Location</b><span>Project · sheet · grid · room · elevation · photo.</span></div>
+          <div class="truth"><b>Conflict</b><span>What does not align across plan, elevation, section, detail, or field condition?</span></div>
+          <div class="truth"><b>Decision</b><span>What exact answer or direction is required?</span></div>
+          <div class="truth"><b>Owner</b><span>Who is responsible for resolving or verifying it?</span></div>
+          <div class="truth"><b>Checkpoint</b><span>What artifact will return, and when?</span></div>
+        </div>
+        <p class="micro">Preferred photo note: <strong>Project — sheet/grid — visible condition — impact — requested decision.</strong></p>
+      </div>
+    </section>
+
+    <section class="panel" id="capture">
+      <div class="pad">
+        <div class="eyebrow">Reusable integration</div><h2>60-Second Meeting Relay</h2><p>Capture the ordered priority, progress, remaining work, bounded query, owner, evidence, authorization basis, and next checkpoint.</p>
+        <div class="actions">
+          <a class="button primary" href="https://form.jotform.com/262143454874057" target="_blank" rel="noopener">Open full-screen form</a>
+          <button class="button" type="button" id="resetToday">Reset today’s checks</button>
+        </div>
+        <div class="frame-wrap"><iframe class="capture-frame" title="CAD Guardian 60-Second Meeting Relay" src="https://form.jotform.com/262143454874057" loading="lazy" allow="camera; microphone; geolocation"></iframe></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="compact">
+        <div class="authority"><strong>Authority boundary.</strong> This page records operational evidence and alignment. It does not authorize professional issue, client transmission, payment, or work outside written scope. Named human acceptance remains required.</div>
+        <p class="micro"><strong>iPhone 15 Pro:</strong> Safari → Share → Add to Home Screen. Name it “Meeting Relay.” The gate checks remain stored locally on this device.</p>
+      </div>
+    </section>
+
+    <div class="footer">Plan Relay by CAD Guardian LLC · BDPC field and meeting aid · August 3, 2026</div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
+  <script>
+    (function(){
+      var key='plan-relay-bdpc-2026-08-03-gates';
+      var checks=[].slice.call(document.querySelectorAll('[data-gate]'));
+      var status=document.getElementById('gateStatus');
+      var toast=document.getElementById('toast');
+      function load(){
+        var state={};
+        try{state=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+        checks.forEach(function(c){c.checked=!!state[c.dataset.gate]});
+        update();
+      }
+      function save(){
+        var state={};checks.forEach(function(c){state[c.dataset.gate]=c.checked});
+        localStorage.setItem(key,JSON.stringify(state));update();
+      }
+      function update(){
+        var done=checks.filter(function(c){return c.checked}).length;
+        status.textContent=done+' of '+checks.length;
+        status.style.background=done===checks.length?'#ecfdf3':'#fff7df';
+        status.style.color=done===checks.length?'#147a4b':'#9a6700';
+      }
+      function flash(text){toast.textContent=text;toast.classList.add('show');setTimeout(function(){toast.classList.remove('show')},1700)}
+      checks.forEach(function(c){c.addEventListener('change',save)});
+      document.getElementById('resetToday').addEventListener('click',function(){localStorage.removeItem(key);checks.forEach(function(c){c.checked=false});update();flash('Today’s checks reset')});
+      document.getElementById('copyFormula').addEventListener('click',function(){
+        var text='Priority is ____. Since the last check, ____ is complete. ____ remains. One decision is needed on ____. We will return ____ by ____.';
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){flash('Spoken update copied')})}
+        else{var t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();flash('Spoken update copied')}
+      });
+      load();
+    })();
+  </script>
+</body>
+</html>
