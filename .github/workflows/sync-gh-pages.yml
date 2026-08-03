@@ -1,0 +1,36 @@
+name: Sync GitHub Pages branch
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-gh-pages
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out canonical main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fast-forward gh-pages to main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin gh-pages
+          if git merge-base --is-ancestor origin/gh-pages HEAD; then
+            git push origin HEAD:gh-pages
+          else
+            echo "gh-pages contains commits not present on main; refusing to overwrite."
+            echo "Reconcile the branches deliberately, then rerun this workflow."
+            exit 1
+          fi
