@@ -1,0 +1,74 @@
+name: Ship CAD Guardian zero-runtime Pages release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/deploy-cadguardian-zero-runtime.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cadguardian-zero-runtime-release
+  cancel-in-progress: false
+
+jobs:
+  ship:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out canonical repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reconstruct and run the validated static generator
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .release-transfer/cadguardian-zero-runtime/generator-* > /tmp/build-cadguardian-zero-runtime.py
+          echo "efe8af56478fefce3538270e260cc57101e5f128cde937a487f6de104c445ad4  /tmp/build-cadguardian-zero-runtime.py" | sha256sum -c -
+          python /tmp/build-cadguardian-zero-runtime.py
+
+      - name: Verify zero-runtime production output
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          root = Path('cadguardian-engagement-workflows')
+          page = (root / 'index.html').read_text()
+          release = json.loads((root / 'release.json').read_text())
+          corpus = json.loads((root / 'data/corpus.json').read_text())
+          assert 'You have drawings due.' in page
+          assert '<script' not in page
+          assert 'fetch(' not in page
+          assert 'app.js' not in page
+          assert 'compat.js' not in page
+          assert 'Corpus load failed' not in page
+          assert release['javascriptRequired'] is False
+          assert release['runtimeCorpusFetch'] is False
+          assert release['workflowCount'] == 14
+          assert len(corpus['workflows']) == 14
+          print(release)
+          PY
+
+      - name: Remove one-time transfer and deployment controls
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .release-transfer/cadguardian-zero-runtime
+          rm -f .github/workflows/deploy-cadguardian-zero-runtime.yml
+
+      - name: Commit once and publish the identical tree to main and gh-pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Ship CAD Guardian zero-runtime Pages release"
+          git push origin HEAD:main
+          git push --force origin HEAD:gh-pages
